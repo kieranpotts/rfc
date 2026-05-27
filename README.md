@@ -18,9 +18,10 @@ Changes that typically warrant an RFC include:
 
 - Changes to the technology stack or major dependencies.
 
-A template for new code repositories.
+> [!NOTE]
+> This repository covers technical decisions – _how_ the system is built. Product decisions about _what_ the system should do are tracked separately, in the companion [software requirements specification](https://github.com/kieranpotts/specs) repository.
 
-## 📓 Documentation
+## Contents
 
 - [**Requirements**](./docs/requirements.md)
 - [**Installation**](./docs/installation.md)
