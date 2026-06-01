@@ -1,0 +1,52 @@
+[
+  {
+    "name": "ARCHITECTURE",
+    "description": "A decision about system design, structure, or implementation patterns.",
+    "color": "2266EE"
+  },
+  {
+    "name": "PROCESS",
+    "description": "A decision about the development or operations lifecycle.",
+    "color": "008800"
+  },
+  {
+    "name": "TECHNOLOGY",
+    "description": "A decision about the production technology stack and infrastructure.",
+    "color": "DD66CC"
+  },
+  {
+    "name": "TOOLING",
+    "description": "A decision about automation tools and devops infrastructure.",
+    "color": "AA6600"
+  },
+  {
+    "name": "MAINTENANCE",
+    "description": "A routine housekeeping chore in this repository only.",
+    "color": "CCCCCC"
+  },
+  {
+    "name": "#draft",
+    "description": "A preliminary RFC, put forward for early feedback.",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "#proposed",
+    "description": "An RFC being negotiated with stakeholders.",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "#accepted",
+    "description": "An RFC approved and queued for implementation.",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "#rejected",
+    "description": "An RFC that will not be taken forward.",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "#superseded",
+    "description": "A previously accepted RFC that has been replaced by a later one.",
+    "color": "FFFFFF"
+  }
+]
