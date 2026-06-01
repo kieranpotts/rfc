@@ -23,7 +23,7 @@ Do NOT use this skill to advance an RFC's state (use [`advance-rfc`](../advance-
     - `Authors`: At least one name present.
     - `Created` and `Last updated`: Valid `YYYY-MM-DD` dates; `Last updated` is not older than `Created`.
     - `Status`: One of `DRAFT`, `PROPOSED`, `ACCEPTED`, `REJECTED`, `SUPERSEDED`.
-    - `RFC PR`: Either a linked PR number or a note that the PR is not yet open (acceptable for `DRAFT`).
+    - `PR`: Either a linked PR number or a note that the PR is not yet open (acceptable for `DRAFT`).
     - `Issue`: either a linked issue number or the default `_(if applicable)_` placeholder.
 
 3.  **Check the label alignment.**

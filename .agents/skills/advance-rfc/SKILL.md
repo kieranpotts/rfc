@@ -41,7 +41,7 @@ Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKIL
     git mv rfcs/<slug>.md rfcs/<NNNN>-<slug>.md
     ```
 
-    Update the `RFC PR` field in the document if it is not yet set.
+    Update the `PR` field in the document if it is not yet set.
 
 5.  **Update the RFC document.**
 

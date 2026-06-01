@@ -6,7 +6,7 @@
 - Approvers: Kieran Potts
 - Approval date: 2024-01-26
 - Issue: #1
-- RFC PR: #2
+- PR: #2
 - Discussion thread:
 
 ## Status

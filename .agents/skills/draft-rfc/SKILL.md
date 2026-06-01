@@ -36,7 +36,7 @@ Do NOT use this skill to advance an RFC that already exists (use [`advance-rfc`]
     - `Created`: Today's date in `YYYY-MM-DD` format.
     - `Last updated`: Same as `Created` initially.
     - `Issue`: If the user provides an issue number, link it as `#NNN`; otherwise leave as `_(if applicable)_`.
-    - `RFC PR`: Leave as `#...` — the PR number is not yet known.
+    - `PR`: Leave as `#...` — the PR number is not yet known.
     - Leave `Approvers`, `Approval date`, `Discussion thread`, and `Implementation trackers` blank.
 
 5.  **Set the initial status.**
