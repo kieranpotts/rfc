@@ -8,7 +8,7 @@ license: MIT
 
 Use this skill to handle the rejection path for an RFC. A rejected RFC is not discarded — its document is merged into `main` and preserved permanently in `rfcs/` as the record of the decision and its rationale, so the same ground is not needlessly re-trodden later.
 
-Because this repository is an append-only archive of decisions (it holds no "current state" that a rejected RFC would have changed), rejection is straightforward – there is nothing to revert. The RFC simply lands as the record.
+Because this repository is an append-only archive of decisions (it holds no "current state" that a rejected RFC would have changed), rejection is straightforward — there is nothing to revert. The RFC simply lands as the record.
 
 Do NOT use this skill to advance an RFC to any state other than `REJECTED`. For all other transitions, use [`advance-rfc`](../advance-rfc/SKILL.md). For auditing, use [`audit-rfc`](../audit-rfc/SKILL.md).
 
@@ -20,7 +20,7 @@ Do NOT use this skill to advance an RFC to any state other than `REJECTED`. For 
 
 2.  **Run a pre-rejection audit.**
 
-    Run [`audit-rfc`](../audit-rfc/SKILL.md) to verify the document is complete. The `Motivation`, `Proposed change`, `Alternatives`, and `Tradeoffs and risks` sections should be substantive, since the document will be permanently archived as the record of this decision.
+    Run [`audit-rfc`](../audit-rfc/SKILL.md) to verify the document is complete. The `Motivation`, `Proposed change`, `Alternatives`, and `Trade-offs and risks` sections should be substantive, since the document will be permanently archived as the record of this decision.
 
 3.  **Assign the sequential ID.**
 

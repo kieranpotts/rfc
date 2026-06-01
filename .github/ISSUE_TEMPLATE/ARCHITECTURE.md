@@ -10,6 +10,10 @@ _Write a concise description of the architectural decision you're proposing._
 
 Discussion thread: [Link]
 
+## Current state
+
+_Describe the relevant part of the system design as it stands today, and where it falls short._
+
 ## Proposed change
 
 _Describe the proposed change to the system design. Which components, boundaries, or patterns are affected? Include diagrams if they help._

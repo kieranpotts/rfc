@@ -10,7 +10,7 @@ _Copy the "Summary" section from the RFC document here._
 
 ## Checklist
 
-The project maintainers will update this checklist as the proposal moves through its lifecycle. They will merge this PR only when the proposal is either `#accepted` or `#rejected` ultimately. See the [contributing guidelines](../CONTRIBUTING.md) for more details about state transitions for RFCs.
+The project maintainers will update this checklist as the proposal moves through its lifecycle. They will merge this PR only when the proposal is ultimately either `#accepted` or `#rejected`. See the [contributing guidelines](../CONTRIBUTING.md) for more details about state transitions for RFCs.
 
 Move from **`#draft`** to **`#proposed`** when:
 
@@ -30,6 +30,6 @@ Move from **`#proposed`** to **`#accepted`** or **`#rejected`** when:
 If **`#accepted`**, merge this PR when:
 
 - [ ] Other blocking technical decisions (`Depends on`) are resolved.
-- [ ] OPTIONAL: Implementation tickets are created and referenced.
+- [ ] OPTIONAL: Implementation trackers are created and referenced.
 
 An accepted RFC remains in effect until a later RFC supersedes it, at which point this PR's state is changed to **`#superseded`**.

@@ -8,7 +8,7 @@
   ],
 
   /* By default, wrap long lines at the viewport or 120 characters,
-  whichever is narrowest. */
+  whichever is narrower. */
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 120,
 

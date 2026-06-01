@@ -12,9 +12,9 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - An RFC is the record of a decision. The [`rfcs/`](./rfcs/) directory is an append-only log. Once an RFC is `ACCEPTED` or `REJECTED`, its document is immutable; only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter.
 
-- An RFC MUST be a single, atomic decision. Author it on an `rfc/[description]` branch cut from `main`, and open a pull request titled `rfc: [description]`. A GitHub issue (labelled `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY` or `TOOLING`) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field in the RFC document.
+- An RFC MUST be a single, atomic decision. Author it on an `rfc/[slug]` branch cut from `main`, and open a pull request titled `rfc: [slug]`. A GitHub issue (labeled `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field in the RFC document.
 
-- The current lifecycle state of an RFC is tracked via a label on the PR. Apply the matching label – `#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded` – as the RFC advances.
+- The current lifecycle state of an RFC is tracked via a label on the PR. Apply the matching label — `#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded` — as the RFC advances.
 
 - Never delete an RFC document, including rejected ones. To change a past decision, open a new RFC that supersedes it — do NOT edit the original except to update its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers.
 
@@ -52,11 +52,11 @@ A pull request is the formal vehicle for an RFC. It MAY be opened at any point �
 
 Follow these steps to prepare the pull request:
 
-1. Branch off `main` using the naming convention `rfc/[description]`, where `[description]` is a short hyphen-delimited slug. For example, `rfc/event-sourcing-for-audit-log`.
+1. Branch off `main` using the naming convention `rfc/[slug]`, where `[slug]` is a short, hyphen-delimited description of the decision. For example, `rfc/event-sourcing-for-audit-log`.
 
-2. Copy [`rfcs/TEMPLATE.md`](./rfcs/TEMPLATE.md) to `rfcs/[description].md` and fill it out. If an issue was opened, set the `Issue` field to link back to it. If a discussion was opened, link back to it via `Discussion thread` field. Describe the decision in full: the motivation, the proposed solution, the alternatives considered, and the trade-offs.
+2. Copy [`rfcs/TEMPLATE.md`](./rfcs/TEMPLATE.md) to `rfcs/[slug].md` and fill it out. If an issue was opened, set the `Issue` field to link back to it. If a discussion was opened, link back to it via the `Discussion thread` field. Describe the decision in full: the motivation, the proposed solution, the alternatives considered, and the trade-offs.
 
-3. Commit your changes and open a pull request titled `rfc: [description]`. Each pull request MUST be focused on a single atomic decision that can be reviewed, decided, and merged independently of any other. If you have multiple decisions to propose, open multiple pull requests.
+3. Commit your changes and open a pull request titled `rfc: [slug]`. Each pull request MUST be focused on a single atomic decision that can be reviewed, decided, and merged independently of any other. If you have multiple decisions to propose, open multiple pull requests.
 
 The pull request MAY be opened at `#draft` status while the document is still being refined, or at `#proposed` status when it is ready for full stakeholder review.
 
@@ -66,7 +66,7 @@ Each RFC moves through a defined state machine. The current state is represented
 
 - **Draft**: The RFC has been opened as a pull request but is not yet ready for full stakeholder review. The proposer is still refining the document.
 
-- **Proposed**: The RFC is complete and is being formally reviewed and negotiated with the relevant stakeholders. The author of the RFC should not make further material changes to the document during this period, unless requested others during review.
+- **Proposed**: The RFC is complete and is being formally reviewed and negotiated with the relevant stakeholders. The author of the RFC should not make further material changes to the document during this period, unless changes are requested by reviewers.
 
 - **Accepted**: The decision has been approved. The maintainers assign a sequential ID, merge the RFC into `main`, and queue any work necessary for implementation. An accepted decision remains in effect until a later RFC supersedes it.
 
@@ -76,7 +76,7 @@ Each RFC moves through a defined state machine. The current state is represented
 
 ### Permitted transitions
 
-Only the maintainers may advance an RFC's state. They verify the gates using the PR's checklist and apply the matching label – `#draft`, `#proposed`, `#accepted`, `#rejected`, or `#superseded` – as each transition occurs.
+Only the maintainers may advance an RFC's state. They verify the gates using the PR's checklist and apply the matching label — `#draft`, `#proposed`, `#accepted`, `#rejected`, or `#superseded` — as each transition occurs.
 
 ```mermaid
 stateDiagram-v2

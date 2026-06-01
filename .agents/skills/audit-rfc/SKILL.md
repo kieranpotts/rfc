@@ -45,11 +45,11 @@ Do NOT use this skill to advance an RFC's state (use [`advance-rfc`](../advance-
     - `Impact`: One of `HIGH`, `MEDIUM`, or `LOW`, plus a description of what is affected.
     - `Proposed change`: Describes the solution in enough detail to evaluate.
     - `Alternatives`: At least one alternative considered.
-    - `Tradeoffs and risks`: Honest about downsides.
+    - `Trade-offs and risks`: Honest about downsides.
 
 5.  **Check cross-references.**
 
-    For each value in the `Related` section (`Supersedes`, `Superseded by`, `Depends on`, `Related to`):
+    For each value in the `Related RFCs` section (`Supersedes`, `Superseded by`, `Depends on`, `Related to`):
 
     - If the reference is an RFC number, confirm the corresponding `NNNN-*.md` file exists in `rfcs/`.
     - If the reference is a GitHub issue or PR number, it need not be verified locally, but note any that look malformed.
@@ -105,4 +105,4 @@ Do NOT use this skill to advance an RFC's state (use [`advance-rfc`](../advance-
 
 - [`rfcs/TEMPLATE.md`](../../../rfcs/TEMPLATE.md): Reference for required fields and sections.
 
-- [`advance-rfc`](../advance-rfc/SKILL.md): This skill is dependent on this one. An `audit-rfc` must be successful before an RFC may be advanced to a new stage.
+- [`advance-rfc`](../advance-rfc/SKILL.md): `advance-rfc` depends on this skill — an audit must pass before an RFC can be advanced to a new state.

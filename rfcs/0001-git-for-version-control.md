@@ -58,7 +58,7 @@ Repository hygiene — `.gitignore`, `.gitattributes` for line-ending normalizat
 
 **A centralized VCS (eg. Subversion)**: Rejected because centralized systems handle branching and offline/asynchronous work poorly, which is a bad fit for distributed collaboration and fast, continuous integration workflows.
 
-## Tradeoffs and risks
+## Trade-offs and risks
 
 - **Learning curve**: Git's model and CLI are notoriously unintuitive for newcomers. Mitigated by standardizing conventions and providing tooling and documentation, addressed in follow-up RFCs.
 

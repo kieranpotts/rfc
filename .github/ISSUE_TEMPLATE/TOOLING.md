@@ -6,13 +6,13 @@ labels: TOOLING
 assignees: ""
 ---
 
-_Write a concise description of the change to the technology stack, a dependency, or an automation tool that you're proposing._
+_Write a concise description of the change to an automation tool, a dependency, or the devops infrastructure that you're proposing._
 
 Discussion thread: [Link]
 
 ## Current state
 
-_Describe the tool, dependency, or stack component in use today, and where it falls short._
+_Describe the tool, dependency, or devops infrastructure in use today, and where it falls short._
 
 ## Proposed change
 

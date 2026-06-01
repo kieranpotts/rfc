@@ -47,7 +47,7 @@ _Describe the proposed solution in detail. If this is a change to the system des
 
 _What other approaches were considered? Explain why the proposed solution was preferred over each alternative._
 
-## Tradeoffs and risks
+## Trade-offs and risks
 
 _What are the costs, risks, and drawbacks of the proposed solution? Be honest about the downsides. Does this decision introduce technical debt that will need to be addressed later? Note any unknowns that remain at this time._
 
