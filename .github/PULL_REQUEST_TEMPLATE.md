@@ -29,8 +29,7 @@ Move from **`#proposed`** to **`#accepted`** or **`#rejected`** when:
 
 If **`#accepted`**, merge this PR when:
 
-- [ ] All blocking dependencies are resolved.
-- [ ] Implementation tickets are created.
-- [ ] Implementation tickets are linked from the RFC document.
+- [ ] Other blocking technical decisions (`Depends on`) are resolved.
+- [ ] OPTIONAL: Implementation tickets are created and referenced.
 
 An accepted RFC remains in effect until a later RFC supersedes it, at which point this PR's state is changed to **`#superseded`**.
