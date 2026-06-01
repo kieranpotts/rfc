@@ -19,6 +19,7 @@ On opening this PR (open it as a draft):
 Mark this PR ready for review when:
 
 - [ ] The proposal is complete enough to invite stakeholder review.
+- [ ] No generic template text or unfilled placeholders remain in the document.
 - [ ] A discussion thread is created, if needed.
 
 Move from **`#proposed`** to **`#accepted`** or **`#rejected`** when:

@@ -1,10 +1,10 @@
 # Propose RFC
 
-Scaffolds and proposes a new RFC for a significant technical decision.
+Removes the draft status from an RFC pull request, marking it ready for stakeholder review.
 
 ## What it does
 
-Creates an `rfc/<slug>` branch from `main`, copies `rfcs/TEMPLATE.md` to `rfcs/<slug>.md`, fills in the metadata header (authors, dates), and sets the status to `PROPOSED`.
+Verifies the document is complete and free of template boilerplate, sets `Last updated`, applies the `#proposed` label, and takes the PR out of draft (`gh pr ready`).
 
 ## How to invoke
 
@@ -12,16 +12,14 @@ Creates an `rfc/<slug>` branch from `main`, copies `rfcs/TEMPLATE.md` to `rfcs/<
 /propose-rfc
 ```
 
-Optionally include the slug and category upfront:
+Optionally name the RFC:
 
 ```
-/propose-rfc event-sourcing-for-audit-log architecture
+/propose-rfc event-sourcing-for-audit-log
 ```
 
 ## Examples
 
-- `/propose-rfc`: Agent asks for the slug and category, then scaffolds the branch and document.
+- `/propose-rfc`: Checks the current RFC's completeness, then marks its PR ready for review.
 
-- `/propose-rfc trunk-based-branching process`: Scaffolds a PROCESS RFC with the given slug.
-
-- `/propose-rfc adopt-pnpm tooling`: Scaffolds a TOOLING RFC.
+- `/propose-rfc event-sourcing-for-audit-log`: Proposes the named RFC.
