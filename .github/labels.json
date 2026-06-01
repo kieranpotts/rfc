@@ -2,27 +2,27 @@
   {
     "name": "ARCHITECTURE",
     "description": "A decision about system design, structure, or implementation patterns.",
-    "color": "2266EE"
+    "color": "44BBAA"
   },
   {
     "name": "PROCESS",
     "description": "A decision about the development or operations lifecycle.",
-    "color": "008800"
+    "color": "DD66CC"
   },
   {
     "name": "TECHNOLOGY",
     "description": "A decision about the production technology stack and infrastructure.",
-    "color": "DD66CC"
+    "color": "9933AA"
   },
   {
     "name": "TOOLING",
     "description": "A decision about automation tools and devops infrastructure.",
-    "color": "AA6600"
+    "color": "AA77DD"
   },
   {
     "name": "MAINTENANCE",
     "description": "A routine housekeeping chore in this repository only.",
-    "color": "CCCCCC"
+    "color": "AA6600"
   },
   {
     "name": "#draft",
