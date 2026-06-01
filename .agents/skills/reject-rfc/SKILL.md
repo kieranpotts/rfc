@@ -44,7 +44,7 @@ Do NOT use this skill to advance an RFC to any state other than `REJECTED`. For 
     gh pr edit <number> --add-label "#rejected" --remove-label "#proposed"
     ```
 
-6.  **Regenerate the index and commit.**
+6.  **Commit.**
 
     ```sh
     git add rfcs/
@@ -76,8 +76,6 @@ Do NOT use this skill to advance an RFC to any state other than `REJECTED`. For 
 -   **The RFC document's `Status` is `REJECTED`** and `Last updated` is today's date.
 
 -   **The GitHub PR label is `#rejected`.**
-
--   **The index in `rfcs/README.md` includes the rejected RFC.**
 
 -   **The user has explicitly confirmed** the rejection decision before any changes were made.
 

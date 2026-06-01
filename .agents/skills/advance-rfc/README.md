@@ -4,7 +4,7 @@ Transitions an RFC to the next permitted lifecycle state, verifying the gates fi
 
 ## What it does
 
-Confirms the requested transition is permitted, runs `audit-rfc` to verify the gates, assigns a sequential ID on acceptance, updates the document's `Status` and `Last updated` fields, applies the matching GitHub label, regenerates the index, and commits.
+Confirms the requested transition is permitted, runs `audit-rfc` to verify the gates, assigns a sequential ID on acceptance, updates the document's `Status` and `Last updated` fields, applies the matching GitHub label, and commits.
 
 ## How to invoke
 
