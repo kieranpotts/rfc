@@ -4,7 +4,7 @@ Scaffolds a new RFC and opens it as a draft pull request, ready for the author t
 
 ## What it does
 
-Creates an `rfc/<slug>` branch from `main`, copies `rfcs/TEMPLATE.md` to `rfcs/<slug>.md`, fills in the metadata header (authors, dates, `Status: PROPOSED`), opens a draft pull request, and applies the category label.
+Creates an `rfc/<slug>` branch from `main`, copies `rfcs/TEMPLATE.md` to `rfcs/<slug>.md`, fills in the metadata header (authors, dates, `Status: PROPOSED`), opens a draft pull request with the category label applied, and opens the associated discussion thread (linking it from the document and the PR).
 
 ## How to invoke
 

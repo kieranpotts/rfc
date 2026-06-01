@@ -30,14 +30,14 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - Never delete an RFC document, including rejected ones.
 
-- The GitHub issue tracker is used only for maintenance work on this repository itself (via the `MAINTENANCE` template). RFCs are proposed, decided, and archived entirely through pull requests; a discussion MAY be opened for early, open-ended feedback.
+- The GitHub issue tracker is used only for maintenance work on this repository itself (via the `MAINTENANCE` template). RFCs are proposed, decided, and archived entirely through pull requests. Every RFC pull request MUST have an associated discussion thread, opened when the PR is opened (even as a draft) and used for all review feedback; the thread is closed when the RFC is accepted or rejected.
 
 ## Skills
 
 The [`.agents/skills/`](.agents/skills/) directory provides on-demand skills for managing the RFC workflow — one per state transition. Each skill carries the gate rules for its own transition; there is no separate audit skill.
 
-- [`draft-rfc`](.agents/skills/draft-rfc/SKILL.md): scaffold a new RFC and open it as a draft PR.
+- [`draft-rfc`](.agents/skills/draft-rfc/SKILL.md): scaffold a new RFC, open it as a draft PR, and open the associated discussion thread.
 - [`propose-rfc`](.agents/skills/propose-rfc/SKILL.md): `draft → proposed` — verify the document is complete, then remove the PR's draft status and apply `#proposed`.
-- [`approve-rfc`](.agents/skills/approve-rfc/SKILL.md): `proposed → accepted`.
-- [`reject-rfc`](.agents/skills/reject-rfc/SKILL.md): `proposed → rejected`.
+- [`approve-rfc`](.agents/skills/approve-rfc/SKILL.md): `proposed → accepted` (also closes the discussion thread).
+- [`reject-rfc`](.agents/skills/reject-rfc/SKILL.md): `proposed → rejected` (also closes the discussion thread).
 - [`supersede-rfc`](.agents/skills/supersede-rfc/SKILL.md): `accepted → superseded`.

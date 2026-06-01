@@ -52,13 +52,29 @@ The RFC MUST currently be `PROPOSED`. Confirm **all** of the following before re
 
     This swaps only the lifecycle label; leave the category label in place.
 
-6.  **Commit.**
+6.  **Close the associated discussion thread.**
+
+    A decided RFC's discussion is closed. Find the discussion linked in the RFC's `Discussion thread` field, look up its node ID, and close it as resolved (`gh` has no native discussion command, so use the GraphQL API):
+
+    ```sh
+    gh api graphql -f query='
+      query($owner:String!, $name:String!, $number:Int!) {
+        repository(owner:$owner, name:$name) { discussion(number:$number) { id } }
+      }' -F owner=<owner> -F name=<repo> -F number=<discussionNumber>
+
+    gh api graphql -f query='
+      mutation($id:ID!) {
+        closeDiscussion(input:{discussionId:$id, reason:RESOLVED}) { discussion { closed } }
+      }' -F id=<discussionId>
+    ```
+
+7.  **Commit.**
 
     ```sh
     git commit -am "rfc: reject <NNNN>-<slug>"
     ```
 
-7.  **Prepare for merge.**
+8.  **Prepare for merge.**
 
     Confirm with the user that the PR is ready to merge into `main`. Do not merge without explicit instruction.
 
@@ -79,6 +95,8 @@ The RFC MUST currently be `PROPOSED`. Confirm **all** of the following before re
 -   **`Status` is `REJECTED`** and `Last updated` is today's date.
 
 -   **The PR carries `#rejected`** (and its category label).
+
+-   **The associated discussion thread is closed.**
 
 -   **The user has explicitly confirmed** the rejection before any changes were made.
 

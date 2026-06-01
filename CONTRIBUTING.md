@@ -20,7 +20,7 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - Never delete an RFC document, including rejected ones. To change a past decision, open a new RFC that supersedes it — do NOT edit the original except to update its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers.
 
-- The issue tracker is for maintenance work on this repository only (the `MAINTENANCE` template). RFCs are managed entirely through pull requests; open a discussion for early, open-ended feedback.
+- The issue tracker is for maintenance work on this repository only (the `MAINTENANCE` template). RFCs are managed entirely through pull requests. Every RFC pull request MUST have an associated discussion thread for review feedback, opened with the PR and closed when the RFC is accepted or rejected.
 
 ## Branch conventions
 
@@ -30,17 +30,20 @@ All RFC branches are cut from `main` and merged back into `main`. See the lifecy
 
 ## Proposing a decision
 
-### Step 1: Open a discussion (OPTIONAL)
+### Step 1: Open a discussion thread (REQUIRED)
 
-If an idea needs early, open-ended feedback before a firm proposal can be written, the proposer MAY open a [discussion](https://github.com/[username]/rfc/discussions).
+Every RFC has an associated **discussion thread**, and it is where _all_ review feedback is gathered — not the pull request's own comments. This keeps the pull request focused on the evolution of the RFC document itself.
 
-Discussion threads are well-suited to early brainstorming and to gauging whether an idea is worth progressing, without committing to a full RFC.
+Open a [discussion](https://github.com/[username]/rfc/discussions) using the form for the RFC's category. You MAY open it early, to brainstorm before a firm proposal exists, but it MUST exist by the time the pull request is opened (even a draft PR). Link the discussion and the pull request to each other. The thread stays open for the life of the proposal and is closed once the RFC is accepted or rejected.
 
-The GitHub issue tracker is _not_ used for RFCs — it is reserved for maintenance work on this repository itself. RFCs are proposed and decided entirely through pull requests.
+> [!NOTE]
+> The four category discussion forms in [`.github/DISCUSSION_TEMPLATE/`](./.github/DISCUSSION_TEMPLATE/) — `architecture`, `process`, `technology`, and `tooling` — only define the _forms_; they do not create anything on their own. A one-time manual setup is required in the repository settings: enable **Discussions** (Settings → General → Features), then create a Discussions category for each form, named so its slug matches the form's filename (for example, an **Architecture** category for `architecture.yml`). A form takes effect only once its matching category exists.
+
+(The GitHub issue tracker is _not_ used for RFCs — it is reserved for maintenance work on this repository itself.)
 
 ### Step 2: Open a pull request (REQUIRED to progress an RFC)
 
-A pull request is the formal vehicle for an RFC. It MAY be opened at any point — with or without a prior discussion — as soon as the proposer is ready to write the full RFC document.
+A pull request is the formal vehicle for an RFC. Open it as soon as you are ready to start writing the RFC document; its associated discussion thread (step 1) MUST exist by this point.
 
 Every RFC has exactly one category:
 
@@ -56,7 +59,7 @@ Follow these steps to prepare the pull request:
 
 1. Branch off `main` using the naming convention `rfc/[slug]`, where `[slug]` is a short, hyphen-delimited description of the decision. For example, `rfc/event-sourcing-for-audit-log`.
 
-2. Copy [`rfcs/TEMPLATE.md`](./rfcs/TEMPLATE.md) to `rfcs/[slug].md` and fill it out. If a discussion was opened, link back to it via the `Discussion thread` field. Describe the decision in full: the motivation, the proposed solution, the alternatives considered, and the trade-offs.
+2. Copy [`rfcs/TEMPLATE.md`](./rfcs/TEMPLATE.md) to `rfcs/[slug].md` and fill it out. Link the associated discussion thread (step 1) via the `Discussion thread` field. Describe the decision in full: the motivation, the proposed solution, the alternatives considered, and the trade-offs.
 
 3. Commit your changes and open a pull request titled `rfc: [slug]`. Each pull request MUST be focused on a single atomic decision that can be reviewed, decided, and merged independently of any other. If you have multiple decisions to propose, open multiple pull requests.
 
@@ -65,7 +68,7 @@ Follow these steps to prepare the pull request:
 Open the pull request as a GitHub draft; at this point it carries only its category label. Keep it in draft while you refine the document. When it is ready for full stakeholder review, mark the pull request ready and apply the `#proposed` label.
 
 > [!TIP]
-> You don't have to do this by hand: the [`/draft-rfc`](./.agents/skills/draft-rfc/) skill performs steps 1–4 and opens the draft PR, and [`/propose-rfc`](./.agents/skills/propose-rfc/) marks it ready for review once it is complete. See [Skills](#skills) below.
+> You don't have to do this by hand: [`/draft-rfc`](./.agents/skills/draft-rfc/) scaffolds the document, opens the draft pull request, applies the category label, and opens the associated discussion thread; [`/propose-rfc`](./.agents/skills/propose-rfc/) then marks the PR ready for review once it is complete. See [Skills](#skills) below.
 
 ## RFC lifecycle
 
@@ -75,9 +78,9 @@ Each RFC moves through a defined state machine. From `proposed` onward, the curr
 
 - **Proposed**: The RFC is complete and open for a decision. The proposer has marked the pull request ready for review, and it is labeled `#proposed`. It is now formally reviewed and negotiated with the relevant stakeholders; from this point, the author should not make further material changes to the document, unless changes are requested by reviewers.
 
-- **Accepted**: The decision has been approved. The maintainers assign a sequential ID, merge the RFC into `main`, and queue any work necessary for implementation. An accepted decision remains in effect until a later RFC supersedes it.
+- **Accepted**: The decision has been approved. The maintainers assign a sequential ID, close the associated discussion thread, merge the RFC into `main`, and queue any work necessary for implementation. An accepted decision remains in effect until a later RFC supersedes it.
 
-- **Rejected**: The decision will not be taken forward. The RFC document is merged into `main` and preserved permanently in [`rfcs/`](./rfcs/) as the record of the decision and its rationale.
+- **Rejected**: The decision will not be taken forward. The maintainers close the associated discussion thread, then merge the RFC document into `main`, where it is preserved permanently in [`rfcs/`](./rfcs/) as the record of the decision and its rationale.
 
 - **Superseded**: A previously accepted decision that is no longer in effect, because a later RFC has replaced it. This is the only state an accepted RFC can progress to.
 
@@ -101,8 +104,8 @@ stateDiagram-v2
 | --- | --- | --- | --- |
 | _(new RFC)_ | `draft` | [`/draft-rfc`](./.agents/skills/draft-rfc/) | A draft pull request is opened with the scaffolded document and a category label. |
 | `draft` | `proposed` | [`/propose-rfc`](./.agents/skills/propose-rfc/) | Document complete and free of template boilerplate; PR marked ready for review and labeled `#proposed`. |
-| `proposed` | `accepted` | [`/approve-rfc`](./.agents/skills/approve-rfc/) | Stakeholder review concluded; decision approved; ID assigned; merged. |
-| `proposed` | `rejected` | [`/reject-rfc`](./.agents/skills/reject-rfc/) | Stakeholder review concluded; decision not approved; merged as record. |
+| `proposed` | `accepted` | [`/approve-rfc`](./.agents/skills/approve-rfc/) | Stakeholder review concluded; decision approved; ID assigned; discussion closed; merged. |
+| `proposed` | `rejected` | [`/reject-rfc`](./.agents/skills/reject-rfc/) | Stakeholder review concluded; decision not approved; discussion closed; merged as record. |
 | `accepted` | `superseded` | [`/supersede-rfc`](./.agents/skills/supersede-rfc/) | A later RFC has replaced this decision. |
 
 Transitions not listed above are not permitted. In particular: a decision MUST NOT move backwards (eg. from accepted back to proposed), and a decision MUST NOT skip states (eg. from proposed directly to superseded).
@@ -121,13 +124,13 @@ This repository ships a small set of **agent skills** — invoked as slash comma
 
 The skills, in lifecycle order:
 
-- **[`/draft-rfc`](./.agents/skills/draft-rfc/)** — _start a new RFC_. Scaffolds the branch and document from the template and opens a draft pull request, with one category label applied, ready for you to complete.
+- **[`/draft-rfc`](./.agents/skills/draft-rfc/)** — _start a new RFC_. Scaffolds the branch and document from the template, opens a draft pull request with one category label applied, and opens the associated discussion thread — ready for you to complete.
 
 - **[`/propose-rfc`](./.agents/skills/propose-rfc/)** — _draft → proposed_. Confirms the document is complete and free of leftover template text, applies the `#proposed` label, and takes the pull request out of draft so stakeholders can review it.
 
-- **[`/approve-rfc`](./.agents/skills/approve-rfc/)** — _proposed → accepted_. Verifies the approval gates, assigns the next sequential ID, sets the document to `ACCEPTED`, labels the pull request `#accepted`, and prepares it for merge.
+- **[`/approve-rfc`](./.agents/skills/approve-rfc/)** — _proposed → accepted_. Verifies the approval gates, assigns the next sequential ID, sets the document to `ACCEPTED`, labels the pull request `#accepted`, closes the discussion thread, and prepares it for merge.
 
-- **[`/reject-rfc`](./.agents/skills/reject-rfc/)** — _proposed → rejected_. Records the rejection: assigns the sequential ID, sets the document to `REJECTED`, labels the pull request `#rejected`, and prepares it for merge as a permanent record.
+- **[`/reject-rfc`](./.agents/skills/reject-rfc/)** — _proposed → rejected_. Records the rejection: assigns the sequential ID, sets the document to `REJECTED`, labels the pull request `#rejected`, closes the discussion thread, and prepares it for merge as a permanent record.
 
 - **[`/supersede-rfc`](./.agents/skills/supersede-rfc/)** — _accepted → superseded_. Marks an accepted RFC `#superseded` once a later, accepted RFC has replaced it, and cross-links the two.
 
