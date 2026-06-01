@@ -14,9 +14,8 @@ The project maintainers will update this checklist as the proposal moves through
 On opening this PR (open it as a draft):
 
 - [ ] Exactly one category label — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — is applied.
-- [ ] The `#proposed` label is applied.
 
-Mark this PR ready for review when:
+Mark this PR ready for review, and apply the `#proposed` label, when:
 
 - [ ] The proposal is complete enough to invite stakeholder review.
 - [ ] No generic template text or unfilled placeholders remain in the document.

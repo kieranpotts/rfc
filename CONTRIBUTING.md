@@ -62,13 +62,18 @@ Follow these steps to prepare the pull request:
 
 4. Apply one category label to the pull request — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. Exactly one category label is REQUIRED on every RFC pull request.
 
-Open the pull request as a GitHub draft and apply the `#proposed` label. Keep it in draft while you refine the document; mark it ready for review once it is ready for full stakeholder review.
+Open the pull request as a GitHub draft; at this point it carries only its category label. Keep it in draft while you refine the document. When it is ready for full stakeholder review, mark the pull request ready and apply the `#proposed` label.
+
+> [!TIP]
+> You don't have to do this by hand: the [`/draft-rfc`](./.agents/skills/draft-rfc/) skill performs steps 1–4 and opens the draft PR, and [`/propose-rfc`](./.agents/skills/propose-rfc/) marks it ready for review once it is complete. See [Skills](#skills) below.
 
 ## RFC lifecycle
 
-Each RFC moves through a defined state machine. The current state is represented by a lifecycle label on the pull request. The states are:
+Each RFC moves through a defined state machine. From `proposed` onward, the current state is shown by a lifecycle label on the pull request; before that, the RFC is simply an open draft pull request. The states are:
 
-- **Proposed**: The RFC is open and awaiting a decision. The pull request is opened as a GitHub draft while the proposer refines the document; once they mark it ready for review, it is formally reviewed and negotiated with the relevant stakeholders. From that point, the author should not make further material changes to the document, unless changes are requested by reviewers.
+- **Draft**: The RFC is being written. Its pull request is open as a GitHub draft and carries only its category label — there is no `#draft` label; "draft" is the pull request's own draft flag. The RFC is not yet ready for review.
+
+- **Proposed**: The RFC is complete and open for a decision. The proposer has marked the pull request ready for review, and it is labeled `#proposed`. It is now formally reviewed and negotiated with the relevant stakeholders; from this point, the author should not make further material changes to the document, unless changes are requested by reviewers.
 
 - **Accepted**: The decision has been approved. The maintainers assign a sequential ID, merge the RFC into `main`, and queue any work necessary for implementation. An accepted decision remains in effect until a later RFC supersedes it.
 
@@ -78,12 +83,13 @@ Each RFC moves through a defined state machine. The current state is represented
 
 ### Permitted transitions
 
-Only the maintainers may advance an RFC's state. They verify the gates using the PR's checklist and apply the matching label — `#proposed`, `#accepted`, `#rejected`, or `#superseded` — as each transition occurs.
+The proposer drives an RFC up to `proposed` — drafting it, then marking the pull request ready for review. Only the maintainers may take the decision transitions: `accepted`, `rejected`, and `superseded`. Each transition has its own skill (see [Skills](#skills)) that verifies the gates for that transition and applies the matching label.
 
 ```mermaid
 stateDiagram-v2
   direction LR
-  [*] --> proposed
+  [*] --> draft
+  draft --> proposed
   proposed --> accepted
   proposed --> rejected
   accepted --> superseded
@@ -91,12 +97,13 @@ stateDiagram-v2
   superseded --> [*]
 ```
 
-| From | To | Condition |
-| --- | --- | --- |
-| _(new PR)_ | `proposed` | PR opened (as a draft PR) for a new RFC. |
-| `proposed` | `accepted` | Stakeholder review concluded; decision approved; ID assigned; merged. |
-| `proposed` | `rejected` | Stakeholder review concluded; decision not approved; merged as record. |
-| `accepted` | `superseded` | A later RFC has replaced this decision. |
+| From | To | Skill | Condition |
+| --- | --- | --- | --- |
+| _(new RFC)_ | `draft` | [`/draft-rfc`](./.agents/skills/draft-rfc/) | A draft pull request is opened with the scaffolded document and a category label. |
+| `draft` | `proposed` | [`/propose-rfc`](./.agents/skills/propose-rfc/) | Document complete and free of template boilerplate; PR marked ready for review and labeled `#proposed`. |
+| `proposed` | `accepted` | [`/approve-rfc`](./.agents/skills/approve-rfc/) | Stakeholder review concluded; decision approved; ID assigned; merged. |
+| `proposed` | `rejected` | [`/reject-rfc`](./.agents/skills/reject-rfc/) | Stakeholder review concluded; decision not approved; merged as record. |
+| `accepted` | `superseded` | [`/supersede-rfc`](./.agents/skills/supersede-rfc/) | A later RFC has replaced this decision. |
 
 Transitions not listed above are not permitted. In particular: a decision MUST NOT move backwards (eg. from accepted back to proposed), and a decision MUST NOT skip states (eg. from proposed directly to superseded).
 
@@ -107,3 +114,23 @@ Once an RFC is accepted or rejected, its document is treated as immutable. Only 
 To revisit a past decision, open a new RFC that supersedes the original and cross-reference the two using the `Supersedes` / `Superseded by` fields.
 
 This constraint ensures that a record of every past decision, including rejected and superseded ones, is preserved indefinitely. This is critical for maintaining institutional memory. Future contributors and maintainers of the project can refer to the history of past decisions to understand the rationale for the current state of the system.
+
+## Skills
+
+This repository ships a small set of **agent skills** — invoked as slash commands through agentic tools such as Claude Code — that automate the RFC workflow. They live in [`.agents/skills/`](./.agents/skills/), with **one skill per state transition**. Each skill knows the gate rules for its own transition and will not proceed until they are met, which keeps the process consistent whether a human or an agent is driving it. You can always perform any step by hand instead; the skills simply encode the conventions described above.
+
+The skills, in lifecycle order:
+
+- **[`/draft-rfc`](./.agents/skills/draft-rfc/)** — _start a new RFC_. Scaffolds the branch and document from the template and opens a draft pull request, with one category label applied, ready for you to complete.
+
+- **[`/propose-rfc`](./.agents/skills/propose-rfc/)** — _draft → proposed_. Confirms the document is complete and free of leftover template text, applies the `#proposed` label, and takes the pull request out of draft so stakeholders can review it.
+
+- **[`/approve-rfc`](./.agents/skills/approve-rfc/)** — _proposed → accepted_. Verifies the approval gates, assigns the next sequential ID, sets the document to `ACCEPTED`, labels the pull request `#accepted`, and prepares it for merge.
+
+- **[`/reject-rfc`](./.agents/skills/reject-rfc/)** — _proposed → rejected_. Records the rejection: assigns the sequential ID, sets the document to `REJECTED`, labels the pull request `#rejected`, and prepares it for merge as a permanent record.
+
+- **[`/supersede-rfc`](./.agents/skills/supersede-rfc/)** — _accepted → superseded_. Marks an accepted RFC `#superseded` once a later, accepted RFC has replaced it, and cross-links the two.
+
+A typical journey runs `/draft-rfc` → _(write the proposal)_ → `/propose-rfc` → _(stakeholder review)_ → `/approve-rfc` or `/reject-rfc`. Much later, `/supersede-rfc` retires a decision that a newer RFC has replaced.
+
+Each skill's directory holds a `README.md` (how to invoke it, with examples) and a `SKILL.md` (the full instructions and transition rules).

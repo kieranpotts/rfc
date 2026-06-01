@@ -34,4 +34,10 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 ## Skills
 
-The `.agents/skills/` directory provides on-demand agent skills for managing the RFC workflow.
+The [`.agents/skills/`](.agents/skills/) directory provides on-demand skills for managing the RFC workflow — one per state transition. Each skill carries the gate rules for its own transition; there is no separate audit skill.
+
+- [`draft-rfc`](.agents/skills/draft-rfc/SKILL.md): scaffold a new RFC and open it as a draft PR.
+- [`propose-rfc`](.agents/skills/propose-rfc/SKILL.md): `draft → proposed` — verify the document is complete, then remove the PR's draft status and apply `#proposed`.
+- [`approve-rfc`](.agents/skills/approve-rfc/SKILL.md): `proposed → accepted`.
+- [`reject-rfc`](.agents/skills/reject-rfc/SKILL.md): `proposed → rejected`.
+- [`supersede-rfc`](.agents/skills/supersede-rfc/SKILL.md): `accepted → superseded`.
