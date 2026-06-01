@@ -10,7 +10,7 @@ Product requirements (what the system does, in business terms) are recorded sepa
 
 ## Repository structure
 
-- `rfc/`: The permanent, append-only archive of every RFC, including rejected ones. Each RFC is a directory (`rfc/<category>/<slug>/`) holding its `README.md` and any supporting artifacts, grouped by category (`architecture`, `process`, `technology`, `tooling`). `rfc/TEMPLATE.md` is the starting point for a new RFC; `rfc/INDEX.md` is the numbered catalogue.
+- `rfc/`: The permanent, append-only archive of every RFC, including rejected ones. Each RFC is a directory (`rfc/<category>/<slug>/`) holding its `README.md` and any supporting artifacts that back the proposal — eg. architectural diagrams — grouped by category (`architecture`, `process`, `technology`, `tooling`). Keep such artifacts in the RFC directory (preferred) and link them from the document's `References` section. `rfc/TEMPLATE.md` is the starting point for a new RFC; `rfc/INDEX.md` is the numbered catalogue.
 
 ## Rules
 

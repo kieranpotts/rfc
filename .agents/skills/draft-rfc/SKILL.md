@@ -26,7 +26,7 @@ This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while 
 
 3.  **Create the RFC directory from the template.**
 
-    Copy `rfc/TEMPLATE.md` to `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase category directory (`architecture`, `process`, `technology`, or `tooling`) matching step 1. The RFC lives in its own directory, so the author can add diagrams or other artifacts alongside the `README.md`. Do not add a numeric ID anywhere — RFC numbers are assigned only in `rfc/INDEX.md`, at merge.
+    Copy `rfc/TEMPLATE.md` to `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase category directory (`architecture`, `process`, `technology`, or `tooling`) matching step 1. The RFC lives in its own directory, so the author can add supporting artifacts (eg. architectural diagrams) alongside the `README.md` and link them from its `References` section. Do not add a numeric ID anywhere — RFC numbers are assigned only in `rfc/INDEX.md`, at merge.
 
 4.  **Fill in the metadata header.**
 
