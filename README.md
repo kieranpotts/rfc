@@ -23,10 +23,11 @@ Changes that typically warrant an RFC include:
 
 ## Contents
 
-- [**Requirements**](./docs/requirements.md)
-- [**Installation**](./docs/installation.md)
-- [**Usage**](./docs/usage.md)
-- [**Development**](./docs/development.md)
+- [**RFCs**](./rfcs/): The permanent archive of every proposed technical decision, including those that were ultimately rejected. `TEMPLATE.md` is the starting point for a new RFC.
+
+- [**Contributing**](./CONTRIBUTING.md): Instructions for shepherding an RFC through its lifecycle.
+
+- [**Agents**](./AGENTS.md): Instructions for agentic tools to manage the RFC workflow with a high degree of autonomy.
 
 -----
 
