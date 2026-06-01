@@ -5,7 +5,6 @@
 - Last updated: 2024-02-20
 - Approvers: Kieran Potts
 - Approval date: 2024-01-26
-- Issue: #1
 - PR: #2
 - Discussion thread:
 

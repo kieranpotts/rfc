@@ -22,7 +22,7 @@ Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKIL
 
     | From | To | Key gate |
     | --- | --- | --- |
-    | `DRAFT` | `PROPOSED` | Document complete; originating issue closed |
+    | `DRAFT` | `PROPOSED` | Document complete |
     | `PROPOSED` | `ACCEPTED` | Stakeholder review concluded; ID assigned |
     | `PROPOSED` | `REJECTED` | Stakeholder review concluded (use [`reject-rfc`](../reject-rfc/SKILL.md)) |
     | `ACCEPTED` | `SUPERSEDED` | A later RFC has replaced this decision |

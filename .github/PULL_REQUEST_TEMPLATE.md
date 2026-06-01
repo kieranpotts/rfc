@@ -1,6 +1,5 @@
 _Copy the "Summary" section from the RFC document here._
 
-- Originating issue: #... _(if applicable)_
 - Discussion thread: [Link] _(if applicable)_
 
 > [!IMPORTANT]
@@ -20,7 +19,6 @@ Move from **`#draft`** to **`#proposed`** when:
 
 - [ ] The proposal is complete enough to invite stakeholder review.
 - [ ] A discussion thread is created, if needed.
-- [ ] The originating issue, if there is one, is closed.
 
 Move from **`#proposed`** to **`#accepted`** or **`#rejected`** when:
 

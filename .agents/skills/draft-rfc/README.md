@@ -4,7 +4,7 @@ Scaffolds a new RFC for a significant technical decision.
 
 ## What it does
 
-Creates an `rfc/<slug>` branch from `main`, copies `rfcs/TEMPLATE.md` to `rfcs/<slug>.md`, fills in the metadata header (authors, dates, issue link), and sets the initial status.
+Creates an `rfc/<slug>` branch from `main`, copies `rfcs/TEMPLATE.md` to `rfcs/<slug>.md`, fills in the metadata header (authors, dates), and sets the initial status.
 
 ## How to invoke
 

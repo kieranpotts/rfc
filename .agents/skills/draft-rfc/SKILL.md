@@ -1,6 +1,6 @@
 ---
 name: draft-rfc
-description: Scaffold a new RFC for a significant technical decision. Use when the user wants to propose an architecture, process, or tooling decision, or says "draft an RFC", "new RFC", or "start an RFC".
+description: Scaffold a new RFC for a significant technical decision. Use when the user wants to propose an architecture, process, technology, or tooling decision, or says "draft an RFC", "new RFC", or "start an RFC".
 license: MIT
 ---
 
@@ -35,7 +35,6 @@ Do NOT use this skill to advance an RFC that already exists (use [`advance-rfc`]
     - `Authors`: The Git user's name and GitHub handle (run `git config user.name` if needed).
     - `Created`: Today's date in `YYYY-MM-DD` format.
     - `Last updated`: Same as `Created` initially.
-    - `Issue`: If the user provides an issue number, link it as `#NNN`; otherwise leave as `_(if applicable)_`.
     - `PR`: Leave as `#...` — the PR number is not yet known.
     - Leave `Approvers`, `Approval date`, `Discussion thread`, and `Implementation trackers` blank.
 

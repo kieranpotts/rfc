@@ -6,7 +6,7 @@ Every significant technical decision is introduced through an RFC, and every RFC
 
 ## How it works
 
-1. An RFC is opened as a pull request. The proposal is written in a single Markdown file in the `rfcs/` directory, based on [`TEMPLATE.md`](./TEMPLATE.md), and committed to an `rfc/[slug]` branch. A GitHub issue (labeled `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`) MAY be opened first for lightweight early triage. If so, the proposer closes it when the PR is opened. The pull request itself MUST carry one category label — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — applied when it is opened.
+1. An RFC is opened as a pull request. The proposal is written in a single Markdown file in the `rfcs/` directory, based on [`TEMPLATE.md`](./TEMPLATE.md), and committed to an `rfc/[slug]` branch. The pull request MUST carry exactly one category label — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — applied when it is opened. (The issue tracker is not used for RFCs; it is reserved for repository maintenance.)
 
 2. The RFC moves through its lifecycle: `draft → proposed → accepted | rejected → superseded`.
 

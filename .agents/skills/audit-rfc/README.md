@@ -4,7 +4,7 @@ Checks an RFC document for completeness, consistency, and process compliance bef
 
 ## What it does
 
-Verifies that the metadata header is complete, the GitHub label matches the document `Status`, the required prose sections contain real content, cross-references resolve to existing RFCs, and any originating issue is closed. It reports passes and failures/warnings, but it makes no changes itself.
+Verifies that the metadata header is complete, the GitHub label matches the document `Status`, the required prose sections contain real content, cross-references resolve to existing RFCs, and the PR carries exactly one category label. It reports passes and failures/warnings, but it makes no changes itself.
 
 ## How to invoke
 

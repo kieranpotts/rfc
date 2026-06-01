@@ -5,7 +5,6 @@
 - Last updated: YYYY-MM-DD
 - Approvers:
 - Approval date:
-- Issue: #... _(if applicable)_
 - PR: #...
 - Discussion thread:
 
@@ -39,7 +38,11 @@ HIGH | MEDIUM | LOW
 
 _Who and what is affected by this decision — the architecture, the development or operations process, the contributors, the service level agreement? Note any effect on cross-cutting concerns such as security, performance, availability, or the technology stack._
 
-## Proposed change
+## Current state
+
+_Describe the relevant part of the system as it stands today — the architecture, process, technology, or tooling affected — and where it falls short. Omit this section if the decision does not modify an existing state (eg. a greenfield choice)._
+
+## Proposed state
 
 _Describe the proposed solution in detail. If this is a change to the system design, explain how it works and how it interacts with existing components. Include any corner cases you can foresee. Architectural diagrams or other artifacts MAY be embedded or linked._
 
@@ -54,6 +57,10 @@ _What are the costs, risks, and drawbacks of the proposed solution? Be honest ab
 ## Questions
 
 _Any unresolved questions, or related issues considered out of scope for this RFC but that will need to be addressed separately._
+
+## Additional notes
+
+_Any other context or notes that would help stakeholders evaluate this proposal, and that is not captured in the sections above._
 
 ## References
 

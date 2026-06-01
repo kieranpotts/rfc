@@ -24,7 +24,6 @@ Do NOT use this skill to advance an RFC's state (use [`advance-rfc`](../advance-
     - `Created` and `Last updated`: Valid `YYYY-MM-DD` dates; `Last updated` is not older than `Created`.
     - `Status`: One of `DRAFT`, `PROPOSED`, `ACCEPTED`, `REJECTED`, `SUPERSEDED`.
     - `PR`: Either a linked PR number or a note that the PR is not yet open (acceptable for `DRAFT`).
-    - `Issue`: either a linked issue number or the default `_(if applicable)_` placeholder.
 
 3.  **Check the labels.**
 
@@ -57,17 +56,7 @@ Do NOT use this skill to advance an RFC's state (use [`advance-rfc`](../advance-
     - If the reference is an RFC number, confirm the corresponding `NNNN-*.md` file exists in `rfcs/`.
     - If the reference is a GitHub issue or PR number, it need not be verified locally, but note any that look malformed.
 
-6.  **Check that the originating issue is closed.**
-
-    If the `Issue` field is populated, run:
-
-    ```sh
-    gh issue view <number> --json state
-    ```
-
-    Confirm `state` is `CLOSED`. If not, flag it as a gate failure.
-
-7.  **Report findings.**
+6.  **Report findings.**
 
     Produce a summary with two sections:
 

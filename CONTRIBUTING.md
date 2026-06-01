@@ -12,13 +12,15 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - An RFC is the record of a decision. The [`rfcs/`](./rfcs/) directory is an append-only log. Once an RFC is `ACCEPTED` or `REJECTED`, its document is immutable; only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter.
 
-- An RFC MUST be a single, atomic decision. Author it on an `rfc/[slug]` branch cut from `main`, and open a pull request titled `rfc: [slug]`. A GitHub issue (labeled `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field in the RFC document.
+- An RFC MUST be a single, atomic decision. Author it on an `rfc/[slug]` branch cut from `main`, and open a pull request titled `rfc: [slug]`.
 
-- When the pull request is opened, it MUST be labeled with exactly one category — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. If an issue was opened first, the PR takes the same category.
+- When the pull request is opened, it MUST be labeled with exactly one category — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. The category is denoted solely by this label; it is not duplicated in the RFC document.
 
 - The current lifecycle state of an RFC is tracked via a lifecycle label on the PR. Apply the matching label — `#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded` — as the RFC advances.
 
 - Never delete an RFC document, including rejected ones. To change a past decision, open a new RFC that supersedes it — do NOT edit the original except to update its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers.
+
+- The issue tracker is for maintenance work on this repository only (the `MAINTENANCE` template). RFCs are managed entirely through pull requests; open a discussion for early, open-ended feedback.
 
 ## Branch conventions
 
@@ -28,9 +30,19 @@ All RFC branches are cut from `main` and merged back into `main`. See the lifecy
 
 ## Proposing a decision
 
-### Step 1: Open an issue (OPTIONAL)
+### Step 1: Open a discussion (OPTIONAL)
 
-Before writing a full RFC, the proposer MAY open a GitHub issue to gather early feedback and gauge whether the idea is worth progressing. Choose the appropriate template:
+If an idea needs early, open-ended feedback before a firm proposal can be written, the proposer MAY open a [discussion](https://github.com/[username]/rfc/discussions).
+
+Discussion threads are well-suited to early brainstorming and to gauging whether an idea is worth progressing, without committing to a full RFC.
+
+The GitHub issue tracker is _not_ used for RFCs — it is reserved for maintenance work on this repository itself. RFCs are proposed and decided entirely through pull requests.
+
+### Step 2: Open a pull request (REQUIRED to progress an RFC)
+
+A pull request is the formal vehicle for an RFC. It MAY be opened at any point — with or without a prior discussion — as soon as the proposer is ready to write the full RFC document.
+
+Every RFC has exactly one category:
 
 - **ARCHITECTURE**: A decision about system design, structure, or implementation patterns.
 
@@ -40,27 +52,15 @@ Before writing a full RFC, the proposer MAY open a GitHub issue to gather early 
 
 - **TOOLING**: A decision about the automation tools and devops infrastructure.
 
-An issue is a lightweight way to surface an idea and get initial triage from the maintainers without committing to a full RFC. When the proposer decides to move forward, they close the issue and open a pull request (see step 3). If the idea is not pursued, the issue is simply closed.
-
-### Step 2: Open a discussion (OPTIONAL)
-
-If the idea needs deeper exploration before a firm proposal can be written, the proposer MAY open a [discussion](https://github.com/[username]/rfc/discussions) in addition to the issue.
-
-Discussion threads are open-ended and well-suited to early brainstorming.
-
-### Step 3: Open a pull request (REQUIRED to progress an RFC)
-
-A pull request is the formal vehicle for an RFC. It MAY be opened at any point — with or without a prior issue or discussion — as soon as the proposer is ready to write the full RFC document.
-
 Follow these steps to prepare the pull request:
 
 1. Branch off `main` using the naming convention `rfc/[slug]`, where `[slug]` is a short, hyphen-delimited description of the decision. For example, `rfc/event-sourcing-for-audit-log`.
 
-2. Copy [`rfcs/TEMPLATE.md`](./rfcs/TEMPLATE.md) to `rfcs/[slug].md` and fill it out. If an issue was opened, set the `Issue` field to link back to it. If a discussion was opened, link back to it via the `Discussion thread` field. Describe the decision in full: the motivation, the proposed solution, the alternatives considered, and the trade-offs.
+2. Copy [`rfcs/TEMPLATE.md`](./rfcs/TEMPLATE.md) to `rfcs/[slug].md` and fill it out. If a discussion was opened, link back to it via the `Discussion thread` field. Describe the decision in full: the motivation, the proposed solution, the alternatives considered, and the trade-offs.
 
 3. Commit your changes and open a pull request titled `rfc: [slug]`. Each pull request MUST be focused on a single atomic decision that can be reviewed, decided, and merged independently of any other. If you have multiple decisions to propose, open multiple pull requests.
 
-4. Apply one category label to the pull request — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision (and the originating issue's category, if there was one). Exactly one category label is REQUIRED on every RFC pull request.
+4. Apply one category label to the pull request — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. Exactly one category label is REQUIRED on every RFC pull request.
 
 The pull request MAY be opened at `#draft` status while the document is still being refined, or at `#proposed` status when it is ready for full stakeholder review.
 
