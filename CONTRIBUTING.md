@@ -28,6 +28,21 @@ The default branch of this repository is `main`. The [`rfc/`](./rfc/) directory 
 
 All RFC branches are cut from `main` and merged back into `main`. See the lifecycle section below for the conditions that must be met before an RFC is merged.
 
+## Commit conventions
+
+Every commit on an RFC branch is prefixed `rfc:`, matching the branch name (`rfc/[slug]`) and the pull request title (`rfc: [slug]`). Use the message shown for each lifecycle step below. The [skills](#skills) write these for you; follow the same convention when working by hand, so the history reads identically whether a human or an agent drove the change.
+
+| Step | Commit message |
+| --- | --- |
+| Scaffold a new RFC | `rfc: [slug]` |
+| Link the discussion thread | `rfc: link discussion thread for [slug]` |
+| Mark ready for review (draft → proposed) | `rfc: mark [slug] ready for review` |
+| Accept (proposed → accepted) | `rfc: accept [slug] (RFC NNNN)` |
+| Reject (proposed → rejected) | `rfc: reject [slug] (RFC NNNN)` |
+| Supersede (accepted → superseded) | `rfc: supersede [slug]` |
+
+`NNNN` is the four-digit RFC number assigned in [`INDEX.md`](./rfc/INDEX.md) at merge — the highest existing number plus one, zero-padded (eg. `0007`).
+
 ## Proposing a decision
 
 ### Step 1: Open a discussion thread (REQUIRED)
@@ -78,7 +93,7 @@ Each RFC moves through a defined state machine. From `proposed` onward, the curr
 
 - **Proposed**: The RFC is complete and open for a decision. The proposer has marked the pull request ready for review, and it is labeled `#proposed`. It is now formally reviewed and negotiated with the relevant stakeholders; from this point, the author should not make further material changes to the document, unless changes are requested by reviewers.
 
-- **Accepted**: The decision has been approved. The maintainers record the RFC's number in [`INDEX.md`](./rfc/INDEX.md), close the associated discussion thread, merge the RFC into `main`, and queue any work necessary for implementation. An accepted decision remains in effect until a later RFC supersedes it.
+- **Accepted**: The decision has been approved. Before accepting, the maintainers confirm that stakeholder review has concluded, a final-comment period has elapsed with no material change to the document, and every RFC listed under `Depends on` is itself accepted. They then record the RFC's number in [`INDEX.md`](./rfc/INDEX.md), close the associated discussion thread, merge the RFC into `main`, and queue any work necessary for implementation. An accepted decision remains in effect until a later RFC supersedes it.
 
 - **Rejected**: The decision will not be taken forward. The maintainers record the RFC's number in [`INDEX.md`](./rfc/INDEX.md), close the associated discussion thread, then merge the RFC document into `main`, where it is preserved permanently in [`rfc/`](./rfc/) as the record of the decision and its rationale.
 
@@ -104,9 +119,9 @@ stateDiagram-v2
 | --- | --- | --- | --- |
 | _(new RFC)_ | `draft` | [`/draft-rfc`](./.agents/skills/draft-rfc/) | A draft pull request is opened with the scaffolded document and a category label. |
 | `draft` | `proposed` | [`/propose-rfc`](./.agents/skills/propose-rfc/) | Document complete and free of template boilerplate; PR marked ready for review and labeled `#proposed`. |
-| `proposed` | `accepted` | [`/approve-rfc`](./.agents/skills/approve-rfc/) | Stakeholder review concluded; decision approved; number added to `INDEX.md`; discussion closed; merged. |
+| `proposed` | `accepted` | [`/approve-rfc`](./.agents/skills/approve-rfc/) | Stakeholder review and final-comment period concluded; `Depends on` RFCs accepted; decision approved; number added to `INDEX.md`; discussion closed; merged. |
 | `proposed` | `rejected` | [`/reject-rfc`](./.agents/skills/reject-rfc/) | Stakeholder review concluded; decision not approved; number added to `INDEX.md`; discussion closed; merged as record. |
-| `accepted` | `superseded` | [`/supersede-rfc`](./.agents/skills/supersede-rfc/) | A later RFC has replaced this decision. |
+| `accepted` | `superseded` | [`/supersede-rfc`](./.agents/skills/supersede-rfc/) | A later, accepted RFC has replaced this decision, with reciprocal `Supersedes` / `Superseded by` links. |
 
 Transitions not listed above are not permitted. In particular: a decision MUST NOT move backwards (eg. from accepted back to proposed), and a decision MUST NOT skip states (eg. from proposed directly to superseded).
 
