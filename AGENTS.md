@@ -30,7 +30,4 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 ## Skills
 
-- `./skills/release/SKILL.md`: Checklist for cutting a release.
-- `./skills/migration/SKILL.md`: Guidance for writing database migrations.
-- `../skills/code-review/SKILL.md`: Code review checklist.
-- `https://example.com/standards/api-design/treee/main/SKILL.md`: HTTP API design conventions.
+The `.agents.skills/` directory provides on-demand agent skills for managing the RFC workflow.
