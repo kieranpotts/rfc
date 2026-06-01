@@ -63,7 +63,7 @@ Do NOT use this skill to advance an RFC to any state other than `REJECTED`. For 
 
 -   **The document is immutable after being rejected.**
 
-    Once the RFC reaches the `REJECTED` status, no further edits to the document are permitted – except to update cross-references to other RFCS. To revisit the decision, open a new RFC that supersedes this one using the `Supersedes` field.
+    Once the RFC reaches the `REJECTED` status, no further edits to the document are permitted – except to update cross-references to other RFCs. To revisit the decision, open a new RFC that supersedes this one using the `Supersedes` field.
 
 -   **Do not merge without instruction.**
 

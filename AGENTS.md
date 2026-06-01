@@ -30,4 +30,4 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 ## Skills
 
-The `.agents.skills/` directory provides on-demand agent skills for managing the RFC workflow.
+The `.agents/skills/` directory provides on-demand agent skills for managing the RFC workflow.

@@ -97,7 +97,7 @@ Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKIL
 
 - [AGENTS.md](../../../AGENTS.md): State machine, permitted transitions, and immutability rules.
 
-- [PR checklist](../....//.github/PULL_REQUEST_TEMPLATE.md): The gates that must be satisfied before each transition.
+- [PR checklist](../../../.github/PULL_REQUEST_TEMPLATE.md): The gates that must be satisfied before each transition.
 
 - [`audit-rfc`](../audit-rfc/SKILL.md): Run this skill before advancing to verify gates.
 

@@ -4,7 +4,7 @@ Handles the rejection path for an RFC, preserving the decision permanently.
 
 ## What it does
 
-Confirms the decision to reject, runs a pre-rejection audit, assigns the sequential ID, sets the document `Status` to `#rejected`, applies the `#rejected` label, regenerates the index, and prepares the PR for merge. The rejected RFC is kept permanently in `rfcs/` as the record — nothing is reverted, because the archive holds no current state for a rejected RFC to have changed.
+Confirms the decision to reject, runs a pre-rejection audit, assigns the sequential ID, sets the document `Status` to `REJECTED`, applies the `#rejected` label, regenerates the index, and prepares the PR for merge. The rejected RFC is kept permanently in `rfcs/` as the record — nothing is reverted, because the archive holds no current state for a rejected RFC to have changed.
 
 ## How to invoke
 
