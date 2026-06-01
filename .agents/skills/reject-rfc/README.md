@@ -4,7 +4,7 @@ Rejects a proposed RFC, preserving the decision permanently.
 
 ## What it does
 
-Confirms the decision to reject, verifies the document is a complete record, assigns the sequential ID, sets `Status: REJECTED`, swaps the PR label to `#rejected`, and prepares the PR for merge. The rejected RFC is kept permanently in `rfcs/` as the record — nothing is reverted, because the archive holds no current state for a rejected RFC to have changed.
+Confirms the decision to reject, verifies the document is a complete record, records its number in `rfc/INDEX.md`, sets `Status: REJECTED`, swaps the PR label to `#rejected`, closes the discussion thread, and prepares the PR for merge. The rejected RFC is kept permanently in `rfc/` as the record — nothing is reverted, because the archive holds no current state for a rejected RFC to have changed.
 
 ## How to invoke
 

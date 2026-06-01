@@ -1,12 +1,12 @@
 ---
 name: approve-rfc
-description: Approve a proposed RFC — assign its sequential ID, set its status to accepted, label the PR, and prepare it for merge. Use when the user says "approve this RFC", "accept this RFC", "mark this RFC accepted", or advances a proposal to accepted.
+description: Approve a proposed RFC — record its number in the index, set its status to accepted, label the PR, and prepare it for merge. Use when the user says "approve this RFC", "accept this RFC", "mark this RFC accepted", or advances a proposal to accepted.
 license: MIT
 ---
 
 # Approve RFC
 
-Use this skill to move an RFC from **proposed** to **accepted**: verify the approval gates, assign the sequential ID, update the document, label the PR `#accepted`, and prepare it for merge.
+Use this skill to move an RFC from **proposed** to **accepted**: verify the approval gates, record the RFC number in the index, update the document, label the PR `#accepted`, close its discussion, and prepare it for merge.
 
 Do NOT use this skill for any other transition — to reject use [`reject-rfc`](../reject-rfc/SKILL.md), to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md), and to scaffold or propose use [`draft-rfc`](../draft-rfc/SKILL.md) / [`propose-rfc`](../propose-rfc/SKILL.md).
 
@@ -30,13 +30,9 @@ The RFC MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`). Conf
 
     Report any unmet gate and stop.
 
-3.  **Assign the sequential ID.**
+3.  **Add the RFC to the index.**
 
-    Find the highest existing numeric ID in `rfcs/` (eg. `0003-foo.md` → `0003`), increment by one, zero-padded to four digits, and rename:
-
-    ```sh
-    git mv rfcs/<slug>.md rfcs/<NNNN>-<slug>.md
-    ```
+    Find the highest RFC number in [`rfc/INDEX.md`](../../../rfc/INDEX.md), increment by one, and zero-pad to four digits (eg. `0006` → `0007`). Add a row for this RFC — its number, title, category, `Accepted` status, the approval date, and a link to its directory (`rfc/<category>/<slug>/`). The number lives only in the index; the RFC's directory and files are never renamed.
 
 4.  **Update the document.**
 
@@ -71,7 +67,7 @@ The RFC MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`). Conf
 7.  **Commit.**
 
     ```sh
-    git commit -am "rfc: accept <NNNN>-<slug>"
+    git commit -am "rfc: accept <slug> (RFC <NNNN>)"
     ```
 
 8.  **Prepare for merge.**
@@ -90,7 +86,7 @@ The RFC MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`). Conf
 
 ## Success criteria
 
--   **The file is renamed** `NNNN-<slug>.md` with the correct sequential ID.
+-   **An `rfc/INDEX.md` entry is added** for the RFC, with the next sequential number.
 
 -   **`Status` is `ACCEPTED`**, `Last updated` is today's date, and `Approvers` / `Approval date` are filled in.
 

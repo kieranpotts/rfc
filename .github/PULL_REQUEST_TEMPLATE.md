@@ -28,7 +28,7 @@ Move from **`#proposed`** to **`#accepted`** or **`#rejected`** when:
 - [ ] The proposed solution has stabilized.
 - [ ] Final comments have been solicited for at least ___ days.
 - [ ] The RFC has not materially changed during this time.
-- [ ] The document is given a sequential prefix: `rfcs/NNNN-[slug].md`.
+- [ ] The RFC is added to `rfc/INDEX.md` with the next sequential number.
 - [ ] The associated discussion thread is closed.
 
 If **`#accepted`**, merge this PR when:

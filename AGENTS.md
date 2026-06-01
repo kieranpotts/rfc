@@ -10,7 +10,7 @@ Product requirements (what the system does, in business terms) are recorded sepa
 
 ## Repository structure
 
-- `rfcs/`: The permanent, append-only archive of every RFC, including rejected ones. `TEMPLATE.md` is the starting point for a new RFC.
+- `rfc/`: The permanent, append-only archive of every RFC, including rejected ones. Each RFC is a directory (`rfc/<category>/<slug>/`) holding its `README.md` and any supporting artifacts, grouped by category (`architecture`, `process`, `technology`, `tooling`). `rfc/TEMPLATE.md` is the starting point for a new RFC; `rfc/INDEX.md` is the numbered catalogue.
 
 ## Rules
 
@@ -20,7 +20,7 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - An RFC MUST be a single, atomic technical decision. Author it on an `rfc/[slug]` branch cut from `main`, and open a pull request titled `rfc: [slug]`.
 
-- The default branch is `main`. An RFC is merged into `main` once it has been decided — `#accepted` or `#rejected`. A sequential ID is assigned at merge and the file is renamed to `NNNN-[slug].md`.
+- The default branch is `main`. An RFC is merged into `main` once it has been decided — `#accepted` or `#rejected`. A sequential RFC number is assigned at merge and recorded in `rfc/INDEX.md`; the number lives only in the index, and no RFC file is ever renamed.
 
 - When the pull request is opened, it MUST be labeled with exactly one category — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. The category is denoted solely by this label; it is not duplicated in the RFC document.
 

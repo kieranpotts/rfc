@@ -1,10 +1,10 @@
 # Approve RFC
 
-Approves a proposed RFC: assigns its sequential ID, sets its status to accepted, and prepares it for merge.
+Approves a proposed RFC: records its number in the index, sets its status to accepted, and prepares it for merge.
 
 ## What it does
 
-Verifies the approval gates, assigns the next zero-padded sequential ID (renaming the file to `NNNN-<slug>.md`), sets `Status: ACCEPTED` with approvers and approval date, swaps the PR label to `#accepted`, and prepares it for merge.
+Verifies the approval gates, records the next zero-padded sequential number in `rfc/INDEX.md` (no file is renamed), sets `Status: ACCEPTED` with approvers and approval date, swaps the PR label to `#accepted`, closes the discussion thread, and prepares it for merge.
 
 ## How to invoke
 

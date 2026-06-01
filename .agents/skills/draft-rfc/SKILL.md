@@ -24,9 +24,9 @@ This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while 
     git checkout -b rfc/<slug>
     ```
 
-3.  **Copy the template.**
+3.  **Create the RFC directory from the template.**
 
-    Copy `rfcs/TEMPLATE.md` to `rfcs/<slug>.md`. Do not rename it with a numeric ID — that happens when the RFC is accepted or rejected.
+    Copy `rfc/TEMPLATE.md` to `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase category directory (`architecture`, `process`, `technology`, or `tooling`) matching step 1. The RFC lives in its own directory, so the author can add diagrams or other artifacts alongside the `README.md`. Do not add a numeric ID anywhere — RFC numbers are assigned only in `rfc/INDEX.md`, at merge.
 
 4.  **Fill in the metadata header.**
 
@@ -40,7 +40,7 @@ This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while 
 5.  **Commit and open a draft pull request.**
 
     ```sh
-    git add rfcs/<slug>.md
+    git add rfc/<category>/<slug>/
     git commit -m "rfc: <slug>"
     git push -u origin rfc/<slug>
     gh pr create --draft --title "rfc: <slug>" --fill
@@ -108,13 +108,13 @@ This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while 
 
 -   **Do not assign a numeric ID.**
 
-    The sequential ID is assigned on acceptance or rejection. Leave the filename as `<slug>.md`.
+    RFC numbers are assigned only in `rfc/INDEX.md`, at merge. Nothing is ever renamed; the RFC stays at `rfc/<category>/<slug>/`.
 
 ## Success criteria
 
 -   **Branch `rfc/<slug>` exists and is checked out.**
 
--   **`rfcs/<slug>.md` exists**, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: PROPOSED`.
+-   **`rfc/<category>/<slug>/README.md` exists**, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: PROPOSED`.
 
 -   **A draft pull request titled `rfc: <slug>` is open**, carrying exactly one category label and no lifecycle label.
 
@@ -122,7 +122,7 @@ This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while 
 
 ## References
 
-- [`rfcs/TEMPLATE.md`](../../../rfcs/TEMPLATE.md): The RFC template to copy.
+- [`rfc/TEMPLATE.md`](../../../rfc/TEMPLATE.md): The RFC template to copy.
 
 - [AGENTS.md](../../../AGENTS.md): The full RFC lifecycle and conventions, written for agents.
 

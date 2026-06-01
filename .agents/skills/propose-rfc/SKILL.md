@@ -33,7 +33,7 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 
 1.  **Identify the RFC and its PR.**
 
-    Read the RFC document in `rfcs/` and find its PR (`gh pr view <number> --json isDraft,labels` if needed).
+    Read the RFC document (`rfc/<category>/<slug>/README.md`) and find its PR (`gh pr view <number> --json isDraft,labels` if needed).
 
 2.  **Verify the transition rules above.**
 

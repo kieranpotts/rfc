@@ -15,9 +15,9 @@ Confirms a later, accepted RFC has replaced the decision, sets the superseded RF
 Name the superseded RFC and (optionally) its successor:
 
 ```
-/supersede-rfc 0002-event-sourcing-for-audit-log 0007-kafka-event-log
+/supersede-rfc event-sourcing-for-audit-log kafka-event-log
 ```
 
 ## Examples
 
-- `/supersede-rfc 0002-event-sourcing-for-audit-log 0007-kafka-event-log`: Marks RFC 0002 superseded by RFC 0007.
+- `/supersede-rfc event-sourcing-for-audit-log kafka-event-log`: Marks the event-sourcing RFC as superseded by the kafka-event-log RFC.

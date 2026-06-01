@@ -1,12 +1,12 @@
 ---
 name: reject-rfc
-description: Reject a proposed RFC — assign its sequential ID, set its status to rejected, label the PR, and prepare it for merge so the decision is preserved permanently. Use when the user says "reject this RFC", "the RFC was not approved", or advances a proposal to rejected.
+description: Reject a proposed RFC — record its number in the index, set its status to rejected, label the PR, and prepare it for merge so the decision is preserved permanently. Use when the user says "reject this RFC", "the RFC was not approved", or advances a proposal to rejected.
 license: MIT
 ---
 
 # Reject RFC
 
-Use this skill to move an RFC from **proposed** to **rejected**. A rejected RFC is not discarded — its document is merged into `main` and preserved permanently in `rfcs/` as the record of the decision and its rationale, so the same ground is not needlessly re-trodden later. Because this repository is an append-only archive (it holds no "current state" a rejected RFC would have changed), rejection is straightforward — there is nothing to revert.
+Use this skill to move an RFC from **proposed** to **rejected**. A rejected RFC is not discarded — its document is merged into `main` and preserved permanently in `rfc/` as the record of the decision and its rationale, so the same ground is not needlessly re-trodden later. Because this repository is an append-only archive (it holds no "current state" a rejected RFC would have changed), rejection is straightforward — there is nothing to revert.
 
 Do NOT use this skill for any other transition — to accept use [`approve-rfc`](../approve-rfc/SKILL.md), to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md).
 
@@ -28,15 +28,9 @@ The RFC MUST currently be `PROPOSED`. Confirm **all** of the following before re
 
     Report any unmet gate and stop.
 
-3.  **Assign the sequential ID.**
+3.  **Add the RFC to the index.**
 
-    Find the highest existing numeric ID in `rfcs/`, increment by one, zero-padded to four digits, and rename:
-
-    ```sh
-    git mv rfcs/<slug>.md rfcs/<NNNN>-<slug>.md
-    ```
-
-    Rejected RFCs are numbered in the same sequence as accepted ones.
+    Find the highest RFC number in [`rfc/INDEX.md`](../../../rfc/INDEX.md), increment by one, and zero-pad to four digits. Add a row for this RFC — its number, title, category, `Rejected` status, the date, and a link to its directory (`rfc/<category>/<slug>/`). Rejected RFCs are numbered in the same sequence as accepted ones. The number lives only in the index; the RFC's directory and files are never renamed.
 
 4.  **Update the document.**
 
@@ -71,7 +65,7 @@ The RFC MUST currently be `PROPOSED`. Confirm **all** of the following before re
 7.  **Commit.**
 
     ```sh
-    git commit -am "rfc: reject <NNNN>-<slug>"
+    git commit -am "rfc: reject <slug> (RFC <NNNN>)"
     ```
 
 8.  **Prepare for merge.**
@@ -90,7 +84,7 @@ The RFC MUST currently be `PROPOSED`. Confirm **all** of the following before re
 
 ## Success criteria
 
--   **The file is renamed** `NNNN-<slug>.md` with the correct sequential ID.
+-   **An `rfc/INDEX.md` entry is added** for the RFC, with the next sequential number.
 
 -   **`Status` is `REJECTED`** and `Last updated` is today's date.
 

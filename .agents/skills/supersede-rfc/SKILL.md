@@ -6,7 +6,7 @@ license: MIT
 
 # Supersede RFC
 
-Use this skill to move an RFC from **accepted** to **superseded**, once a later, accepted RFC has replaced its decision. This is the only transition out of `ACCEPTED`. The superseded document remains in `rfcs/` permanently as part of the historical record.
+Use this skill to move an RFC from **accepted** to **superseded**, once a later, accepted RFC has replaced its decision. This is the only transition out of `ACCEPTED`. The superseded document remains in `rfc/` permanently as part of the historical record.
 
 Do NOT use this skill for any other transition — see [`approve-rfc`](../approve-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), [`propose-rfc`](../propose-rfc/SKILL.md), or [`draft-rfc`](../draft-rfc/SKILL.md).
 
@@ -28,11 +28,12 @@ The RFC being superseded MUST currently be `ACCEPTED`. Confirm **all** of the fo
 
     Report any unmet gate and stop.
 
-3.  **Update the superseded document.**
+3.  **Update the superseded document and the index.**
 
     - Set `Status` to `SUPERSEDED` and `Last updated` to today's date.
     - Set the `Superseded by` cross-reference to the successor RFC.
-    - Change nothing else — the document is otherwise immutable.
+    - In [`rfc/INDEX.md`](../../../rfc/INDEX.md), change this RFC's row status to `Superseded`.
+    - Change nothing else in the document — it is otherwise immutable.
 
 4.  **Confirm the successor links back.**
 
@@ -53,7 +54,7 @@ The RFC being superseded MUST currently be `ACCEPTED`. Confirm **all** of the fo
     Commit the edit to the superseded document — typically as part of the superseding RFC's pull request, since `main` is updated only through pull requests:
 
     ```sh
-    git commit -am "rfc: supersede <NNNN>-<slug>"
+    git commit -am "rfc: supersede <slug>"
     ```
 
 ## Rules
