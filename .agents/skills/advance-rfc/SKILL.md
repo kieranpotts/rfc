@@ -57,7 +57,7 @@ Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKIL
     gh pr edit <number> --add-label "#<state>" --remove-label "#<previous-state>"
     ```
 
-    Use the lowercase `#`-prefixed label names: `#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded`.
+    Use the lowercase `#`-prefixed label names: `#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded`. This swaps only the lifecycle label; leave the PR's category label (`ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`) in place.
 
 7.  **Commit.**
 

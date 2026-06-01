@@ -44,6 +44,8 @@ Do NOT use this skill to advance an RFC to any state other than `REJECTED`. For 
     gh pr edit <number> --add-label "#rejected" --remove-label "#proposed"
     ```
 
+    This swaps only the lifecycle label; leave the PR's category label (`ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`) in place.
+
 6.  **Commit.**
 
     ```sh

@@ -45,7 +45,7 @@ Do NOT use this skill to advance an RFC that already exists (use [`advance-rfc`]
 
 6.  **Remind the proposer of next steps.**
 
-    Once the document is complete, the proposer should open a pull request titled `rfc: <slug>`. Apply the `#draft` or `#proposed` label to the PR to match the current status. See [AGENTS.md](../../../AGENTS.md) for the full process.
+    Once the document is complete, the proposer should open a pull request titled `rfc: <slug>`. The PR MUST carry one category label — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the category confirmed in step 1, plus the `#draft` or `#proposed` lifecycle label to match the current status. See [AGENTS.md](../../../AGENTS.md) for the full process.
 
 ## Rules
 
@@ -68,6 +68,8 @@ Do NOT use this skill to advance an RFC that already exists (use [`advance-rfc`]
 -   **`rfcs/<slug>.md` exists** and is a copy of `TEMPLATE.md` with metadata fields populated.
 
 -   **Status is either `DRAFT` or `PROPOSED`**, consistent with the readiness of the document.
+
+-   **The RFC's category** (`ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`) **is confirmed**, ready to apply as the PR's category label when the PR is opened.
 
 -   **`Authors`, `Created`, and `Last updated` fields are filled in.**
 

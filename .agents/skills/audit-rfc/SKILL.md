@@ -26,7 +26,7 @@ Do NOT use this skill to advance an RFC's state (use [`advance-rfc`](../advance-
     - `PR`: Either a linked PR number or a note that the PR is not yet open (acceptable for `DRAFT`).
     - `Issue`: either a linked issue number or the default `_(if applicable)_` placeholder.
 
-3.  **Check the label alignment.**
+3.  **Check the labels.**
 
     If a PR number is present, run:
 
@@ -34,7 +34,10 @@ Do NOT use this skill to advance an RFC's state (use [`advance-rfc`](../advance-
     gh pr view <number> --json labels,state
     ```
 
-    Confirm that the PR carries a label matching the document's `Status` field (eg. `#proposed` when `Status: PROPOSED`).
+    Confirm both of the following:
+
+    - The PR carries exactly one category label — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`. A missing or duplicate category label is a gate failure.
+    - The PR carries a lifecycle label matching the document's `Status` field (eg. `#proposed` when `Status: PROPOSED`).
 
 4.  **Check the required prose sections.**
 

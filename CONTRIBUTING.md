@@ -14,7 +14,9 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - An RFC MUST be a single, atomic decision. Author it on an `rfc/[slug]` branch cut from `main`, and open a pull request titled `rfc: [slug]`. A GitHub issue (labeled `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field in the RFC document.
 
-- The current lifecycle state of an RFC is tracked via a label on the PR. Apply the matching label — `#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded` — as the RFC advances.
+- When the pull request is opened, it MUST be labeled with exactly one category — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. If an issue was opened first, the PR takes the same category.
+
+- The current lifecycle state of an RFC is tracked via a lifecycle label on the PR. Apply the matching label — `#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded` — as the RFC advances.
 
 - Never delete an RFC document, including rejected ones. To change a past decision, open a new RFC that supersedes it — do NOT edit the original except to update its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers.
 
@@ -57,6 +59,8 @@ Follow these steps to prepare the pull request:
 2. Copy [`rfcs/TEMPLATE.md`](./rfcs/TEMPLATE.md) to `rfcs/[slug].md` and fill it out. If an issue was opened, set the `Issue` field to link back to it. If a discussion was opened, link back to it via the `Discussion thread` field. Describe the decision in full: the motivation, the proposed solution, the alternatives considered, and the trade-offs.
 
 3. Commit your changes and open a pull request titled `rfc: [slug]`. Each pull request MUST be focused on a single atomic decision that can be reviewed, decided, and merged independently of any other. If you have multiple decisions to propose, open multiple pull requests.
+
+4. Apply one category label to the pull request — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision (and the originating issue's category, if there was one). Exactly one category label is REQUIRED on every RFC pull request.
 
 The pull request MAY be opened at `#draft` status while the document is still being refined, or at `#proposed` status when it is ready for full stakeholder review.
 

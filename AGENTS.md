@@ -22,7 +22,9 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - The default branch is `main`. An RFC is merged into `main` once it has been decided — `#accepted` or `#rejected`. A sequential ID is assigned at merge and the file is renamed to `NNNN-[slug].md`.
 
-- The current lifecycle state of an RFC is tracked via a label on the PR. Apply the matching label (`#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded`) as the RFC advances.
+- When the pull request is opened, it MUST be labeled with exactly one category — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. If an issue was opened first, the PR takes the same category as the issue.
+
+- The current lifecycle state of an RFC is tracked via a lifecycle label on the PR. Apply the matching label (`#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded`) as the RFC advances.
 
 - Once an RFC is `#accepted` or `#rejected`, its document is immutable. Only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter. An accepted RFC may only be superseded by another RFC. To change the _substance_ of a past decision, open a new RFC that supersedes it — do NOT edit the original.
 
