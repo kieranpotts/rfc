@@ -4,7 +4,7 @@ Removes the draft status from an RFC pull request, marking it ready for stakehol
 
 ## What it does
 
-Verifies the document is complete and free of template boilerplate, sets `Last updated`, applies the `#proposed` label, and takes the PR out of draft (`gh pr ready`).
+Acts as an audit gate by verifying the RFC document is complete and free of template boilerplate. It also bumps `Last updated`, applies the `#proposed` label, and takes the PR out of draft (`gh pr ready`).
 
 ## How to invoke
 
