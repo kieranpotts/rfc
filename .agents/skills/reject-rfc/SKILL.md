@@ -20,7 +20,7 @@ Do NOT use this skill to advance an RFC to any state other than `REJECTED`. For 
 
 2.  **Run a pre-rejection audit.**
 
-    Run [`audit-rfc`](../audit-rfc/SKILL.md) to verify the document is complete. The `Motivation`, `Proposed change`, `Alternatives`, and `Trade-offs and risks` sections should be substantive, since the document will be permanently archived as the record of this decision.
+    Run [`audit-rfc`](../audit-rfc/SKILL.md) to verify the document is complete. The `Motivation`, `Proposed state`, `Alternatives`, and `Trade-offs and risks` sections should be substantive, since the document will be permanently archived as the record of this decision.
 
 3.  **Assign the sequential ID.**
 

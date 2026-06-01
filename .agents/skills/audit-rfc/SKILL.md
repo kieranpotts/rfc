@@ -8,7 +8,7 @@ license: MIT
 
 Use this skill to sanity-check an RFC before it advances to the next lifecycle state. It verifies that required fields are filled in, the document is internally consistent, the GitHub label and document `Status` field agree, and cross-references resolve.
 
-Do NOT use this skill to advance an RFC's state (use [`advance-rfc`](../advance-rfc/SKILL.md)) or to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKILL.md)).
+Do NOT use this skill to advance an RFC's state (use [`advance-rfc`](../advance-rfc/SKILL.md)) or to scaffold a new RFC (use [`propose-rfc`](../propose-rfc/SKILL.md)).
 
 ## Instructions
 
@@ -22,8 +22,8 @@ Do NOT use this skill to advance an RFC's state (use [`advance-rfc`](../advance-
 
     - `Authors`: At least one name present.
     - `Created` and `Last updated`: Valid `YYYY-MM-DD` dates; `Last updated` is not older than `Created`.
-    - `Status`: One of `DRAFT`, `PROPOSED`, `ACCEPTED`, `REJECTED`, `SUPERSEDED`.
-    - `PR`: Either a linked PR number or a note that the PR is not yet open (acceptable for `DRAFT`).
+    - `Status`: One of `PROPOSED`, `ACCEPTED`, `REJECTED`, `SUPERSEDED`.
+    - `PR`: Either a linked PR number or a note that the PR is not yet open (acceptable only before the PR is opened).
 
 3.  **Check the labels.**
 
@@ -45,7 +45,7 @@ Do NOT use this skill to advance an RFC's state (use [`advance-rfc`](../advance-
     - `Summary`: A concise single-paragraph description of the decision.
     - `Motivation`: Explains the problem being solved and for whom.
     - `Impact`: One of `HIGH`, `MEDIUM`, or `LOW`, plus a description of what is affected.
-    - `Proposed change`: Describes the solution in enough detail to evaluate.
+    - `Proposed state`: Describes the solution in enough detail to evaluate.
     - `Alternatives`: At least one alternative considered.
     - `Trade-offs and risks`: Honest about downsides.
 

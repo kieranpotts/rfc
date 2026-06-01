@@ -16,7 +16,7 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - When the pull request is opened, it MUST be labeled with exactly one category — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. The category is denoted solely by this label; it is not duplicated in the RFC document.
 
-- The current lifecycle state of an RFC is tracked via a lifecycle label on the PR. Apply the matching label — `#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded` — as the RFC advances.
+- The current lifecycle state of an RFC is tracked via a lifecycle label on the PR. Apply the matching label — `#proposed`, `#accepted`, `#rejected`, `#superseded` — as the RFC advances. A PR is opened as a GitHub draft while the document is still being refined; the author marks it ready for review when it is ready for stakeholder review.
 
 - Never delete an RFC document, including rejected ones. To change a past decision, open a new RFC that supersedes it — do NOT edit the original except to update its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers.
 
@@ -24,7 +24,7 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 ## Branch conventions
 
-The default branch of this repository is `main`. The [`rfcs/`](./rfcs/) directory on `main` is the permanent, append-only archive of every major technical decision — all accepted and rejected ideas. An RFC is merged into `main` only once it has been _decided_, ie. its status is `ACCEPTED` or `REJECTED`. RFCs that are still being drafted or negotiated live on their own branches and are not merged.
+The default branch of this repository is `main`. The [`rfcs/`](./rfcs/) directory on `main` is the permanent, append-only archive of every major technical decision — all accepted and rejected ideas. An RFC is merged into `main` only once it has been _decided_, ie. its status is `ACCEPTED` or `REJECTED`. RFCs that are still being refined or negotiated live on their own branches (as open pull requests) and are not merged.
 
 All RFC branches are cut from `main` and merged back into `main`. See the lifecycle section below for the conditions that must be met before an RFC is merged.
 
@@ -62,15 +62,13 @@ Follow these steps to prepare the pull request:
 
 4. Apply one category label to the pull request — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. Exactly one category label is REQUIRED on every RFC pull request.
 
-The pull request MAY be opened at `#draft` status while the document is still being refined, or at `#proposed` status when it is ready for full stakeholder review.
+Open the pull request as a GitHub draft and apply the `#proposed` label. Keep it in draft while you refine the document; mark it ready for review once it is ready for full stakeholder review.
 
 ## RFC lifecycle
 
 Each RFC moves through a defined state machine. The current state is represented by a lifecycle label on the pull request. The states are:
 
-- **Draft**: The RFC has been opened as a pull request but is not yet ready for full stakeholder review. The proposer is still refining the document.
-
-- **Proposed**: The RFC is complete and is being formally reviewed and negotiated with the relevant stakeholders. The author of the RFC should not make further material changes to the document during this period, unless changes are requested by reviewers.
+- **Proposed**: The RFC is open and awaiting a decision. The pull request is opened as a GitHub draft while the proposer refines the document; once they mark it ready for review, it is formally reviewed and negotiated with the relevant stakeholders. From that point, the author should not make further material changes to the document, unless changes are requested by reviewers.
 
 - **Accepted**: The decision has been approved. The maintainers assign a sequential ID, merge the RFC into `main`, and queue any work necessary for implementation. An accepted decision remains in effect until a later RFC supersedes it.
 
@@ -80,14 +78,12 @@ Each RFC moves through a defined state machine. The current state is represented
 
 ### Permitted transitions
 
-Only the maintainers may advance an RFC's state. They verify the gates using the PR's checklist and apply the matching label — `#draft`, `#proposed`, `#accepted`, `#rejected`, or `#superseded` — as each transition occurs.
+Only the maintainers may advance an RFC's state. They verify the gates using the PR's checklist and apply the matching label — `#proposed`, `#accepted`, `#rejected`, or `#superseded` — as each transition occurs.
 
 ```mermaid
 stateDiagram-v2
   direction LR
-  [*] --> draft
   [*] --> proposed
-  draft --> proposed
   proposed --> accepted
   proposed --> rejected
   accepted --> superseded
@@ -97,14 +93,12 @@ stateDiagram-v2
 
 | From | To | Condition |
 | --- | --- | --- |
-| _(new PR)_ | `draft` | PR opened; RFC still being drafted. |
-| _(new PR)_ | `proposed` | PR opened; RFC is already complete. |
-| `draft` | `proposed` | Document is complete and ready for review. |
+| _(new PR)_ | `proposed` | PR opened (as a draft PR) for a new RFC. |
 | `proposed` | `accepted` | Stakeholder review concluded; decision approved; ID assigned; merged. |
 | `proposed` | `rejected` | Stakeholder review concluded; decision not approved; merged as record. |
 | `accepted` | `superseded` | A later RFC has replaced this decision. |
 
-Transitions not listed above are not permitted. In particular: a proposal MUST NOT move backwards (eg. from proposed to draft), and a proposal MUST NOT skip states (eg. from draft directly to accepted).
+Transitions not listed above are not permitted. In particular: a decision MUST NOT move backwards (eg. from accepted back to proposed), and a decision MUST NOT skip states (eg. from proposed directly to superseded).
 
 ### Immutability
 

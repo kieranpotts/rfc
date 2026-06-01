@@ -11,11 +11,12 @@ _Copy the "Summary" section from the RFC document here._
 
 The project maintainers will update this checklist as the proposal moves through its lifecycle. They will merge this PR only when the proposal is ultimately either `#accepted` or `#rejected`. See the [contributing guidelines](../CONTRIBUTING.md) for more details about state transitions for RFCs.
 
-On opening this PR:
+On opening this PR (open it as a draft):
 
 - [ ] Exactly one category label — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — is applied.
+- [ ] The `#proposed` label is applied.
 
-Move from **`#draft`** to **`#proposed`** when:
+Mark this PR ready for review when:
 
 - [ ] The proposal is complete enough to invite stakeholder review.
 - [ ] A discussion thread is created, if needed.

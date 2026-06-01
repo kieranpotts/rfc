@@ -8,7 +8,7 @@ license: MIT
 
 Use this skill to move an RFC through its lifecycle state machine. It verifies that the gates for the target state are met, updates the RFC document's `Status` field and `Last updated` date, and applies the matching GitHub label to the PR.
 
-Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKILL.md)) or to audit an RFC's content (use [`audit-rfc`](../audit-rfc/SKILL.md)). For the rejection path specifically, use [`reject-rfc`](../reject-rfc/SKILL.md). Do NOT move an RFC backwards or skip states — those transitions are not permitted.
+Do NOT use this skill to scaffold a new RFC (use [`propose-rfc`](../propose-rfc/SKILL.md)) or to audit an RFC's content (use [`audit-rfc`](../audit-rfc/SKILL.md)). For the rejection path specifically, use [`reject-rfc`](../reject-rfc/SKILL.md). Do NOT move an RFC backwards or skip states — those transitions are not permitted.
 
 ## Instructions
 
@@ -22,12 +22,11 @@ Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKIL
 
     | From | To | Key gate |
     | --- | --- | --- |
-    | `DRAFT` | `PROPOSED` | Document complete |
     | `PROPOSED` | `ACCEPTED` | Stakeholder review concluded; ID assigned |
     | `PROPOSED` | `REJECTED` | Stakeholder review concluded (use [`reject-rfc`](../reject-rfc/SKILL.md)) |
     | `ACCEPTED` | `SUPERSEDED` | A later RFC has replaced this decision |
 
-    If the user requests an unlisted transition (eg. `PROPOSED` back to `DRAFT`), refuse and explain why. For `PROPOSED → REJECTED`, hand off to the [`reject-rfc`](../reject-rfc/SKILL.md) skill.
+    If the user requests an unlisted transition (eg. `ACCEPTED` back to `PROPOSED`), refuse and explain why. For `PROPOSED → REJECTED`, hand off to the [`reject-rfc`](../reject-rfc/SKILL.md) skill.
 
 3.  **Verify the gates for the target state.**
 
@@ -57,7 +56,7 @@ Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKIL
     gh pr edit <number> --add-label "#<state>" --remove-label "#<previous-state>"
     ```
 
-    Use the lowercase `#`-prefixed label names: `#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded`. This swaps only the lifecycle label; leave the PR's category label (`ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`) in place.
+    Use the lowercase `#`-prefixed label names: `#proposed`, `#accepted`, `#rejected`, `#superseded`. This swaps only the lifecycle label; leave the PR's category label (`ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`) in place.
 
 7.  **Commit.**
 

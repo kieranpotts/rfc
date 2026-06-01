@@ -39,7 +39,7 @@ HIGH
 
 This decision affects every contributor and underpins all subsequent process and tooling decisions — code review, CI/CD, release management, and the branching conventions that govern day-to-day work. Getting it wrong, or changing it later, would be disruptive and costly.
 
-## Proposed change
+## Proposed state
 
 All source code and documentation will be managed in [Git](https://git-scm.com/) repositories. We will:
 

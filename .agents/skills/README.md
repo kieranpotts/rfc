@@ -2,7 +2,7 @@
 
 The following agent skills are defined in this repository for managing the RFC workflow via agentic tools:
 
-- [`draft-rfc`](./draft-rfc/): Scaffold a new RFC branch and document.
+- [`propose-rfc`](./propose-rfc/): Scaffold and propose a new RFC branch and document.
 
 - [`audit-rfc`](./audit-rfc/): Audit an RFC for completeness and process compliance before advancing it.
 

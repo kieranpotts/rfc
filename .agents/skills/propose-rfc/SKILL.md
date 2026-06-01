@@ -1,10 +1,10 @@
 ---
-name: draft-rfc
-description: Scaffold a new RFC for a significant technical decision. Use when the user wants to propose an architecture, process, technology, or tooling decision, or says "draft an RFC", "new RFC", or "start an RFC".
+name: propose-rfc
+description: Scaffold and propose a new RFC for a significant technical decision. Use when the user wants to propose an architecture, process, technology, or tooling decision, or says "propose an RFC", "draft an RFC", "new RFC", or "start an RFC".
 license: MIT
 ---
 
-# Draft RFC
+# Propose RFC
 
 Use this skill to scaffold a new RFC in the `rfcs/` directory. It creates the branch, copies the template, and fills in the metadata so the proposer can focus on writing the content.
 
@@ -38,13 +38,13 @@ Do NOT use this skill to advance an RFC that already exists (use [`advance-rfc`]
     - `PR`: Leave as `#...` — the PR number is not yet known.
     - Leave `Approvers`, `Approval date`, `Discussion thread`, and `Implementation trackers` blank.
 
-5.  **Set the initial status.**
+5.  **Set the status.**
 
-    If the RFC document is ready for stakeholder review, set the `Status` to `PROPOSED`. Otherwise leave it at `DRAFT`.
+    Set the `Status` field to `PROPOSED`. There is no separate draft status — an RFC still being refined is simply an open draft pull request.
 
 6.  **Remind the proposer of next steps.**
 
-    Once the document is complete, the proposer should open a pull request titled `rfc: <slug>`. The PR MUST carry one category label — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the category confirmed in step 1, plus the `#draft` or `#proposed` lifecycle label to match the current status. See [AGENTS.md](../../../AGENTS.md) for the full process.
+    The proposer should open the pull request as a GitHub draft (`gh pr create --draft`), titled `rfc: <slug>`. The PR MUST carry one category label — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the category confirmed in step 1, plus the `#proposed` label. The PR stays a draft while the document is refined; the proposer marks it ready for review when it is ready for stakeholder review. See [AGENTS.md](../../../AGENTS.md) for the full process.
 
 ## Rules
 
@@ -66,7 +66,7 @@ Do NOT use this skill to advance an RFC that already exists (use [`advance-rfc`]
 
 -   **`rfcs/<slug>.md` exists** and is a copy of `TEMPLATE.md` with metadata fields populated.
 
--   **Status is either `DRAFT` or `PROPOSED`**, consistent with the readiness of the document.
+-   **Status is `PROPOSED`.**
 
 -   **The RFC's category** (`ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`) **is confirmed**, ready to apply as the PR's category label when the PR is opened.
 
@@ -78,6 +78,6 @@ Do NOT use this skill to advance an RFC that already exists (use [`advance-rfc`]
 
 - [AGENTS.md](../../../AGENTS.md): Full end-to-end contributing process, including the state machine and permitted transitions, written for agents.
 
-- [`advance-rfc`](../advance-rfc/SKILL.md): Skill for advancing an RFC through its lifecycle after it is drafted.
+- [`advance-rfc`](../advance-rfc/SKILL.md): Skill for advancing an RFC through its lifecycle after it is proposed.
 
-- [`audit-rfc`](../audit-rfc/SKILL.md): Skill for auditing an RFC before it advances to `PROPOSED`.
+- [`audit-rfc`](../audit-rfc/SKILL.md): Skill for auditing an RFC before advancing it to a decision.

@@ -25,13 +25,8 @@
     "color": "AA6600"
   },
   {
-    "name": "#draft",
-    "description": "A preliminary RFC, put forward for early feedback.",
-    "color": "FFFFFF"
-  },
-  {
     "name": "#proposed",
-    "description": "An RFC being negotiated with stakeholders.",
+    "description": "An open RFC, proposed and awaiting a decision.",
     "color": "FFFFFF"
   },
   {
