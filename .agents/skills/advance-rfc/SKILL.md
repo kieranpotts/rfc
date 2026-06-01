@@ -49,7 +49,7 @@ Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKIL
     - For `ACCEPTED`: Fill in `Approvers` and `Approval date`, and confirm that `Implementation trackers` links are present.
     - For `SUPERSEDED`: confirm the `Superseded by` field links the later RFC.
 
-    Once an RFC is `ACCEPTED`, only the `Status` field and `Last updated` date may change on the subsequent transition to `SUPERSEDED` — the rest of the document is immutable.
+    Once an RFC is `ACCEPTED`, only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change on the subsequent transition to `SUPERSEDED` — the rest of the document is immutable.
 
 6.  **Apply the GitHub label.**
 
@@ -75,7 +75,7 @@ Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKIL
 
 -   **Once `ACCEPTED` or `REJECTED`, the document is immutable.**
 
-    After those states are reached, only the `Status` field and matching label may change. Do not edit any other part of the document.
+    After those states are reached, only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change (along with the matching GitHub label on the PR). Do not edit any other part of the document.
 
 -   **Gate verification is mandatory.**
 

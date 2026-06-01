@@ -36,7 +36,7 @@ Do NOT use this skill to advance an RFC to any state other than `REJECTED`. For 
 
     - Set `Status` to `REJECTED`.
     - Update `Last updated` to today's date.
-    - Do not alter any other field — the document is immutable after this point.
+    - Do not alter any other field as part of this change — the document's substance is immutable from this point.
 
 5.  **Apply the GitHub label.**
 
@@ -63,7 +63,7 @@ Do NOT use this skill to advance an RFC to any state other than `REJECTED`. For 
 
 -   **The document is immutable after being rejected.**
 
-    Once the RFC reaches the `REJECTED` status, no further edits to the document are permitted – except to update cross-references to other RFCs. To revisit the decision, open a new RFC that supersedes this one using the `Supersedes` field.
+    Once the RFC reaches the `REJECTED` status, no further edits are permitted except to update its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers. To revisit the decision, open a new RFC that supersedes this one using the `Supersedes` field.
 
 -   **Do not merge without instruction.**
 

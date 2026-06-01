@@ -12,6 +12,6 @@ Every significant technical decision is introduced through an RFC, and every RFC
 
 3. On merge, the project maintainers assign the RFC a sequential, zero-padded ID and rename its file to `NNNN-[description].md`, eg. `0002-event-sourcing-for-audit-log.md`.
 
-4. Once an RFC is `#accepted` or `#rejected`, its document is immutable. Only its status may change thereafter — an accepted RFC moves to `#superseded` when a later RFC replaces it. To revisit a decision, open a new RFC that supersedes the original, and cross-reference the two using the `Supersedes` / `Superseded by` fields in the template.
+4. Once an RFC is `#accepted` or `#rejected`, its document is immutable. Only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter — an accepted RFC moves to `#superseded` when a later RFC replaces it. To revisit a decision, open a new RFC that supersedes the original, and cross-reference the two using the `Supersedes` / `Superseded by` fields in the template.
 
 See the [contributing guide](../CONTRIBUTING.md) for the full process.

@@ -10,13 +10,13 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - Write in American English.
 
-- An RFC is the record of a decision. The [`rfcs/`](./rfcs/) directory is an append-only log. Once an RFC is `ACCEPTED` or `REJECTED`, its document is immutable, and only its status may change thereafter.
+- An RFC is the record of a decision. The [`rfcs/`](./rfcs/) directory is an append-only log. Once an RFC is `ACCEPTED` or `REJECTED`, its document is immutable; only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter.
 
 - An RFC MUST be a single, atomic decision. Author it on an `rfc/[description]` branch cut from `main`, and open a pull request titled `rfc: [description]`. A GitHub issue (labelled `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY` or `TOOLING`) MAY be opened first for early triage; if so, close it when the PR is opened and link the two via the `Issue` field in the RFC document.
 
 - The current lifecycle state of an RFC is tracked via a label on the PR. Apply the matching label – `#draft`, `#proposed`, `#accepted`, `#rejected`, `#superseded` – as the RFC advances.
 
-- Never delete an RFC document, including rejected ones. To change a past decision, open a new RFC that supersedes it — do NOT edit the original except to change its status and to cross-reference related RFCs.
+- Never delete an RFC document, including rejected ones. To change a past decision, open a new RFC that supersedes it — do NOT edit the original except to update its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers.
 
 ## Branch conventions
 
@@ -104,7 +104,7 @@ Transitions not listed above are not permitted. In particular: a proposal MUST N
 
 ### Immutability
 
-Once an RFC is accepted or rejected, its document is treated as immutable. Only its `Status` field and cross-referenced to related RFCs and implementation tickets MAY be updated as necessary.
+Once an RFC is accepted or rejected, its document is treated as immutable. Only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers MAY be updated as necessary.
 
 To revisit a past decision, open a new RFC that supersedes the original and cross-reference the two using the `Supersedes` / `Superseded by` fields.
 
