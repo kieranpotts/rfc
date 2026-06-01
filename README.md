@@ -23,7 +23,7 @@ Changes that typically warrant an RFC include:
 
 ## Contents
 
-- [**RFCs**](./rfc/): The permanent archive of every technical decision, including those that were ultimately rejected — one directory per RFC, grouped by category and catalogued in [`INDEX.md`](./rfc/INDEX.md). `TEMPLATE.md` is the starting point for a new RFC.
+- [**RFCs**](./rfc/): The permanent archive of every technical decision, including those that were ultimately rejected — one directory per RFC, grouped by category and cataloged in [`INDEX.md`](./rfc/INDEX.md). `TEMPLATE.md` is the starting point for a new RFC.
 
 - [**Contributing**](./CONTRIBUTING.md): Instructions for humans to shepherd RFCs through their lifecycle.
 

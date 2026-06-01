@@ -5,8 +5,8 @@
 - Last updated: 2024-02-20
 - Approvers: Kieran Potts
 - Approval date: 2024-01-26
-- PR: #2
-- Discussion thread:
+- PR: #1
+- Discussion thread: https://github.com/kieranpotts/rfc/discussions/1
 
 ## Status
 
@@ -14,14 +14,11 @@ ACCEPTED
 
 ## Related RFCs
 
-- Supersedes #...
-- Superseded by #...
-- Depends on #...
-- Related to #...
+None — this is the project's first RFC.
 
 ## Implementation trackers
 
-- #...
+None.
 
 ## Summary
 
@@ -55,7 +52,7 @@ Repository hygiene — `.gitignore`, `.gitattributes` for line-ending normalizat
 
 **Mercurial**: A capable distributed VCS with a reputation for a cleaner CLI. Rejected because Git's ecosystem — hosting, CI providers, tooling, and the prevailing familiarity among contributors — is materially larger, which lowers onboarding cost and operational risk.
 
-**A centralized VCS (eg. Subversion)**: Rejected because centralized systems handle branching and offline/asynchronous work poorly, which is a bad fit for distributed collaboration and fast, continuous integration workflows.
+**A centralized VCS (e.g. Subversion)**: Rejected because centralized systems handle branching and offline/asynchronous work poorly, which is a bad fit for distributed collaboration and fast, continuous integration workflows.
 
 ## Trade-offs and risks
 

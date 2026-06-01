@@ -6,7 +6,7 @@ license: MIT
 
 # Reject RFC
 
-Use this skill to move an RFC from **proposed** to **rejected**. A rejected RFC is not discarded — its document is merged into `main` and preserved permanently in `rfc/` as the record of the decision and its rationale, so the same ground is not needlessly re-trodden later. Because this repository is an append-only archive (it holds no "current state" a rejected RFC would have changed), rejection is straightforward — there is nothing to revert.
+Use this skill to move an RFC from **proposed** to **rejected**. A rejected RFC is not discarded — its document is merged into `main` and preserved permanently in `rfc/` as the record of the decision and its rationale, so the same ground is not needlessly covered again later. Because this repository is an append-only archive (it holds no "current state" a rejected RFC would have changed), rejection is straightforward — there is nothing to revert.
 
 Do NOT use this skill for any other transition — to accept use [`approve-rfc`](../approve-rfc/SKILL.md), to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md).
 

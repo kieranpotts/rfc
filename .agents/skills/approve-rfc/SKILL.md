@@ -32,7 +32,7 @@ The RFC MUST currently be `PROPOSED` (a non-draft PR carrying `#proposed`). Conf
 
 3.  **Add the RFC to the index.**
 
-    Find the highest RFC number in [`rfc/INDEX.md`](../../../rfc/INDEX.md), increment by one, and zero-pad to four digits (eg. `0006` → `0007`). Add a row for this RFC — its number, title, category, `Accepted` status, the approval date, and a link to its directory (`rfc/<category>/<slug>/`). The number lives only in the index; the RFC's directory and files are never renamed.
+    Find the highest RFC number in [`rfc/INDEX.md`](../../../rfc/INDEX.md), increment by one, and zero-pad to four digits (e.g. `0006` → `0007`). Add a row for this RFC — its number, title, category, `Accepted` status, the approval date, and a link to its directory (`rfc/<category>/<slug>/`). The number lives only in the index; the RFC's directory and files are never renamed.
 
 4.  **Update the document.**
 

@@ -14,7 +14,7 @@ This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while 
 
 1.  **Confirm the RFC slug and category.**
 
-    Establish a short, hyphen-delimited slug (eg. `event-sourcing-for-audit-log`). Confirm the category: `ARCHITECTURE` (system design or implementation patterns), `PROCESS` (development or operations lifecycle), `TECHNOLOGY` (production technology or infrastructure), or `TOOLING` (automation tools or devops infrastructure). If the user hasn't stated these, ask.
+    Establish a short, hyphen-delimited slug (e.g. `event-sourcing-for-audit-log`). Confirm the category: `ARCHITECTURE` (system design or implementation patterns), `PROCESS` (development or operations lifecycle), `TECHNOLOGY` (production technology or infrastructure), or `TOOLING` (automation tools or devops infrastructure). If the user hasn't stated these, ask.
 
 2.  **Create the branch.**
 
@@ -26,7 +26,7 @@ This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while 
 
 3.  **Create the RFC directory from the template.**
 
-    Copy `rfc/TEMPLATE.md` to `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase category directory (`architecture`, `process`, `technology`, or `tooling`) matching step 1. The RFC lives in its own directory, so the author can add supporting artifacts (eg. architectural diagrams) alongside the `README.md` and link them from its `References` section. Do not add a numeric ID anywhere — RFC numbers are assigned only in `rfc/INDEX.md`, at merge.
+    Copy `rfc/TEMPLATE.md` to `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase category directory (`architecture`, `process`, `technology`, or `tooling`) matching step 1. The RFC lives in its own directory, so the author can add supporting artifacts (e.g. architectural diagrams) alongside the `README.md` and link them from its `References` section. Do not add a numeric ID anywhere — RFC numbers are assigned only in `rfc/INDEX.md`, at merge.
 
 4.  **Fill in the metadata header.**
 

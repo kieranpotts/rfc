@@ -6,7 +6,7 @@ These on-demand agent skills manage the RFC workflow — one per state transitio
 
 - [`propose-rfc`](./propose-rfc/): Remove a PR's draft status, marking the RFC ready for review.
 
-- [`approve-rfc`](./approve-rfc/): Approve a proposed RFC — assign its ID and accept it.
+- [`approve-rfc`](./approve-rfc/): Approve a proposed RFC — assign its number and accept it.
 
 - [`reject-rfc`](./reject-rfc/): Reject a proposed RFC, preserving it permanently as a record.
 

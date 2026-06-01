@@ -12,7 +12,7 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 - An RFC is the record of a decision. The [`rfc/`](./rfc/) directory is an append-only log. Once an RFC is `ACCEPTED` or `REJECTED`, its document is immutable; only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter.
 
-- An RFC MUST be a single, atomic decision. Author it on an `rfc/[slug]` branch cut from `main`, and open a pull request titled `rfc: [slug]`.
+- An RFC MUST be a single, atomic decision. Author it on an `rfc/<slug>` branch cut from `main`, and open a pull request titled `rfc: <slug>`.
 
 - When the pull request is opened, it MUST be labeled with exactly one category — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. The category is denoted solely by this label; it is not duplicated in the RFC document.
 
@@ -30,18 +30,18 @@ All RFC branches are cut from `main` and merged back into `main`. See the lifecy
 
 ## Commit conventions
 
-Every commit on an RFC branch is prefixed `rfc:`, matching the branch name (`rfc/[slug]`) and the pull request title (`rfc: [slug]`). Use the message shown for each lifecycle step below. The [skills](#skills) write these for you; follow the same convention when working by hand, so the history reads identically whether a human or an agent drove the change.
+Every commit on an RFC branch is prefixed `rfc:`, matching the branch name (`rfc/<slug>`) and the pull request title (`rfc: <slug>`). Use the message shown for each lifecycle step below. The [skills](#skills) write these for you; follow the same convention when working by hand, so the history reads identically whether a human or an agent drove the change.
 
 | Step | Commit message |
 | --- | --- |
-| Scaffold a new RFC | `rfc: [slug]` |
-| Link the discussion thread | `rfc: link discussion thread for [slug]` |
-| Mark ready for review (draft → proposed) | `rfc: mark [slug] ready for review` |
-| Accept (proposed → accepted) | `rfc: accept [slug] (RFC NNNN)` |
-| Reject (proposed → rejected) | `rfc: reject [slug] (RFC NNNN)` |
-| Supersede (accepted → superseded) | `rfc: supersede [slug]` |
+| Scaffold a new RFC | `rfc: <slug>` |
+| Link the discussion thread | `rfc: link discussion thread for <slug>` |
+| Mark ready for review (draft → proposed) | `rfc: mark <slug> ready for review` |
+| Accept (proposed → accepted) | `rfc: accept <slug> (RFC <NNNN>)` |
+| Reject (proposed → rejected) | `rfc: reject <slug> (RFC <NNNN>)` |
+| Supersede (accepted → superseded) | `rfc: supersede <slug>` |
 
-`NNNN` is the four-digit RFC number assigned in [`INDEX.md`](./rfc/INDEX.md) at merge — the highest existing number plus one, zero-padded (eg. `0007`).
+`<NNNN>` is the four-digit RFC number assigned in [`INDEX.md`](./rfc/INDEX.md) at merge — the highest existing number plus one, zero-padded (eg. `0007`).
 
 ## Proposing a decision
 
@@ -68,15 +68,15 @@ Every RFC has exactly one category:
 
 - **TECHNOLOGY**: A decision about the production technology stack or infrastructure.
 
-- **TOOLING**: A decision about the automation tools and devops infrastructure.
+- **TOOLING**: A decision about the automation tools or devops infrastructure.
 
 Follow these steps to prepare the pull request:
 
-1. Branch off `main` using the naming convention `rfc/[slug]`, where `[slug]` is a short, hyphen-delimited description of the decision. For example, `rfc/event-sourcing-for-audit-log`.
+1. Branch off `main` using the naming convention `rfc/<slug>`, where `<slug>` is a short, hyphen-delimited description of the decision. For example, `rfc/event-sourcing-for-audit-log`.
 
-2. Copy [`rfc/TEMPLATE.md`](./rfc/TEMPLATE.md) to `rfc/<category>/[slug]/README.md`, where `<category>` is the lowercase category directory (`architecture`, `process`, `technology`, or `tooling`). The RFC lives in its own directory, so you may add supporting artifacts — architectural diagrams, prototypes, benchmarks, and the like — alongside the `README.md` and link them from its `References` section. Keeping such artifacts in the RFC directory is preferred, as it keeps the record self-contained; link to an external repository only where an artifact cannot live here. Fill it out: link the associated discussion thread (step 1) via the `Discussion thread` field, and describe the decision in full — the motivation, the proposed solution, the alternatives considered, and the trade-offs.
+2. Copy [`rfc/TEMPLATE.md`](./rfc/TEMPLATE.md) to `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase category directory (`architecture`, `process`, `technology`, or `tooling`). The RFC lives in its own directory, so you may add supporting artifacts — architectural diagrams, prototypes, benchmarks, and the like — alongside the `README.md` and link them from its `References` section. Keeping such artifacts in the RFC directory is preferred, as it keeps the record self-contained; link to an external repository only where an artifact cannot live here. Fill it out: link the associated discussion thread (step 1) via the `Discussion thread` field, and describe the decision in full — the motivation, the proposed solution, the alternatives considered, and the trade-offs.
 
-3. Commit your changes and open a pull request titled `rfc: [slug]`. Each pull request MUST be focused on a single atomic decision that can be reviewed, decided, and merged independently of any other. If you have multiple decisions to propose, open multiple pull requests.
+3. Commit your changes and open a pull request titled `rfc: <slug>`. Each pull request MUST be focused on a single atomic decision that can be reviewed, decided, and merged independently of any other. If you have multiple decisions to propose, open multiple pull requests.
 
 4. Apply one category label to the pull request — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. Exactly one category label is REQUIRED on every RFC pull request.
 

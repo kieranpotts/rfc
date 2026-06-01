@@ -11,12 +11,12 @@
   },
   {
     "name": "TECHNOLOGY",
-    "description": "A decision about the production technology stack and infrastructure.",
+    "description": "A decision about the production technology stack or infrastructure.",
     "color": "994499"
   },
   {
     "name": "TOOLING",
-    "description": "A decision about automation tools and devops infrastructure.",
+    "description": "A decision about automation tools or devops infrastructure.",
     "color": "557700"
   },
   {
