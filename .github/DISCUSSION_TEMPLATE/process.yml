@@ -1,0 +1,22 @@
+#
+# GitHub Discussions - form configuration.
+# https://docs.github.com/en/discussions/managing-discussions-for-your-community/creating-discussion-category-forms
+#
+
+title: "[Type a brief description]"
+labels: ["PROCESS"]
+body:
+  - type: input
+    id: issue
+    attributes:
+      label: Issue
+      description: Link to the originating PROCESS issue.
+    validations:
+      required: false
+  - type: input
+    id: pr
+    attributes:
+      label: PR
+      description: Link to the pull request, once opened.
+    validations:
+      required: false
