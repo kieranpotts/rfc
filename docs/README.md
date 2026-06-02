@@ -11,3 +11,5 @@
 - [**Best practices**](./best-practices.md): Practical advice for running an RFC process well — writing, governance, and culture.
 
 - [**Related links**](./related-links.md): Further reading on RFCs and architectural decision records.
+
+- [**References**](./references.md): Acknowledgements and sources that influenced the design of this RFC template.
