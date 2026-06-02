@@ -2,25 +2,29 @@
 
 <!-- Agents MUST read ./AGENTS.md. This document is for humans. -->
 
-Anyone with write access to this repository may propose a technical decision by opening an RFC. The project maintainers are responsible for shepherding RFCs through their lifecycle and for keeping the archive in good order.
+Anyone with write access to this repository may contribute to the technical direction of this project by submitting technical proposals and requesting comments on them. These contributing guidelines provide step-by-step instructions to pitch technical proposals and shepherd them through the RFC process.
 
 ## Rules
 
-The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY, in the context of this document and agent skills, are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY, in the context of this document and this repositories [agent skills](./agents/skills/), are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
-- Write in American English.
+- MUST write in American English.
 
-- An RFC is the record of a decision. The [`rfc/`](./rfc/) directory is an append-only log. Once an RFC is `ACCEPTED` or `REJECTED`, its document is immutable; only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter.
+- An RFC is the record of a decision. The [`rfc/`](./rfc/) directory is an append-only log. Once an RFC is `ACCEPTED` or `REJECTED`, its document is immutable; only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter. Users and agents MUST NOT edit other details of an accepted or rejected RFC.
 
 - An RFC MUST be a single, atomic decision. Author it on an `rfc/<slug>` branch cut from `main`, and open a pull request titled `rfc: <slug>`.
 
-- When the pull request is opened, it MUST be labeled with exactly one category — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. The category is denoted solely by this label; it is not duplicated in the RFC document.
+- When the pull request is opened, it MUST be labeled with exactly one category — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the area of the decision.
 
-- The current lifecycle state of an RFC is tracked via a lifecycle label on the PR. Apply the matching label — `#proposed`, `#accepted`, `#rejected`, `#superseded` — as the RFC advances. A PR is opened as a GitHub draft while the document is still being refined; the author marks it ready for review when it is ready for stakeholder review.
+- A draft PR is opened when a new RFC is first opened. Once the proposal is refined sufficiently to invite stakeholder feedback, the author MUST set the PR to "ready for review".
 
-- Never delete an RFC document, including rejected ones. To change a past decision, open a new RFC that supersedes it — do NOT edit the original except to update its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers.
+- The lifecycle state of an open RFC is tracked via labels on its PR. You MUST apply the matching label — `#proposed`, `#accepted`, `#rejected`, `#superseded` — as the RFC advances.
 
-- The issue tracker is for maintenance work on this repository only (the `MAINTENANCE` template). RFCs are managed entirely through pull requests. Every RFC pull request MUST have an associated discussion thread for review feedback, opened with the PR and closed when the RFC is accepted or rejected.
+- Every RFC pull request MUST have an associated discussion thread for review feedback, opened with the PR and closed when the RFC is accepted or rejected.
+
+- You MUST NOT delete any RFC documents in the `main` branch, including rejected RFCs. To change a past decision, open a new RFC that supersedes it — do NOT edit the original except to update its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers.
+
+- The issue tracker is for maintenance work on this repository only (the `MAINTENANCE` template). RFCs are managed entirely through pull requests.
 
 ## Branch conventions
 
@@ -80,7 +84,7 @@ Follow these steps to prepare the pull request:
 
 4. Apply one category label to the pull request — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. Exactly one category label is REQUIRED on every RFC pull request.
 
-Open the pull request as a GitHub draft; at this point it carries only its category label. Keep it in draft while you refine the document. When it is ready for full stakeholder review, mark the pull request ready and apply the `#proposed` label.
+Open the pull request as a GitHub draft; at this point it carries only its category label. Keep it in draft while you refine the document. When it is ready for full stakeholder review, mark the pull request as "ready for review" and apply the `#proposed` label.
 
 > [!TIP]
 > You don't have to do this by hand: [`/draft-rfc`](./.agents/skills/draft-rfc/) scaffolds the document, opens the draft pull request, applies the category label, and opens the associated discussion thread; [`/propose-rfc`](./.agents/skills/propose-rfc/) then marks the PR ready for review once it is complete. See [Skills](#skills) below.
