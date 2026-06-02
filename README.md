@@ -6,26 +6,30 @@ This repository is the home of the Requests for Comments (RFC) process for [Proj
 
 A Request for Comments (RFC) is a proposal for a _significant_ technical change. Many changes — bug fixes, documentation tweaks, routine refactors — are handled through the normal pull-request workflow of the relevant code repository. But some changes are substantial enough that it is worth building consensus on the design _before_ implementation. That is what the RFC process is for.
 
+> [!IMPORTANT]
+> RFCs cover technical decisions — _how_ the system is built. Product decisions – about _what_ the system should do – are tracked separately in the [software requirements specification (SRS)](https://github.com/kieranpotts/specs). Both the RFC and SRS repositories are managed via similar workflows, but different stakeholders are involved. RFCs originate from technical stakeholders, while the SRS is maintained by product managers.
+
 Changes that typically warrant an RFC include:
 
-- Changes to the system architecture, or deviations from established implementation patterns.
+- Changes to the system architecture and data models, or significant deviations from established implementation patterns.
+
+- Changes to the technology stack, production infrastructure, or major dependencies.
 
 - Changes to interfaces — graphical, command-line, or programmatic — or anything with significant downstream impact.
 
 - Changes that may affect a service level agreement, such as the security model or features that carry performance or availability risk.
 
-- Changes to development or operations lifecycle processes — anything that affects how contributors do their work.
+- Changes to development or operations tools and lifecycle processes — anything that affects how contributors do their work.
 
-- Changes to the technology stack or major dependencies.
+- Changes to coding conventions and other technical standards.
 
-> [!NOTE]
-> This repository covers technical decisions — _how_ the system is built. Product decisions about _what_ the system should do are tracked separately, in the companion [software requirements specification](https://github.com/kieranpotts/specs) repository.
+The serialized RFC documents form a continuous, chronological log of all the major technical decisions made over the history of this project.
 
 ## Contents
 
-- [**RFCs**](./rfc/): The permanent archive of every technical decision, including those that were ultimately rejected — one directory per RFC, grouped by category and cataloged in [`INDEX.md`](./rfc/INDEX.md). `TEMPLATE.md` is the starting point for a new RFC.
+- [**RFCs**](./rfc/): The permanent archive of every technical decision, including those that were ultimately rejected. The [`index`](./rfc/INDEX.md) lists all accepted, rejected, and superseded RFCs. The[`template`](./rfc/TEMPLATE.md) is the starting point for a new RFC.
 
-- [**Contributing**](./CONTRIBUTING.md): Instructions for humans to shepherd RFCs through their lifecycle.
+- [**Contributing**](./CONTRIBUTING.md): Step-by-step instructions to pitch technical proposals and shepherd them through the RFC process.
 
 - [**Agents**](./AGENTS.md): Instructions for agentic tools to manage the RFC workflow with a high degree of autonomy.
 
