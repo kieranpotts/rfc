@@ -49,6 +49,14 @@ Every commit on an RFC branch is prefixed `rfc:`, matching the branch name (`rfc
 
 ## Proposing a decision
 
+<!--
+
+The RFC process is initialized by a proposal being put forward for comments – literally, a request for comments.
+
+There is one main document per proposal – a Markdown file – and each proposal is generally scoped to a single technical decision.
+
+-->
+
 ### Step 1: Open a discussion thread (REQUIRED)
 
 Every RFC has an associated **discussion thread**, and it is where _all_ review feedback is gathered — not the pull request's own comments. This keeps the pull request focused on the evolution of the RFC document itself.
@@ -80,6 +88,18 @@ Follow these steps to prepare the pull request:
 
 2. Copy [`rfc/TEMPLATE.md`](./rfc/TEMPLATE.md) to `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase category directory (`architecture`, `process`, `technology`, or `tooling`). The RFC lives in its own directory, so you may add supporting artifacts — architectural diagrams, prototypes, benchmarks, and the like — alongside the `README.md` and link them from its `References` section. Keeping such artifacts in the RFC directory is preferred, as it keeps the record self-contained; link to an external repository only where an artifact cannot live here. Fill it out: link the associated discussion thread (step 1) via the `Discussion thread` field, and describe the decision in full — the motivation, the proposed solution, the alternatives considered, and the trade-offs.
 
+<!--
+
+Proposals should present a convincing motivation for the change, demonstrate an understanding of the impact of the proposed solution, and be honest about its drawbacks and the relative merits of alternative solutions.
+
+You do not need to include all sections of the template; just include what is relevant to the problem and solution at hand.
+
+Proposals should be written in an informal style (they are not specifications or standards) and they may leave questions open for discussion.
+
+Other artifacts such as architectural diagrams may be linked from or embedded in proposal documents.
+
+-->
+
 3. Commit your changes and open a pull request titled `rfc: <slug>`. Each pull request MUST be focused on a single atomic decision that can be reviewed, decided, and merged independently of any other. If you have multiple decisions to propose, open multiple pull requests.
 
 4. Apply one category label to the pull request — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision. Exactly one category label is REQUIRED on every RFC pull request.
@@ -88,6 +108,39 @@ Open the pull request as a GitHub draft; at this point it carries only its categ
 
 > [!TIP]
 > You don't have to do this by hand: [`/draft-rfc`](./.agents/skills/draft-rfc/) scaffolds the document, opens the draft pull request, applies the category label, and opens the associated discussion thread; [`/propose-rfc`](./.agents/skills/propose-rfc/) then marks the PR ready for review once it is complete. See [Skills](#skills) below.
+
+<!--
+
+The Technical Leads will review your proposal and provide feedback. If they agree the idea should be explored in more detail, they will request comments from other technical stakeholders. This is all done via the discussion thread, which means the comment thread on the PR itself stays focused on the evolution of the RFC documents themselves.
+
+During this phase, you should be prepared to build consensus for your idea among the technical stakeholders, and to revise your proposal in response to feedback.
+
+Once discussion has resolved the main points of contention, and once the proposed solution has stabilized, the Technical Leads will provisionally mark the proposal as "accepted" or "rejected" and invite final comments. The final comment period lasts for at least two weeks.
+
+The outcome of the RFC process will be for your proposal document to be merged into the `main` branch of the upstream reference repository. All proposals are merged, whether they are ultimately accepted or rejected. On merging, the Technical Leads will make final edits to your proposal document, giving it a unique numerical ID and changing the document's status to `ACCEPTED` or `REJECTED`, depending on the final outcome.
+
+When a proposal is accepted, it is said to be pending implementation, and the Technical Leads will open tickets in the application repositories to track the implementation. Those tickets will be linked from the original proposal document, and vice versa. - eg. if technical spikes required before a final decision is made.
+
+During development, the design of a solution may be further iterated from the original proposal. Therefore accepted proposals will continue to be edited (either by the Technical Leads or the people assigned to the implementation) to reflect the evolving design. Once the implementation is done (which means: shipped to production), the contents of the original document will be updated to reflect the final design.
+
+Thereafter, the proposal document will be treated as immutable. Thus, to change or revert past decisions that have been already implemented, new proposals must be put forward that supersede the original ones. The status of the original decisions will be changed to `DEPRECATED` and the relevant documents will be updated to cross-reference each other.
+
+----
+Supersedes: RFC 0123
+Superseded by: RFC 0321
+----
+
+'''''''''''''''''''''''''''''''''''''''''''
+
+Proposals are negotiated with the relevant project stakeholders. During the RFC process, the original proposal may change, perhaps significantly, in response to stakeholder feedback. When the proposal is finalized, the original proposal document is be updated to describe the settled solution, the design rationale for it, and the relative pros and cons of any alternative solutions that were considered.
+
+The outcome of the RFC process is for the finalized proposal to be either accepted or rejected.
+
+When a proposal is accepted, it is queued for implementation. Tasks will be created in the relevant project management tools to track the implementation.
+
+Once a proposal reaches the accepted or rejected state, the contents of the proposal document are treated as immutable. Only the status of the document may change thereafter. This constraint ensures that records of all past decisions – even those that are no longer in effect – are persisted indefinitely. To change past decisions, new RFCs are introduced that extend or supersede prior ones.
+
+-->
 
 ## RFC lifecycle
 
@@ -102,6 +155,19 @@ Each RFC moves through a defined state machine. From `proposed` onward, the curr
 - **Rejected**: The decision will not be taken forward. The maintainers record the RFC's number in [`INDEX.md`](./rfc/INDEX.md), close the associated discussion thread, then merge the RFC document into `main`, where it is preserved permanently in [`rfc/`](./rfc/) as the record of the decision and its rationale.
 
 - **Superseded**: A previously accepted decision that is no longer in effect, because a later RFC has replaced it. This is the only state an accepted RFC can progress to.
+
+<!--
+
+Each RFC proposal has one of the following possible states, representing the stage that the proposal is at in the decision-making process:
+
+- **Draft**: A preliminary version of a proposal, put forward for early feedback.
+- **Proposed**: A proposal that is being negotiated with the relevant stakeholders.
+- **Accepted**: A proposal that has been approved and is currently pending implementation.
+- **Rejected**: A proposal that has been rejected and will not be taken forward.
+- **Implemented**: A proposal that has been implemented and is currently in effect.
+- **Deprecated**: A legacy proposal that was previously implemented but has since been superseded by more recent changes and is no longer in effect.
+
+-->
 
 ### Permitted transitions
 
@@ -156,3 +222,17 @@ The skills, in lifecycle order:
 A typical journey runs `/draft-rfc` → _(write the proposal)_ → `/propose-rfc` → _(stakeholder review)_ → `/approve-rfc` or `/reject-rfc`. Much later, `/supersede-rfc` retires a decision that a newer RFC has replaced.
 
 Each skill's directory holds a `README.md` (how to invoke it, with examples) and a `SKILL.md` (the full instructions and transition rules).
+
+<!--
+
+## Contributor license agreement
+
+By opening a pull request to this repository, you accept and agree to the following terms and conditions:
+
+- You agree that your contribution may be distributed under the terms of the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). .... change to CC0 - which basically means the contribution is released to the public domain.
+
+- You certify that your contribution is either created in whole by you and you have the right to distribute the work under the designated license, or is based on a previous work with a similar license that permits distribution and modification under the designated license.
+
+- You understand and agree that your contribution is public and that a record of the contribution, including all personal information that you submit with it, is maintained indefinitely and may be redistributed as per the requirements of the designated license.
+
+-->

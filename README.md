@@ -4,6 +4,12 @@
 
 This repository is the home of the Requests for Comments (RFC) process for [Project Name]. It is a permanent, chronological archive of the architecturally significant technical decisions made over the lifetime of the project, and the mechanism by which those decisions are proposed, discussed, and accepted or rejected.
 
+<!--
+
+The RFC format {link-nytimes}[originated in 1969] in the ARPANET project, the forerunner of the Internet. RFCs remain in use to this day, primarily at the {link-ietf-rfcs}[Internet Engineering Task Force] and other IT standardization organizations. In this domain RFCs are used principally to facilitate technical standardization efforts and to document industry best practices.
+
+-->
+
 A Request for Comments (RFC) is a proposal for a _significant_ technical change. Many changes — bug fixes, documentation tweaks, routine refactors — are handled through the normal pull-request workflow of the relevant code repository. But some changes are substantial enough that it is worth building consensus on the design _before_ implementation. That is what the RFC process is for.
 
 > [!IMPORTANT]
@@ -32,6 +38,12 @@ The serialized RFC documents form a continuous, chronological log of all the maj
 - [**Contributing**](./CONTRIBUTING.md): Step-by-step instructions to pitch technical proposals and shepherd them through the RFC process.
 
 - [**Agents**](./AGENTS.md): Instructions for agentic tools to manage the RFC workflow with a high degree of autonomy.
+
+<!--
+
+- [**Documentation**](./docs/): Further guidance on how to get the most out of the RFC process, including how to scope RFCs, how to write good RFCs, and how to manage the RFC process in a way that maximizes its benefits.
+
+-->
 
 -----
 
