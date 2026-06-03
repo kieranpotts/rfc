@@ -1,7 +1,7 @@
 # RFC index
 
-The catalog of every RFC in `main` — accepted and rejected alike. The **RFC number** is assigned here, at merge; it appears nowhere else, and no RFC file is ever renamed. Numbers run in a single sequence across all categories and outcomes.
+This is a catalog of every RFC in `main` — both ACCEPTED and REJECTED proposals. RFC numbers are assigned here, at the time that proposal documents are finalized and merged to `main`.
 
-| # | Title | Category | Status | Decided |
+| # | Title | Category | Status | Finalization date |
 | --- | --- | --- | --- | --- |
-| [0001](./tooling/git-for-version-control/) | Use Git for version control | TOOLING | Accepted | 2024-01-26 |
+| [0001](./tooling/git-for-version-control/) | Use Git for version control | TOOLING | ACCEPTED | 2024-01-26 |
