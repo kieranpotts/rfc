@@ -2,40 +2,23 @@
 
 **A template for managing technical decisions via version control.**
 
-This repository is the home of the Requests for Comments (RFC) process for [Project Name]. It is a permanent, chronological archive of the architecturally significant technical decisions made over the lifetime of the project, and the mechanism by which those decisions are proposed, discussed, and accepted or rejected.
+This repository is the home of the Requests for Comments (RFC) process for [Project Name]. It is a permanent, chronological archive of the architecturally significant technical decisions made over the lifetime of the project. It is also the mechanism by which new technical decisions are proposed, discussed, and accepted or rejected.
 
-The RFC format [originated in 1969](https://www.nytimes.com/2009/04/07/opinion/07crocker.html) in the ARPANET project, the forerunner of the Internet. RFCs remain in use to this day, primarily at the [Internet Engineering Task Force](https://www.ietf.org/standards/rfcs/) and other standardization bodies, to facilitate technical standardization efforts across the IT industry, and to document emerging best practices in a variety of technical domains.
-
-A Request for Comments (RFC) is a proposal for a _significant_ technical change. Many changes — bug fixes, documentation tweaks, routine refactors — are handled through the normal pull-request workflow of the relevant code repository. But some changes are substantial enough that it is worth building consensus on the design _before_ implementation. That is what the RFC process is for.
-
-> [!IMPORTANT]
-> RFCs cover technical decisions — _how_ the system is built. Product decisions – about _what_ the system should do – are tracked separately in the [software requirements specification (SRS)](https://github.com/kieranpotts/specs). Both the RFC and SRS repositories are managed via similar workflows, but different stakeholders are involved. RFCs originate from technical stakeholders, while the SRS is maintained by product managers.
-
-Changes that typically warrant an RFC include:
-
-- Changes to the system architecture and data models, or significant deviations from established implementation patterns.
-
-- Changes to the technology stack, production infrastructure, or major dependencies.
-
-- Changes to interfaces — graphical, command-line, or programmatic — or anything with significant downstream impact.
-
-- Changes that may affect a service level agreement, such as the security model or features that carry performance or availability risk.
-
-- Changes to development or operations tools and lifecycle processes — anything that affects how contributors do their work.
-
-- Changes to coding conventions and other technical standards.
-
-The serialized RFC documents form a continuous, chronological log of all the major technical decisions made over the history of this project.
+RFCs cover technical decisions — _how_ the system is built. Product decisions – about _what_ the system should do – are tracked separately in the [software requirements specification (SRS)](https://github.com/kieranpotts/specs). Both the RFC and SRS repositories are managed via similar workflows, but different stakeholders are involved. RFCs originate from technical stakeholders, while the SRS is maintained by product managers.
 
 ## Contents
 
-- [**RFCs**](./rfc/): The permanent archive of every technical decision, including those that were ultimately rejected. The [`index`](./rfc/INDEX.md) lists all accepted, rejected, and superseded RFCs. The [`template`](./rfc/TEMPLATE.md) is the starting point for a new RFC.
+- [**RFCs**](./rfc/): The permanent archive of every technical decision, including those that were ultimately rejected.
 
-- [**Contributing**](./CONTRIBUTING.md): Step-by-step instructions to pitch technical proposals and shepherd them through the RFC process.
+  - The [`INDEX`](./rfc/INDEX.md) lists all accepted, rejected, and superseded RFCs. (Current proposals are tracked via the pull requests system.)
+
+  - The [`TEMPLATE`](./rfc/TEMPLATE.md) is the starting point for a new RFC.
+
+- [**Contributing**](./CONTRIBUTING.md): Step-by-step instructions to pitch technical proposals, and to shepherd them through the RFC process.
 
 - [**Agents**](./AGENTS.md): Instructions for agentic tools to manage the RFC workflow with a high degree of autonomy.
 
-- [**Documentation**](./docs/): Further guidance on how to get the most out of the RFC process, including how to scope RFCs, how to write good RFCs, and how to manage the RFC process in a way that maximizes its benefits.
+- [**Documentation**](./docs/): Further guidance on how to get the most out of the RFC process.
 
 -----
 
