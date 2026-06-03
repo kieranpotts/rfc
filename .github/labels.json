@@ -31,7 +31,7 @@
   },
   {
     "name": "#accepted",
-    "description": "An RFC approved and queued for implementation.",
+    "description": "An RFC that was accepted.",
     "color": "FFFFFF"
   },
   {
