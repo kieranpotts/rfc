@@ -2,10 +2,11 @@
 # Validate commit message formats.
 #
 # A repository-specific variant of the shared
-# `kieranpotts/actions/validate-commit-messages` action, inlined here so the
-# set of allowed commit types can be tailored to this repository: a subset of
-# the standard TS-3 revision types, plus custom prefixes — notably `rfc`, used
-# for every commit on an `rfc/<slug>` branch.
+# `kieranpotts/actions/validate-commit-messages` action,
+# inlined here so the set of allowed commit types can be
+# tailored to this repository: a subset of the standard
+# revision types, plus custom prefixes: `rfc`, `draft`,
+# `propose`, etc.
 #
 
 name: Validate commit messages
@@ -51,7 +52,7 @@ jobs:
         run: |
           # Allowed commit types:
           #   Standard (subset of TS-3) : chore, fix, format, maintenance, refactor, revert
-          #   Custom (this repository)  : rfc — for commits on an `rfc/<slug>` branch
+          #   Custom (this repository)  : rfc, draft, propose, accept, reject, supersede
           types="chore|fix|format|maintenance|refactor|revert|rfc|draft|propose|accept|reject|supersede"
           re="^($types): [a-z].*$"
 
