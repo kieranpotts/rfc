@@ -132,11 +132,11 @@ Once the final comment period has concluded, and when there is clear consensus o
 
 3. Review the final version of the RFC document to ensure it accurately reflects the agreed design and rationale. Make any necessary edits to clarify the proposal, but do not change the substance of the decision at this point.
 
-4. Merge the PR. Delete the branch, if it is not automatically deleted.
+4. Close the discussion thread — final comments have concluded, so no further feedback is expected.
 
-5. On the `main` branch, update `rfc/INDEX.md` to add the new RFC, with the next sequential number. The number is not assigned until merge, so be sure to check the index for the latest number before updating. Commit this change directly to `main`.
+5. Squash-merge the PR. Delete the branch, if it is not automatically deleted.
 
-6. Close the discussion thread.
+6. On the `main` branch, update `rfc/INDEX.md` to add the new RFC, with the next sequential number. The number is not assigned until merge, so be sure to check the index for the latest number before updating. Commit this change directly to `main`.
 
 ## Rules
 
@@ -160,7 +160,7 @@ Once the final comment period has concluded, and when there is clear consensus o
 
 - RFCs MUST NOT be merged to `main` before they are decided – either `ACCEPTED` or `REJECTED`. RFCs that are still being refined or negotiated live on their own `rfc/` branches and have open pull requests.
 
-- RFC branches are squash-merged into `main` once a decision is made. The message of the squash commit on `main` MUST take the form `rfc: <slug> - ACCEPTED|REJECTED`, where `<slug>` is a short description of the proposal, written full lowercase.
+- RFC branches are squash-merged into `main` once a decision is made. The message of the squash commit on `main` MUST take the form `rfc: <description> - ACCEPTED|REJECTED`, where `<description>` is a short prose title of the proposal, written full lowercase (eg. `rfc: event sourcing for audit log - ACCEPTED`) — not the hyphenated branch slug.
 
 ## Contributor license agreement
 

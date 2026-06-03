@@ -1,6 +1,6 @@
 # Accept RFC
 
-Transitions an RFC from `PROPOSED` to `ACCEPTED` and prepares it for merge.
+Transitions an RFC from `PROPOSED` to `ACCEPTED`, then squash-merges the PR.
 
 ## What it does
 

@@ -85,8 +85,8 @@ Do NOT use this skill to advance an existing RFC. Use [`propose-rfc`](../propose
           discussion { url }
         }
       }' -F repoId=<repoId> -F categoryId=<categoryId> \
-        -f title="rfc: <slug>" \
-        -f body="Discussion thread for the **<slug>** RFC (PR #<number>). Please leave all feedback here, not on the pull request."
+        -f title="rfc: <short lowercase rfc description>" \
+        -f body="Discussion thread for the **<short lowercase rfc description>** RFC (PR #<number>). Please leave all feedback here, not on the pull request."
     ```
 
     Record the returned URL in the RFC document's `Discussion thread` field, and add it to the pull request description, so the two cross-reference each other:
@@ -128,7 +128,7 @@ Do NOT use this skill to advance an existing RFC. Use [`propose-rfc`](../propose
 
 -   **Do not assign a numeric ID.**
 
-    RFC numbers are assigned in `rfc/INDEX.md` after an RFC is either `APPROVED` or `REJECTED` and its PR merged to the `main` branch.
+    RFC numbers are assigned in `rfc/INDEX.md` after an RFC is either `ACCEPTED` or `REJECTED` and its PR merged to the `main` branch.
 
 ## Success criteria
 
@@ -136,7 +136,7 @@ Do NOT use this skill to advance an existing RFC. Use [`propose-rfc`](../propose
 
 - `rfc/<category>/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: DRAFT`.
 
-- A draft pull request titled `rfc: <slug>` is open, carrying exactly one category label and no lifecycle label.
+- A draft pull request titled `rfc: <short lowercase rfc description>` is open, carrying exactly one category label and no lifecycle label.
 
 - An associated discussion thread is open, linked from the document's `Discussion thread` field and from the PR.
 

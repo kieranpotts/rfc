@@ -26,7 +26,7 @@ The RFC MUST currently be `PROPOSED`. Confirm _all_ of the following before reje
 
 1.  **Confirm the RFC and the decision.**
 
-    Infer the target from the current checked-out branch (`rfc/<slug>`). If the user gave a short description, use it to infer the target RFC. Else list the open `#proposed` pull requests and ask the user to choose.
+    Infer the target from the current checked-out branch (`rfc/<slug>`). If on `main`, use the user's description to infer the target RFC if they gave one; otherwise list the open `#proposed` pull requests and ask the user to choose:
 
     ```sh
     gh pr list --label "#proposed" --json number,title,headRefName
@@ -73,15 +73,19 @@ The RFC MUST currently be `PROPOSED`. Confirm _all_ of the following before reje
     git commit -am "reject: <short lowercase rfc description>"
     ```
 
-7.  **Prepare for merge.**
+7.  **Merge the pull request.**
 
-    Confirm with the user that the PR is ready to merge into `main`. Do not merge without explicit instruction. The branch is squash-merged with the message `rfc: <short lowercase rfc description> - REJECTED`.
+    Confirm with the user that the PR is ready to merge into `main` — do not merge without explicit instruction. Once confirmed, squash-merge it with the message `rfc: <short lowercase rfc description> - REJECTED`:
 
-8.  **After merge: assign the number.**
+    ```sh
+    gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - REJECTED"
+    ```
+
+8.  **After merge, assign the number.**
 
     The RFC number is assigned only after merge. On `main`, find the highest number in [`rfc/INDEX.md`](../../../rfc/INDEX.md), increment by one, and zero-pad to four digits. Add a row for this RFC — its number, title, category, `Rejected` status, the date, and a link to its directory (`rfc/<category>/<slug>/`).
 
-    , and push:
+    Commit this directly to `main`, and push:
 
     ```sh
     git commit -am "chore: assign next rfc number"

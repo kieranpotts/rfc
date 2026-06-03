@@ -41,7 +41,7 @@ The authors of an RFC drive its lifecycle. Each state transition has a correspon
 
 - An RFC is for a _significant_ technical decision, one that affects multiple stakeholders and is worth building consensus on before implementation. Routine feature work, bug fixes, and trivial changes go through the normal pull-request workflow on the relevant repository, not an RFC.
 
-- An RFC MUST be a single, atomic technical decision. Author it on an `rfc/<slug>` branch cut from `main`, and open a pull request titled `rfc: <slug>`.
+- An RFC MUST be a single, atomic technical decision. Author it on an `rfc/<slug>` branch cut from `main`, and open a pull request titled `rfc: <short lowercase description>`.
 
 - If a body of work spans several independent decisions, open one RFC per decision and link them as related.
 
@@ -57,7 +57,7 @@ The authors of an RFC drive its lifecycle. Each state transition has a correspon
 
 - An RFC MUST NOT be merged into `main` until it has been decided — either accepted or rejected.
 
-- RFC branches MUST be squash-merged to `main`, and the squash commit message MUST take the form `rfc: <slug> - ACCEPTED|REJECTED` (slug in full lowercase). A sequential RFC number is assigned after merge, recorded in `rfc/INDEX.md` (the number lives only in the index).
+- RFC branches MUST be squash-merged to `main`, and the squash commit message MUST take the form `rfc: <short lowercase description> - ACCEPTED|REJECTED`. The description is the prose title of the RFC, not the branch slug (eg. `rfc: event sourcing for audit log - ACCEPTED`). A sequential RFC number is assigned after merge, recorded in `rfc/INDEX.md` (the number lives only in the index).
 
 - Once an RFC's `Status` is `ACCEPTED` or `REJECTED`, its document is immutable. Only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter.
 
@@ -75,4 +75,4 @@ The [`.agents/skills/`](.agents/skills/) directory provides on-demand skills for
 - [`propose-rfc`](.agents/skills/propose-rfc/SKILL.md): Verifies and handles the `DRAFT` → `PROPOSED` transition.
 - [`accept-rfc`](.agents/skills/accept-rfc/SKILL.md): Verifies and handles the `PROPOSED` → `ACCEPTED` transition. Also closes the discussion thread.
 - [`reject-rfc`](.agents/skills/reject-rfc/SKILL.md): Verifies and handles the `PROPOSED` → `REJECTED` transition. Also closes the discussion thread.
-- [`supersede-rfc`](.agents/skills/supersede-rfc/SKILL.md): Verified and handles the `ACCEPTED` → `SUPERSEDED` transition for an old RFC.
+- [`supersede-rfc`](.agents/skills/supersede-rfc/SKILL.md): Verifies and handles the `ACCEPTED` → `SUPERSEDED` transition for an old RFC.

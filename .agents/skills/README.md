@@ -10,9 +10,9 @@ The skills are, in lifecycle order:
 
 - **[`/propose-rfc`](./propose-rfc/)**: `DRAFT` → `PROPOSED` — confirms the RFC document is complete and free of leftover template text, sets `Status` to `PROPOSED`, applies the `#proposed` label, and takes the pull request out of draft so stakeholders can review it.
 
-- **[`/accept-rfc`](./accept-rfc/)**: `PROPOSED` → `ACCEPTED` — verifies the approval gates, sets the document's `Status` to `ACCEPTED`, labels the pull request `#accepted`, closes the discussion thread, and prepares it for merge. The RFC's number is recorded in `INDEX.md` on `main` after the merge.
+- **[`/accept-rfc`](./accept-rfc/)**: `PROPOSED` → `ACCEPTED` — verifies the approval gates, sets the document's `Status` to `ACCEPTED`, labels the pull request `#accepted`, closes the discussion thread, and squash-merges it (on your confirmation). The RFC's number is recorded in `INDEX.md` on `main` after the merge.
 
-- **[`/reject-rfc`](./reject-rfc/)**: `PROPOSED` → `REJECTED` — records the rejection: sets the document's `Status` to `REJECTED`, labels the pull request `#rejected`, closes the discussion thread, and prepares it for merge as a permanent record. The number is recorded in `INDEX.md` on `main` after the merge.
+- **[`/reject-rfc`](./reject-rfc/)**: `PROPOSED` → `REJECTED` — records the rejection: sets the document's `Status` to `REJECTED`, labels the pull request `#rejected`, closes the discussion thread, and squash-merges it (on your confirmation) as a permanent record. The number is recorded in `INDEX.md` on `main` after the merge.
 
 - **[`/supersede-rfc`](./supersede-rfc/)**: `ACCEPTED` → `SUPERSEDED` — marks an accepted RFC as replaced by a newer (currently `ACCEPTED`) one, and sets up cross-references between the two.
 

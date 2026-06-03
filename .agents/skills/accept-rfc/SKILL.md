@@ -34,7 +34,7 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
 
 1.  **Identify the RFC and confirm it is `PROPOSED`.**
 
-    Infer the target from the current checked-out branch (`rfc/<slug>`). If on `main`, if the user described the target RFC, try to infer it from that description. If you can't infer the target RFC, list the open `#proposed` pull requests and ask the user to choose:
+    Infer the target from the current checked-out branch (`rfc/<slug>`). If on `main`, use the user's description to infer the target RFC if they gave one; otherwise list the open `#proposed` pull requests and ask the user to choose:
 
     ```sh
     gh pr list --label "#proposed" --json number,title,headRefName

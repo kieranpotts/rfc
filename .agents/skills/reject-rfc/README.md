@@ -8,8 +8,8 @@ Rejects a proposed RFC, preserving the decision permanently.
 - Sets `Status: REJECTED`.
 - Swaps the PR label to `#rejected`.
 - Closes the discussion thread.
-- Prepares the PR for merge.
-- After the branch is squash-merged, assigns the next sequential number in `rfc/INDEX.md` on `main`.
+- Merges the PR using the squash-merge strategy.
+- After the merge, assigns the next sequential number in `rfc/INDEX.md` on `main`.
 
 ## How to invoke
 

@@ -43,8 +43,9 @@ Checklist for merging the PR:
 
 - [ ] If `ACCEPTED`, blocking RFCs (`Depends on`) are resolved.
 - [ ] If `ACCEPTED`, implementation trackers are created and referenced, if applicable.
+- [ ] Close the discussion thread.
+- [ ] Squash-merge the PR.
 
 After merge:
 
 - [ ] Add the RFC to `rfc/INDEX.md`, with next sequential number.
-- [ ] Close the discussion thread.
