@@ -52,7 +52,7 @@ jobs:
           # Allowed commit types:
           #   Standard (subset of TS-3) : chore, fix, format, maintenance, refactor, revert
           #   Custom (this repository)  : rfc — for commits on an `rfc/<slug>` branch
-          types="chore|fix|format|maintenance|refactor|revert|rfc"
+          types="chore|fix|format|maintenance|refactor|revert|rfc|draft|propose|accept|reject|supersede"
           re="^($types): [a-z].*$"
 
           echo "$GIT_LOG_OUTPUT" | while read -r line; do

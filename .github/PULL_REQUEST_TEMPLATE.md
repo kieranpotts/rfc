@@ -9,7 +9,7 @@ _Copy the "Summary" section from the RFC document here._
 
 ## Checklist
 
-The author(s) of the RFC MUST update this checklist as their proposal moves through its lifecycle. They MUST NOT merge this PR before the proposal is either ACCEPTED or REJECTED. See the [contributing guidelines](../CONTRIBUTING.md) for more details about state transitions for RFCs.
+The author(s) of the RFC MUST update this checklist as their proposal moves through its lifecycle. They MUST NOT merge this PR before the proposal is either `ACCEPTED` or `REJECTED`. See the [contributing guidelines](../CONTRIBUTING.md) for more details about state transitions for RFCs.
 
 Checklist for opening a new pull request:
 
@@ -19,7 +19,7 @@ Checklist for opening a new pull request:
 - [ ] Update the RFC document with links to this PR and the discussion.
 - [ ] Set the RFC document's `Status` to `DRAFT`.
 
-Checklist for transitioning from DRAFT to PROPOSED:
+Checklist for transitioning from `DRAFT` to `PROPOSED`:
 
 - [ ] The proposal is complete enough to invite stakeholder review.
 - [ ] There is no placeholder text remaining in the proposal document.
@@ -27,7 +27,7 @@ Checklist for transitioning from DRAFT to PROPOSED:
 - [ ] The PR is marked "ready for review" (taken out of draft status).
 - [ ] The `#proposed` label is applied to the PR.
 
-Checklist for transitioning from PROPOSED to ACCEPTED or REJECTED:
+Checklist for transitioning from `PROPOSED` to `ACCEPTED` or `REJECTED`:
 
 - [ ] Feedback is gathered from all relevant stakeholders.
 - [ ] The main points of contention are resolved.
@@ -41,8 +41,8 @@ Checklist for transitioning from PROPOSED to ACCEPTED or REJECTED:
 
 Checklist for merging the PR:
 
-- [ ] If ACCEPTED, blocking RFCs (`Depends on`) are resolved.
-- [ ] If ACCEPTED, implementation trackers are created and referenced, if applicable.
+- [ ] If `ACCEPTED`, blocking RFCs (`Depends on`) are resolved.
+- [ ] If `ACCEPTED`, implementation trackers are created and referenced, if applicable.
 
 After merge:
 

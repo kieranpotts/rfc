@@ -1,6 +1,6 @@
 # RFC index
 
-This is a catalog of every RFC in `main` — both ACCEPTED and REJECTED proposals. RFC numbers are assigned here, at the time that proposal documents are finalized and merged to `main`.
+This is a catalog of every RFC in `main` — both `ACCEPTED` and `REJECTED` proposals. RFC numbers are assigned here, at the time that proposal documents are finalized and merged to `main`.
 
 | # | Title | Category | Status | Finalization date |
 | --- | --- | --- | --- | --- |

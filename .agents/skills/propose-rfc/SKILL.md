@@ -1,69 +1,83 @@
 ---
 name: propose-rfc
-description: Remove the draft status from an RFC pull request, marking it ready for stakeholder review. Use when the user says "propose this RFC", "this RFC is ready for review", "mark the RFC ready", or "take this RFC out of draft".
+description: Transition an RFC from `DRAFT` to `PROPOSED`, preparing it for stakeholder review. Use this skill when the user says "propose this RFC", "this RFC is ready for review", "mark the RFC as ready", or "take this RFC out of draft", or "progress this RFC".
 license: MIT
 ---
 
 # Propose RFC
 
-Use this skill to move an RFC from draft to **proposed**: confirm the document is complete, apply the `#proposed` label, and remove the pull request's draft status so stakeholders can review it.
+Use this skill to transition an RFC from `DRAFT` to `PROPOSED`. Confirm the document is complete, apply the `#proposed` label, and remove the pull request's draft status so stakeholders can review it.
 
-Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKILL.md)) or to decide one (use [`approve-rfc`](../approve-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), or [`supersede-rfc`](../supersede-rfc/SKILL.md)).
+Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKILL.md)) or to advance one to `ACCEPTED`, `REJECTED`, or `PROPOSED` states (use [`accept-rfc`](../accept-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), or [`supersede-rfc`](../supersede-rfc/SKILL.md)).
 
-## Transition rules (draft → proposed)
+## Transition gates: `DRAFT` → `PROPOSED`
 
-Before removing draft status, confirm **all** of the following. If any fails, report it and pause — do not mark the PR ready.
+Before removing draft status, confirm _all_ of the following. If any fails, report it and pause — do not mark the PR ready.
 
--   **The document is reasonably complete.** Every required section contains substantive, decision-specific content — not the generic placeholder prose carried over from `TEMPLATE.md`:
-    - `Summary` — a concise description of the decision.
-    - `Motivation` — the problem and who it affects.
-    - `Impact` — `HIGH`, `MEDIUM`, or `LOW`, plus what is affected.
-    - `Current state` — the status quo (or deliberately omitted for a greenfield decision).
-    - `Proposed state` — the solution, in enough detail to evaluate.
-    - `Alternatives` — at least one alternative considered.
-    - `Trade-offs and risks` — an honest account of the downsides.
+-   **The document is reasonably complete.**
 
--   **No leftover template text.** No italic placeholder prompts (eg. `_Describe the proposed solution..._`) and no unfilled tokens (`#...`, `YYYY-MM-DD`) remain in any completed section.
+    Every required section contains substantive, decision-specific content. The decision-bearing sections are:
 
--   **The metadata header is filled in.** `Authors`, `Created`, `Last updated`, and `PR` are set, and `Status` is `PROPOSED`.
+    - `Summary`: A concise description of the decision.
+    - `Motivation`: The problem and who it affects.
+    - `Impact`: `HIGH`, `MEDIUM`, or `LOW`, plus what is affected.
+    - `Current state`: The status quo (or deliberately omitted for a greenfield decision).
+    - `Proposed state`: The solution, in enough detail to evaluate.
+    - `Alternatives`: At least one alternative considered.
+    - `Trade-offs and risks`: An honest account of the downsides.
 
--   **Exactly one category label** (`ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`) is on the PR.
+-   **No leftover template text.**
 
-## Instructions
+    There's no generic placeholder prose carried over from [`rfc/TEMPLATE.md`](../../../rfc/TEMPLATE.md). No italic placeholder prompts (eg. `_Describe the proposed solution..._`) and no unfilled tokens (`#...`, `YYYY-MM-DD`) remain in any completed section.
+
+-   **The metadata header is filled in.**
+
+    `Authors`, `Created`, `Last updated`, and `PR` are set. `Status` is still `DRAFT` at this point.
+
+-   **Exactly one category label on the PR.**
+
+    `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`.
+
+##  Instructions
 
 1.  **Identify the RFC and its PR.**
 
-    Read the RFC document (`rfc/<category>/<slug>/README.md`) and find its PR (`gh pr view <number> --json isDraft,labels` if needed).
+    Infer the target from the current checked-out branch (`rfc/<slug>`). If on `main`, list the open draft RFC pull requests and ask the user to choose:
 
-2.  **Verify the transition rules above.**
+    ```sh
+    gh pr list --draft --json number,title,headRefName
+    ```
+
+    Then read the RFC document (`rfc/<category>/<slug>/README.md`) and confirm its PR (`gh pr view <number> --json isDraft,labels` if needed).
+
+2.  **Verify the transition gate criteria, above.**
 
     Read the document in full and check each gate. Report any failures and stop if unmet.
 
 3.  **Update the document.**
 
-    Set `Last updated` to today's date, and confirm `Status` is `PROPOSED`.
+    Set `Status` to `PROPOSED` and `Last updated` to today's date.
 
 4.  **Apply the `#proposed` label.**
 
     ```sh
     gh pr edit <number> --add-label "#proposed"
     ```
+    Leave the category label in place.
 
-    Leave the category label in place. (There is no `#draft` label to remove — the draft state is the pull request's own draft flag.)
-
-5.  **Remove the draft status.**
+5.  **Remove the PR's draft status.**
 
     ```sh
     gh pr ready <number>
     ```
 
-6.  **Commit any document change.**
+6.  **Commit any document changes.**
 
     ```sh
-    git commit -am "rfc: mark <slug> ready for review"
+    git commit -am "propose: <short lowercase rfc description>"
     ```
 
-## Rules
+##  Rules
 
 -   **Do not mark a PR ready until the document is complete.**
 
@@ -71,20 +85,20 @@ Before removing draft status, confirm **all** of the following. If any fails, re
 
 -   **Forward only.**
 
-    This skill only moves draft → proposed. It does not decide the RFC.
+    This skill only moves `DRAFT` → `PROPOSED`. It does not decide the RFC.
 
 ## Success criteria
 
--   **The PR is no longer a draft** (`isDraft: false`).
+- The PR is no longer a draft (`isDraft: false`).
 
--   **The `#proposed` label is applied**, alongside the category label.
+- The `#proposed` label is applied, alongside the category label.
 
--   **`Last updated` is today's date** and `Status` is `PROPOSED`.
+- `Last updated` is today's date and `Status` is `PROPOSED`.
 
 ## References
 
-- [AGENTS.md](../../../AGENTS.md): The full RFC lifecycle.
+- [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle.
 
 - [`draft-rfc`](../draft-rfc/SKILL.md): Scaffolds the RFC and opens the draft PR.
 
-- [`approve-rfc`](../approve-rfc/SKILL.md) / [`reject-rfc`](../reject-rfc/SKILL.md): Decide a proposed RFC.
+- [`accept-rfc`](../accept-rfc/SKILL.md) / [`reject-rfc`](../reject-rfc/SKILL.md): Decide a proposed RFC.

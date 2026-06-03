@@ -37,15 +37,15 @@ Each RFC moves through a defined state machine. The current state of an RFC is s
 
 The states are:
 
-- **DRAFT**: The RFC is being written. Its pull request is open as a draft, which means its not yet ready for review.
+- `DRAFT`: The RFC is being written. Its pull request is open as a draft, which means its not yet ready for review.
 
-- **PROPOSED**: The RFC is complete and open for feedback. It is now formally reviewed and negotiated with relevant stakeholders. From this point, the author should not make further material changes to the RFC except in response to reviewer feedback.
+- `PROPOSED`: The RFC is complete and open for feedback. It is now formally reviewed and negotiated with relevant stakeholders. From this point, the author should not make further material changes to the RFC except in response to reviewer feedback.
 
-- **ACCEPTED**: The proposal has been approved. Before closing the PR, final comments are solicited to confirm there are no outstanding objections, and the RFC document and supporting artifacts are updated to reflect the final agreed design and its rationale. When all stakeholders have signed off on the final wording, the discussion thread is closed and the PR is merged into the `main` branch. The RFC is given a unique number and listed in the [RFC index](./rfc/INDEX.md). An accepted decision remains in effect until a later RFC supersedes it.
+- `ACCEPTED`: The proposal has been approved. Before closing the PR, final comments are solicited to confirm there are no outstanding objections, and the RFC document and supporting artifacts are updated to reflect the final agreed design and its rationale. When all stakeholders have signed off on the final wording, the discussion thread is closed and the PR is merged into the `main` branch. The RFC is given a unique number and listed in the [RFC index](./rfc/INDEX.md). An accepted decision remains in effect until a later RFC supersedes it.
 
-- **REJECTED**: The decision will not be taken forward. The discussion thread is closed and the PR is merged into `main`. The rejected RFC is given a unique number and listed in the [RFC index](./rfc/INDEX.md) alongside accepted RFCs. Thus, all major technical decisions, whether ultimately accepted or rejected, are preserved permanently.
+- `REJECTED`: The decision will not be taken forward. The discussion thread is closed and the PR is merged into `main`. The rejected RFC is given a unique number and listed in the [RFC index](./rfc/INDEX.md) alongside accepted RFCs. Thus, all major technical decisions, whether ultimately accepted or rejected, are preserved permanently.
 
-- **SUPERSEDED**: The decision, previously accepted, is no longer in effect because it has been replaced by a later RFC.
+- `SUPERSEDED`: The decision, previously accepted, is no longer in effect because it has been replaced by a later RFC.
 
 The state transitions are intended to be simple, memorable, and easy to enforce through automation. The permitted state transitions are as follows:
 
@@ -69,7 +69,7 @@ stateDiagram-v2
 | PROPOSED    | REJECTED   | Final comments concluded. Rejected.  |
 | ACCEPTED    | SUPERSEDED | Replaced by a newer, accepted RFC.   |
 
-Transitions not listed above are not permitted. In particular, a decision MUST NOT move backwards (eg. from ACCEPTED back to PROPOSED), and MUST NOT skip states (eg. from PROPOSED to SUPERSEDED).
+Transitions not listed above are not permitted. In particular, a decision MUST NOT move backwards (eg. from `ACCEPTED` back to `PROPOSED`), and MUST NOT skip states (eg. from `PROPOSED` to `SUPERSEDED`).
 
 > [!TIP]
 > This repository includes a suite of [agent skills](./.agents/skills/) that automate the state transitions and enforce the gate rules. It is RECOMMENDED to get AI agents to apply state transitions, by prompting the agents to use these skills. Doing so helps to keep the process consistent.
@@ -126,7 +126,7 @@ Follow these steps to prepare the pull request:
 
 Once the final comment period has concluded, and when there is clear consensus on the outcome, the RFC is ready to be merged.
 
-1. Update the RFC document's `Status` field to ACCEPTED or REJECTED, as appropriate.
+1. Update the RFC document's `Status` field to `ACCEPTED` or `REJECTED`, as appropriate.
 
 2. Remove the `#proposed` label and apply the `#accepted` or `#rejected` label instead.
 
@@ -154,13 +154,13 @@ Once the final comment period has concluded, and when there is clear consensus o
 
 - Discussion threads SHOULD be used as the forum for discussion. This helps to keep the PR comment thread focused on edits to the RFC artifacts.
 
-- An RFC is the record of a decision. The [`rfc/`](./rfc/) directory is an append-only log. Once an RFC is `ACCEPTED` or `REJECTED`, its document is immutable; only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter, to reflect the current state of the decision and its changing relationship to other decisions. Users and agents MUST NOT edit other details of an ACCEPTED or REJECTED RFC, especially the description of the problem, the settled solution, and its rationale.
+- An RFC is the record of a decision. The [`rfc/`](./rfc/) directory is an append-only log. Once an RFC's `Status` is `ACCEPTED` or `REJECTED`, its document is immutable; only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter, to reflect the current state of the decision and its changing relationship to other decisions. Users and agents MUST NOT edit other details of an `ACCEPTED` or `REJECTED` RFC, especially the description of the problem, the settled solution, and its rationale.
 
-- You MUST NOT delete any RFC documents in the `main` branch, including REJECTED RFCs. To change a past decision, open a new RFC that supersedes it. This constraint ensures that a record of every past decision, including REJECTED and SUPERSEDED ones, is preserved indefinitely. This is critical for maintaining institutional memory. Future contributors to the project can refer to the history of past decisions to understand the rationale for the current state of the system.
+- You MUST NOT delete any RFC documents in the `main` branch, including `REJECTED` RFCs. To change a past decision, open a new RFC that supersedes it. This constraint ensures that a record of every past decision, including `REJECTED` and `SUPERSEDED` ones, is preserved indefinitely. This is critical for maintaining institutional memory. Future contributors to the project can refer to the history of past decisions to understand the rationale for the current state of the system.
 
-- RFCs MUST NOT be merged to `main` before they are decided – either ACCEPTED or REJECTED. RFCs that are still being refined or negotiated live on their own `rfc/` branches and have open pull requests.
+- RFCs MUST NOT be merged to `main` before they are decided – either `ACCEPTED` or `REJECTED`. RFCs that are still being refined or negotiated live on their own `rfc/` branches and have open pull requests.
 
-- RFC branches are squash-merged into `main` once a decision is made. The message of the squash commit on `main` MUST take the form `rfc: <slug> - APPROVED|REJECTED`, where `<slug>` is a short description of the proposal, written full lowercase.
+- RFC branches are squash-merged into `main` once a decision is made. The message of the squash commit on `main` MUST take the form `rfc: <slug> - ACCEPTED|REJECTED`, where `<slug>` is a short description of the proposal, written full lowercase.
 
 ## Contributor license agreement
 

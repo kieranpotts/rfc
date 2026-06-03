@@ -1,22 +1,31 @@
 ---
 name: draft-rfc
-description: Scaffold a new RFC and open it as a draft pull request, ready for the author to complete. Use when the user wants to start a new architecture, process, technology, or tooling decision, or says "draft an RFC", "new RFC", or "start an RFC".
+description: Scaffold a new RFC. Use this skill when the user wants to make a new architecture, process, technology, or tooling decision, or says "draft an RFC", "new RFC", or "start an RFC".
 license: MIT
 ---
 
 # Draft RFC
 
-Use this skill to start a new RFC: scaffold the branch and document from the template, then open a **draft pull request** with the artifacts in place, ready for the author to complete.
+Use this skill to scaffold a new RFC, ready for the author to complete and take forward to technical stakeholders. This is the entry point to the RFC lifecycle. The end status of the RFC is `DRAFT`.
 
-This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while the author writes the proposal; [`propose-rfc`](../propose-rfc/SKILL.md) removes the draft status once the document is ready for review. Do NOT use this skill to advance an existing RFC — see [`propose-rfc`](../propose-rfc/SKILL.md), [`approve-rfc`](../approve-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), or [`supersede-rfc`](../supersede-rfc/SKILL.md).
+Do NOT use this skill to advance an existing RFC. Use [`propose-rfc`](../propose-rfc/SKILL.md), [`accept-rfc`](../accept-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), or [`supersede-rfc`](../supersede-rfc/SKILL.md) for that.
 
-## Instructions
+##  Instructions
 
-1.  **Confirm the RFC slug and category.**
+1.  **Determine the RFC description and slug.**
 
-    Establish a short, hyphen-delimited slug (e.g. `event-sourcing-for-audit-log`). Confirm the category: `ARCHITECTURE` (system design or implementation patterns), `PROCESS` (development or operations lifecycle), `TECHNOLOGY` (production technology or infrastructure), or `TOOLING` (automation tools or devops infrastructure). If the user hasn't stated these, ask.
+    Establish a short, hyphen-delimited slug (eg. `event-sourcing-for-audit-log`). Decide this from information provided by the user about the RFC. Prompt the user if they did not describe the RFC.
 
-2.  **Create the branch.**
+2.  **Determine the RFC topic category.**
+
+    Infer the category from the RFC description, or ask the user if you're not sure which category fits best. The options are:
+
+    - Architecture: System design or implementation patterns.
+    - Process: Development or operations lifecycle concerns.
+    - Technology: Production technology or infrastructure.
+    - Tooling: Automation tools or devops infrastructure.
+
+3.  **Create the branch.**
 
     ```sh
     git checkout main
@@ -24,39 +33,38 @@ This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while 
     git checkout -b rfc/<slug>
     ```
 
-3.  **Create the RFC directory from the template.**
+4.  **Create the RFC from the template.**
 
-    Copy `rfc/TEMPLATE.md` to `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase category directory (`architecture`, `process`, `technology`, or `tooling`) matching step 1. The RFC lives in its own directory, so the author can add supporting artifacts (e.g. architectural diagrams) alongside the `README.md` and link them from its `References` section. Do not add a numeric ID anywhere — RFC numbers are assigned only in `rfc/INDEX.md`, at merge.
+    Copy `rfc/TEMPLATE.md` to `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase category directory (`architecture`, `process`, `technology`, or `tooling`).
 
-4.  **Fill in the metadata header.**
+5.  **Fill in the metadata header.**
 
-    - `Authors`: The Git user's name and GitHub handle (run `git config user.name` if needed).
+    - `Authors`: The Git user's name and GitHub handle – run `git config user.name` if needed.
     - `Created` and `Last updated`: Today's date in `YYYY-MM-DD` format.
-    - `Status`: `PROPOSED`.
-    - Leave `Approvers`, `Approval date`, `PR`, and `Implementation trackers` blank or as placeholders. The `Discussion thread` field is filled in at step 7.
+    - `Status`: `DRAFT`.
 
-    Leave the prose sections as the template placeholders for the author to complete.
+    Leave other fields blank or as placeholders for now. Leave the prose sections for the author to complete.
 
-5.  **Commit and open a draft pull request.**
+6.  **Commit and open a draft pull request.**
 
     ```sh
     git add rfc/<category>/<slug>/
-    git commit -m "rfc: <slug>"
+    git commit -m "draft: <short lowercase rfc description>"
     git push -u origin rfc/<slug>
-    gh pr create --draft --title "rfc: <slug>" --fill
+    gh pr create --draft --title "rfc: <short lowercase rfc description>" --fill
     ```
 
-6.  **Apply the category label.**
+7.  **Apply the category label.**
 
     ```sh
-    gh pr edit <number> --add-label "<CATEGORY>"
+    gh pr edit <number> --add-label "<category>"
     ```
 
-    Apply exactly one category label — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching step 1. Do not apply a lifecycle label yet: the draft PR represents work in progress, and `#proposed` is applied later by [`propose-rfc`](../propose-rfc/SKILL.md).
+    Apply exactly one category label, full uppercase: `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`.
 
-7.  **Open the associated discussion thread.**
+8.  **Open a discussion thread.**
 
-    Every RFC pull request MUST have an associated discussion thread, where all review feedback is gathered. `gh` has no native discussion command, so use the GraphQL API. Look up the repository ID and the discussion category matching the RFC's category (`Architecture`, `Process`, `Technology`, or `Tooling`):
+    Every RFC pull request MUST have an associated discussion thread, where all review feedback is gathered. `gh` has no native discussion command, so use the GraphQL API. Look up the repository ID and the discussion category matching the RFC's category (`ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`):
 
     ```sh
     gh api graphql -f query='
@@ -81,14 +89,26 @@ This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while 
         -f body="Discussion thread for the **<slug>** RFC (PR #<number>). Please leave all feedback here, not on the pull request."
     ```
 
-    Record the returned URL in the RFC document's `Discussion thread` field and in the pull request body, then commit and push:
+    Record the returned URL in the RFC document's `Discussion thread` field, and add it to the pull request description, so the two cross-reference each other:
 
     ```sh
-    git commit -am "rfc: link discussion thread for <slug>"
+    gh pr edit <number> --body "$(gh pr view <number> --json body -q .body)
+
+    Discussion thread: <discussionUrl> — Please leave all review feedback there, not on this pull request."
+    ```
+
+    Then commit and push the document change:
+
+    ```sh
+    git commit -am "chore: link discussion thread"
     git push
     ```
 
-## Rules
+##  Rules
+
+-   **An RFC is for a significant decision.**
+
+    RFCs are for significant, multi-stakeholder technical decisions, not routine feature work, bug fixes, or trivial changes, which go through the normal pull-request workflow. If the request looks too small to warrant an RFC, say so before scaffolding.
 
 -   **One RFC per branch and pull request.**
 
@@ -100,7 +120,7 @@ This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while 
 
 -   **Open the PR as a draft.**
 
-    A new RFC is not yet ready for review; it MUST be opened as a GitHub draft pull request.
+    A new RFC is not yet ready for review. It MUST be opened as a draft pull request.
 
 -   **Every RFC pull request has an associated discussion thread.**
 
@@ -108,22 +128,22 @@ This is the entry point to the RFC lifecycle. The PR stays a GitHub draft while 
 
 -   **Do not assign a numeric ID.**
 
-    RFC numbers are assigned only in `rfc/INDEX.md`, at merge. Nothing is ever renamed; the RFC stays at `rfc/<category>/<slug>/`.
+    RFC numbers are assigned in `rfc/INDEX.md` after an RFC is either `APPROVED` or `REJECTED` and its PR merged to the `main` branch.
 
 ## Success criteria
 
--   **Branch `rfc/<slug>` exists and is checked out.**
+- Branch `rfc/<slug>` exists and is checked out.
 
--   **`rfc/<category>/<slug>/README.md` exists**, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: PROPOSED`.
+- `rfc/<category>/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: DRAFT`.
 
--   **A draft pull request titled `rfc: <slug>` is open**, carrying exactly one category label and no lifecycle label.
+- A draft pull request titled `rfc: <slug>` is open, carrying exactly one category label and no lifecycle label.
 
--   **An associated discussion thread is open**, linked from the document's `Discussion thread` field and from the PR.
+- An associated discussion thread is open, linked from the document's `Discussion thread` field and from the PR.
 
 ## References
 
 - [`rfc/TEMPLATE.md`](../../../rfc/TEMPLATE.md): The RFC template to copy.
 
-- [AGENTS.md](../../../AGENTS.md): The full RFC lifecycle and conventions, written for agents.
+- [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle and conventions, written for agents.
 
-- [`propose-rfc`](../propose-rfc/SKILL.md): Removes the draft status once the document is complete.
+- [`propose-rfc`](../propose-rfc/SKILL.md): Next skill in the workflow. Removes the draft status once the document is complete.

@@ -1,10 +1,17 @@
 # Draft RFC
 
-Scaffolds a new RFC and opens it as a draft pull request, ready for the author to complete.
+Scaffolds a new RFC, ready for the author to complete.
 
 ## What it does
 
-Creates an `rfc/<slug>` branch from `main`, copies `rfc/TEMPLATE.md` to `rfc/<category>/<slug>/README.md`, fills in the metadata header (authors, dates, `Status: PROPOSED`), opens a draft pull request with the category label applied, and opens the associated discussion thread (linking it from the document and the PR).
+- Creates an `rfc/<slug>` branch from `main`.
+- Copies `rfc/TEMPLATE.md` to `rfc/<category>/<slug>/README.md`.
+- Fills in the metadata header (authors, dates, `Status: DRAFT`).
+- Commits and pushes the change.
+- Opens a draft pull request.
+- Applies a category label to the PR, eg, `TOOLING`.
+- Open a discussion thread.
+- Creates cross-references between the discussion and the PR.
 
 ## How to invoke
 
@@ -12,18 +19,16 @@ Creates an `rfc/<slug>` branch from `main`, copies `rfc/TEMPLATE.md` to `rfc/<ca
 /draft-rfc
 ```
 
-Optionally include the slug and category upfront:
+Optionally, describe the RFC:
 
 ```
-/draft-rfc event-sourcing-for-audit-log architecture
+/draft-rfc We will adopt event-sourcing for our audit log architecture
 ```
 
 ## Examples
 
-- `/draft-rfc`: Agent asks for the slug and category, then scaffolds the branch, document, and draft PR.
+- `/draft-rfc`: The agent will prompt you for details of the RFC, then it will scaffold the branch, the RFC document, and create a draft PR.
 
-- `/draft-rfc trunk-based-branching process`: Scaffolds a PROCESS RFC with the given slug.
+- `/draft-rfc <Description>`: Provide more information about the RFC, from which the agent will attempt to infer details such as title, slug,and category label (eg. `ARCHITECTURE`).
 
-- `/draft-rfc adopt-pnpm tooling`: Scaffolds a TOOLING RFC.
-
-Once the document is complete, use [`propose-rfc`](../propose-rfc/README.md) to mark the PR ready for review.
+You will need to complete the RFC document yourself. Once you've done that, use [`propose-rfc`](../propose-rfc/README.md) to mark the PR ready for review.

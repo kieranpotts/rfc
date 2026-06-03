@@ -4,7 +4,12 @@ Rejects a proposed RFC, preserving the decision permanently.
 
 ## What it does
 
-Confirms the decision to reject, verifies the document is a complete record, records its number in `rfc/INDEX.md`, sets `Status: REJECTED`, swaps the PR label to `#rejected`, closes the discussion thread, and prepares the PR for merge. The rejected RFC is kept permanently in `rfc/` as the record — nothing is reverted, because the archive holds no current state for a rejected RFC to have changed.
+- Verifies the document is a complete record.
+- Sets `Status: REJECTED`.
+- Swaps the PR label to `#rejected`.
+- Closes the discussion thread.
+- Prepares the PR for merge.
+- After the branch is squash-merged, assigns the next sequential number in `rfc/INDEX.md` on `main`.
 
 ## How to invoke
 
@@ -12,14 +17,11 @@ Confirms the decision to reject, verifies the document is a complete record, rec
 /reject-rfc
 ```
 
-Optionally name the RFC:
+The agent will infer the target RFC from the current checked-out branch. If you are on `main`, the agent will prompt you, providing a list of open PRs with the `#proposed` label from which you can select your target.
+
+Alternatively, provide a short description of the RFC, from which the agent will try to infer the correct target
 
 ```
-/reject-rfc graphql-gateway
+/reject-rfc event sourcing for audit log
 ```
 
-## Examples
-
-- `/reject-rfc`: Confirms the decision, then prepares the named or current RFC for merge as a rejected record.
-
-- `/reject-rfc graphql-gateway`: Rejects the named RFC.

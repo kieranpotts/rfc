@@ -23,7 +23,14 @@ VALID_TYPES = [
     "maintenance",
     "refactor",
     "revert",
+
+    # Repository-specific commit types:
     "rfc",
+    "draft",
+    "propose",
+    "accept",
+    "reject",
+    "supersede"
 ]
 
 PATTERN = rf"^({'|'.join(VALID_TYPES)}): [a-z].*"
