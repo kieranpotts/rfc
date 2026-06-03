@@ -1,23 +1,21 @@
 # Overview of the RFC process
 
-A good RFC process steers each technical decision through a series of distinct lifecycle phases. This repository uses the following phases:
+The RFC format [originated in 1969](https://www.nytimes.com/2009/04/07/opinion/07crocker.html) in the ARPANET project, the forerunner of the Internet. RFCs remain in use to this day, most notably at the [Internet Engineering Task Force](https://www.rfc-editor.org/rfc/rfc2026.txt) where RFCs facilitate technical standardization efforts across the whole IT industry.
 
-- **Draft**: A preliminary version of a proposal, put forward for early feedback. This step is optional — a proposal may be opened directly as `Proposed`.
+RFCs are also widely used in open source projects – examples include [Ember](https://github.com/emberjs/rfcs), [ESLint](https://github.com/eslint/rfcs), [React](https://github.com/reactjs/rfcs), [Vue](https://github.com/vuejs/rfcs), [Yarn](https://github.com/yarnpkg/rfcs), [Rust RFCs](https://rust-lang.github.io/rfcs/) and [Major Change Proposals](https://forge.rust-lang.org/compiler/mcp.html), and [Java Specification Requests](https://www.jcp.org/en/jsr/overview).
 
-- **Proposed**: A proposal that is being negotiated with the relevant stakeholders.
+The RFC format is also closely related to the concept of key design decisions (KDDs) and [Michael Nygard’s architectural decision records (ADRs)](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions.html) framework. The [ADRs for HashiCorp's unified web docs project](https://github.com/hashicorp/web-unified-docs/tree/main/docs/decisions) are a good example.
 
-- **Accepted**: A proposal that has been approved and is queued for implementation.
+An RFC – or an ADR – is a discrete technical proposal, usually written as a single design document, that justifies an architecturally significant decision. A collection of chronologically-ordered RFCs forms a technical decision log.
 
-- **Rejected**: A proposal that has been rejected and will not be taken forward.
+The RFC process is initialized by a technical proposal being put forward for comments — literally, a "request for comments" (RFC).
 
-- **Superseded**: A previously accepted proposal that is no longer in effect, having been replaced by a more recent one.
+During this initial phase, the proposal is negotiated with relevant stakeholders. The original proposed solution may change, perhaps significantly, in response to stakeholder feedback. Once a solution is agreed, the proposal document is updated to describe the settled solution, the design rationale for it, and the relative pros and cons of any alternative solutions that were considered.
 
-The RFC process is initialized by a proposal being put forward for comments — literally, a request for comments. Proposals are negotiated with the relevant stakeholders. During this phase, the original proposal may change, perhaps significantly, in response to stakeholder feedback. Once a solution is agreed, the proposal is updated to describe the settled solution, the design rationale for it, and the relative pros and cons of any alternative solutions that were considered.
+Rejected proposals are also recorded.
 
-The outcome of the RFC process is for the finalized proposal to be either accepted or rejected.
+The outcome of the RFC process is for a finalized technical proposal that is either accepted or rejected. Either way, the decision is logged.
 
-When a proposal is accepted, it is queued for implementation. Tasks may be created in the relevant project management tools to track the implementation.
+A common convention is for RFCs to become immutable once they are accepted or rejected. Thereafter, RFCs may only be superseded by newer ones. Thus, records of all past technical decisions — even those that are no longer in effect, having been superseded, or that were rejected in the first place — are preserved indefinitely.
 
-Thereafter, the contents of the original RFC documents are treated as immutable. To change past decisions, new RFCs must be introduced that supersede the originals. Previously-accepted RFCs that are no longer in effect are marked as superseded.
-
-Records of all past decisions — even those that are no longer in effect or were rejected in the first place — are preserved indefinitely, providing an accurate reflection of the technical evolution of the project. This also makes it easier to maintain the decision log over time. The immutable state of past decision documents means they do not need to be kept up-to-date. Only new proposals are editable, and in time these will be relatively few compared to the total number of prior decisions.
+For more background on the RFC process, follow the [related links](./related-links.md).

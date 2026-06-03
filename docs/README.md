@@ -1,15 +1,15 @@
 # Documentation
 
-- [**Benefits**](./benefits.md): An introduction to the RFC process, its benefits, and how it compares to other approaches to technical decision management.
+This documentation covers general guidance for getting the most out of the RFC process.
 
-- [**Overview**](./overview.md): A conceptual overview of the RFC process — lifecycle phases, the role of proposals, and how decisions are finalized and preserved.
+- [**Overview**](./overview.md): A high-level introduction to RFCs.
 
-- [**Scope**](./scope.md): Guidance on what kinds of decisions warrant an RFC, and how to calibrate the breadth of stakeholder involvement.
+- [**Benefits**](./benefits.md): Why RFCs are a great approach to technical decision management.
 
-- [**Format**](./format.md): How to structure an RFC repository and what to include in an RFC document.
+- [**Scope**](./scope.md): Guidance on what types of decisions might benefit the most from RFCs.
 
-- [**Best practices**](./best-practices.md): Practical advice for running an RFC process well — writing, governance, and culture.
+- [**Format**](./format.md): How version control systems can provide a convenient, lightweight mechanism to manage RFCs.
 
-- [**Related links**](./related-links.md): Further reading on RFCs and architectural decision records.
+- [**Best practices**](./best-practices.md): General tips to optimize the RFC process.
 
-- [**References**](./references.md): Acknowledgements and sources that influenced the design of this RFC template.
+- [**Related links**](./related-links.md): Further reading, if you want to deep-drive further into the topic of architectural record keeping.

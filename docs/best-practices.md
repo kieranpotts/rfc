@@ -1,18 +1,10 @@
 # Best practices
 
-Requests for Comments — and the decision logs they produce — are enormously valuable but often overlooked in software development practices.
+Whatever format and tools you choose to implement your RFC system, here are some universal best practices to optimize the process.
 
-The RFC process is a simple but effective way to make technical decisions in a structured and transparent way. But RFCs have far bigger impacts than just the decisions themselves. They help to share knowledge, disseminate expertise, and foster inclusive and psychologically safe work cultures. These are essential foundations for high-performing development teams.
+There should be one main document per proposal, and each proposal should be scoped to a single technical decision. RFCs work best when they are kept short, but an arbitrary cap on length should not be set. Some decisions will naturally require more detail. RFC documents can be augmented with diagrams and tables, and linked to mock-ups and prototypes, as appropriate.
 
-Famously, there are [no silver bullets](https://en.wikipedia.org/wiki/No_Silver_Bullet) in software development, and RFCs are no exception. They will not work in every organization. Introducing RFCs to a development process will work only in settings with an already-established culture of trust, autonomy, and responsibility. And the benefits of consensus-based decision making need to be carefully balanced against the risks. Beware of falling into the trap of design-by-committee. An over-engineered RFC process can be unnecessarily slow and bureaucratic, and not actually produce better outcomes.
-
----
-
-Whatever format and tools you choose to implement your RFC system, here are some universal best practices to optimize the process:
-
-There should be one main document per proposal, and each proposal should be scoped to a single technical decision. RFCs work best when they are kept short, but an arbitrary cap on length should not be set. Some decisions will naturally require more detail. RFC documents can be augmented with diagrams and tables, and linked to mockups and prototypes, as appropriate.
-
-Technical writing is an important skill that contributors will need to learn to engage in the RFC process. RFC documents should be written in a conversational tone, as though talking through an idea to a new developer who has no prior knowledge of the system under development. Proposals should be written in full sentences organized into paragraphs, and with a consistent information architecture (i.e. the same headings in the same order).
+Technical writing is an important skill that contributors will need to learn to engage in the RFC process. RFC documents should be written in a conversational tone, as though talking through an idea to a new developer who has no prior knowledge of the system under development. Proposals should be written in full sentences organized into paragraphs, and with a consistent information architecture (ie. the same headings in the same order).
 
 Where RFCs are used as a technical design process, they should be tightly coupled with the project's task tracking system. For example, where the implementation of a user story requires substantive revisions to either the external interfaces or the internal construction techniques of a software component, or to its dependencies, it can be beneficial to put the changes through a more rigorous and structured design process _before_ the changes are introduced in code and configuration. Breaking out the work to an RFC is an excellent method for that. Shifting left the design review means that multiple possible designs can be considered, pre-implementation. By contrast, only one option can be considered in code review, post-implementation.
 
@@ -26,7 +18,9 @@ As a general rule, the greater the potential impact of the proposal, the longer 
 
 But all RFCs, whatever their scope, should be open to comments from the widest possible range of stakeholders. Junior developers should be encouraged to engage in major architectural decisions, while architects and senior developers should watch over more granular, lower-level details. This encourages more points of view, maximizing the input of knowledge into decisions. It helps to disperse knowledge more widely, reducing silos. And it builds a culture of collaboration, inclusivity, and transparency, helping teams to grow into effective, cohesive units, and nurturing tomorrow's technology leaders.
 
-Technical decisions should be taken by technical people and business decisions by business people. But there can be unexpected benefits to getting cross-domain input into decisions. Technical people learn to communicate their ideas in terms of business value, and non-technical people get useful insights into technical details and an appreciation of the true costs of delivering the business objectives. And from time to time the most insightful comments on technical proposals have come from non-technical people. And junior developers have been known to propose far simpler, but equally effective, alternatives to solutions proposed by seasoned architects.
+Technical decisions should be taken by technical people and business decisions by business people. But there can be unexpected benefits to getting cross-domain input into decisions. Technical people learn to communicate their ideas in terms of business value, and non-technical people get useful insights into technical details and an appreciation of the true costs of delivering the business objectives.
+
+From time to time the most insightful comments on technical proposals have come from non-technical people, and junior developers have been known to propose simpler, but equally effective, alternatives to solutions proposed by seasoned architects.
 
 Perspective is as important as expertise. It's not unusual for obvious risks and flaws in a design to be spotted only by the people furthest from the problem.
 
@@ -35,3 +29,5 @@ Psychological safety is key to the success of the RFC process. Everyone should b
 If decisions are to be made by consensus, then there needs to be a framework in place for reaching consensus. Who has a vote over which types of decision, and who gets the casting vote in deadlock situations? When and how should decisions be elevated to higher authorities? The decision-making framework should be set out in the context of a wider technical strategy and guiding principles that inform the direction of the project.
 
 RFCs require a strong governance model. RFCs are all about consensus-based decision making, but decisions will need to be taken by an authority in situations where consensus cannot be found. The design authority would normally be a technical lead or architect, and in the context of a bottom-up decision-making environment they would ideally operate in a [benevolent dictator](https://github.com/git-for-windows/git-for-windows.github.io/blob/main/governance-model.md#benevolent-dictator-project-lead) capacity.
+
+Finally, it is worth stating that no method or tool in software development is a [silver bullet](https://en.wikipedia.org/wiki/No_Silver_Bullet), and RFCs are no exception. They will not work in every organization. Introducing RFCs to a development process will work only in settings with an already-established culture of trust, autonomy, and responsibility. And the benefits of consensus-based decision making need to be carefully balanced against the risks. Beware of falling into the trap of design-by-committee. An over-engineered RFC process can be unnecessarily slow and bureaucratic, and not actually produce better outcomes.
