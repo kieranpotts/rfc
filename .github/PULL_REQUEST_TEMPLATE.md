@@ -1,39 +1,50 @@
 _Copy the "Summary" section from the RFC document here._
 
-- Discussion thread: [Link] _(required — every RFC has one)_
+- Discussion thread: [Link] _(REQUIRED)_
 
 > [!IMPORTANT]
-> Please use the discussion thread linked above, not comments on this pull request, to provide feedback on this proposal. This will keep the PR thread focused on the edit history of the proposal document and the evolution of the RFC artifacts.
+> Please use the discussion thread linked above, not comments on this pull request, to provide feedback on this proposal. This will keep the PR thread focused on the edit history of the proposal document, while the discussion thread serves as the forum for all review feedback.
 
 ----
 
 ## Checklist
 
-The project maintainers will update this checklist as the proposal moves through its lifecycle. They will merge this PR only when the proposal is ultimately either `#accepted` or `#rejected`. See the [contributing guidelines](../CONTRIBUTING.md) for more details about state transitions for RFCs.
+The author(s) of the RFC MUST update this checklist as their proposal moves through its lifecycle. They MUST NOT merge this PR before the proposal is either ACCEPTED or REJECTED. See the [contributing guidelines](../CONTRIBUTING.md) for more details about state transitions for RFCs.
 
-On opening this PR (open it as a draft):
+Checklist for opening a new pull request:
 
-- [ ] Exactly one category label — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — is applied.
-- [ ] An associated discussion thread is opened and linked (both above and in the RFC document).
+- [ ] The PR should be opened as a draft, initially.
+- [ ] Add one category label: `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`.
+- [ ] Open a discussion thread. Link to it above.
+- [ ] Update the RFC document with links to this PR and the discussion.
+- [ ] Set the RFC document's `Status` to `DRAFT`.
 
-Mark this PR ready for review, and apply the `#proposed` label, when:
+Checklist for transitioning from DRAFT to PROPOSED:
 
 - [ ] The proposal is complete enough to invite stakeholder review.
-- [ ] No generic template text or unfilled placeholders remain in the document.
+- [ ] There is no placeholder text remaining in the proposal document.
+- [ ] The RFC document's `Status` is updated to `PROPOSED`.
+- [ ] The PR is marked "ready for review" (taken out of draft status).
+- [ ] The `#proposed` label is applied to the PR.
 
-Move from **`#proposed`** to **`#accepted`** or **`#rejected`** when:
+Checklist for transitioning from PROPOSED to ACCEPTED or REJECTED:
 
 - [ ] Feedback is gathered from all relevant stakeholders.
 - [ ] The main points of contention are resolved.
+- [ ] All stakeholders are aligned on the outcome.
 - [ ] The proposed solution has stabilized.
 - [ ] Final comments have been solicited for at least ___ days.
 - [ ] The RFC has not materially changed during this time.
-- [ ] The RFC is added to `rfc/INDEX.md` with the next sequential number.
-- [ ] The associated discussion thread is closed.
+- [ ] The RFC document's `Status` is `ACCEPTED` or `REJECTED`.
+- [ ] The `#proposed` label is removed from the PR.
+- [ ] Either the `#accepted` or `#rejected` label is applied to the PR.
 
-If **`#accepted`**, merge this PR when:
+Checklist for merging the PR:
 
-- [ ] Other blocking technical decisions (`Depends on`) are resolved.
-- [ ] OPTIONAL: Implementation trackers are created and referenced.
+- [ ] If ACCEPTED, blocking RFCs (`Depends on`) are resolved.
+- [ ] If ACCEPTED, implementation trackers are created and referenced, if applicable.
 
-An accepted RFC remains in effect until a later RFC supersedes it, at which point this PR's state is changed to **`#superseded`**.
+After merge:
+
+- [ ] Add the RFC to `rfc/INDEX.md`, with next sequential number.
+- [ ] Close the discussion thread.
