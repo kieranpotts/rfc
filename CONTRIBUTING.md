@@ -37,9 +37,9 @@ The states are:
 
 - `DRAFT`: The RFC is being written. Its pull request is open as a draft, which means it's not yet ready for review. Early feedback may be solicited via the discussion thread.
 
-- `PROPOSED`: The RFC is complete and open for feedback. It is now formally reviewed and negotiated with relevant stakeholders. From this point, the author SHOULD NOT make further material changes to the RFC except in response to reviewer feedback.
+- `PROPOSED`: The RFC is complete and open for feedback. It is now formally reviewed and negotiated with relevant stakeholders.
 
-- `ACCEPTED`: The proposal has been approved. Before the decision is settled, final comments are solicited to confirm there are no outstanding objections, and the RFC document and supporting artifacts are updated to reflect the final agreed design and its rationale. When all stakeholders have signed off on the final wording, the discussion thread is closed. The PR stays **open** through implementation — the document MAY still evolve in response to what is learned while building — and no number is assigned yet. An accepted decision remains in effect until a later RFC supersedes it.
+- `ACCEPTED`: The proposal has been approved. Before the decision is settled, final comments are solicited to confirm there are no outstanding objections, and the RFC document and supporting artifacts are updated to reflect the final agreed design and its rationale. When all stakeholders have signed off on the final wording, the discussion thread is closed. The PR stays open through implementation — the document MAY still evolve in response to what is learned while building — and no number is assigned yet. An accepted decision remains in effect until a later RFC supersedes it.
 
 - `IMPLEMENTED`: The tooling and infrastructure the decision calls for are now in place. The PR is merged into the `main` branch, and the RFC is given a unique reference number and listed in the [RFC index](./rfc/INDEX.md).
 
@@ -174,7 +174,9 @@ Once a decided RFC has been merged into `main` — at `IMPLEMENTED` for an accep
 
 - Discussion threads SHOULD be used as the forum for discussion. This helps to keep the PR comment thread focused on edits to the RFC artifacts.
 
-- An RFC is the record of a decision. The [`rfc/`](./rfc/) directory is an append-only log. While an RFC's PR is open — including through the `#accepted` implementation phase — its document MAY be revised as the design is refined and built. Once it is merged into `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward — its document is immutable; only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter, to reflect the current state of the decision and its changing relationship to other decisions. Users and agents MUST NOT edit other details of a merged RFC, especially the description of the problem, the settled solution, and its rationale.
+ - One an RFC is in the `PROPOSED` state, from this point on in its lifeycle, the author SHOULD NOT make further material changes to the RFC except in response to reviewer feedback. The RFC's PR remains open until its is either rejected or the necessary actions implemented. Throughout this time, the RFC SHOULD be revised in response to various feedback loops, including from reviewers and implementors.
+
+- An RFC is the record of a decision. The [`rfc/`](./rfc/) directory is an append-only log. Once an RFC is merged into `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward — its document is immutable; only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter, to reflect the current state of the decision and its changing relationship to other decisions. Users and agents MUST NOT edit other details of a merged RFC, especially the description of the problem, the settled solution, and its rationale.
 
 - You MUST NOT delete any RFC documents in the `main` branch, including `REJECTED` RFCs. To change a past decision, open a new RFC that supersedes it. This constraint ensures that a record of every past decision, including `REJECTED` and `SUPERSEDED` ones, is preserved indefinitely. This is critical for maintaining institutional memory. Future contributors to the project can refer to the history of past decisions to understand the rationale for the current state of the system.
 
