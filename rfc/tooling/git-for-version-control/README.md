@@ -10,7 +10,7 @@
 
 ## Status
 
-ACCEPTED
+IMPLEMENTED
 
 ## Related RFCs
 

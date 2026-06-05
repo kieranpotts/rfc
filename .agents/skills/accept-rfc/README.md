@@ -1,16 +1,15 @@
 # Accept RFC
 
-Transitions an RFC from `PROPOSED` to `ACCEPTED`, then squash-merges the PR.
+Transitions an RFC from `PROPOSED` to `ACCEPTED`. This records the decision; the PR stays open until the decision is implemented.
 
 ## What it does
 
 - Verifies the approval gates.
 - Sets `Status` to `ACCEPTED`.
-- Add approvers and approval date.
+- Adds approvers and approval date.
 - Swaps the PR label to `#accepted`.
 - Closes the discussion thread.
-- Merges the PR using the squash-merge strategy.
-- Assigns the RFC the next sequential number, logs it in `rfc/INDEX.md`.
+- Keeps the PR **open** — the merge and the index number wait for [`/implement-rfc`](../implement-rfc/), once the tooling and infrastructure are in place.
 
 ## How to invoke
 

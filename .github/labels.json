@@ -31,7 +31,12 @@
   },
   {
     "name": "#accepted",
-    "description": "An RFC that was accepted.",
+    "description": "An RFC that was accepted, with its PR open through implementation.",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "#implemented",
+    "description": "An accepted RFC whose tooling and infrastructure are now in place.",
     "color": "FFFFFF"
   },
   {
@@ -41,7 +46,7 @@
   },
   {
     "name": "#superseded",
-    "description": "A previously accepted RFC that has been replaced by a later one.",
+    "description": "A previously implemented RFC that has been replaced by a later one.",
     "color": "FFFFFF"
   }
 ]

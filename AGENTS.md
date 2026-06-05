@@ -13,7 +13,7 @@ Product requirements (what the system does, in business terms) are recorded sepa
 ## Repository structure
 
 - `rfc/`: The permanent, append-only archive of every RFC, including rejected ones. Each RFC is a directory (`rfc/<category>/<slug>/`) with a `README.md` file being the entry point. Supporting artifacts such as architectural diagrams may be included in the same directory or stored separately, but every artifact MUST be referenced from the `README.md` — if it is not referenced there, it is not part of the RFC.
-  - `rfc/INDEX.md` is the numbered catalog of accepted, rejected, and superseded RFCs.
+  - `rfc/INDEX.md` is the numbered catalog of implemented, rejected, and superseded RFCs.
   - `rfc/TEMPLATE.md` is the starting point for a new RFC.
 - `docs/`: General guidelines for humans to get the most out of the RFC process.
 
@@ -23,9 +23,10 @@ Each RFC moves through a defined state machine:
 
 - `DRAFT`: The RFC is being written. The pull request is in draft status, ie. not yet ready for review.
 - `PROPOSED`: The RFC is complete and open for a decision. The pull request is marked ready for review and labeled `#proposed`.
-- `ACCEPTED`: The RFC is accepted. Final comments have been solicited, so the discussion thread is closed. The RFC artifacts are merged into `main`, and the RFC is recorded in `rfc/INDEX.md` and given the next sequential number to identify it. An accepted decision stays in effect until a later RFC supersedes it.
+- `ACCEPTED`: The RFC is accepted — a settled decision. Final comments have been solicited, so the discussion thread is closed. The pull request stays open until the decision is implemented; the document MAY continue to evolve during this period. No number is assigned yet.
+- `IMPLEMENTED`: The tooling and infrastructure the decision calls for are in place. The RFC artifacts are merged into `main`, and the RFC is recorded in `rfc/INDEX.md` and given the next sequential number to identify it. An implemented decision stays in effect until a later RFC supersedes it.
 - `REJECTED`: The RFC is not being taken forward. The document is merged into `main` and its number recorded in `rfc/INDEX.md`, preserved permanently as the record of the decision and its rationale.
-- `SUPERSEDED`: The RFC was previously accepted but has been replaced by a later RFC. This is the only state reachable after ACCEPTED.
+- `SUPERSEDED`: The RFC was previously implemented but has been replaced by a later RFC. This is the only state reachable after IMPLEMENTED.
 
 The authors of an RFC drive its lifecycle. Each state transition has a corresponding agent skill (see below), which the authors can use to automate recurring steps in RFC management. The possible state transitions are:
 
@@ -33,7 +34,8 @@ The authors of an RFC drive its lifecycle. Each state transition has a correspon
 - DRAFT → PROPOSED
 - PROPOSED → ACCEPTED
 - PROPOSED → REJECTED
-- ACCEPTED → SUPERSEDED
+- ACCEPTED → IMPLEMENTED
+- IMPLEMENTED → SUPERSEDED
 
 ## Rules
 
@@ -51,17 +53,17 @@ The authors of an RFC drive its lifecycle. Each state transition has a correspon
 
 - Every RFC pull request MUST have an associated discussion thread, opened when the PR is opened (even as a draft). The discussion thread is the forum for all review feedback, keeping the PR's own comment thread focused on edits to the RFC artifacts. The thread is closed when the RFC is accepted or rejected.
 
-- The current lifecycle state of an RFC is tracked via a lifecycle label on the PR. Apply the matching label — `#proposed`, `#accepted`, `#rejected`, `#superseded` — as the RFC advances.
+- The current lifecycle state of an RFC is tracked via a lifecycle label on the PR. Apply the matching label — `#proposed`, `#accepted`, `#implemented`, `#rejected`, `#superseded` — as the RFC advances.
 
 - A pull request MUST be opened initially as a draft. The author marks the PR ready for review, and applies the `#proposed` label, once it is ready for stakeholder review.
 
-- An RFC MUST NOT be merged into `main` until it has been decided — either accepted or rejected.
+- An RFC MUST NOT be merged into `main` until it is decided and final — either `IMPLEMENTED` (an accepted decision whose tooling and infrastructure are now in place) or `REJECTED`. An accepted-but-not-yet-implemented RFC stays on its branch with its PR open.
 
-- RFC branches MUST be squash-merged to `main`, and the squash commit message MUST take the form `rfc: <short lowercase description> - ACCEPTED|REJECTED`. The description is the prose title of the RFC, not the branch slug (eg. `rfc: event sourcing for audit log - ACCEPTED`). A sequential RFC number is assigned after merge, recorded in `rfc/INDEX.md` (the number lives only in the index).
+- RFC branches MUST be squash-merged to `main`, and the squash commit message MUST take the form `rfc: <short lowercase description> - IMPLEMENTED|REJECTED`. The description is the prose title of the RFC, not the branch slug (eg. `rfc: event sourcing for audit log - IMPLEMENTED`). A sequential RFC number is assigned after merge, recorded in `rfc/INDEX.md` (the number lives only in the index).
 
-- Once an RFC's `Status` is `ACCEPTED` or `REJECTED`, its document is immutable. Only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter.
+- While an RFC's PR is open — including through the `#accepted` implementation phase — its document MAY be updated. Once merged into `main` — at `#implemented` for an accepted decision, or following the `#rejected` decision — its document is immutable. Only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter.
 
-- An accepted RFC may only be superseded by another RFC. To change the _substance_ of a past decision, open a new RFC that supersedes it — do NOT edit the original.
+- An implemented RFC may only be retired by being superseded by another RFC. To change the _substance_ of a past decision, open a new RFC that supersedes it — do NOT edit the original.
 
 - Never delete an RFC document, including rejected ones.
 
@@ -73,6 +75,7 @@ The [`.agents/skills/`](.agents/skills/) directory provides on-demand skills for
 
 - [`draft-rfc`](.agents/skills/draft-rfc/SKILL.md): Scaffolds a new RFC, opens it as a draft PR, and opens a linked discussion thread.
 - [`propose-rfc`](.agents/skills/propose-rfc/SKILL.md): Verifies and handles the `DRAFT` → `PROPOSED` transition.
-- [`accept-rfc`](.agents/skills/accept-rfc/SKILL.md): Verifies and handles the `PROPOSED` → `ACCEPTED` transition. Also closes the discussion thread.
-- [`reject-rfc`](.agents/skills/reject-rfc/SKILL.md): Verifies and handles the `PROPOSED` → `REJECTED` transition. Also closes the discussion thread.
-- [`supersede-rfc`](.agents/skills/supersede-rfc/SKILL.md): Verifies and handles the `ACCEPTED` → `SUPERSEDED` transition for an old RFC.
+- [`accept-rfc`](.agents/skills/accept-rfc/SKILL.md): Verifies and handles the `PROPOSED` → `ACCEPTED` transition. Also closes the discussion thread. The PR stays open through implementation.
+- [`implement-rfc`](.agents/skills/implement-rfc/SKILL.md): Verifies and handles the `ACCEPTED` → `IMPLEMENTED` transition once the tooling and infrastructure are in place. Squash-merges the PR and records the number in `INDEX.md`.
+- [`reject-rfc`](.agents/skills/reject-rfc/SKILL.md): Verifies and handles the `PROPOSED` → `REJECTED` transition. Also closes the discussion thread and squash-merges the document as a permanent record.
+- [`supersede-rfc`](.agents/skills/supersede-rfc/SKILL.md): Verifies and handles the `IMPLEMENTED` → `SUPERSEDED` transition for an old RFC.

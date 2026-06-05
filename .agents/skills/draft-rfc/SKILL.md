@@ -8,7 +8,7 @@ license: MIT
 
 Use this skill to scaffold a new RFC, ready for the author to complete and take forward to technical stakeholders. This is the entry point to the RFC lifecycle. The end status of the RFC is `DRAFT`.
 
-Do NOT use this skill to advance an existing RFC. Use [`propose-rfc`](../propose-rfc/SKILL.md), [`accept-rfc`](../accept-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), or [`supersede-rfc`](../supersede-rfc/SKILL.md) for that.
+Do NOT use this skill to advance an existing RFC. Use [`propose-rfc`](../propose-rfc/SKILL.md), [`accept-rfc`](../accept-rfc/SKILL.md), [`implement-rfc`](../implement-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), or [`supersede-rfc`](../supersede-rfc/SKILL.md) for that.
 
 ##  Instructions
 
@@ -128,7 +128,7 @@ Do NOT use this skill to advance an existing RFC. Use [`propose-rfc`](../propose
 
 -   **Do not assign a numeric ID.**
 
-    RFC numbers are assigned in `rfc/INDEX.md` after an RFC is either `ACCEPTED` or `REJECTED` and its PR merged to the `main` branch.
+    RFC numbers are assigned in `rfc/INDEX.md` only when an RFC's PR is merged to `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one that is not taken forward.
 
 ## Success criteria
 

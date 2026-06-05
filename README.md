@@ -1,4 +1,4 @@
-# Requests for comments (RFCs)
+# Requests for comments (RFC)
 
 **A template for managing technical decisions via version control.**
 
@@ -10,7 +10,7 @@ RFCs cover technical decisions — _how_ the system is built. Product decisions 
 
 - [**RFCs**](./rfc/): The permanent archive of every technical decision, including those that were ultimately rejected.
 
-  - The [`INDEX`](./rfc/INDEX.md) lists all accepted, rejected, and superseded RFCs. (Current proposals are tracked via the pull requests system.)
+  - The [`INDEX`](./rfc/INDEX.md) lists all implemented, rejected, and superseded RFCs. (Current proposals are tracked via the pull requests system.)
 
   - The [`TEMPLATE`](./rfc/TEMPLATE.md) is the starting point for a new RFC.
 

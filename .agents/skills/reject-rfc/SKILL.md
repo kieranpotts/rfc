@@ -8,7 +8,7 @@ license: MIT
 
 Use this skill to transition an RFC from `PROPOSED` to `REJECTED`. A rejected RFC is not discarded — its document is merged into `main` and preserved permanently in `rfc/` as the record of the decision and its rationale, so the same ground is not needlessly covered again later. Because this repository is an append-only archive (it holds no "current state" that a rejected RFC would have changed), rejection is straightforward — there is nothing to revert.
 
-Do NOT use this skill for any other transition — to accept use [`accept-rfc`](../accept-rfc/SKILL.md), to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md).
+Do NOT use this skill for any other transition — to accept use [`accept-rfc`](../accept-rfc/SKILL.md), to mark a built decision implemented use [`implement-rfc`](../implement-rfc/SKILL.md), and to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md).
 
 ## Transition gates: `PROPOSED` → `REJECTED`
 
@@ -120,4 +120,4 @@ The RFC MUST currently be `PROPOSED`. Confirm _all_ of the following before reje
 
 - [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle, rejection path, and immutability rules.
 
-- [`accept-rfc`](../accept-rfc/SKILL.md) / [`supersede-rfc`](../supersede-rfc/SKILL.md): The other decision transitions.
+- [`accept-rfc`](../accept-rfc/SKILL.md) / [`implement-rfc`](../implement-rfc/SKILL.md) / [`supersede-rfc`](../supersede-rfc/SKILL.md): The other lifecycle transitions.

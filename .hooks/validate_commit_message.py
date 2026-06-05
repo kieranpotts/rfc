@@ -30,6 +30,7 @@ VALID_TYPES = [
     "draft",
     "propose",
     "accept",
+    "implement",
     "reject",
     "supersede"
 ]

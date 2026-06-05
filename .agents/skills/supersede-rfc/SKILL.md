@@ -6,17 +6,17 @@ license: MIT
 
 # Supersede RFC
 
-Use this skill to transition an RFC from `ACCEPTED` to `SUPERSEDED`, once a later, accepted RFC has replaced its decision. This is the only transition out of `ACCEPTED`. The superseded document remains in `rfc/` permanently as part of the historical record.
+Use this skill to transition an RFC from `IMPLEMENTED` to `SUPERSEDED`, once a later, implemented RFC has replaced its decision. This is the only transition out of `IMPLEMENTED`. The superseded document remains in `rfc/` permanently as part of the historical record.
 
-Do NOT use this skill for any other transition — see [`accept-rfc`](../accept-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), [`propose-rfc`](../propose-rfc/SKILL.md), or [`draft-rfc`](../draft-rfc/SKILL.md).
+Do NOT use this skill for any other transition — see [`accept-rfc`](../accept-rfc/SKILL.md), [`implement-rfc`](../implement-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), [`propose-rfc`](../propose-rfc/SKILL.md), or [`draft-rfc`](../draft-rfc/SKILL.md).
 
-## Transition gates: `ACCEPTED` → `SUPERSEDED`
+## Transition gates: `IMPLEMENTED` → `SUPERSEDED`
 
-The RFC being superseded MUST currently be `ACCEPTED`. Confirm _all_ of the following before superseding. If any is unmet, report it and pause.
+The RFC being superseded MUST currently be `IMPLEMENTED`. Confirm _all_ of the following before superseding. If any is unmet, report it and pause.
 
 -   **A later RFC has replaced this decision.**
 
-    That successor RFC is itself `ACCEPTED` — a proposed or rejected RFC cannot supersede an accepted one. The successor MUST be the newer of the two (a higher `rfc/INDEX.md` number).
+    That successor RFC is itself `IMPLEMENTED` — a draft, proposed, accepted, or rejected RFC cannot supersede an implemented one, because its replacement tooling and infrastructure are not yet in place. The successor MUST be the newer of the two (a higher `rfc/INDEX.md` number).
 
 -   **The cross-references are reciprocal.**
 
@@ -26,11 +26,11 @@ The RFC being superseded MUST currently be `ACCEPTED`. Confirm _all_ of the foll
 
 1.  **Identify both RFCs.**
 
-    The accepted RFC being superseded, and the later accepted RFC that replaces it. Ask the user for the RFC being superseded and the newer one that replaces it.
+    The implemented RFC being superseded, and the later implemented RFC that replaces it. Ask the user for the RFC being superseded and the newer one that replaces it.
 
     If the user gave a short description (eg. "X is superseded by Y"), use it to infer both.
 
-    Confirm both are `ACCEPTED` and that the successor is the newer of the two.
+    Confirm both are `IMPLEMENTED` and that the successor is the newer of the two.
 
 2.  **Verify the transition rules above.**
 
@@ -53,7 +53,7 @@ The RFC being superseded MUST currently be `ACCEPTED`. Confirm _all_ of the foll
     On the superseded RFC's original pull request:
 
     ```sh
-    gh pr edit <number> --add-label "#superseded" --remove-label "#accepted"
+    gh pr edit <number> --add-label "#superseded" --remove-label "#implemented"
     ```
 
 6.  **Land the document change.**
@@ -66,9 +66,9 @@ The RFC being superseded MUST currently be `ACCEPTED`. Confirm _all_ of the foll
 
 ##  Rules
 
--   **Only from `ACCEPTED`.**
+-   **Only from `IMPLEMENTED`.**
 
-    A draft, proposed, or rejected RFC cannot be superseded.
+    A draft, proposed, accepted, or rejected RFC cannot be superseded.
 
 -   **Immutable except the cross-reference.**
 
@@ -86,4 +86,4 @@ The RFC being superseded MUST currently be `ACCEPTED`. Confirm _all_ of the foll
 
 - [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle and immutability rules.
 
-- [`accept-rfc`](../accept-rfc/SKILL.md): How the superseding RFC was accepted.
+- [`implement-rfc`](../implement-rfc/SKILL.md): How both the superseded RFC and its successor reached `#implemented`.

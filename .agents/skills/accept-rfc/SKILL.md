@@ -6,9 +6,9 @@ license: MIT
 
 # Accept RFC
 
-Use this skill to transition an RFC from `PROPOSED` to `ACCEPTED`. Verify the approval gates, update the document, label the PR `#accepted`, close its discussion, and squash-merge it. After merge, assign the RFC's number in the RFC index.
+Use this skill to transition an RFC from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, label the PR `#accepted`, and close its discussion thread. The RFC is now a settled decision, but its pull request **stays open** until the tooling and infrastructure it calls for are in place (see [`implement-rfc`](../implement-rfc/SKILL.md)) — only at that point is the PR merged and a number assigned.
 
-Do NOT use this skill for any other transition — to reject use [`reject-rfc`](../reject-rfc/SKILL.md), to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md), to scaffold a draft PR use [`draft-rfc`](../draft-rfc/SKILL.md), and to forward a draft OR to a proposal use [`propose-rfc`](../propose-rfc/SKILL.md).
+Do NOT use this skill for any other transition — to mark a built decision implemented use [`implement-rfc`](../implement-rfc/SKILL.md), to reject use [`reject-rfc`](../reject-rfc/SKILL.md), to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md), to scaffold a draft PR use [`draft-rfc`](../draft-rfc/SKILL.md), and to forward a draft to a proposal use [`propose-rfc`](../propose-rfc/SKILL.md).
 
 ## Transition gates: `PROPOSED` → `ACCEPTED`
 
@@ -54,7 +54,7 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
 
     - Confirm `PR` is set, and that `Implementation trackers` are linked if any exist.
 
-    Do not assign a number or touch `rfc/INDEX.md` yet — the number is assigned only after merge (step 8).
+    Do not assign a number or touch `rfc/INDEX.md` — that happens at merge, in [`implement-rfc`](../implement-rfc/SKILL.md).
 
 4.  **Switch the state label.**
 
@@ -62,7 +62,7 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
     gh pr edit <number> --add-label "#accepted" --remove-label "#proposed"
     ```
 
-    Leave the category label, eg. `ARCHITECTURE`.
+    Leave the category label, eg. `ARCHITECTURE`. Keep the PR **open** — do not merge.
 
 5.  **Close the associated discussion thread.**
 
@@ -86,24 +86,11 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
     git commit -am "accept: <short lowercase rfc description>"
     ```
 
-7.  **Merge the pull request.**
+    Keep the PR **open** — do not merge, and do not assign a number. Both happen at implementation.
 
-    Confirm with the user that the PR is ready to merge into `main` — do not merge without explicit instruction. Once confirmed, squash-merge it with the message `rfc: <short lowercase rfc description> - ACCEPTED`:
+7.  **Queue the implementation.**
 
-    ```sh
-    gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - ACCEPTED"
-    ```
-
-8.  **After merge, assign the number.**
-
-    The RFC number is assigned only after merge. On `main`, find the highest number in [`rfc/INDEX.md`](../../../rfc/INDEX.md), increment by one, zero-pad to four digits (eg. `0006` → `0007`), and add a row for this newly-accepted RFC — its number, title, category, `Accepted` status, the approval date, and a link to its directory (`rfc/<category>/<slug>/`).
-
-    Commit this directly to `main`, and push:
-
-    ```sh
-    git commit -am "chore: assign next rfc number"
-    git push
-    ```
+    Remind the user that the decision now needs to be carried out — the tooling and infrastructure it calls for must be built and put in place. The PR stays open through this phase; the document MAY continue to evolve in response to implementation feedback. When the tooling and infrastructure are in place, run [`implement-rfc`](../implement-rfc/SKILL.md).
 
 ##  Rules
 
@@ -111,24 +98,28 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
 
     Never accept a draft, and never move backwards.
 
--   **RFCs are immutable after acceptance.**
+-   **Acceptance is a decision, not a merge.**
 
-    After acceptance, only the `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change.
+    The PR stays open until the tooling and infrastructure are in place. The merge and the number assignment happen at implementation, not acceptance.
 
--   **Do not merge without explicit instruction.**
+-   **RFCs are immutable after merge.**
+
+    While the PR is open — including through implementation — the document MAY still evolve. Once merged at `#implemented`, only the `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change.
 
 ## Success criteria
 
 - `Status` is `ACCEPTED`, `Last updated` is today's date, and `Approvers` / `Approval date` are filled in.
 
-- The PR carries `#accepted` (and its category label), not `#proposed`.
+- The PR carries `#accepted` (and its category label), not `#proposed`, and remains open.
 
 - The associated discussion thread is closed.
 
-- After merge: an `rfc/INDEX.md` entry is added on `main`, with the next sequential number.
+- No number has been assigned — that waits for implementation.
 
 ## References
 
 - [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle and immutability rules.
+
+- [`implement-rfc`](../implement-rfc/SKILL.md): Run once the tooling and infrastructure are in place.
 
 - [`reject-rfc`](../reject-rfc/SKILL.md) / [`supersede-rfc`](../supersede-rfc/SKILL.md): The other decision transitions.
