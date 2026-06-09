@@ -6,8 +6,7 @@ Enforces commit messages follow the format:
   <type>: <description>
 
 Where <type> is one of the allowed revision types: a subset of the standard
-TS-9 revision types, plus prefixes specific to this repository — notably `rfc`,
-used for every commit on an `rfc/<slug>` branch.
+TS-9 revision types, plus prefixes specific to this repository.
 
 Keep VALID_TYPES in sync with the CI workflow at
 .github/workflows/validate-commit-messages.yaml.

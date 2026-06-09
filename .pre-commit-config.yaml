@@ -16,11 +16,14 @@
 default_install_hook_types: [pre-commit, commit-msg]
 
 repos:
+
   # Defined locally, rather than consumed from the shared
   # kieranpotts/pre-commit-hooks repository, so the set of allowed commit
-  # types can include prefixes specific to this repository — notably `rfc`,
-  # used for every commit on an `rfc/<slug>` branch. Keep the allowed types in
-  # sync with .github/workflows/validate-commit-messages.yaml.
+  # types can include prefixes specific to this repository.
+  #
+  # Keep the allowed types in sync with
+  # .github/workflows/validate-commit-messages.yaml.
+
   - repo: local
     hooks:
       - id: validate-commit-message

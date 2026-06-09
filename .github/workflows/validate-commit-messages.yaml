@@ -5,8 +5,7 @@
 # `kieranpotts/actions/validate-commit-messages` action,
 # inlined here so the set of allowed commit types can be
 # tailored to this repository: a subset of the standard
-# revision types, plus custom prefixes: `rfc`, `draft`,
-# `propose`, etc.
+# revision types, plus custom prefixes.
 #
 
 name: Validate commit messages
