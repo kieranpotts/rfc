@@ -7,13 +7,13 @@ These contributing guidelines provide step-by-step instructions to pitch technic
 Anyone with write access to this repository may contribute to the technical direction of the project by submitting technical proposals and requesting comments on them.
 
 > [!NOTE]
-> The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY, are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+> The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY herein are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ## Criteria for RFC-worthy proposals
 
 Not all technical decisions require an RFC. An RFC is a proposal for a _significant_ technical change. Feature implementations that don't require changes to existing design patterns and technology choices, plus bug fixes, documentation tweaks, routine refactors, and other trivial changes, these all can be handled through the normal pull-request workflow on the relevant code repositories.
 
-The general rule of thumb is: if the change will impact multiple technical stakeholders, then it is significant enough to warrant building consensus on the design _before_ implementation. This is what an RFC is for.
+The general rule of thumb is, if the change will impact multiple technical stakeholders, then it is significant enough to warrant building consensus on the design _before_ implementation. This is what an RFC is for.
 
 Changes that typically warrant an RFC include:
 
@@ -39,9 +39,9 @@ The states are:
 
 - `PROPOSED`: The RFC is complete and open for feedback. It is now formally reviewed and negotiated with relevant stakeholders.
 
-- `ACCEPTED`: The proposal has been approved. Before the decision is settled, final comments are solicited to confirm there are no outstanding objections, and the RFC document and supporting artifacts are updated to reflect the final agreed design and its rationale. When all stakeholders have signed off on the final wording, the discussion thread is closed. The PR stays open through implementation — the document MAY still evolve in response to what is learned while building — and no number is assigned yet. An accepted decision remains in effect until a later RFC supersedes it.
+- `ACCEPTED`: The proposal has been approved. Before the decision is settled, final comments are solicited to confirm there are no outstanding objections, and the RFC document and supporting artifacts are updated to reflect the final agreed design and its rationale. When all stakeholders have signed off on the final wording, the discussion thread is closed. The PR stays open throughout implementation, and during this time the RFC document MAY continue to evolve in response to what is learned while building. No number is yet assigned to the RFC – that happens when it is moved to `IMPLEMENTED`. An accepted decision remains in effect until a later RFC supersedes it.
 
-- `IMPLEMENTED`: The tooling and infrastructure the decision calls for are now in place. The PR is merged into the `main` branch, and the RFC is given a unique reference number and listed in the [RFC index](./rfc/INDEX.md).
+- `IMPLEMENTED`: All the changes to tooling and infrastructure that the decision calls for are now in place. The PR is merged into the `main` branch, and the RFC is given a unique reference number and listed in the [RFC index](./rfc/INDEX.md).
 
 - `REJECTED`: The proposal will not be taken forward. The discussion thread is closed and the PR is merged into `main`. The rejected RFC is given a unique number and listed in the [RFC index](./rfc/INDEX.md) alongside implemented RFCs. Thus, all major technical decisions, whether ultimately implemented or rejected, are preserved permanently.
 
@@ -84,15 +84,13 @@ Follow these steps…
 
 ### Step 1: Write the proposal document
 
-A pull request is the formal vehicle for an RFC. Open it as soon as you are ready to start writing the RFC document – even if only a rough draft.
-
-Follow these steps to prepare the pull request:
+A pull request is the formal vehicle for an RFC. Open it as soon as you are ready to start writing the RFC document – even if only a rough draft. Follow these steps to prepare the pull request:
 
 1. Branch off `main` using the naming convention `rfc/<slug>`, where `<slug>` is a short, hyphen-delimited description of the proposal, eg. `rfc/event-sourcing-for-audit-log`.
 
 2. Change to the new branch. Copy [`rfc/TEMPLATE.md`](./rfc/TEMPLATE.md) to `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase category directory: "architecture", "process", "technology", or "tooling".
 
-3. Fill out the template. Each RFC is, at a minimum, a single Markdown document. The template includes placeholder text to guide you on what to include. Refer to other RFCs for examples of how to write up a proposal. You do not need to fill every section of the template — include only what is relevant to the decision at hand. However, be sure to include a convincing motivation for the change, demonstrate an understanding of the impact of the proposed solution, and be honest about its drawbacks and the relative merits of alternative solutions.
+3. Fill out the template. Each RFC is, at a minimum, a single Markdown document. The template includes placeholder text to guide you on what to include. Refer to other RFCs for examples. You do not need to fill every section of the template — include only what is relevant to the decision at hand. However, be sure to include a convincing motivation for the change, demonstrate an understanding of the impact of the proposed solution, and be honest about its drawbacks and the relative merits of alternative solutions.
 
 4. Add supporting artifacts – OPTIONAL. The RFC lives in its own directory, so you may add architectural diagrams, benchmarks, etc. All supporting artifacts MUST be linked from the RFC's `README.md`. Alternatively, if an artifact cannot live in the RFC repository (eg. a working prototype), it MAY be referenced as an external link. Internal artifacts are preferred, however, as they are less likely to decay and they keep the decision record self-contained.
 
@@ -102,21 +100,21 @@ Follow these steps to prepare the pull request:
 
 2. Apply one category label to the pull request:
 
-  - **ARCHITECTURE**: A decision about system design, structure, or implementation patterns.
+  - `ARCHITECTURE`: A decision about system design, structure, or implementation patterns.
 
-  - **PROCESS**: A decision about the development or operations lifecycle — how contributors work.
+  - `PROCESS`: A decision about the development or operations lifecycle — how contributors work.
 
-  - **TECHNOLOGY**: A decision about the production technology stack or infrastructure.
+  - `TECHNOLOGY`: A decision about the production technology stack or infrastructure.
 
-  - **TOOLING**: A decision about the automation tools or devops infrastructure.
+  - `TOOLING`: A decision about use of automation tools or devops infrastructure.
 
-3. Open a discussion thread for the RFC. Link to the thread in the `Discussion thread` field of the RFC document. Update the PR description to link to the discussion thread too. Create a bi-directional link from the discussion thread back to the PR.
+3. Open a discussion thread for the RFC. Link to the thread in the `Discussion thread` field of the RFC document. Update the PR description to link to the discussion thread, too. Create a bi-directional link from the discussion thread back to the PR.
 
 4. Continue to refine your proposal. OPTIONALLY, you may invite early feedback from a small set of trusted stakeholders while the proposal is still being drafted.
 
 ### Step 3: Request comments
 
-1. When your proposal is ready for full stakeholder review, mark the pull request as "ready for review" (removing its draft status) and apply the `#proposed` label.
+1. When your proposal is ready for review, mark the pull request as "ready for review" (removing its draft status) and apply the `#proposed` label.
 
 2. Request comments from a wide group of technical stakeholders. Feedback SHOULD be solicited from everyone who will be impacted by the change, and from anyone with relevant expertise. The more complex and impactful the change, the more important it is to solicit feedback from a wide range of stakeholders.
 
@@ -132,19 +130,19 @@ Once the final comment period has concluded, and when there is clear consensus o
 
 2. Remove the `#proposed` label and apply the `#accepted` or `#rejected` label instead.
 
-3. Review the final version of the RFC document to ensure it accurately reflects the agreed design and rationale. Make any necessary edits to clarify the proposal, but do not change the substance of the decision at this point.
+3. Review the final version of the RFC document to ensure it accurately reflects the agreed design and rationale – which may have changed during the course of the discussions. Make any necessary edits to clarify the proposal, but do not change the substance of the decision at this point.
 
-4. Close the discussion thread — final comments have concluded, so no further feedback is expected.
+4. Close the discussion thread. Final comments have concluded, so no further feedback is expected.
 
-5. The two outcomes diverge here:
+5. The workflow diverges here, depending on the outcome:
 
-  - **Rejected**: the decision is final, so squash-merge the PR straight away (its message takes the form `rfc: <description> - REJECTED`) and delete the branch. The rejected RFC is preserved in `main` as a permanent record. Go to step 6 to assign its number.
+  - If **rejected** squash-merge the PR straight away (its message takes the form `rfc: <description> - REJECTED`) and delete the branch. The rejected RFC is preserved in `main` as a permanent record. Go to step 6 to assign its number.
 
-  - **Accepted**: the decision is settled but not yet final — keep the PR **open**. The work now needs to be implemented: the tooling and infrastructure the decision calls for must be built and put in place. The document MAY still evolve in response to what is learned while building. The PR is merged later, at step 5, once the decision is implemented.
+  - If **accepted**, keep the PR open while any work necessary to implement the proposal – eg. new tooling or infrastructure – is undertaken. The document MAY still evolve in response to what is learnt through the implementation phase. Open other issues against other repositories as necessary to track the implementation, and cross-reference those from the `Implementation trackers` section of the RFC's README.
 
-### Step 5: Implement the RFC
+### Step 5: Transition the RFC to implemented
 
-This step applies only to `ACCEPTED` RFCs. Once the tooling and infrastructure the decision calls for are in place:
+This step applies only to **accepted** RFCs. Once the tooling and infrastructure the decision calls for are in place:
 
 1. Update the RFC document's `Status` field to `IMPLEMENTED`, and confirm the implementation trackers are linked.
 
@@ -152,11 +150,15 @@ This step applies only to `ACCEPTED` RFCs. Once the tooling and infrastructure t
 
 3. Squash-merge the PR (its message takes the form `rfc: <description> - IMPLEMENTED`). Delete the branch, if it is not automatically deleted.
 
-4. Assign the number, per step 6 below.
+4. Assign the RFC number, per step 6 below.
 
 ### Step 6: Assign the RFC number
 
-Once a decided RFC has been merged into `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward — update `rfc/INDEX.md` to add the new RFC, with the next sequential number. The number is not assigned until merge, so be sure to check the index for the latest number before updating. Commit this change directly to `main`.
+Once a decided RFC has been merged into `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward — update `rfc/INDEX.md` to add the new RFC, with the next sequential number.
+
+The number is not assigned until merge, so be sure to check the index for the latest number before updating.
+
+Commit this change directly to `main`.
 
 ## Rules
 
@@ -166,7 +168,7 @@ Once a decided RFC has been merged into `main` — at `IMPLEMENTED` for an accep
 
 - There MUST be one main Markdown file, named `README.md`, for each RFC. Any other artifacts in an RFC directory, which may include other Markdown files, diagrams, prototypes, etc., MUST be referenced from the main `README.md`. If it's not referenced from the `README.md`, it's not part of the RFC.
 
-- Each RFC SHOULD be focused on a single atomic decision that can be reviewed, decided, and merged independently of any other. If you have multiple decisions to propose, open multiple pull requests, and link them together as related RFCs.
+- Each RFC SHOULD be focused on a single atomic decision that can be reviewed, decided, and merged independently of any other. If you have a chain of interdependent proposals to make, open multiple pull requests, and link them together as related RFCs.
 
 - Each RFC SHOULD be focused on one of these categories: system architecture, devops process, production technology, or devops tooling.
 
@@ -174,15 +176,15 @@ Once a decided RFC has been merged into `main` — at `IMPLEMENTED` for an accep
 
 - Discussion threads SHOULD be used as the forum for discussion. This helps to keep the PR comment thread focused on edits to the RFC artifacts.
 
- - One an RFC is in the `PROPOSED` state, from this point on in its lifeycle, the author SHOULD NOT make further material changes to the RFC except in response to reviewer feedback. The RFC's PR remains open until its is either rejected or the necessary actions implemented. Throughout this time, the RFC SHOULD be revised in response to various feedback loops, including from reviewers and implementors.
+ - One an RFC is in the `PROPOSED` state, from this point on in its lifeycle, the author SHOULD NOT make further material changes to the RFC except in response to reviewer feedback. The RFC's PR remains open until it is either rejected or the necessary actions implemented. Throughout this time, the RFC SHOULD be revised in response to various feedback loops, including from reviewers and implementors.
 
-- An RFC is the record of a decision. The [`rfc/`](./rfc/) directory is an append-only log. Once an RFC is merged into `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward — its document is immutable; only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter, to reflect the current state of the decision and its changing relationship to other decisions. Users and agents MUST NOT edit other details of a merged RFC, especially the description of the problem, the settled solution, and its rationale.
+- The [`rfc/`](./rfc/) directory is an append-only log. Once an RFC is merged into `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward — its document is immutable. Only the document's `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers MAY change thereafter, to reflect the current state of the decision and its changing relationship to other decisions. Users and agents MUST NOT edit other details of a merged RFC, especially the description of the problem, the settled solution, and its rationale.
 
 - You MUST NOT delete any RFC documents in the `main` branch, including `REJECTED` RFCs. To change a past decision, open a new RFC that supersedes it. This constraint ensures that a record of every past decision, including `REJECTED` and `SUPERSEDED` ones, is preserved indefinitely. This is critical for maintaining institutional memory. Future contributors to the project can refer to the history of past decisions to understand the rationale for the current state of the system.
 
 - RFCs MUST NOT be merged to `main` before they are decided and final – either `IMPLEMENTED` (an accepted decision whose tooling and infrastructure are now in place) or `REJECTED`. RFCs that are still being refined, negotiated, or implemented live on their own `rfc/` branches and have open pull requests.
 
-- RFC branches are squash-merged into `main`. The message of the squash commit on `main` MUST take the form `rfc: <description> - IMPLEMENTED|REJECTED`, where `<description>` is a short prose title of the proposal, written full lowercase (eg. `rfc: event sourcing for audit log - IMPLEMENTED`) — not the hyphenated branch slug.
+- RFC branches are squash-merged into `main`. The message of the squash commit on `main` MUST take the form `rfc: <description> - IMPLEMENTED|REJECTED`, where `<description>` is a short prose title written full lowercase, eg. `rfc: event sourcing for audit log - IMPLEMENTED`.
 
 ## Contributor license agreement
 

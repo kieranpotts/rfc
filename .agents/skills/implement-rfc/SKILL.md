@@ -1,20 +1,20 @@
 ---
 name: implement-rfc
-description: Mark an accepted RFC as implemented once its tooling and infrastructure are in place — squash-merge its pull request and assign its number in the index. Use when the user says "implement this RFC", "this RFC is implemented", "the tooling is in place", or "the infrastructure is built".
+description: Mark an accepted RFC as implemented once its tooling and infrastructure are in place. Squash-merge its pull request and assign its number in the index. Use when the user says "implement this RFC", "this RFC is implemented", "the tooling is in place", or "the infrastructure is built".
 license: MIT
 ---
 
 # Implement RFC
 
-Use this skill to transition an RFC from `ACCEPTED` to `IMPLEMENTED`, once all the tooling and infrastructure the decision calls for are in place. This is the point at which the RFC's pull request is squash-merged into `main` and the RFC is assigned its number in [`rfc/INDEX.md`](../../../rfc/INDEX.md).
+Use this skill to transition an RFC from `ACCEPTED` to `IMPLEMENTED`, once all the tooling and infrastructure the decision calls for are in place. This is the point at which the RFC's pull request is squash-merged into `main` and the RFC is assigned its number in the [RFC index](../../../rfc/INDEX.md).
 
-An accepted RFC is a settled decision whose pull request stays **open** through the implementation phase. Implementation is what merges it: the decision has now been carried out, so the record becomes permanent.
+An accepted RFC is a settled decision whose pull request stays open through the implementation phase.
 
 Do NOT use this skill for any other transition — to accept use [`accept-rfc`](../accept-rfc/SKILL.md), to retire an implemented decision use [`supersede-rfc`](../supersede-rfc/SKILL.md), to reject use [`reject-rfc`](../reject-rfc/SKILL.md), and to scaffold or propose use [`draft-rfc`](../draft-rfc/SKILL.md) / [`propose-rfc`](../propose-rfc/SKILL.md).
 
 ## Transition gates: `ACCEPTED` → `IMPLEMENTED`
 
-The RFC MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm **all** of the following before implementing. If any is unmet, report it and pause.
+The RFC MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm _all_ of the following before implementing. If any is unmet, report it and pause.
 
 -   **The tooling and infrastructure are in place.**
 
@@ -32,15 +32,15 @@ The RFC MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm **all*
 
 1.  **Identify the RFC and confirm it is `ACCEPTED`.**
 
-    Infer the target from the current checked-out branch (`rfc/<slug>`). If on `main`, use the user's description to infer the target RFC if they gave one; otherwise list the open `#accepted` pull requests and ask the user to choose:
+    Infer the target from the current checked-out branch (`rfc/<slug>`). If on `main`, use the user's description to infer the target RFC if they gave one, otherwise list the open `#accepted` pull requests and ask the user to choose:
 
     ```sh
     gh pr list --label "#accepted" --json number,title,headRefName
     ```
 
-    Read the document; check `Status` is `ACCEPTED` and the PR carries `#accepted` (`gh pr view <number> --json labels`).
+    Read the document. Check `Status` is `ACCEPTED` and the PR carries `#accepted` (`gh pr view <number> --json labels`).
 
-2.  **Verify the transition gates above.**
+2.  **Verify the transition gates.**
 
     Report any unmet gate and stop.
 
@@ -55,7 +55,7 @@ The RFC MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm **all*
     gh pr edit <number> --add-label "#implemented" --remove-label "#accepted"
     ```
 
-    This swaps only the lifecycle label; leave the category label in place.
+    This swaps only the lifecycle label. Leave the category label, eg. `TOOLING`, in place.
 
 5.  **Commit.**
 
@@ -73,12 +73,12 @@ The RFC MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm **all*
 
 7.  **After merge, assign the number.**
 
-    The RFC number is assigned only after merge. On `main`, find the highest number in [`rfc/INDEX.md`](../../../rfc/INDEX.md), increment by one, zero-pad to four digits (eg. `0006` → `0007`), and add a row for this RFC — its number, title, category, `Implemented` status, the date, and a link to its directory (`rfc/<category>/<slug>/`).
+    The RFC number is assigned only after merge. On `main`, find the highest number in [RFC index](../../../rfc/INDEX.md), increment by one, zero-pad to four digits (eg. `0006` → `0007`), and add a row for this RFC — its number, title, category, `IMPLEMENTED` status, the date, and a link to its directory (`rfc/<category>/<slug>/`).
 
     Commit this directly to `main`, and push:
 
     ```sh
-    git commit -am "chore: assign next rfc number"
+    git commit -am "chore: assign rfc <number>"
     git push
     ```
 
@@ -113,7 +113,3 @@ The RFC MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm **all*
 ## References
 
 - [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle and immutability rules.
-
-- [`accept-rfc`](../accept-rfc/SKILL.md): The transition that precedes implementation.
-
-- [`supersede-rfc`](../supersede-rfc/SKILL.md): Run once a later RFC replaces this decision.

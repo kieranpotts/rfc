@@ -24,4 +24,3 @@ Alternatively, provide a short description of the RFC, from which the agent will
 ```
 /reject-rfc event sourcing for audit log
 ```
-

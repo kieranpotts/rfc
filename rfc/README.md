@@ -16,11 +16,11 @@ rfc/
 ├── process/
 ├── technology/
 └── tooling/
-    └── <slug>/
-        ├── README.md # The main RFC document.
+    └── <slug>/       # Root directory for one RFC.
+        ├── README.md # The RFC's main document.
         └── …         # Diagrams or other supporting artifacts.
 ```
 
-An RFC's directory holds its `README.md` (the proposal itself, copied from [`TEMPLATE.md`](./TEMPLATE.md)) plus any supporting artifacts — diagrams, data, prototypes.
+An RFC's directory holds its `README.md` – the proposal itself, copied from [`TEMPLATE.md`](./TEMPLATE.md) – plus any supporting artifacts — diagrams, data, prototypes.
 
-See the [contributing guidelines](../CONTRIBUTING.md) for details of the process to create new RFCs, and the [agent skills](../.agents/skills/) that can be used to automate it.
+See the [contributing guidelines](../CONTRIBUTING.md) for details of the process to create new RFCs, and the [agent skills](../.agents/skills/) that can be used to automate this process.

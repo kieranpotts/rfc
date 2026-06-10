@@ -1,18 +1,18 @@
 ---
 name: accept-rfc
-description: Accept a proposed RFC. Use this skill when the user says "accept this RFC", "approve this RFC", "mark this RFC as accepted", or advances a proposal to accepted.
+description: Accept a proposed RFC. Use this skill when the user says "accept this RFC", "approve this RFC", "mark this RFC as accepted", or otherwise wants to advance a proposal to accepted.
 license: MIT
 ---
 
 # Accept RFC
 
-Use this skill to transition an RFC from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, label the PR `#accepted`, and close its discussion thread. The RFC is now a settled decision, but its pull request **stays open** until the tooling and infrastructure it calls for are in place (see [`implement-rfc`](../implement-rfc/SKILL.md)) — only at that point is the PR merged and a number assigned.
+Use this skill to transition an RFC from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, label the PR `#accepted`, and close its discussion thread. The RFC is now a settled decision, but its pull request stays open until the tooling and infrastructure it calls for are in place.
 
 Do NOT use this skill for any other transition — to mark a built decision implemented use [`implement-rfc`](../implement-rfc/SKILL.md), to reject use [`reject-rfc`](../reject-rfc/SKILL.md), to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md), to scaffold a draft PR use [`draft-rfc`](../draft-rfc/SKILL.md), and to forward a draft to a proposal use [`propose-rfc`](../propose-rfc/SKILL.md).
 
 ## Transition gates: `PROPOSED` → `ACCEPTED`
 
-The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#proposed` label). Confirm _all_ of the following before approving. If any is unmet, report it and pause.
+The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#proposed` label. Confirm _all_ of the following before approving. If any is unmet, report it and pause.
 
 -   **Stakeholder review has concluded.**
 
@@ -42,7 +42,7 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
 
     Read the document. Check `Status` is `PROPOSED` and the PR carries the `#proposed` label and is not a draft (`gh pr view <number> --json labels,isDraft`).
 
-2.  **Verify the transition rules above.**
+2.  **Verify the transition gates.**
 
     Report any unmet gate and stop.
 
@@ -119,7 +119,3 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
 ## References
 
 - [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle and immutability rules.
-
-- [`implement-rfc`](../implement-rfc/SKILL.md): Run once the tooling and infrastructure are in place.
-
-- [`reject-rfc`](../reject-rfc/SKILL.md) / [`supersede-rfc`](../supersede-rfc/SKILL.md): The other decision transitions.

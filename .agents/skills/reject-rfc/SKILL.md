@@ -6,7 +6,7 @@ license: MIT
 
 # Reject RFC
 
-Use this skill to transition an RFC from `PROPOSED` to `REJECTED`. A rejected RFC is not discarded — its document is merged into `main` and preserved permanently in `rfc/` as the record of the decision and its rationale, so the same ground is not needlessly covered again later. Because this repository is an append-only archive (it holds no "current state" that a rejected RFC would have changed), rejection is straightforward — there is nothing to revert.
+Use this skill to transition an RFC from `PROPOSED` to `REJECTED`. A rejected RFC is not discarded — its document is merged into `main` and preserved permanently in `rfc/` as the record of the decision and its rationale, so the same ground is not needlessly covered again later.
 
 Do NOT use this skill for any other transition — to accept use [`accept-rfc`](../accept-rfc/SKILL.md), to mark a built decision implemented use [`implement-rfc`](../implement-rfc/SKILL.md), and to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md).
 
@@ -34,7 +34,7 @@ The RFC MUST currently be `PROPOSED`. Confirm _all_ of the following before reje
 
     Identify the document and PR. Confirm with the user that review is concluded and the decision is to reject.
 
-2.  **Verify the transition rules above.**
+2.  **Verify the transition gates.**
 
     Report any unmet gate and stop.
 
@@ -83,7 +83,7 @@ The RFC MUST currently be `PROPOSED`. Confirm _all_ of the following before reje
 
 8.  **After merge, assign the number.**
 
-    The RFC number is assigned only after merge. On `main`, find the highest number in [`rfc/INDEX.md`](../../../rfc/INDEX.md), increment by one, and zero-pad to four digits. Add a row for this RFC — its number, title, category, `Rejected` status, the date, and a link to its directory (`rfc/<category>/<slug>/`).
+    The RFC number is assigned only after merge. On `main`, find the highest number in [the RFC index](../../../rfc/INDEX.md), increment by one, and zero-pad to four digits. Add a row for this RFC — its number, title, category, `Rejected` status, the date, and a link to its directory (`rfc/<category>/<slug>/`).
 
     Commit this directly to `main`, and push:
 
@@ -119,5 +119,3 @@ The RFC MUST currently be `PROPOSED`. Confirm _all_ of the following before reje
 ## References
 
 - [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle, rejection path, and immutability rules.
-
-- [`accept-rfc`](../accept-rfc/SKILL.md) / [`implement-rfc`](../implement-rfc/SKILL.md) / [`supersede-rfc`](../supersede-rfc/SKILL.md): The other lifecycle transitions.

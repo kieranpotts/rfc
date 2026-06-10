@@ -14,16 +14,16 @@ Do NOT use this skill to advance an existing RFC. Use [`propose-rfc`](../propose
 
 1.  **Determine the RFC description and slug.**
 
-    Establish a short, hyphen-delimited slug (eg. `event-sourcing-for-audit-log`). Decide this from information provided by the user about the RFC. Prompt the user if they did not describe the RFC.
+    Establish a short, hyphen-delimited slug eg. `event-sourcing-for-audit-log`. Decide this from information provided by the user about the RFC. Prompt the user if they did not describe the RFC.
 
 2.  **Determine the RFC topic category.**
 
     Infer the category from the RFC description, or ask the user if you're not sure which category fits best. The options are:
 
-    - Architecture: System design or implementation patterns.
-    - Process: Development or operations lifecycle concerns.
-    - Technology: Production technology or infrastructure.
-    - Tooling: Automation tools or devops infrastructure.
+    - **Architecture**: System design or implementation patterns.
+    - **Process**: Development or operations lifecycle concerns.
+    - **Technology**: Production technology or infrastructure.
+    - **Tooling**: Automation tools or devops infrastructure.
 
 3.  **Create the branch.**
 
@@ -60,7 +60,7 @@ Do NOT use this skill to advance an existing RFC. Use [`propose-rfc`](../propose
     gh pr edit <number> --add-label "<category>"
     ```
 
-    Apply exactly one category label, full uppercase: `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`.
+    Apply exactly one category label to the PR, full uppercase: `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`.
 
 8.  **Open a discussion thread.**
 
@@ -112,7 +112,7 @@ Do NOT use this skill to advance an existing RFC. Use [`propose-rfc`](../propose
 
 -   **One RFC per branch and pull request.**
 
-    Never bundle multiple decisions into a single branch. If the user describes changes that span multiple independent concerns, scaffold separate RFC branches.
+    Never bundle multiple decisions into a single branch. If the user describes changes that span multiple independent concerns, recommend to the user that you scaffold separate RFC branches.
 
 -   **Branch from `main`, not from any other branch.**
 
@@ -142,8 +142,4 @@ Do NOT use this skill to advance an existing RFC. Use [`propose-rfc`](../propose
 
 ## References
 
-- [`rfc/TEMPLATE.md`](../../../rfc/TEMPLATE.md): The RFC template to copy.
-
 - [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle and conventions, written for agents.
-
-- [`propose-rfc`](../propose-rfc/SKILL.md): Next skill in the workflow. Removes the draft status once the document is complete.

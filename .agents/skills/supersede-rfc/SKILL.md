@@ -6,7 +6,7 @@ license: MIT
 
 # Supersede RFC
 
-Use this skill to transition an RFC from `IMPLEMENTED` to `SUPERSEDED`, once a later, implemented RFC has replaced its decision. This is the only transition out of `IMPLEMENTED`. The superseded document remains in `rfc/` permanently as part of the historical record.
+Use this skill to transition an RFC from `IMPLEMENTED` to `SUPERSEDED`, once a later, implemented RFC has replaced its decision. The superseded document remains in `rfc/` permanently as part of the historical record.
 
 Do NOT use this skill for any other transition — see [`accept-rfc`](../accept-rfc/SKILL.md), [`implement-rfc`](../implement-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), [`propose-rfc`](../propose-rfc/SKILL.md), or [`draft-rfc`](../draft-rfc/SKILL.md).
 
@@ -14,54 +14,60 @@ Do NOT use this skill for any other transition — see [`accept-rfc`](../accept-
 
 The RFC being superseded MUST currently be `IMPLEMENTED`. Confirm _all_ of the following before superseding. If any is unmet, report it and pause.
 
--   **A later RFC has replaced this decision.**
+-   **Both RFCs are in the `main` branch.**
 
-    That successor RFC is itself `IMPLEMENTED` — a draft, proposed, accepted, or rejected RFC cannot supersede an implemented one, because its replacement tooling and infrastructure are not yet in place. The successor MUST be the newer of the two (a higher `rfc/INDEX.md` number).
+    Both the succeeded and the successor RFC MUST have previously been merged into the `main` branch.
 
--   **The cross-references are reciprocal.**
+-   **Both have a unique RFC number**
 
-    The superseded RFC's `Superseded by` field links the successor, and the successor's `Supersedes` field links back to this one.
+    The two RFCs MUST each have a unique RFC number assigned in the [RFC index](../../../rfc/INDEX.md).
+
+-   **Both are implemented.**
+
+    Both the succeeded RFC and its successor MUST currently be `IMPLEMENTED`. A draft, proposed, accepted, or rejected RFC cannot supersede an implemented one, because its replacement tooling and infrastructure are not yet in place.
+
+-   **The successor is the newer of the two RFCs.**
+
+    The successor MUST be the newer of the two. It MUST have a higher RFC number in the [RFC index](../../../rfc/INDEX.md) number.
 
 ##  Instructions
 
 1.  **Identify both RFCs.**
 
-    The implemented RFC being superseded, and the later implemented RFC that replaces it. Ask the user for the RFC being superseded and the newer one that replaces it.
+    Identify the implemented RFC being superseded, and the later implemented RFC that replaces it. If the user gave a short description (eg. "X is superseded by Y"), use it to infer both. Else prompt the user.
 
-    If the user gave a short description (eg. "X is superseded by Y"), use it to infer both.
-
-    Confirm both are `IMPLEMENTED` and that the successor is the newer of the two.
-
-2.  **Verify the transition rules above.**
+2.  **Verify the transition gates.**
 
     Report any unmet gate and stop.
 
-3.  **Update the superseded document and the index.**
+3.  **Point the successor to the succeeded RFC.**
 
-    - Set `Status` to `SUPERSEDED` and `Last updated` to today's date.
-    - Set the `Superseded by` cross-reference to the successor RFC.
-    - In [`rfc/INDEX.md`](../../../rfc/INDEX.md), change this RFC's row status to `Superseded`.
+    Update the successor's RFC document's `Supersedes` field to link back to the succeeded RFC document, referenced by its RFC index number.
+
+4.  **Point the succeeded RFC to its successor.**
+
+    Update the succeeded RFC's `Superseded by` field to link to the successor RFC, referenced by its RFC index number.
+
+    Set `Status` to `SUPERSEDED` and `Last updated` to today's date.
+
+    In the [RFC index](../../../rfc/INDEX.md), change the succeeded RFC's row status to `SUPERSEDED`.
 
     Change nothing else in the document — it is otherwise immutable.
 
-4.  **Confirm the successor links back.**
+5.  **Land the document change.**
 
-    Ensure the successor RFC's `Supersedes` field references this RFC. The successor is edited through its own pull request; if the back-link is missing, flag it.
+    Commit the edits to both documents at the same time. This can be done directly on `main`:
 
-5.  **Switch the state label on the old RFC.**
+    ```sh
+    git commit -am "supersede: <short lowercase description of superseded rfc>"
+    ```
+
+6.  **Switch the state label on the old RFC pull request.**
 
     On the superseded RFC's original pull request:
 
     ```sh
     gh pr edit <number> --add-label "#superseded" --remove-label "#implemented"
-    ```
-
-6.  **Land the document change.**
-
-    Commit the edit to the superseded document — typically as part of the superseding RFC's pull request, since `main` is updated only through pull requests:
-
-    ```sh
-    git commit -am "supersede: <short lowercase description of superseded rfc>"
     ```
 
 ##  Rules
@@ -85,5 +91,3 @@ The RFC being superseded MUST currently be `IMPLEMENTED`. Confirm _all_ of the f
 ## References
 
 - [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle and immutability rules.
-
-- [`implement-rfc`](../implement-rfc/SKILL.md): How both the superseded RFC and its successor reached `#implemented`.

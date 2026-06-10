@@ -64,4 +64,4 @@ _Any other context or notes that would help stakeholders evaluate this proposal,
 
 ## References
 
-_Links to supporting artifacts and external sources. Artifacts that back this RFC — architectural diagrams, prototypes, benchmarks, data — SHOULD be kept alongside this README in the RFC directory and linked here by relative path; this is preferred, as it keeps the record self-contained. Where an artifact must live elsewhere (eg. a prototype in another repository), link to it there instead. List any other relevant external materials too._
+_Links to supporting artifacts and external sources. Artifacts that back this RFC — architectural diagrams, prototypes, benchmarks, data — SHOULD be kept alongside this README in the RFC's directory, and cross-referenced from the README using relative paths. This is preferred, as it keeps the record self-contained. Where an artifact must live elsewhere (eg. a prototype in another repository), link to it there instead. List any other relevant external materials._

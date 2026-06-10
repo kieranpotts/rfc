@@ -1,6 +1,6 @@
 # Accept RFC
 
-Transitions an RFC from `PROPOSED` to `ACCEPTED`. This records the decision; the PR stays open until the decision is implemented.
+Transitions an RFC from `PROPOSED` to `ACCEPTED`. The PR stays open until the decision is implemented.
 
 ## What it does
 
@@ -9,7 +9,7 @@ Transitions an RFC from `PROPOSED` to `ACCEPTED`. This records the decision; the
 - Adds approvers and approval date.
 - Swaps the PR label to `#accepted`.
 - Closes the discussion thread.
-- Keeps the PR **open** — the merge and the index number wait for [`/implement-rfc`](../implement-rfc/), once the tooling and infrastructure are in place.
+- Keeps the PR open during implementation.
 
 ## How to invoke
 

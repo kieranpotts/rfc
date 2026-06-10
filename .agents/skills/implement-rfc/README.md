@@ -7,7 +7,7 @@ Transitions an RFC from `ACCEPTED` to `IMPLEMENTED`, then squash-merges the PR a
 - Verifies the implementation gates — the tooling and infrastructure the decision calls for are actually in place.
 - Sets `Status` to `IMPLEMENTED`.
 - Swaps the PR label to `#implemented`.
-- Merges the PR using the squash-merge strategy (on your confirmation).
+- Merges the PR using the squash-merge strategy.
 - Assigns the RFC the next sequential number, logs it in `rfc/INDEX.md` on `main`.
 
 ## How to invoke

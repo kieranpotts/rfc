@@ -1,6 +1,6 @@
 ---
 name: propose-rfc
-description: Transition an RFC from `DRAFT` to `PROPOSED`, preparing it for stakeholder review. Use this skill when the user says "propose this RFC", "this RFC is ready for review", "mark the RFC as ready", or "take this RFC out of draft", or "progress this RFC".
+description: Transition an RFC from `DRAFT` to `PROPOSED`, preparing it for stakeholder review. Use this skill when the user says "propose this RFC", "this RFC is ready for review", "mark the RFC as ready", "take this RFC out of draft", or "progress this RFC".
 license: MIT
 ---
 
@@ -42,15 +42,15 @@ Before removing draft status, confirm _all_ of the following. If any fails, repo
 
 1.  **Identify the RFC and its PR.**
 
-    Infer the target from the current checked-out branch (`rfc/<slug>`). If on `main`, list the open draft RFC pull requests and ask the user to choose:
+    Infer the target from the current checked-out branch (`rfc/<slug>`). If on `main`, list all open draft pull requests and ask the user to choose:
 
     ```sh
     gh pr list --draft --json number,title,headRefName
     ```
 
-    Then read the RFC document (`rfc/<category>/<slug>/README.md`) and confirm its PR (`gh pr view <number> --json isDraft,labels` if needed).
+    Then checkout the branch, read the RFC document (`rfc/<category>/<slug>/README.md`), and confirm its PR (`gh pr view <number> --json isDraft,labels`) if needed.
 
-2.  **Verify the transition gate criteria, above.**
+2.  **Verify the transition gates.**
 
     Read the document in full and check each gate. Report any failures and stop if unmet.
 
@@ -63,7 +63,8 @@ Before removing draft status, confirm _all_ of the following. If any fails, repo
     ```sh
     gh pr edit <number> --add-label "#proposed"
     ```
-    Leave the category label in place.
+
+    Leave the category label in place, eg. `ARCHITECTURE`.
 
 5.  **Remove the PR's draft status.**
 
@@ -75,6 +76,7 @@ Before removing draft status, confirm _all_ of the following. If any fails, repo
 
     ```sh
     git commit -am "propose: <short lowercase rfc description>"
+    git push
     ```
 
 ##  Rules
@@ -98,7 +100,3 @@ Before removing draft status, confirm _all_ of the following. If any fails, repo
 ## References
 
 - [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle.
-
-- [`draft-rfc`](../draft-rfc/SKILL.md): Scaffolds the RFC and opens the draft PR.
-
-- [`accept-rfc`](../accept-rfc/SKILL.md) / [`reject-rfc`](../reject-rfc/SKILL.md): Decide a proposed RFC.

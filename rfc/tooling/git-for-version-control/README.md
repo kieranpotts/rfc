@@ -50,9 +50,9 @@ Repository hygiene — `.gitignore`, `.gitattributes` for line-ending normalizat
 
 ## Alternatives
 
-**Mercurial**: A capable distributed VCS with a reputation for a cleaner CLI. Rejected because Git's ecosystem — hosting, CI providers, tooling, and the prevailing familiarity among contributors — is materially larger, which lowers onboarding cost and operational risk.
+**Mercurial**: A capable distributed VCS with a reputation for a clean CLI. Rejected because Git's ecosystem — hosting, CI providers, tooling, and the prevailing familiarity among contributors — is materially larger, which lowers onboarding cost and operational risk.
 
-**A centralized VCS (e.g. Subversion)**: Rejected because centralized systems handle branching and offline/asynchronous work poorly, which is a bad fit for distributed collaboration and fast, continuous integration workflows.
+**A centralized VCS (eg. Subversion)**: Rejected because centralized systems handle branching and offline/asynchronous work poorly, which is a bad fit for distributed collaboration and fast, continuous integration workflows.
 
 ## Trade-offs and risks
 
@@ -64,7 +64,7 @@ Repository hygiene — `.gitignore`, `.gitattributes` for line-ending normalizat
 
 - Which specific branching-and-merging convention should we adopt? Deferred to a follow-up RFC.
 
-- Which remote forge and CI provider? Deferred to a follow-up `TOOLING` RFC.
+- Which remote forge and CI provider? Deferred to a follow-up RFC.
 
 ## References
 
