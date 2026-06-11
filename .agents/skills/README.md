@@ -14,7 +14,7 @@ The skills are, in lifecycle order:
 
 - **[`/implement-rfc`](./implement-rfc/)**: `ACCEPTED` → `IMPLEMENTED` — Sets the document's `Status` to `IMPLEMENTED`, labels the pull request `#implemented`, and squash-merges it to `main`. After the merge, the RFC is given a unique reference number and listed in the RFC index.
 
-- **[`/reject-rfc`](./reject-rfc/)**: `PROPOSED` → `REJECTED` — Records the rejection, sets the document's `Status` to `REJECTED`, labels the pull request `#rejected`, closes the discussion thread, and squash-merges it to `main`. After the merge, the RFC is given a unique reference number and listed in the RFC index.
+- **[`/reject-rfc`](./reject-rfc/)**: `PROPOSED` → `REJECTED` — Sets the document's `Status` to `REJECTED`, labels the pull request `#rejected`, closes the discussion thread, and squash-merges it to `main`. After the merge, the RFC is given a unique reference number and listed in the RFC index.
 
 - **[`/supersede-rfc`](./supersede-rfc/)**: `IMPLEMENTED` → `SUPERSEDED` — Marks an implemented RFC as replaced by a newer one. Sets up cross-references between the two.
 
