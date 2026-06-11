@@ -3,8 +3,8 @@
 - Authors: Your Name [@your-github-handle], ...
 - Created: YYYY-MM-DD
 - Last updated: YYYY-MM-DD
-- Approvers:
-- Approval date:
+- Decided by:
+- Decision date:
 - PR: #...
 - Discussion thread:
 
@@ -14,8 +14,10 @@ DRAFT | PROPOSED | ACCEPTED | IMPLEMENTED | REJECTED | SUPERSEDED
 
 ## Related RFCs
 
-- Supersedes #...
-- Superseded by #...
+<!-- Reference a merged RFC by its rfc/INDEX.md number, eg. 0001; reference an RFC that is not yet merged (so has no index number) by its pull request number, eg. #42. `Supersedes`/`Superseded by` always point to merged RFCs, so use index numbers. `Depends on`/`Related to` usually point to RFCs still in flight, so use PR numbers. -->
+
+- Supersedes NNNN
+- Superseded by NNNN
 - Depends on #...
 - Related to #...
 

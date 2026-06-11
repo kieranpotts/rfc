@@ -73,7 +73,7 @@ The RFC MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm _all_ 
 
 7.  **After merge, assign the number.**
 
-    The RFC number is assigned only after merge. On `main`, find the highest number in [RFC index](../../../rfc/INDEX.md), increment by one, zero-pad to four digits (eg. `0006` → `0007`), and add a row for this RFC — its number, title, category, `IMPLEMENTED` status, the date, and a link to its directory (`rfc/<category>/<slug>/`).
+    The RFC number is assigned only after merge. On `main`, find the highest number in [RFC index](../../../rfc/INDEX.md), increment by one, zero-pad to four digits (eg. `0006` → `0007`), and add a row for this RFC — its number, title, category, `IMPLEMENTED` status, the RFC's `Decision date` (its approval date), and a link to its directory (`rfc/<category>/<slug>/`).
 
     Commit this directly to `main`, and push:
 

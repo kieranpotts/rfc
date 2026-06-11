@@ -176,7 +176,7 @@ Commit this change directly to `main`.
 
 - Discussion threads SHOULD be used as the forum for discussion. This helps to keep the PR comment thread focused on edits to the RFC artifacts.
 
- - One an RFC is in the `PROPOSED` state, from this point on in its lifeycle, the author SHOULD NOT make further material changes to the RFC except in response to reviewer feedback. The RFC's PR remains open until it is either rejected or the necessary actions implemented. Throughout this time, the RFC SHOULD be revised in response to various feedback loops, including from reviewers and implementors.
+ - Once an RFC is in the `PROPOSED` state, from this point on in its lifecycle, the author SHOULD NOT make further material changes to the RFC except in response to reviewer feedback. The RFC's PR remains open until it is either rejected or the necessary actions implemented. Throughout this time, the RFC SHOULD be revised in response to various feedback loops, including from reviewers and implementors.
 
 - The [`rfc/`](./rfc/) directory is an append-only log. Once an RFC is merged into `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward — its document is immutable. Only the document's `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers MAY change thereafter, to reflect the current state of the decision and its changing relationship to other decisions. Users and agents MUST NOT edit other details of a merged RFC, especially the description of the problem, the settled solution, and its rationale.
 

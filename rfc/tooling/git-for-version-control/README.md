@@ -3,8 +3,8 @@
 - Authors: Kieran Potts [@kieranpotts]
 - Created: 2024-01-12
 - Last updated: 2024-02-20
-- Approvers: Kieran Potts
-- Approval date: 2024-01-26
+- Decided by: Kieran Potts
+- Decision date: 2024-01-26
 - PR: #1
 - Discussion thread: https://github.com/kieranpotts/rfc/discussions/1
 

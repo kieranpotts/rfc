@@ -50,7 +50,7 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
 
     - Set `Status` to `ACCEPTED` and `Last updated` to today's date.
 
-    - Fill in `Approvers` and `Approval date`.
+    - Fill in `Decided by` and `Decision date` (the approval date).
 
     - Confirm `PR` is set, and that `Implementation trackers` are linked if any exist.
 
@@ -108,7 +108,7 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
 
 ## Success criteria
 
-- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Approvers` / `Approval date` are filled in.
+- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` / `Decision date` are filled in.
 
 - The PR carries `#accepted` (and its category label), not `#proposed`, and remains open.
 

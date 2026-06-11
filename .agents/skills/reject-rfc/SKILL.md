@@ -42,6 +42,7 @@ The RFC MUST currently be `PROPOSED`. Confirm _all_ of the following before reje
 
     - Set `Status` to `REJECTED`.
     - Update `Last updated` to today's date.
+    - Set `Decision date` to the date the rejection was decided.
 
     Do not alter any other field as part of this change — the document's substance is immutable from this point.
 
@@ -83,7 +84,7 @@ The RFC MUST currently be `PROPOSED`. Confirm _all_ of the following before reje
 
 8.  **After merge, assign the number.**
 
-    The RFC number is assigned only after merge. On `main`, find the highest number in [the RFC index](../../../rfc/INDEX.md), increment by one, and zero-pad to four digits. Add a row for this RFC — its number, title, category, `Rejected` status, the date, and a link to its directory (`rfc/<category>/<slug>/`).
+    The RFC number is assigned only after merge. On `main`, find the highest number in [the RFC index](../../../rfc/INDEX.md), increment by one, and zero-pad to four digits. Add a row for this RFC — its number, title, category, `Rejected` status, the RFC's `Decision date` (the rejection date), and a link to its directory (`rfc/<category>/<slug>/`).
 
     Commit this directly to `main`, and push:
 

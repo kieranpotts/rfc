@@ -71,4 +71,4 @@ The authors of an RFC drive its lifecycle. Each state transition has a correspon
 
 ## Skills
 
-The [`.agents/skills/`](./.agents/skills/) directory provides on-demand skills for managing the RFC workflow. There's one agent skill per RFC state transition. See the [README]((./.agents/skills/)README.md) for details.
+The [`.agents/skills/`](./.agents/skills/) directory provides on-demand skills for managing the RFC workflow. There's one agent skill per RFC state transition. See the [README](./.agents/skills/README.md) for details.
