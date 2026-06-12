@@ -4,7 +4,7 @@
 
 This repository is the home of the Requests for Comments (RFC) process for [Project Name]. It is a permanent, chronological archive of the architecturally significant technical decisions made over the lifetime of the project. It is also the mechanism by which new technical decisions are proposed, discussed, and accepted or rejected.
 
-RFCs cover technical decisions — _how_ the system is built. Product decisions – about _what_ the system should do – are tracked separately in the [software requirements specification (SRS)](https://github.com/kieranpotts/specs). Both the RFC and SRS repositories are managed by the technical teams and follow similar change management workflows.
+RFCs cover technical decisions – _how_ the system is built. Product decisions – about _what_ the system should do – are tracked separately in the [software requirements specification (SRS)](https://github.com/kieranpotts/specs). Both the RFC and SRS repositories are managed by the technical teams and follow similar change management workflows.
 
 ## Ecosystem
 
@@ -20,7 +20,7 @@ This repository is one of four that form a coherent, version-controlled document
 
 The [**skills**](https://github.com/kieranpotts/skills) collection provides an agentic workflow that operates across all four.
 
-This separation into dedicated repositories is intended for application software that spans multiple code repositories, and potentially multiple teams, where the requirements, decisions, designs, and plans are shared concerns that sit above any single codebase. For a standalone code repository — a small utility library, say — it is better to fold these artifacts and skills directly into that repository, rather than maintain them separately.
+This separation into dedicated repositories is intended for application software that spans multiple code repositories, and potentially multiple teams, where the requirements, decisions, designs, and plans are shared concerns that sit above any single codebase. For a standalone code repository – a small utility library, say – it is better to fold these artifacts and skills directly into that repository, rather than maintain them separately.
 
 ## Contents
 

@@ -21,7 +21,7 @@ Changes that typically warrant an RFC include:
 
 - Changes to the technology stack, production infrastructure, or major dependencies.
 
-- Changes to interfaces — graphical, command-line, or programmatic — or anything with significant downstream impact.
+- Changes to interfaces – graphical, command-line, or programmatic – or anything with significant downstream impact.
 
 - Changes that may affect service level agreements, for example changes to the security model that carry performance or availability risks.
 
@@ -90,7 +90,7 @@ A pull request is the formal vehicle for an RFC. Open it as soon as you are read
 
 2. Change to the new branch. Copy [`rfc/TEMPLATE.md`](./rfc/TEMPLATE.md) to `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase category directory: "architecture", "process", "technology", or "tooling".
 
-3. Fill out the template. Each RFC is, at a minimum, a single Markdown document. The template includes placeholder text to guide you on what to include. Refer to other RFCs for examples. You do not need to fill every section of the template — include only what is relevant to the decision at hand. However, be sure to include a convincing motivation for the change, demonstrate an understanding of the impact of the proposed solution, and be honest about its drawbacks and the relative merits of alternative solutions.
+3. Fill out the template. Each RFC is, at a minimum, a single Markdown document. The template includes placeholder text to guide you on what to include. Refer to other RFCs for examples. You do not need to fill every section of the template – include only what is relevant to the decision at hand. However, be sure to include a convincing motivation for the change, demonstrate an understanding of the impact of the proposed solution, and be honest about its drawbacks and the relative merits of alternative solutions.
 
 4. Add supporting artifacts – OPTIONAL. The RFC lives in its own directory, so you may add architectural diagrams, benchmarks, etc. All supporting artifacts MUST be linked from the RFC's `README.md`. Alternatively, if an artifact cannot live in the RFC repository (eg. a working prototype), it MAY be referenced as an external link. Internal artifacts are preferred, however, as they are less likely to decay and they keep the decision record self-contained.
 
@@ -102,7 +102,7 @@ A pull request is the formal vehicle for an RFC. Open it as soon as you are read
 
   - `ARCHITECTURE`: A decision about system design, structure, or implementation patterns.
 
-  - `PROCESS`: A decision about the development or operations lifecycle — how contributors work.
+  - `PROCESS`: A decision about the development or operations lifecycle – how contributors work.
 
   - `TECHNOLOGY`: A decision about the production technology stack or infrastructure.
 
@@ -128,7 +128,7 @@ The discussion thread is where _all_ review feedback is gathered, keeping the pu
 
 ### Step 5: Decide the RFC
 
-Once the final comment period has concluded, and when there is clear consensus on the outcome, the RFC is decided — either accepted or rejected.
+Once the final comment period has concluded, and when there is clear consensus on the outcome, the RFC is decided – either accepted or rejected.
 
 1. Update the RFC document's `Status` field to `ACCEPTED` or `REJECTED`, as appropriate.
 
@@ -156,7 +156,7 @@ This step applies only to **accepted** RFCs. Once the tooling and infrastructure
 
 ### Step 7: Assign the RFC number
 
-Once a decided RFC has been merged into `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward — update `rfc/INDEX.md` to add the new RFC, with the next sequential number.
+Once a decided RFC has been merged into `main` – at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward – update `rfc/INDEX.md` to add the new RFC, with the next sequential number.
 
 The number is not assigned until merge, so be sure to check the index for the latest number before updating.
 
@@ -180,7 +180,7 @@ Commit this change directly to `main`.
 
  - Once an RFC is in the `PROPOSED` state, from this point on in its lifecycle, the author SHOULD NOT make further material changes to the RFC except in response to reviewer feedback. The RFC's PR remains open until it is either rejected or the necessary actions implemented. Throughout this time, the RFC SHOULD be revised in response to various feedback loops, including from reviewers and implementors.
 
-- The [`rfc/`](./rfc/) directory is an append-only log. Once an RFC is merged into `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward — its document is immutable. Only the document's `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers MAY change thereafter, to reflect the current state of the decision and its changing relationship to other decisions. Users and agents MUST NOT edit other details of a merged RFC, especially the description of the problem, the settled solution, and its rationale.
+- The [`rfc/`](./rfc/) directory is an append-only log. Once an RFC is merged into `main` – at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward – its document is immutable. Only the document's `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers MAY change thereafter, to reflect the current state of the decision and its changing relationship to other decisions. Users and agents MUST NOT edit other details of a merged RFC, especially the description of the problem, the settled solution, and its rationale.
 
 - You MUST NOT delete any RFC documents in the `main` branch, including `REJECTED` RFCs. To change a past decision, open a new RFC that supersedes it. This constraint ensures that a record of every past decision, including `REJECTED` and `SUPERSEDED` ones, is preserved indefinitely. This is critical for maintaining institutional memory. Future contributors to the project can refer to the history of past decisions to understand the rationale for the current state of the system.
 

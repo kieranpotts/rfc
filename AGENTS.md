@@ -1,4 +1,4 @@
-# [Project Name] — Requests for Comments (RFCs)
+# [Project Name] – Requests for Comments (RFCs)
 
 The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY, in the context of this document and [agent skills](./.agents/skills/) definitions, are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -14,7 +14,7 @@ Product requirements (what the system does, in business terms) are recorded sepa
 
 ## Repository structure
 
-- `rfc/`: The permanent, append-only archive of every RFC, including rejected ones. Each RFC is a directory (`rfc/<category>/<slug>/`) with a `README.md` file being the entry point. Supporting artifacts such as architectural diagrams may be included in the same directory or stored separately, but every artifact MUST be referenced from the `README.md` — if it is not referenced there, it is not part of the RFC.
+- `rfc/`: The permanent, append-only archive of every RFC, including rejected ones. Each RFC is a directory (`rfc/<category>/<slug>/`) with a `README.md` file being the entry point. Supporting artifacts such as architectural diagrams may be included in the same directory or stored separately, but every artifact MUST be referenced from the `README.md` – if it is not referenced there, it is not part of the RFC.
   - `rfc/INDEX.md` is the numbered catalog of implemented, rejected, and superseded RFCs.
   - `rfc/TEMPLATE.md` is the starting point for a new RFC.
 - `docs/`: General guidelines for humans to get the most out of the RFC process.
@@ -51,21 +51,21 @@ The authors of an RFC drive its lifecycle. Each state transition has a correspon
 
 - Transitions not listed above are NOT permitted. A decision MUST NOT move backwards or skip states.
 
-- When a pull request is opened, it MUST be labeled with exactly one category — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision.
+- When a pull request is opened, it MUST be labeled with exactly one category – `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` – matching the kind of decision.
 
 - Every RFC pull request MUST have an associated discussion thread, opened when the PR is opened (even as a draft). The discussion thread is the forum for all review feedback, keeping the PR's own comment thread focused on edits to the RFC artifacts. The thread is closed when the PR is merged.
 
-- The current lifecycle state of an RFC is tracked via a lifecycle label on the PR. Apply the matching label — `#proposed`, `#accepted`, `#implemented`, `#rejected`, `#superseded` — as the RFC advances.
+- The current lifecycle state of an RFC is tracked via a lifecycle label on the PR. Apply the matching label – `#proposed`, `#accepted`, `#implemented`, `#rejected`, `#superseded` – as the RFC advances.
 
 - A pull request MUST be opened initially as a draft. The author marks the PR ready for review, and applies the `#proposed` label, once it is ready for stakeholder review.
 
-- An RFC MUST NOT be merged into `main` until it is decided and final — either `IMPLEMENTED` (an accepted decision whose tooling and infrastructure are now in place) or `REJECTED`. An accepted-but-not-yet-implemented RFC stays on its branch with its PR open.
+- An RFC MUST NOT be merged into `main` until it is decided and final – either `IMPLEMENTED` (an accepted decision whose tooling and infrastructure are now in place) or `REJECTED`. An accepted-but-not-yet-implemented RFC stays on its branch with its PR open.
 
 - RFC branches MUST be squash-merged to `main`, and the squash commit message MUST take the form `rfc: <short lowercase description> - IMPLEMENTED|REJECTED`. The description is a prose title of the RFC, eg. `rfc: event sourcing for audit log - IMPLEMENTED`. A sequential RFC number is assigned after merge, recorded in `rfc/INDEX.md` (the number lives only in the index).
 
-- While an RFC's PR is open — including through the `#accepted` implementation phase — its document MAY be updated. Once merged into `main`, however — either at `#implemented` for an accepted decision, or following the `#rejected` decision — its document becomes immutable. Only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter.
+- While an RFC's PR is open – including through the `#accepted` implementation phase – its document MAY be updated. Once merged into `main`, however – either at `#implemented` for an accepted decision, or following the `#rejected` decision – its document becomes immutable. Only its `Status` field, `Last updated` date, cross-references to related RFCs, and implementation trackers may change thereafter.
 
-- An implemented RFC may be retired only by being superseded by another RFC. To change the _substance_ of a past decision, open a new RFC that supersedes it — do NOT edit the original.
+- An implemented RFC may be retired only by being superseded by another RFC. To change the _substance_ of a past decision, open a new RFC that supersedes it – do NOT edit the original.
 
 - Never delete an RFC document, including rejected ones.
 
