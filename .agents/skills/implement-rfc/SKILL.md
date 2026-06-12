@@ -71,7 +71,23 @@ The RFC MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm _all_ 
     gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - IMPLEMENTED"
     ```
 
-7.  **After merge, assign the number.**
+7.  **Close the associated discussion thread.**
+
+    The RFC has merged, so its discussion is now closed. Find the discussion linked in the RFC's `Discussion thread` field, look up its node ID, and close it as resolved – `gh` has no native discussion command, so use the GraphQL API:
+
+    ```sh
+    gh api graphql -f query='
+      query($owner:String!, $name:String!, $number:Int!) {
+        repository(owner:$owner, name:$name) { discussion(number:$number) { id } }
+      }' -F owner=<owner> -F name=<repo> -F number=<discussionNumber>
+
+    gh api graphql -f query='
+      mutation($id:ID!) {
+        closeDiscussion(input:{discussionId:$id, reason:RESOLVED}) { discussion { closed } }
+      }' -F id=<discussionId>
+    ```
+
+8.  **After merge, assign the number.**
 
     The RFC number is assigned only after merge. On `main`, find the highest number in [RFC index](../../../rfc/INDEX.md), increment by one, zero-pad to four digits (eg. `0006` → `0007`), and add a row for this RFC — its number, title, category, `IMPLEMENTED` status, the RFC's `Decision date` (its approval date), and a link to its directory (`rfc/<category>/<slug>/`).
 
@@ -107,6 +123,8 @@ The RFC MUST currently be `ACCEPTED` (a PR carrying `#accepted`). Confirm _all_ 
 - The PR carries `#implemented` (and its category label), not `#accepted`.
 
 - The RFC document is squash-merged into `main`.
+
+- The associated discussion thread is closed.
 
 - After merge: an `rfc/INDEX.md` entry is added on `main`, with the next sequential number and `Implemented` status.
 

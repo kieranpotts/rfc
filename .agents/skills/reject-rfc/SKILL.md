@@ -52,9 +52,23 @@ The RFC MUST currently be `PROPOSED`. Confirm _all_ of the following before reje
     gh pr edit <number> --add-label "#rejected" --remove-label "#proposed"
     ```
 
-5.  **Close the associated discussion thread.**
+5.  **Commit.**
 
-    Find the discussion linked in the RFC's `Discussion thread` field, look up its node ID, and close it as resolved – `gh` has no native discussion command, so use the GraphQL API:
+    ```sh
+    git commit -am "reject: <short lowercase rfc description>"
+    ```
+
+6.  **Merge the pull request.**
+
+    Confirm with the user that the PR is ready to merge into `main` — do not merge without explicit instruction. Once confirmed, squash-merge it with the message `rfc: <short lowercase rfc description> - REJECTED`:
+
+    ```sh
+    gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - REJECTED"
+    ```
+
+7.  **Close the associated discussion thread.**
+
+    The RFC has merged, so its discussion is now closed. Find the discussion linked in the RFC's `Discussion thread` field, look up its node ID, and close it as resolved – `gh` has no native discussion command, so use the GraphQL API:
 
     ```sh
     gh api graphql -f query='
@@ -66,20 +80,6 @@ The RFC MUST currently be `PROPOSED`. Confirm _all_ of the following before reje
       mutation($id:ID!) {
         closeDiscussion(input:{discussionId:$id, reason:RESOLVED}) { discussion { closed } }
       }' -F id=<discussionId>
-    ```
-
-6.  **Commit.**
-
-    ```sh
-    git commit -am "reject: <short lowercase rfc description>"
-    ```
-
-7.  **Merge the pull request.**
-
-    Confirm with the user that the PR is ready to merge into `main` — do not merge without explicit instruction. Once confirmed, squash-merge it with the message `rfc: <short lowercase rfc description> - REJECTED`:
-
-    ```sh
-    gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - REJECTED"
     ```
 
 8.  **After merge, assign the number.**

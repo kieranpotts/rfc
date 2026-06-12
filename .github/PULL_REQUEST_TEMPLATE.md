@@ -38,7 +38,6 @@ Checklist for transitioning from `PROPOSED` to `ACCEPTED` or `REJECTED`:
 - [ ] The RFC document's `Status` is `ACCEPTED` or `REJECTED`.
 - [ ] The `#proposed` label is removed from the PR.
 - [ ] Either the `#accepted` or `#rejected` label is applied to the PR.
-- [ ] Close the discussion thread.
 
 Checklist for an `ACCEPTED` RFC — keep this PR open through implementation, then transition to `IMPLEMENTED`:
 
@@ -52,6 +51,7 @@ Checklist for an `ACCEPTED` RFC — keep this PR open through implementation, th
 Checklist for merging the PR (a `REJECTED` RFC merges straight away; an `IMPLEMENTED` one merges here):
 
 - [ ] Squash-merge the PR, with a message of the form `rfc: <description> - IMPLEMENTED|REJECTED`.
+- [ ] Close the discussion thread.
 
 After merge:
 

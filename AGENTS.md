@@ -23,7 +23,7 @@ Each RFC moves through a defined state machine:
 
 - `DRAFT`: The RFC is being written. The pull request is in draft status, ie. not yet ready for review.
 - `PROPOSED`: The RFC is complete and open for a decision. The pull request is marked ready for review and labeled `#proposed`.
-- `ACCEPTED`: The RFC is accepted. Final comments have been solicited, there are no outstanding objections, and the discussion thread is closed. The pull request stays open until the decision is implemented, and the RFC documentation MAY continue to evolve during this period. No number is assigned yet.
+- `ACCEPTED`: The RFC is accepted. Final comments have been solicited and there are no outstanding objections. The pull request stays open until the decision is implemented, and the RFC documentation MAY continue to evolve during this period, with feedback continuing on the still-open discussion thread. No number is assigned yet.
 - `IMPLEMENTED`: The tooling and infrastructure the decision calls for are in place. The RFC artifacts are merged into `main`, and the RFC is recorded in `rfc/INDEX.md` and given the next sequential number to identify it. An implemented decision stays in effect until a later RFC supersedes it.
 - `REJECTED`: The RFC is not being taken forward. The document is merged into `main` and its number recorded in `rfc/INDEX.md`, preserved permanently as the record of the decision and its rationale.
 - `SUPERSEDED`: The RFC was previously implemented but has been replaced by a later RFC, which itself is now implemented.
@@ -51,7 +51,7 @@ The authors of an RFC drive its lifecycle. Each state transition has a correspon
 
 - When a pull request is opened, it MUST be labeled with exactly one category — `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING` — matching the kind of decision.
 
-- Every RFC pull request MUST have an associated discussion thread, opened when the PR is opened (even as a draft). The discussion thread is the forum for all review feedback, keeping the PR's own comment thread focused on edits to the RFC artifacts. The thread is closed when the RFC is accepted or rejected.
+- Every RFC pull request MUST have an associated discussion thread, opened when the PR is opened (even as a draft). The discussion thread is the forum for all review feedback, keeping the PR's own comment thread focused on edits to the RFC artifacts. The thread is closed when the PR is merged.
 
 - The current lifecycle state of an RFC is tracked via a lifecycle label on the PR. Apply the matching label — `#proposed`, `#accepted`, `#implemented`, `#rejected`, `#superseded` — as the RFC advances.
 

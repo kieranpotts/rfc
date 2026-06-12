@@ -8,8 +8,7 @@ Transitions an RFC from `PROPOSED` to `ACCEPTED`. The PR stays open until the de
 - Sets `Status` to `ACCEPTED`.
 - Adds approvers and approval date.
 - Swaps the PR label to `#accepted`.
-- Closes the discussion thread.
-- Keeps the PR open during implementation.
+- Keeps the PR open during implementation. The discussion thread stays open too, and is closed when the PR is merged.
 
 ## How to invoke
 

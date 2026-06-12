@@ -6,7 +6,7 @@ license: MIT
 
 # Accept RFC
 
-Use this skill to transition an RFC from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, label the PR `#accepted`, and close its discussion thread. The RFC is now a settled decision, but its pull request stays open until the tooling and infrastructure it calls for are in place.
+Use this skill to transition an RFC from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, and label the PR `#accepted`. The RFC is now a settled decision, but its pull request stays open until the tooling and infrastructure it calls for are in place. The discussion thread stays open through implementation and is closed only when the PR is merged.
 
 Do NOT use this skill for any other transition — to mark a built decision implemented use [`implement-rfc`](../implement-rfc/SKILL.md), to reject use [`reject-rfc`](../reject-rfc/SKILL.md), to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md), to scaffold a draft PR use [`draft-rfc`](../draft-rfc/SKILL.md), and to forward a draft to a proposal use [`propose-rfc`](../propose-rfc/SKILL.md).
 
@@ -62,25 +62,9 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
     gh pr edit <number> --add-label "#accepted" --remove-label "#proposed"
     ```
 
-    Leave the category label, eg. `ARCHITECTURE`. Keep the PR **open** — do not merge.
+    Leave the category label, eg. `ARCHITECTURE`. Keep the PR **open** — do not merge. Leave the discussion thread open too; it stays open through implementation and is closed only when the PR is merged.
 
-5.  **Close the associated discussion thread.**
-
-    Find the discussion linked in the RFC's `Discussion thread` field, look up its node ID, and close it as resolved – `gh` has no native discussion command, so use the GraphQL API:
-
-    ```sh
-    gh api graphql -f query='
-      query($owner:String!, $name:String!, $number:Int!) {
-        repository(owner:$owner, name:$name) { discussion(number:$number) { id } }
-      }' -F owner=<owner> -F name=<repo> -F number=<discussionNumber>
-
-    gh api graphql -f query='
-      mutation($id:ID!) {
-        closeDiscussion(input:{discussionId:$id, reason:RESOLVED}) { discussion { closed } }
-      }' -F id=<discussionId>
-    ```
-
-6.  **Commit.**
+5.  **Commit.**
 
     ```sh
     git commit -am "accept: <short lowercase rfc description>"
@@ -88,9 +72,9 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
 
     Keep the PR **open** — do not merge, and do not assign a number. Both happen at implementation.
 
-7.  **Queue the implementation.**
+6.  **Queue the implementation.**
 
-    Remind the user that the decision now needs to be carried out — the tooling and infrastructure it calls for must be built and put in place. The PR stays open through this phase; the document MAY continue to evolve in response to implementation feedback. When the tooling and infrastructure are in place, run [`implement-rfc`](../implement-rfc/SKILL.md).
+    Remind the user that the decision now needs to be carried out — the tooling and infrastructure it calls for must be built and put in place. The PR stays open through this phase; the document MAY continue to evolve in response to implementation feedback, with feedback continuing on the still-open discussion thread. When the tooling and infrastructure are in place, run [`implement-rfc`](../implement-rfc/SKILL.md).
 
 ##  Rules
 
@@ -112,7 +96,7 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
 
 - The PR carries `#accepted` (and its category label), not `#proposed`, and remains open.
 
-- The associated discussion thread is closed.
+- The associated discussion thread remains open — it is closed when the PR is merged at implementation.
 
 - No number has been assigned — that waits for implementation.
 

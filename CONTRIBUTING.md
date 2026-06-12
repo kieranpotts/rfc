@@ -39,11 +39,11 @@ The states are:
 
 - `PROPOSED`: The RFC is complete and open for feedback. It is now formally reviewed and negotiated with relevant stakeholders.
 
-- `ACCEPTED`: The proposal has been approved. Before the decision is settled, final comments are solicited to confirm there are no outstanding objections, and the RFC document and supporting artifacts are updated to reflect the final agreed design and its rationale. When all stakeholders have signed off on the final wording, the discussion thread is closed. The PR stays open throughout implementation, and during this time the RFC document MAY continue to evolve in response to what is learned while building. No number is yet assigned to the RFC – that happens when it is moved to `IMPLEMENTED`. An accepted decision remains in effect until a later RFC supersedes it.
+- `ACCEPTED`: The proposal has been approved. Before the decision is settled, final comments are solicited to confirm there are no outstanding objections, and the RFC document and supporting artifacts are updated to reflect the final agreed design and its rationale. The PR stays open throughout implementation, and during this time the RFC document MAY continue to evolve in response to what is learned while building, with feedback continuing on the still-open discussion thread. No number is yet assigned to the RFC – that happens when it is moved to `IMPLEMENTED`. An accepted decision remains in effect until a later RFC supersedes it.
 
 - `IMPLEMENTED`: All the changes to tooling and infrastructure that the decision calls for are now in place. The PR is merged into the `main` branch, and the RFC is given a unique reference number and listed in the [RFC index](./rfc/INDEX.md).
 
-- `REJECTED`: The proposal will not be taken forward. The discussion thread is closed and the PR is merged into `main`. The rejected RFC is given a unique number and listed in the [RFC index](./rfc/INDEX.md) alongside implemented RFCs. Thus, all major technical decisions, whether ultimately implemented or rejected, are preserved permanently.
+- `REJECTED`: The proposal will not be taken forward. The PR is merged into `main`, and the discussion thread is closed when the PR is merged. The rejected RFC is given a unique number and listed in the [RFC index](./rfc/INDEX.md) alongside implemented RFCs. Thus, all major technical decisions, whether ultimately implemented or rejected, are preserved permanently.
 
 - `SUPERSEDED`: The decision, previously implemented, is no longer in effect because it has been replaced by a later RFC.
 
@@ -108,11 +108,15 @@ A pull request is the formal vehicle for an RFC. Open it as soon as you are read
 
   - `TOOLING`: A decision about use of automation tools or devops infrastructure.
 
-3. Open a discussion thread for the RFC. Link to the thread in the `Discussion thread` field of the RFC document. Update the PR description to link to the discussion thread, too. Create a bi-directional link from the discussion thread back to the PR.
+3. Continue to refine your proposal. OPTIONALLY, you may invite early feedback from a small set of trusted stakeholders while the proposal is still being drafted.
 
-4. Continue to refine your proposal. OPTIONALLY, you may invite early feedback from a small set of trusted stakeholders while the proposal is still being drafted.
+### Step 3: Open a discussion thread (REQUIRED)
 
-### Step 3: Request comments
+Open a discussion thread for the RFC. Link to the thread in the `Discussion thread` field of the RFC document. Update the PR description to link to the discussion thread, too. Create a bi-directional link from the discussion thread back to the PR.
+
+The discussion thread is where _all_ review feedback is gathered, keeping the pull request focused on the evolution of the RFC artifacts themselves. The thread stays open for the life of the RFC and is closed when the PR is merged.
+
+### Step 4: Request comments
 
 1. When your proposal is ready for review, mark the pull request as "ready for review" (removing its draft status) and apply the `#proposed` label.
 
@@ -122,7 +126,7 @@ A pull request is the formal vehicle for an RFC. Open it as soon as you are read
 
 4. Once the proposed solution has stabilized, the main points of contention have been resolved, and all stakeholders are aligned on the outcome, request final comments to confirm there are no outstanding objections. The length of the final comment period depends on the complexity and impact of the change, but a good rule of thumb is at least one week.
 
-### Step 4: Decide the RFC
+### Step 5: Decide the RFC
 
 Once the final comment period has concluded, and when there is clear consensus on the outcome, the RFC is decided — either accepted or rejected.
 
@@ -132,15 +136,13 @@ Once the final comment period has concluded, and when there is clear consensus o
 
 3. Review the final version of the RFC document to ensure it accurately reflects the agreed design and rationale – which may have changed during the course of the discussions. Make any necessary edits to clarify the proposal, but do not change the substance of the decision at this point.
 
-4. Close the discussion thread. Final comments have concluded, so no further feedback is expected.
+4. The workflow diverges here, depending on the outcome:
 
-5. The workflow diverges here, depending on the outcome:
+  - If **rejected** squash-merge the PR straight away (its message takes the form `rfc: <description> - REJECTED`) and delete the branch. The discussion thread is closed when the PR is merged. The rejected RFC is preserved in `main` as a permanent record. Go to step 7 to assign its number.
 
-  - If **rejected** squash-merge the PR straight away (its message takes the form `rfc: <description> - REJECTED`) and delete the branch. The rejected RFC is preserved in `main` as a permanent record. Go to step 6 to assign its number.
+  - If **accepted**, keep the PR open while any work necessary to implement the proposal – eg. new tooling or infrastructure – is undertaken. The document MAY still evolve in response to what is learnt through the implementation phase, with feedback continuing on the still-open discussion thread. Open other issues against other repositories as necessary to track the implementation, and cross-reference those from the `Implementation trackers` section of the RFC's README.
 
-  - If **accepted**, keep the PR open while any work necessary to implement the proposal – eg. new tooling or infrastructure – is undertaken. The document MAY still evolve in response to what is learnt through the implementation phase. Open other issues against other repositories as necessary to track the implementation, and cross-reference those from the `Implementation trackers` section of the RFC's README.
-
-### Step 5: Transition the RFC to implemented
+### Step 6: Transition the RFC to implemented
 
 This step applies only to **accepted** RFCs. Once the tooling and infrastructure the decision calls for are in place:
 
@@ -148,11 +150,11 @@ This step applies only to **accepted** RFCs. Once the tooling and infrastructure
 
 2. Remove the `#accepted` label and apply the `#implemented` label instead.
 
-3. Squash-merge the PR (its message takes the form `rfc: <description> - IMPLEMENTED`). Delete the branch, if it is not automatically deleted.
+3. Squash-merge the PR (its message takes the form `rfc: <description> - IMPLEMENTED`). The discussion thread is closed when the PR is merged. Delete the branch, if it is not automatically deleted.
 
-4. Assign the RFC number, per step 6 below.
+4. Assign the RFC number, per step 7 below.
 
-### Step 6: Assign the RFC number
+### Step 7: Assign the RFC number
 
 Once a decided RFC has been merged into `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for one not taken forward — update `rfc/INDEX.md` to add the new RFC, with the next sequential number.
 
