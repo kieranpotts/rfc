@@ -6,6 +6,22 @@ This repository is the home of the Requests for Comments (RFC) process for [Proj
 
 RFCs cover technical decisions — _how_ the system is built. Product decisions – about _what_ the system should do – are tracked separately in the [software requirements specification (SRS)](https://github.com/kieranpotts/specs). Both the RFC and SRS repositories are managed by the technical teams and follow similar change management workflows.
 
+## Ecosystem
+
+This repository is one of four that form a coherent, version-controlled documentation ecosystem modeling the software development lifecycle. Each is the reference implementation of an opinionated workflow, and answers a different question about the system:
+
+- [**Software requirements specification (SRS)**](https://github.com/kieranpotts/specs): Records _what_ the system does, in business terms.
+
+- **Requests for comments (RFC)**: Records _how_ significant technical decisions were made, and _why_ (this repository).
+
+- [**Design docs**](https://github.com/kieranpotts/design): Describe _what the system looks like_, its as-is architecture.
+
+- [**Implementation plans**](https://github.com/kieranpotts/plans): Capture _when, and in what order_, the work gets done.
+
+The [**skills**](https://github.com/kieranpotts/skills) collection provides an agentic workflow that operates across all four.
+
+This separation into dedicated repositories is intended for application software that spans multiple code repositories, and potentially multiple teams, where the requirements, decisions, designs, and plans are shared concerns that sit above any single codebase. For a standalone code repository — a small utility library, say — it is better to fold these artifacts and skills directly into that repository, rather than maintain them separately.
+
 ## Contents
 
 - [**RFCs**](./rfc/): The permanent archive of every technical decision, including those that were ultimately rejected.
