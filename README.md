@@ -1,4 +1,4 @@
-# Requests for Comments (RFC)
+# 💬 Requests for Comments (RFC)
 
 **A template for managing technical decisions via version control.**
 
@@ -10,13 +10,13 @@ RFCs cover technical decisions – _how_ the system is built. Product decisions 
 
 This repository is one of four that form a coherent, version-controlled documentation ecosystem modeling the software development lifecycle. Each is the reference implementation of an opinionated workflow, and answers a different question about the system:
 
-- [**Software requirements specification (SRS)**](https://github.com/kieranpotts/specs): Records _what_ the system does, in business terms.
+- [**📋 Software requirements specification (SRS)**](https://github.com/kieranpotts/specs): Records _what_ the system does, in business terms.
 
-- **Requests for comments (RFC)**: Records _how_ significant technical decisions were made, and _why_ (this repository).
+- **💬 Requests for comments (RFC)**: Records _how_ significant technical decisions were made, and _why_ (this repository).
 
-- [**Design docs**](https://github.com/kieranpotts/design): Describe _what the system looks like_, its as-is architecture.
+- [**📐 Design docs**](https://github.com/kieranpotts/design): Describe _what the system looks like_, its as-is architecture.
 
-- [**Implementation plans**](https://github.com/kieranpotts/plans): Capture _when, and in what order_, the work gets done.
+- [**🗺️ Implementation plans**](https://github.com/kieranpotts/plans): Capture _when, and in what order_, the work gets done.
 
 The [**skills**](https://github.com/kieranpotts/skills) collection provides an agentic workflow that operates across all four.
 
