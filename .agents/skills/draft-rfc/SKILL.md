@@ -2,6 +2,8 @@
 name: draft-rfc
 description: Scaffold a new RFC. Use this skill when the user wants to make a new architecture, process, technology, or tooling decision, or says "draft an RFC", "new RFC", or "start an RFC".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/draft-rfc`

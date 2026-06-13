@@ -2,6 +2,8 @@
 name: supersede-rfc
 description: Supersede a previously-accepted RFC by a newer one. Use this skill when the user says "supersede this RFC", "this RFC is replaced by ...", or retires an accepted decision in favor of a newer one.
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/supersede-rfc`

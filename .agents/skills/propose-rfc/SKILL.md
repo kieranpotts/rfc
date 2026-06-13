@@ -2,6 +2,8 @@
 name: propose-rfc
 description: Transition an RFC from `DRAFT` to `PROPOSED`, preparing it for stakeholder review. Use this skill when the user says "propose this RFC", "this RFC is ready for review", "mark the RFC as ready", "take this RFC out of draft", or "progress this RFC".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/propose-rfc`

@@ -2,6 +2,8 @@
 name: accept-rfc
 description: Accept a proposed RFC. Use this skill when the user says "accept this RFC", "approve this RFC", "mark this RFC as accepted", or otherwise wants to advance a proposal to accepted.
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/accept-rfc`

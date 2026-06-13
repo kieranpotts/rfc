@@ -2,6 +2,8 @@
 name: implement-rfc
 description: Mark an accepted RFC as implemented once its tooling and infrastructure are in place. Squash-merge its pull request and assign its number in the index. Use when the user says "implement this RFC", "this RFC is implemented", "the tooling is in place", or "the infrastructure is built".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/implement-rfc`

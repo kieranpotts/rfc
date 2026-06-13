@@ -2,6 +2,8 @@
 name: reject-rfc
 description: Reject a proposed RFC. Use this skill when the user says "reject this RFC", "the RFC was not accepted", "the RFC was not approved", or advances a proposal to rejected.
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/reject-rfc`
