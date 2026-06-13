@@ -1,4 +1,4 @@
-# Supersede RFC
+# `/supersede-rfc`
 
 Marks an implemented RFC as superseded by a later one.
 

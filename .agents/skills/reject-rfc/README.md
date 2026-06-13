@@ -1,4 +1,4 @@
-# Reject RFC
+# `/reject-rfc`
 
 Rejects a proposed RFC, preserving the decision permanently.
 

@@ -4,13 +4,13 @@ description: Mark an accepted RFC as implemented once its tooling and infrastruc
 license: MIT
 ---
 
-# Implement RFC
+# `/implement-rfc`
 
 Use this skill to transition an RFC from `ACCEPTED` to `IMPLEMENTED`, once all the tooling and infrastructure the decision calls for are in place. This is the point at which the RFC's pull request is squash-merged into `main` and the RFC is assigned its number in the [RFC index](../../../rfc/INDEX.md).
 
 An accepted RFC is a settled decision whose pull request stays open through the implementation phase.
 
-Do NOT use this skill for any other transition — to accept use [`accept-rfc`](../accept-rfc/SKILL.md), to retire an implemented decision use [`supersede-rfc`](../supersede-rfc/SKILL.md), to reject use [`reject-rfc`](../reject-rfc/SKILL.md), and to scaffold or propose use [`draft-rfc`](../draft-rfc/SKILL.md) / [`propose-rfc`](../propose-rfc/SKILL.md).
+Do NOT use this skill for any other transition — to accept use [`/accept-rfc`](../accept-rfc/SKILL.md), to retire an implemented decision use [`/supersede-rfc`](../supersede-rfc/SKILL.md), to reject use [`/reject-rfc`](../reject-rfc/SKILL.md), and to scaffold or propose use [`/draft-rfc`](../draft-rfc/SKILL.md) / [`/propose-rfc`](../propose-rfc/SKILL.md).
 
 ## Transition gates: `ACCEPTED` → `IMPLEMENTED`
 

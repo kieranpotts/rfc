@@ -1,4 +1,4 @@
-# Propose RFC
+# `/propose-rfc`
 
 Removes the draft status from an RFC pull request, making it ready for stakeholder review.
 

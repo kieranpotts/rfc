@@ -4,11 +4,11 @@ description: Supersede a previously-accepted RFC by a newer one. Use this skill 
 license: MIT
 ---
 
-# Supersede RFC
+# `/supersede-rfc`
 
 Use this skill to transition an RFC from `IMPLEMENTED` to `SUPERSEDED`, once a later, implemented RFC has replaced its decision. The superseded document remains in `rfc/` permanently as part of the historical record.
 
-Do NOT use this skill for any other transition — see [`accept-rfc`](../accept-rfc/SKILL.md), [`implement-rfc`](../implement-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), [`propose-rfc`](../propose-rfc/SKILL.md), or [`draft-rfc`](../draft-rfc/SKILL.md).
+Do NOT use this skill for any other transition — see [`/accept-rfc`](../accept-rfc/SKILL.md), [`/implement-rfc`](../implement-rfc/SKILL.md), [`/reject-rfc`](../reject-rfc/SKILL.md), [`/propose-rfc`](../propose-rfc/SKILL.md), or [`/draft-rfc`](../draft-rfc/SKILL.md).
 
 ## Transition gates: `IMPLEMENTED` → `SUPERSEDED`
 

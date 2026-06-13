@@ -1,4 +1,4 @@
-# Accept RFC
+# `/accept-rfc`
 
 Transitions an RFC from `PROPOSED` to `ACCEPTED`. The PR stays open until the decision is implemented.
 

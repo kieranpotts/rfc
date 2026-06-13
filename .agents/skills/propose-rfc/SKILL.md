@@ -4,11 +4,11 @@ description: Transition an RFC from `DRAFT` to `PROPOSED`, preparing it for stak
 license: MIT
 ---
 
-# Propose RFC
+# `/propose-rfc`
 
 Use this skill to transition an RFC from `DRAFT` to `PROPOSED`. Confirm the document is complete, apply the `#proposed` label, and remove the pull request's draft status so stakeholders can review it.
 
-Do NOT use this skill to scaffold a new RFC (use [`draft-rfc`](../draft-rfc/SKILL.md)) or to advance one to a later state (use [`accept-rfc`](../accept-rfc/SKILL.md), [`implement-rfc`](../implement-rfc/SKILL.md), [`reject-rfc`](../reject-rfc/SKILL.md), or [`supersede-rfc`](../supersede-rfc/SKILL.md)).
+Do NOT use this skill to scaffold a new RFC (use [`/draft-rfc`](../draft-rfc/SKILL.md)) or to advance one to a later state (use [`/accept-rfc`](../accept-rfc/SKILL.md), [`/implement-rfc`](../implement-rfc/SKILL.md), [`/reject-rfc`](../reject-rfc/SKILL.md), or [`/supersede-rfc`](../supersede-rfc/SKILL.md)).
 
 ## Transition gates: `DRAFT` → `PROPOSED`
 

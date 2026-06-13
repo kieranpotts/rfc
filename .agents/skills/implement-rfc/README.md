@@ -1,4 +1,4 @@
-# Implement RFC
+# `/implement-rfc`
 
 Transitions an RFC from `ACCEPTED` to `IMPLEMENTED`, then squash-merges the PR and assigns its index number.
 

@@ -4,11 +4,11 @@ description: Accept a proposed RFC. Use this skill when the user says "accept th
 license: MIT
 ---
 
-# Accept RFC
+# `/accept-rfc`
 
 Use this skill to transition an RFC from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, and label the PR `#accepted`. The RFC is now a settled decision, but its pull request stays open until the tooling and infrastructure it calls for are in place. The discussion thread stays open through implementation and is closed only when the PR is merged.
 
-Do NOT use this skill for any other transition — to mark a built decision implemented use [`implement-rfc`](../implement-rfc/SKILL.md), to reject use [`reject-rfc`](../reject-rfc/SKILL.md), to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md), to scaffold a draft PR use [`draft-rfc`](../draft-rfc/SKILL.md), and to forward a draft to a proposal use [`propose-rfc`](../propose-rfc/SKILL.md).
+Do NOT use this skill for any other transition — to mark a built decision implemented use [`/implement-rfc`](../implement-rfc/SKILL.md), to reject use [`/reject-rfc`](../reject-rfc/SKILL.md), to retire a superseded decision use [`/supersede-rfc`](../supersede-rfc/SKILL.md), to scaffold a draft PR use [`/draft-rfc`](../draft-rfc/SKILL.md), and to forward a draft to a proposal use [`/propose-rfc`](../propose-rfc/SKILL.md).
 
 ## Transition gates: `PROPOSED` → `ACCEPTED`
 
@@ -54,7 +54,7 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
 
     - Confirm `PR` is set, and that `Implementation trackers` are linked if any exist.
 
-    Do not assign a number or touch `rfc/INDEX.md` — that happens at merge, in [`implement-rfc`](../implement-rfc/SKILL.md).
+    Do not assign a number or touch `rfc/INDEX.md` — that happens at merge, in [`/implement-rfc`](../implement-rfc/SKILL.md).
 
 4.  **Switch the state label.**
 
@@ -74,7 +74,7 @@ The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the `#p
 
 6.  **Queue the implementation.**
 
-    Remind the user that the decision now needs to be carried out — the tooling and infrastructure it calls for must be built and put in place. The PR stays open through this phase; the document MAY continue to evolve in response to implementation feedback, with feedback continuing on the still-open discussion thread. When the tooling and infrastructure are in place, run [`implement-rfc`](../implement-rfc/SKILL.md).
+    Remind the user that the decision now needs to be carried out — the tooling and infrastructure it calls for must be built and put in place. The PR stays open through this phase; the document MAY continue to evolve in response to implementation feedback, with feedback continuing on the still-open discussion thread. When the tooling and infrastructure are in place, run [`/implement-rfc`](../implement-rfc/SKILL.md).
 
 ##  Rules
 

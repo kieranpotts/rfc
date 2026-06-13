@@ -4,11 +4,11 @@ description: Reject a proposed RFC. Use this skill when the user says "reject th
 license: MIT
 ---
 
-# Reject RFC
+# `/reject-rfc`
 
 Use this skill to transition an RFC from `PROPOSED` to `REJECTED`. A rejected RFC is not discarded — its document is merged into `main` and preserved permanently in `rfc/` as the record of the decision and its rationale, so the same ground is not needlessly covered again later.
 
-Do NOT use this skill for any other transition — to accept use [`accept-rfc`](../accept-rfc/SKILL.md), to mark a built decision implemented use [`implement-rfc`](../implement-rfc/SKILL.md), and to retire a superseded decision use [`supersede-rfc`](../supersede-rfc/SKILL.md).
+Do NOT use this skill for any other transition — to accept use [`/accept-rfc`](../accept-rfc/SKILL.md), to mark a built decision implemented use [`/implement-rfc`](../implement-rfc/SKILL.md), and to retire a superseded decision use [`/supersede-rfc`](../supersede-rfc/SKILL.md).
 
 ## Transition gates: `PROPOSED` → `REJECTED`
 
