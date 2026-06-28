@@ -50,9 +50,9 @@ jobs:
       - name: Validate new commit messages
         run: |
           # Allowed commit types:
-          #   Standard (subset of TS-9) : chore, fix, format, maintenance, refactor, revert
+          #   Standard (subset of TS-9) : chore, fix, maintenance, refactor, revert, style
           #   Custom (this repository)  : rfc, draft, propose, accept, implement, reject, supersede
-          types="chore|fix|format|maintenance|refactor|revert|rfc|draft|propose|accept|implement|reject|supersede"
+          types="chore|fix|maintenance|refactor|revert|style|rfc|draft|propose|accept|implement|reject|supersede"
           re="^($types): [a-z0-9].*$"
 
           echo "$GIT_LOG_OUTPUT" | while read -r line; do
