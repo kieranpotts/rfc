@@ -8,6 +8,8 @@ metadata:
 
 # `/accept-rfc`
 
+<!-- TODO: Review these skills against the latest template. -->
+
 Use this skill to transition an RFC from `PROPOSED` to `ACCEPTED`: verify the approval gates, update the document, and label the PR `#accepted`. The RFC is now a settled decision, but its pull request stays open until the tooling and infrastructure it calls for are in place. The discussion thread stays open through implementation and is closed only when the PR is merged.
 
 Do NOT use this skill for any other transition — to mark a built decision implemented use [`/implement-rfc`](../implement-rfc/SKILL.md), to reject use [`/reject-rfc`](../reject-rfc/SKILL.md), to retire a superseded decision use [`/supersede-rfc`](../supersede-rfc/SKILL.md), to scaffold a draft PR use [`/draft-rfc`](../draft-rfc/SKILL.md), and to forward a draft to a proposal use [`/propose-rfc`](../propose-rfc/SKILL.md).
