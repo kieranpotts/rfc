@@ -14,7 +14,11 @@ DRAFT | PROPOSED | ACCEPTED | IMPLEMENTED | REJECTED | SUPERSEDED
 
 ## Related RFCs
 
-<!-- Reference a merged RFC by its rfc/INDEX.md number, eg. 0001; reference an RFC that is not yet merged (so has no index number) by its pull request number, eg. #42. `Supersedes`/`Superseded by` always point to merged RFCs, so use index numbers. `Depends on`/`Related to` usually point to RFCs still in flight, so use PR numbers. -->
+<!-- Reference a merged RFC by its rfc/INDEX.md number, eg. 0001; reference an
+RFC that is not yet merged (so has no index number) by its pull request
+number, eg. #42. `Supersedes`/`Superseded by` always point to merged RFCs, so
+use index numbers. `Depends on`/`Related to` usually point to RFCs still in
+flight, so use PR numbers. -->
 
 - Supersedes NNNN
 - Superseded by NNNN
@@ -32,38 +36,59 @@ _A short, single-paragraph summary of the proposed decision._
 
 ## Motivation
 
-_Why should we make this change? What problem does it solve, and for whom? What is the expected outcome?_
+_Why should we make this change? What problem does it solve, and for whom? What
+is the expected outcome?_
 
 ## Impact
 
 HIGH | MEDIUM | LOW
 
-_Who and what is affected by this decision — the architecture, the development or operations process, the contributors, the service level agreement? Note any effect on cross-cutting concerns such as security, performance, availability, or the technology stack._
+_Who and what is affected by this decision — the architecture, the development
+or operations process, the contributors, the service level agreement? Note any
+effect on cross-cutting concerns such as security, performance, availability, or
+the technology stack._
 
 ## Current state
 
-_Describe the relevant part of the system as it stands today — the architecture, process, technology, or tooling affected — and where it falls short. Omit this section if the decision does not modify an existing state (eg. a greenfield choice)._
+_Describe the relevant part of the system as it stands today — the architecture,
+process, technology, or tooling affected — and where it falls short. Omit this
+section if the decision does not modify an existing state (eg. a greenfield
+choice)._
 
 ## Proposed state
 
-_Describe the proposed solution in detail. If this is a change to the system design, explain how it works and how it interacts with existing components. Include any corner cases you can foresee. Architectural diagrams or other artifacts MAY be embedded or linked._
+_Describe the proposed solution in detail. If this is a change to the system
+design, explain how it works and how it interacts with existing components.
+Include any corner cases you can foresee. Architectural diagrams or other
+artifacts MAY be embedded or linked._
 
 ## Alternatives
 
-_What other approaches were considered? Explain why the proposed solution was preferred over each alternative._
+_What other approaches were considered? Explain why the proposed solution was
+preferred over each alternative._
 
 ## Trade-offs and risks
 
-_What are the costs, risks, and drawbacks of the proposed solution? Be honest about the downsides. Does this decision introduce technical debt that will need to be addressed later? Note any unknowns that remain at this time._
+_What are the costs, risks, and drawbacks of the proposed solution? Be honest
+about the downsides. Does this decision introduce technical debt that will need
+to be addressed later? Note any unknowns that remain at this time._
 
 ## Questions
 
-_Any unresolved questions, or related issues considered out of scope for this RFC but that will need to be addressed separately._
+_Any unresolved questions, or related issues considered out of scope for this
+RFC but that will need to be addressed separately._
 
 ## Additional notes
 
-_Any other context or notes that would help stakeholders evaluate this proposal, and that is not captured in the sections above._
+_Any other context or notes that would help stakeholders evaluate this proposal,
+and that is not captured in the sections above._
 
 ## References
 
-_Links to supporting artifacts and external sources. Artifacts that back this RFC — architectural diagrams, prototypes, benchmarks, data — SHOULD be kept alongside this README in the RFC's directory, and cross-referenced from the README using relative paths. This is preferred, as it keeps the record self-contained. Where an artifact must live elsewhere (eg. a prototype in another repository), link to it there instead. List any other relevant external materials._
+_Links to supporting artifacts and external sources. Artifacts that back this
+RFC — architectural diagrams, prototypes, benchmarks, data — SHOULD be kept
+alongside this README in the RFC's directory, and cross-referenced from the
+README using relative paths. This is preferred, as it keeps the record
+self-contained. Where an artifact must live elsewhere (eg. a prototype in
+another repository), link to it there instead. List any other relevant external
+materials._

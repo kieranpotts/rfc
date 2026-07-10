@@ -1,36 +1,37 @@
 # [Project Name] – Requests for Comments (RFCs)
 
-The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
-SHOULD NOT, OPTIONAL, and MAY are to be interpreted as described in
-[IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
+OPTIONAL, and MAY are to be interpreted as described in [IETF RFC
+2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ## Project overview
 
-This repository holds the Requests for Comments (RFC) archive for [Project Name].
-This is the permanent, chronological record of the project's significant
+This repository holds the Requests for Comments (RFC) archive for [Project
+Name]. This is the permanent, chronological record of the project's significant
 _technical_ decisions: its architecture, its development and operations
 processes, and its choices of technologies and tools.
 
-Each RFC captures one technical decision: its motivation, the chosen
-solution, the alternatives considered, and the trade-offs.
+Each RFC captures one technical decision: its motivation, the chosen solution,
+the alternatives considered, and the trade-offs.
 
 It is documentation, not code. There is nothing to build, lint, or run.
 
 Product requirements (what the system does, in business terms) are recorded
-separately. This repository is concerned only with technical decisions
-(how the system is built and operated).
+separately. This repository is concerned only with technical decisions (how the
+system is built and operated).
 
 ## Project structure
 
 - **`rfc/`**:
-  The permanent, append-only archive of every RFC, including rejected ones.
-  Each RFC is a directory (`rfc/<category>/<slug>/`) with a `README.md` file
-  being the entry point. Supporting artifacts such as architectural diagrams
-  may be included in the same directory or stored separately, but every
-  artifact MUST be referenced from the `README.md` – if it is not referenced
-  there, it is not part of the RFC.
+  The permanent, append-only archive of every RFC, including rejected ones. Each
+  RFC is a directory (`rfc/<category>/<slug>/`) with a `README.md` file being
+  the entry point. Supporting artifacts such as architectural diagrams may be
+  included in the same directory or stored separately, but every artifact MUST
+  be referenced from the `README.md` – if it is not referenced there, it is not
+  part of the RFC.
 
-  - **`rfc/INDEX.md`** is the numbered catalog of implemented, rejected, and superseded RFCs.
+  - **`rfc/INDEX.md`** is the numbered catalog of implemented, rejected, and
+    superseded RFCs.
 
   - **`rfc/TEMPLATE.md`** is the starting point for a new RFC.
 
@@ -54,8 +55,8 @@ Each RFC moves through a defined state machine:
   thread. No number is assigned yet.
 
 - **`IMPLEMENTED`**: The tooling and infrastructure the decision calls for are
-  in place. The RFC artifacts are merged into `main`, and the RFC is recorded
-  in `rfc/INDEX.md` and given the next sequential number to identify it. An
+  in place. The RFC artifacts are merged into `main`, and the RFC is recorded in
+  `rfc/INDEX.md` and given the next sequential number to identify it. An
   implemented decision stays in effect until a later RFC supersedes it.
 
 - **`REJECTED`**: The RFC is not being taken forward. The document is merged
@@ -66,8 +67,8 @@ Each RFC moves through a defined state machine:
   by a later RFC, which itself is now implemented.
 
 The authors of an RFC drive its lifecycle. Each state transition has a
-corresponding agent skill (see below), which the authors can trigger to
-automate recurring steps in RFC management. The possible state transitions are:
+corresponding agent skill (see below), which the authors can trigger to automate
+recurring steps in RFC management. The possible state transitions are:
 
 - (New RFC) → DRAFT
 - DRAFT → PROPOSED
@@ -81,13 +82,13 @@ automate recurring steps in RFC management. The possible state transitions are:
 - Write in American English.
 
 - An RFC is for a _significant_ technical decision, one that affects multiple
-  stakeholders and is worth building consensus on before implementation.
-  Routine feature work, bug fixes, and trivial changes go through the normal
+  stakeholders and is worth building consensus on before implementation. Routine
+  feature work, bug fixes, and trivial changes go through the normal
   pull-request workflow on the relevant repository, not an RFC.
 
 - An RFC MUST be a single, atomic technical decision. Author it on an
-  `rfc/<slug>` branch cut from `main`, and open a pull request titled
-  `rfc: <short lowercase description>`.
+  `rfc/<slug>` branch cut from `main`, and open a pull request titled `rfc:
+  <short lowercase description>`.
 
 - If a body of work spans several independent decisions, open one RFC per
   decision and link them as related.
@@ -101,8 +102,8 @@ automate recurring steps in RFC management. The possible state transitions are:
 
 - Every RFC pull request MUST have an associated discussion thread, opened
   when the PR is opened (even as a draft). The discussion thread is the forum
-  for all review feedback, keeping the PR's own comment thread focused on
-  edits to the RFC artifacts. The thread is closed when the PR is merged.
+  for all review feedback, keeping the PR's own comment thread focused on edits
+  to the RFC artifacts. The thread is closed when the PR is merged.
 
 - The current lifecycle state of an RFC is tracked via a lifecycle label
   on the PR. Apply the matching label – `#proposed`, `#accepted`,
@@ -114,23 +115,22 @@ automate recurring steps in RFC management. The possible state transitions are:
 
 - An RFC MUST NOT be merged into `main` until it is decided and final –
   either `IMPLEMENTED` (an accepted decision whose tooling and infrastructure
-  are now in place) or `REJECTED`. An accepted-but-not-yet-implemented RFC
-  stays on its branch with its PR open.
+  are now in place) or `REJECTED`. An accepted-but-not-yet-implemented RFC stays
+  on its branch with its PR open.
 
 - RFC branches MUST be squash-merged to `main`, and the squash commit
-  message MUST take the form
-  `rfc: <short lowercase description> - IMPLEMENTED|REJECTED`.
-  The description is a prose title of the RFC, eg.
-  `rfc: event sourcing for audit log - IMPLEMENTED`.
-  A sequential RFC number is assigned after merge, recorded in
-  `rfc/INDEX.md` (the number lives only in the index).
+  message MUST take the form `rfc: <short lowercase description> -
+  IMPLEMENTED|REJECTED`. The description is a prose title of the RFC, eg. `rfc:
+  event sourcing for audit log - IMPLEMENTED`. A sequential RFC number is
+  assigned after merge, recorded in `rfc/INDEX.md` (the number lives only in the
+  index).
 
 - While an RFC's PR is open – including through the `#accepted` implementation
-  phase – its document MAY be updated. Once merged into `main`, however –
-  either at `#implemented` for an accepted decision, or following the
-  `#rejected` decision – its document becomes immutable. Only its `Status`
-  field, `Last updated` date, cross-references to related RFCs, and
-  implementation trackers may change thereafter.
+  phase – its document MAY be updated. Once merged into `main`, however – either
+  at `#implemented` for an accepted decision, or following the `#rejected`
+  decision – its document becomes immutable. Only its `Status` field, `Last
+  updated` date, cross-references to related RFCs, and implementation trackers
+  may change thereafter.
 
 - An implemented RFC may be retired only by being superseded by another
   RFC. To change the _substance_ of a past decision, open a new RFC that

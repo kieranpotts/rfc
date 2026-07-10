@@ -1,6 +1,10 @@
 ---
 name: propose-rfc
-description: Transition an RFC from `DRAFT` to `PROPOSED`, preparing it for stakeholder review. Use this skill when the user says "propose this RFC", "this RFC is ready for review", "mark the RFC as ready", "take this RFC out of draft", or "progress this RFC".
+description: >-
+  Transition an RFC from `DRAFT` to `PROPOSED`,
+  preparing it for stakeholder review. Use this skill when the user says "propose
+  this RFC", "this RFC is ready for review", "mark the RFC as ready", "take this
+  RFC out of draft", or "progress this RFC".
 license: MIT
 metadata:
   interactive: yes
@@ -8,33 +12,47 @@ metadata:
 
 # `/propose-rfc`
 
-Use this skill to transition an RFC from `DRAFT` to `PROPOSED`. Confirm the document is complete, apply the `#proposed` label, and remove the pull request's draft status so stakeholders can review it.
+Use this skill to transition an RFC from `DRAFT` to `PROPOSED`. Confirm the
+document is complete, apply the `#proposed` label, and remove the pull request's
+draft status so stakeholders can review it.
 
-Do NOT use this skill to scaffold a new RFC (use [`/draft-rfc`](../draft-rfc/SKILL.md)) or to advance one to a later state (use [`/accept-rfc`](../accept-rfc/SKILL.md), [`/implement-rfc`](../implement-rfc/SKILL.md), [`/reject-rfc`](../reject-rfc/SKILL.md), or [`/supersede-rfc`](../supersede-rfc/SKILL.md)).
+Do NOT use this skill to scaffold a new RFC (use
+[`/draft-rfc`](../draft-rfc/SKILL.md)) or to advance one to a later state (use
+[`/accept-rfc`](../accept-rfc/SKILL.md),
+[`/implement-rfc`](../implement-rfc/SKILL.md),
+[`/reject-rfc`](../reject-rfc/SKILL.md), or
+[`/supersede-rfc`](../supersede-rfc/SKILL.md)).
 
 ## Transition gates: `DRAFT` → `PROPOSED`
 
-Before removing draft status, confirm _all_ of the following. If any fails, report it and pause — do not mark the PR ready.
+Before removing draft status, confirm _all_ of the following. If any fails,
+report it and pause — do not mark the PR ready.
 
 -   **The document is reasonably complete.**
 
-    Every required section contains substantive, decision-specific content. The decision-bearing sections are:
+    Every required section contains substantive, decision-specific content. The
+    decision-bearing sections are:
 
     - `Summary`: A concise description of the decision.
     - `Motivation`: The problem and who it affects.
     - `Impact`: `HIGH`, `MEDIUM`, or `LOW`, plus what is affected.
-    - `Current state`: The status quo (or deliberately omitted for a greenfield decision).
+    - `Current state`: The status quo (or deliberately omitted for a greenfield
+      decision).
     - `Proposed state`: The solution, in enough detail to evaluate.
     - `Alternatives`: At least one alternative considered.
     - `Trade-offs and risks`: An honest account of the downsides.
 
 -   **No leftover template text.**
 
-    There's no generic placeholder prose carried over from [`rfc/TEMPLATE.md`](../../../rfc/TEMPLATE.md). No italic placeholder prompts (eg. `_Describe the proposed solution..._`) and no unfilled tokens (`#...`, `YYYY-MM-DD`) remain in any completed section.
+    There's no generic placeholder prose carried over from
+    [`rfc/TEMPLATE.md`](../../../rfc/TEMPLATE.md). No italic placeholder prompts
+    (eg. `_Describe the proposed solution..._`) and no unfilled tokens (`#...`,
+    `YYYY-MM-DD`) remain in any completed section.
 
 -   **The metadata header is filled in.**
 
-    `Authors`, `Created`, `Last updated`, and `PR` are set. `Status` is still `DRAFT` at this point.
+    `Authors`, `Created`, `Last updated`, and `PR` are set. `Status` is still
+    `DRAFT` at this point.
 
 -   **Exactly one category label on the PR.**
 
@@ -44,17 +62,21 @@ Before removing draft status, confirm _all_ of the following. If any fails, repo
 
 1.  **Identify the RFC and its PR.**
 
-    Infer the target from the current checked-out branch (`rfc/<slug>`). If on `main`, list all open draft pull requests and ask the user to choose:
+    Infer the target from the current checked-out branch (`rfc/<slug>`). If on
+    `main`, list all open draft pull requests and ask the user to choose:
 
     ```sh
     gh pr list --draft --json number,title,headRefName
     ```
 
-    Then checkout the branch, read the RFC document (`rfc/<category>/<slug>/README.md`), and confirm its PR (`gh pr view <number> --json isDraft,labels`) if needed.
+    Then checkout the branch, read the RFC document
+    (`rfc/<category>/<slug>/README.md`), and confirm its PR (`gh pr view
+    <number> --json isDraft,labels`) if needed.
 
 2.  **Verify the transition gates.**
 
-    Read the document in full and check each gate. Report any failures and stop if unmet.
+    Read the document in full and check each gate. Report any failures and stop
+    if unmet.
 
 3.  **Update the document.**
 
@@ -85,7 +107,8 @@ Before removing draft status, confirm _all_ of the following. If any fails, repo
 
 -   **Do not mark a PR ready until the document is complete.**
 
-    An incomplete or boilerplate-laden proposal wastes reviewers' time. The completeness gate is mandatory.
+    An incomplete or boilerplate-laden proposal wastes reviewers' time. The
+    completeness gate is mandatory.
 
 -   **Forward only.**
 

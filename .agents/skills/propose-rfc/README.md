@@ -1,10 +1,12 @@
 # `/propose-rfc`
 
-Removes the draft status from an RFC pull request, making it ready for stakeholder review.
+Removes the draft status from an RFC pull request, making it ready for
+stakeholder review.
 
 ## What it does
 
-- Acts as an audit gate by verifying the RFC document is complete and free of template boilerplate.
+- Acts as an audit gate by verifying the RFC document is complete and free of
+  template boilerplate.
 - Bumps `Last updated` date.
 - Applies the `#proposed` label.
 - Takes the PR out of draft (`gh pr ready`).
@@ -15,4 +17,6 @@ Removes the draft status from an RFC pull request, making it ready for stakehold
 /propose-rfc
 ```
 
-The agent will infer the target RFC from the current checked-out branch. If you are on `main`, the agent will prompt you, providing you with a list of open draft PRs that can be progressed to `PROPOSED`.
+The agent will infer the target RFC from the current checked-out branch. If you
+are on `main`, the agent will prompt you, providing you with a list of open
+draft PRs that can be progressed to `PROPOSED`.

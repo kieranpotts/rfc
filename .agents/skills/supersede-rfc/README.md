@@ -4,7 +4,8 @@ Marks an implemented RFC as superseded by a later one.
 
 ## What it does
 
-- Confirms that a later, currently-implemented RFC has replaced a previously-implemented decision.
+- Confirms that a later, currently-implemented RFC has replaced a
+  previously-implemented decision.
 - Sets the superseded RFC's `Status: SUPERSEDED`.
 - Updates the `Superseded by` link.
 - Verifies the successor links back via `Supersedes`.
@@ -16,11 +17,14 @@ Marks an implemented RFC as superseded by a later one.
 /supersede-rfc
 ```
 
-The agent will prompt you for the RFC that is being superseded, and it will ask you to confirm the newer RFC that replaces it.
+The agent will prompt you for the RFC that is being superseded, and it will ask
+you to confirm the newer RFC that replaces it.
 
-The agent verifies that both RFCs are currently in the `IMPLEMENTED` state, and that the second RFC is newer.
+The agent verifies that both RFCs are currently in the `IMPLEMENTED` state, and
+that the second RFC is newer.
 
-Alternatively, provide a short description, from which the agent will try to infer the target:
+Alternatively, provide a short description, from which the agent will try to
+infer the target:
 
 ```
 /supersede-rfc event sourcing for audit log is superseded by temporal data model
