@@ -16,7 +16,7 @@ similar change management workflows.
 
 ## Ecosystem
 
-This repository is one of five that form a coherent, version-controlled
+This repository is one of six that form a coherent, version-controlled
 documentation ecosystem modeling the software development lifecycle. Each is the
 reference implementation of an opinionated workflow, and answers a different
 question about the system:
@@ -34,15 +34,19 @@ question about the system:
 - [**🗺️ Delivery Plans**](https://github.com/kieranpotts/plans): Capture _when,
   and in what order_, the work gets done.
 
-- [**🔍 Audits**](https://github.com/kieranpotts/audits): Evaluates the as-built
+- [**🔍 Architecture Audits**](https://github.com/kieranpotts/audits): Evaluate the as-built
   system on its own terms – architecture and security findings, point-in-time.
 
+- [**⚠️ Risk Register**](https://github.com/kieranpotts/risks): Records the
+  security and privacy risks the system carries, and tracks their mitigation
+  over time.
+
 The [**skills**](https://github.com/kieranpotts/skills) collection provides an
-agentic workflow that operates across all five.
+agentic workflow that operates across all six.
 
 This separation into dedicated repositories is intended for application software
 that spans multiple code repositories, and potentially multiple teams, where the
-requirements, decisions, designs, plans, and audits are shared concerns that sit
+requirements, decisions, designs, plans, audits, and risks are shared concerns that sit
 above any single codebase. For a standalone code repository – a small utility
 library, say – it is better to fold these artifacts and skills directly into
 that repository, rather than maintain them separately.
