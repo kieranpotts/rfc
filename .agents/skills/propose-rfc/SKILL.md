@@ -10,7 +10,7 @@ metadata:
   interactive: yes
 ---
 
-# `/propose-rfc`
+# Propose RFC
 
 Use this skill to transition an RFC from `DRAFT` to `PROPOSED`. Confirm the
 document is complete, apply the `#proposed` label, and remove the pull request's

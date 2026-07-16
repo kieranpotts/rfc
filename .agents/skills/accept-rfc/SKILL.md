@@ -9,7 +9,7 @@ metadata:
   interactive: yes
 ---
 
-# `/accept-rfc`
+# Accept RFC
 
 <!-- TODO: Review these skills against the latest template. -->
 

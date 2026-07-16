@@ -9,7 +9,7 @@ metadata:
   interactive: yes
 ---
 
-# `/reject-rfc`
+# Reject RFC
 
 Use this skill to transition an RFC from `PROPOSED` to `REJECTED`. A rejected
 RFC is not discarded — its document is merged into `main` and preserved

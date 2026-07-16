@@ -1,4 +1,4 @@
-# `/propose-rfc`
+# Propose RFC
 
 Removes the draft status from an RFC pull request, making it ready for
 stakeholder review.
@@ -13,10 +13,4 @@ stakeholder review.
 
 ## How to invoke
 
-```
-/propose-rfc
-```
-
-The agent will infer the target RFC from the current checked-out branch. If you
-are on `main`, the agent will prompt you, providing you with a list of open
-draft PRs that can be progressed to `PROPOSED`.
+> Propose RFC

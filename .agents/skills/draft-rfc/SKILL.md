@@ -9,7 +9,7 @@ metadata:
   interactive: yes
 ---
 
-# `/draft-rfc`
+# Draft RFC
 
 Use this skill to scaffold a new RFC, ready for the author to complete and take
 forward to technical stakeholders. This is the entry point to the RFC lifecycle.

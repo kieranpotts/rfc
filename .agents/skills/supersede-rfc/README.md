@@ -1,4 +1,4 @@
-# `/supersede-rfc`
+# Supersede RFC
 
 Marks an implemented RFC as superseded by a later one.
 
@@ -13,19 +13,6 @@ Marks an implemented RFC as superseded by a later one.
 
 ## How to invoke
 
-```
-/supersede-rfc
-```
+> Supersede RFC
 
-The agent will prompt you for the RFC that is being superseded, and it will ask
-you to confirm the newer RFC that replaces it.
-
-The agent verifies that both RFCs are currently in the `IMPLEMENTED` state, and
-that the second RFC is newer.
-
-Alternatively, provide a short description, from which the agent will try to
-infer the target:
-
-```
-/supersede-rfc event sourcing for audit log is superseded by temporal data model
-```
+> Event sourcing for audit log is superseded by temporal data model

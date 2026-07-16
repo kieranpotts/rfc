@@ -1,4 +1,4 @@
-# `/implement-rfc`
+# Implement RFC
 
 Transitions an RFC from `ACCEPTED` to `IMPLEMENTED`, then squash-merges the PR
 and assigns its index number.
@@ -16,18 +16,6 @@ and assigns its index number.
 
 ## How to invoke
 
-```
-/implement-rfc
-```
+> Implement RFC
 
-The agent will infer the target RFC from the current checked-out branch. If you
-are on `main`, the agent will prompt you, providing a list of open PRs with the
-`#accepted` label from which you can select the target PR you want to progress
-to `IMPLEMENTED`.
-
-Alternatively, provide a short description of the RFC, from which the agent will
-try to infer the correct target:
-
-```
-/implement-rfc event sourcing for audit log
-```
+> Event sourcing for audit log has been implemented.

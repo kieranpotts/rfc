@@ -11,7 +11,7 @@ metadata:
   interactive: yes
 ---
 
-# `/implement-rfc`
+# Implement RFC
 
 Use this skill to transition an RFC from `ACCEPTED` to `IMPLEMENTED`, once all
 the tooling and infrastructure the decision calls for are in place. This is the

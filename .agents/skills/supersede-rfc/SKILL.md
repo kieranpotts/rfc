@@ -9,7 +9,7 @@ metadata:
   interactive: yes
 ---
 
-# `/supersede-rfc`
+# Supersede RFC
 
 Use this skill to transition an RFC from `IMPLEMENTED` to `SUPERSEDED`, once a
 later, implemented RFC has replaced its decision. The superseded document

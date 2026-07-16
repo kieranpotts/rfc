@@ -1,4 +1,4 @@
-# `/accept-rfc`
+# Accept RFC
 
 Transitions an RFC from `PROPOSED` to `ACCEPTED`. The PR stays open until the
 decision is implemented.
@@ -14,18 +14,6 @@ decision is implemented.
 
 ## How to invoke
 
-```
-/accept-rfc
-```
+> Accept RFC
 
-The agent will infer the target RFC from the current checked-out branch. If you
-are on `main`, the agent will prompt you, providing a list of open PRs with the
-`#proposed` label from which you can select the target PR you want to progress
-to `ACCEPTED`.
-
-Alternatively, provide a short description of the RFC, from which the agent will
-try to infer the correct target
-
-```
-/accept-rfc event sourcing for audit log
-```
+> Accept the RFC for using event sourcing for the audit log

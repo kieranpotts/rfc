@@ -1,4 +1,4 @@
-# `/draft-rfc`
+# Draft RFC
 
 Scaffolds a new RFC, ready for the author to complete.
 
@@ -15,15 +15,9 @@ Scaffolds a new RFC, ready for the author to complete.
 
 ## How to invoke
 
-```
-/draft-rfc
-```
+> Draft RFC
 
-Optionally, describe the RFC:
-
-```
-/draft-rfc We will adopt event-sourcing for our audit log architecture
-```
+> We will adopt event sourcing for our audit log architecture - draft an RFC.
 
 ## Examples
 
