@@ -3,14 +3,18 @@
 <!-- Agents MUST read ./AGENTS.md. This document is for humans. -->
 
 These contributing guidelines provide step-by-step instructions to pitch
-technical proposals and shepherd them through the RFC process. The focus here is
-on the mechanics and guardrails of the RFC process. See the
-[documentation](./docs/) for more general guidance on how to get the most out of
-the RFC process.
+technical proposals and shepherd them through the RFC process.
+
+The focus here is on the mechanics and guardrails of the RFC process. See the
+[documentation](./docs/) for more general guidance on how to get the most
+out of the RFC process.
 
 Anyone with write access to this repository may contribute to the technical
 direction of the project by submitting technical proposals and requesting
 comments on them.
+
+See also [TS-3](https://github.com/kieranpotts/standards/tree/latest/dev/src/003)
+for the technical standard that underpins this process.
 
 > [!NOTE]
 > The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD

@@ -1,6 +1,6 @@
 # 💬 Requests for Comments (RFC)
 
-**A template for managing technical decisions via version control.**
+**A template for managing technical decisions** via version control.
 
 This repository is the home of the Requests for Comments (RFC) process for
 [Project Name]. It is a permanent, chronological archive of the architecturally
@@ -14,10 +14,6 @@ about _what_ the system should do – are tracked separately in the
 
 Both the RFC and SRS repositories are managed by the technical teams and follow
 similar change management workflows.
-
-> [!NOTE]
-> See **[TS-3: Design Docs](https://github.com/kieranpotts/standards/tree/latest/dev/src/003)**.
-> for more guidance on maintaining RFCs and other forms of design doc.
 
 ## Ecosystem
 
