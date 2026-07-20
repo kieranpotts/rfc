@@ -22,7 +22,7 @@ system is built and operated).
 
 ## Project structure
 
-- **`rfc/`**:
+- **`rfc/`:**
   The permanent, append-only archive of every RFC, including rejected ones. Each
   RFC is a directory (`rfc/<category>/<slug>/`) with a `README.md` file being
   the entry point. Supporting artifacts such as architectural diagrams may be
@@ -35,35 +35,35 @@ system is built and operated).
 
   - **`rfc/TEMPLATE.md`** is the starting point for a new RFC.
 
-- **`docs/`**:
+- **`docs/`:**
   General guidelines for humans to get the most out of the RFC process.
 
 ## RFC lifecycle
 
 Each RFC moves through a defined state machine:
 
-- **`DRAFT`**: The RFC is being written. The pull request is in draft status,
+- **`DRAFT`:** The RFC is being written. The pull request is in draft status,
   ie. not yet ready for review.
 
-- **`PROPOSED`**: The RFC is complete and open for a decision. The pull request
+- **`PROPOSED`:** The RFC is complete and open for a decision. The pull request
   is marked ready for review and labeled `#proposed`.
 
-- **`ACCEPTED`**: The RFC is accepted. Final comments have been solicited and
+- **`ACCEPTED`:** The RFC is accepted. Final comments have been solicited and
   there are no outstanding objections. The pull request stays open until the
   decision is implemented, and the RFC documentation MAY continue to evolve
   during this period, with feedback continuing on the still-open discussion
   thread. No number is assigned yet.
 
-- **`IMPLEMENTED`**: The tooling and infrastructure the decision calls for are
+- **`IMPLEMENTED`:** The tooling and infrastructure the decision calls for are
   in place. The RFC artifacts are merged into `main`, and the RFC is recorded in
   `rfc/INDEX.md` and given the next sequential number to identify it. An
   implemented decision stays in effect until a later RFC supersedes it.
 
-- **`REJECTED`**: The RFC is not being taken forward. The document is merged
+- **`REJECTED`:** The RFC is not being taken forward. The document is merged
   into `main` and its number recorded in `rfc/INDEX.md`, preserved permanently
   as the record of the decision and its rationale.
 
-- **`SUPERSEDED`**: The RFC was previously implemented but has been replaced
+- **`SUPERSEDED`:** The RFC was previously implemented but has been replaced
   by a later RFC, which itself is now implemented.
 
 The authors of an RFC drive its lifecycle. Each state transition has a

@@ -70,20 +70,20 @@ branch naming and merge strategy are inconsistent across contributors.
 
 ## Alternatives
 
-**Git flow (develop + release branches)**: Rejected as unnecessary ceremony
+**Git flow (develop + release branches):** Rejected as unnecessary ceremony
 for a team shipping continuously rather than in scheduled release trains.
 
-**Merge commits instead of squash**: Rejected because squash-merge keeps
+**Merge commits instead of squash:** Rejected because squash-merge keeps
 `main`'s history at one commit per unit of reviewed work, which is easier to
 bisect and revert.
 
 ## Trade-offs and risks
 
-- **Loss of intermediate commit history**: Squash-merge discards the
+- **Loss of intermediate commit history:** Squash-merge discards the
   in-review commit history. Accepted, since that history is preserved on the
   originating PR for as long as GitHub retains it.
 
-- **Long-lived branches drifting**: Epics and release branches risk drifting
+- **Long-lived branches drifting:** Epics and release branches risk drifting
   far from `main` if not actively rebased. Mitigated by requiring periodic
   rebase as part of the epic-branch convention.
 

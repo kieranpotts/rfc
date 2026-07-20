@@ -12,31 +12,31 @@ agent is driving it.
 
 The skills are, in lifecycle order:
 
-- **[`/draft-rfc`](./draft-rfc/)**: Scaffolds a new RFC, ready for the user to
+- **[`/draft-rfc`](./draft-rfc/):** Scaffolds a new RFC, ready for the user to
   complete. Opens a draft PR, and opens a linked discussion thread.
 
-- **[`/propose-rfc`](./propose-rfc/)**: `DRAFT` → `PROPOSED` — Confirms the RFC
+- **[`/propose-rfc`](./propose-rfc/):** `DRAFT` → `PROPOSED` — Confirms the RFC
   document is complete and free of leftover template text. Sets the document's
   `Status` to `PROPOSED`, applies the `#proposed` label to the PR, and takes the
   pull request out of draft, ready for stakeholder review.
 
-- **[`/accept-rfc`](./accept-rfc/)**: `PROPOSED` → `ACCEPTED` — Verifies the
+- **[`/accept-rfc`](./accept-rfc/):** `PROPOSED` → `ACCEPTED` — Verifies the
   approval gates, sets the document's `Status` to `ACCEPTED`, and labels the
   pull request `#accepted`. The pull request and its discussion thread stay open
   through implementation – it is not merged here.
 
-- **[`/implement-rfc`](./implement-rfc/)**: `ACCEPTED` → `IMPLEMENTED` — Sets
+- **[`/implement-rfc`](./implement-rfc/):** `ACCEPTED` → `IMPLEMENTED` — Sets
   the document's `Status` to `IMPLEMENTED`, labels the pull request
   `#implemented`, squash-merges it to `main`, and closes the discussion thread.
   After the merge, the RFC is given a unique reference number and listed in the
   RFC index.
 
-- **[`/reject-rfc`](./reject-rfc/)**: `PROPOSED` → `REJECTED` — Sets the
+- **[`/reject-rfc`](./reject-rfc/):** `PROPOSED` → `REJECTED` — Sets the
   document's `Status` to `REJECTED`, labels the pull request `#rejected`, closes
   the discussion thread, and squash-merges it to `main`. After the merge, the
   RFC is given a unique reference number and listed in the RFC index.
 
-- **[`/supersede-rfc`](./supersede-rfc/)**: `IMPLEMENTED` → `SUPERSEDED` — Marks
+- **[`/supersede-rfc`](./supersede-rfc/):** `IMPLEMENTED` → `SUPERSEDED` — Marks
   an implemented RFC as replaced by a newer one. Sets up cross-references
   between the two.
 

@@ -35,10 +35,10 @@ Do NOT use this skill to advance an existing RFC. Use
     Infer the category from the RFC description, or ask the user if you're not
     sure which category fits best. The options are:
 
-    - **Architecture**: System design or implementation patterns.
-    - **Process**: Development or operations lifecycle concerns.
-    - **Technology**: Production technology or infrastructure.
-    - **Tooling**: Automation tools or devops infrastructure.
+    - **Architecture:** System design or implementation patterns.
+    - **Process:** Development or operations lifecycle concerns.
+    - **Technology:** Production technology or infrastructure.
+    - **Tooling:** Automation tools or devops infrastructure.
 
 3.  **Create the branch.**
 

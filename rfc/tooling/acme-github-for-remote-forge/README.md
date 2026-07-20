@@ -62,20 +62,20 @@ will require passing CI and at least one review before merge to `main`.
 
 ## Alternatives
 
-**GitLab (self-hosted)**: Offers more control over infrastructure, but
+**GitLab (self-hosted):** Offers more control over infrastructure, but
 introduces an ongoing hosting and maintenance burden the team is not
 resourced for.
 
-**Bitbucket**: Comparable feature set, but a materially smaller ecosystem of
+**Bitbucket:** Comparable feature set, but a materially smaller ecosystem of
 third-party integrations and community familiarity.
 
 ## Trade-offs and risks
 
-- **Vendor lock-in**: Moving off GitHub later would require migrating issues,
+- **Vendor lock-in:** Moving off GitHub later would require migrating issues,
   PR history, and Actions workflows. Accepted as a reasonable trade for the
   lower operational overhead today.
 
-- **Cost at scale**: GitHub's per-seat pricing may become a factor as the team
+- **Cost at scale:** GitHub's per-seat pricing may become a factor as the team
   grows. Revisit if headcount materially increases.
 
 ## Questions

@@ -69,22 +69,22 @@ repositories.
 
 ## Alternatives
 
-**Mercurial**: A capable distributed VCS with a reputation for a clean CLI.
+**Mercurial:** A capable distributed VCS with a reputation for a clean CLI.
 Rejected because Git's ecosystem — hosting, CI providers, tooling, and the
 prevailing familiarity among contributors — is materially larger, which lowers
 onboarding cost and operational risk.
 
-**A centralized VCS (eg. Subversion)**: Rejected because centralized systems
+**A centralized VCS (eg. Subversion):** Rejected because centralized systems
 handle branching and offline/asynchronous work poorly, which is a bad fit for
 distributed collaboration and fast, continuous integration workflows.
 
 ## Trade-offs and risks
 
-- **Learning curve**: Git's model and CLI are notoriously unintuitive for
+- **Learning curve:** Git's model and CLI are notoriously unintuitive for
   newcomers. Mitigated by standardizing conventions and providing tooling and
   documentation, addressed in follow-up RFCs.
 
-- **Large binary assets**: Git handles large binaries poorly. If the project
+- **Large binary assets:** Git handles large binaries poorly. If the project
   later needs to version large media, a mechanism such as Git LFS will need its
   own RFC.
 
