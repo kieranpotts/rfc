@@ -16,3 +16,5 @@ document.
 | # | Title | Category | Status | Decision date |
 | --- | --- | --- | --- | --- |
 | [0001](./tooling/git-for-version-control/) | Use Git for version control | Tooling | IMPLEMENTED | 2024-01-26 |
+| [0002](./tooling/acme-github-for-remote-forge/) | Use GitHub as the remote forge | Tooling | IMPLEMENTED | 2026-02-18 |
+| [0003](./process/acme-trunk-based-branching/) | Adopt a trunk-based branching and merging convention | Process | IMPLEMENTED | 2026-03-14 |
