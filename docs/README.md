@@ -18,4 +18,4 @@ process.
   process.
 
 - [**Related links**](./related-links.md): Further reading, if you want to
-  deep-drive further into the topic of architectural record keeping.
+  deep-dive further into the topic of architectural record keeping.

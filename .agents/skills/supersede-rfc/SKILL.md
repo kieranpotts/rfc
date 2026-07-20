@@ -32,7 +32,7 @@ following before superseding. If any is unmet, report it and pause.
     Both the succeeded and the successor RFC MUST have previously been merged
     into the `main` branch.
 
--   **Both have a unique RFC number**
+-   **Both have a unique RFC number.**
 
     The two RFCs MUST each have a unique RFC number assigned in the [RFC
     index](../../../rfc/INDEX.md).
@@ -47,7 +47,7 @@ following before superseding. If any is unmet, report it and pause.
 -   **The successor is the newer of the two RFCs.**
 
     The successor MUST be the newer of the two. It MUST have a higher RFC number
-    in the [RFC index](../../../rfc/INDEX.md) number.
+    in the [RFC index](../../../rfc/INDEX.md).
 
 ##  Instructions
 

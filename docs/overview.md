@@ -39,7 +39,7 @@ considered.
 
 Rejected proposals are also recorded.
 
-The outcome of the RFC process is for a finalized technical proposal that is
+The outcome of the RFC process is a finalized technical proposal that is
 either accepted or rejected. Either way, the decision is logged.
 
 A common convention is for RFCs to become immutable once they are accepted or

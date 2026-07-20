@@ -241,7 +241,7 @@ on the outcome, the RFC is decided – either accepted or rejected.
 
 4. The workflow diverges here, depending on the outcome:
 
-  - If **rejected** squash-merge the PR straight away (its message takes the
+  - If **rejected**, squash-merge the PR straight away (its message takes the
     form `rfc: <description> - REJECTED`) and delete the branch. The discussion
     thread is closed when the PR is merged. The rejected RFC is preserved in
     `main` as a permanent record. Go to step 7 to assign its number.

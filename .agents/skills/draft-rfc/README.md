@@ -9,7 +9,7 @@ Scaffolds a new RFC, ready for the author to complete.
 - Fills in the metadata header (authors, dates, `Status: DRAFT`).
 - Commits and pushes the change.
 - Opens a draft pull request.
-- Applies a category label to the PR, eg, `TOOLING`.
+- Applies a category label to the PR, eg. `TOOLING`.
 - Opens a discussion thread.
 - Creates cross-references between the discussion and the PR.
 
@@ -25,7 +25,7 @@ Scaffolds a new RFC, ready for the author to complete.
   scaffold the branch, the RFC document, and create a draft PR.
 
 - `/draft-rfc <Description>`: Provide more information about the RFC, from which
-  the agent will attempt to infer details such as title, slug,and category (eg.
+  the agent will attempt to infer details such as title, slug, and category (eg.
   "architecture").
 
 You will need to complete the RFC document yourself. Once you've done that, use
