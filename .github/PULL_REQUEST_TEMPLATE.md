@@ -1,6 +1,6 @@
-_Copy the "Summary" section from the RFC document here._
+Copy the "Summary" section from the RFC document here.
 
-- Discussion thread: [Link] _(REQUIRED)_
+- Discussion thread: [Link] (REQUIRED)
 
 > [!IMPORTANT]
 > Please use the discussion thread linked above, not comments on this pull
