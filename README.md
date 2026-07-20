@@ -9,67 +9,74 @@ also the mechanism by which new technical decisions are proposed, discussed, and
 accepted or rejected.
 
 RFCs cover technical decisions – _how_ the system is built. Product decisions –
-about _what_ the system should do – are tracked separately in the [software
-requirements specification (SRS)](https://github.com/kieranpotts/specs). Both
-the RFC and SRS repositories are managed by the technical teams and follow
+about _what_ the system should do – are tracked separately in the
+[software requirements specification (SRS)](https://github.com/kieranpotts/specs).
+
+Both the RFC and SRS repositories are managed by the technical teams and follow
 similar change management workflows.
+
+> [!NOTE]
+> See **[TS-3: Design Docs](https://github.com/kieranpotts/standards/tree/latest/dev/src/003)**.
+> for more guidance on maintaining RFCs and other forms of design doc.
 
 ## Ecosystem
 
 This repository is one of six that form a coherent, version-controlled
-documentation ecosystem modeling the software development lifecycle. Each is the
-reference implementation of an opinionated workflow, and answers a different
-question about the system:
+documentation ecosystem. Each answers a different question about a software
+system.
 
-- [**📋 Software Requirements Specification
-  (SRS)**](https://github.com/kieranpotts/specs): Records _what_ the system
-  does, in business terms.
+- [**📋 Software Requirements Specification (SRS)**](https://github.com/kieranpotts/specs) \
+  Captures what the system does, in business terms.
 
-- **💬 Requests for Comments (RFC)**: Records _how_ significant technical
-  decisions were made, and _why_ (this repository).
+- [**💬 Requests for Comments (RFC)**](https://github.com/kieranpotts/rfc) (this repository) \
+  Records how significant technical decisions were made, and why.
 
-- [**📐 Design Docs**](https://github.com/kieranpotts/design): Describe _what the
-  system looks like_, its as-is architecture.
+- [**📐 Design Docs**](https://github.com/kieranpotts/design) \
+  Documents what the system looks like in production.
 
-- [**🗺️ Delivery Plans**](https://github.com/kieranpotts/plans): Capture _when,
-  and in what order_, the work gets done.
+- [**🔍 Architecture Audits**](https://github.com/kieranpotts/audits) \
+  Logs historical evaluations of the as-built system's structural integrity.
 
-- [**🔍 Architecture Audits**](https://github.com/kieranpotts/audits): Evaluate the as-built
-  system on its own terms – architecture and security findings, point-in-time.
+- [**🗺️ Delivery Plans**](https://github.com/kieranpotts/plans) \
+  Tracks when, and in what order, the work gets done.
 
-- [**⚠️ Risk Register**](https://github.com/kieranpotts/risks): Records the
-  security and privacy risks the system carries, and tracks their mitigation
-  over time.
+- [**⚠️ Risk Register**](https://github.com/kieranpotts/risks) \
+  Records the inherent security and privacy risks the system carries.
 
-The [**skills**](https://github.com/kieranpotts/skills) collection provides an
-agentic workflow that operates across all six.
+In addition, the [**✨ Agent SKills**](https://github.com/kieranpotts/skills)
+collection offers composabe agentic workflows that operate across all six
+repositories.
 
 This separation into dedicated repositories is intended for application software
 that spans multiple code repositories, and potentially multiple teams, where the
-requirements, decisions, designs, plans, audits, and risks are shared concerns that sit
-above any single codebase. For a standalone code repository – a small utility
-library, say – it is better to fold these artifacts and skills directly into
-that repository, rather than maintain them separately.
+requirements, decisions, designs, plans, audits, and risks are shared concerns
+that sit above any single codebase.
+
+For a standalone code repository – a small utility library, say – it may be
+better to fold all documentation into the same repository.
 
 ## Contents
 
-- [**RFCs**](./rfc/): The permanent archive of every technical decision,
-  including those that were ultimately rejected.
+- [**RFCs**](./rfc/) \
+  The permanent archive of every technical decision, including those that were
+  ultimately rejected.
 
   - The [`INDEX`](./rfc/INDEX.md) lists all implemented, rejected, and
-    superseded RFCs. (Current proposals being discussed are tracked via the
-    [pull requests](https://github.com/kieranpotts/rfc/pulls) system.)
+    superseded RFCs. Current proposals being discussed are tracked via the
+    [pull requests](https://github.com/kieranpotts/rfc/pulls) system.
 
   - The [`TEMPLATE`](./rfc/TEMPLATE.md) is the starting point for a new RFC.
 
-- [**Contributing**](./CONTRIBUTING.md): Step-by-step instructions to pitch
-  technical proposals, and to shepherd them through the RFC process.
+- [**Contributing**](./CONTRIBUTING.md) \
+  Step-by-step instructions to pitch technical proposals, and to shepherd them
+  through the RFC process.
 
-- [**Agents**](./AGENTS.md) and [**Skills**](./.agents/skills/): Instructions
-  for agentic tools to manage the RFC workflow with a high degree of autonomy.
+- [**Agents**](./AGENTS.md) and [**Skills**](./.agents/skills/) \
+  Instructions for agents to manage the RFC workflow with a high degree of
+  autonomy.
 
-- [**Documentation**](./docs/): Further guidance on how to get the most out of
-  the RFC process.
+- [**Documentation**](./docs/) \
+  Further guidance on how to get the most out of the RFC process.
 
 -----
 
