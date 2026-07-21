@@ -75,7 +75,7 @@ to be addressed later? Note any unknowns that remain at this time._
 
 ## Questions
 
-_Any unresolved questions, or related issues considered out of scope for this
+_Any unresolved questions, or related issues considered out-of-scope for this
 RFC but that will need to be addressed separately._
 
 ## Additional notes
