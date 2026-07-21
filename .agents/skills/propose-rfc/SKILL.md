@@ -1,10 +1,10 @@
 ---
 name: propose-rfc
 description: >-
-  Transition an RFC from `DRAFT` to `PROPOSED`,
-  preparing it for stakeholder review. Use this skill when the user says "propose
-  this RFC", "this RFC is ready for review", "mark the RFC as ready", "take this
-  RFC out of draft", or "progress this RFC".
+  Transition an RFC from `DRAFT` to `PROPOSED`, preparing it for stakeholder
+  review. Use this skill when the user says "propose this RFC", "this RFC is
+  ready for review", "mark the RFC as ready", "take this RFC out of draft",
+  or "progress this RFC".
 license: MIT
 metadata:
   interactive: yes
@@ -22,6 +22,13 @@ Do NOT use this skill to scaffold a new RFC (use
 [`/implement-rfc`](../implement-rfc/SKILL.md),
 [`/reject-rfc`](../reject-rfc/SKILL.md), or
 [`/supersede-rfc`](../supersede-rfc/SKILL.md)).
+
+**Input:** Target — REQUIRED. Infer the RFC from the checked-out branch
+(`rfc/<slug>`). If on `main`, list open draft pull requests and ask the user
+to choose.
+
+**Output:** The RFC document updated to `Status: PROPOSED`, the PR carrying
+`#proposed` and taken out of draft.
 
 ## Transition gates: `DRAFT` → `PROPOSED`
 
@@ -58,7 +65,7 @@ report it and pause — do not mark the PR ready.
 
     `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`.
 
-##  Instructions
+## Instructions
 
 1.  **Identify the RFC and its PR.**
 
@@ -103,7 +110,7 @@ report it and pause — do not mark the PR ready.
     git push
     ```
 
-##  Rules
+## Rules
 
 -   **Do not mark a PR ready until the document is complete.**
 

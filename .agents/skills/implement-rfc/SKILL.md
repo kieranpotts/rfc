@@ -1,11 +1,10 @@
 ---
 name: implement-rfc
 description: >-
-  Mark an accepted RFC as implemented once its
-  tooling and infrastructure are in place. Squash-merge its pull request and
-  assign its number in the index. Use when the user says "implement this RFC",
-  "this RFC is implemented", "the tooling is in place", or "the infrastructure is
-  built".
+  Mark an accepted RFC as implemented once its tooling and infrastructure
+  are in place. Squash-merge its pull request and assign its number in the
+  index. Use when the user says "implement this RFC", "this RFC is
+  implemented", "the tooling is in place", or "the infrastructure is built".
 license: MIT
 metadata:
   interactive: yes
@@ -27,6 +26,14 @@ Do NOT use this skill for any other transition — to accept use
 [`/reject-rfc`](../reject-rfc/SKILL.md), and to scaffold or propose use
 [`/draft-rfc`](../draft-rfc/SKILL.md) /
 [`/propose-rfc`](../propose-rfc/SKILL.md).
+
+**Input:** Target — REQUIRED. Infer the RFC from the checked-out branch
+(`rfc/<slug>`). If on `main`, use the user's description, or list the open
+`#accepted` pull requests and ask the user to choose.
+
+**Output:** The RFC document updated to `Status: IMPLEMENTED`, the PR
+carrying `#implemented` and squash-merged into `main`, its discussion thread
+closed, and a new numbered row appended to `rfc/INDEX.md`.
 
 ## Transition gates: `ACCEPTED` → `IMPLEMENTED`
 

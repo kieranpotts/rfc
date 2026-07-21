@@ -1,9 +1,9 @@
 ---
 name: supersede-rfc
 description: >-
-  Supersede a previously-accepted RFC by a newer
-  one. Use this skill when the user says "supersede this RFC", "this RFC is
-  replaced by ...", or retires an accepted decision in favor of a newer one.
+  Supersede a previously-accepted RFC by a newer one. Use this skill when
+  the user says "supersede this RFC", "this RFC is replaced by ...", or
+  retires an accepted decision in favor of a newer one.
 license: MIT
 metadata:
   interactive: yes
@@ -21,6 +21,13 @@ Do NOT use this skill for any other transition — see
 [`/reject-rfc`](../reject-rfc/SKILL.md),
 [`/propose-rfc`](../propose-rfc/SKILL.md), or
 [`/draft-rfc`](../draft-rfc/SKILL.md).
+
+**Input:** The succeeded RFC and its successor — REQUIRED. Infer both from
+the user's description (eg. "X is superseded by Y"), or prompt for them.
+
+**Output:** The succeeded RFC's document updated to `Status: SUPERSEDED`
+with a `Superseded by` link, the successor's `Supersedes` field linked back,
+the `rfc/INDEX.md` row updated, and the old PR carrying `#superseded`.
 
 ## Transition gates: `IMPLEMENTED` → `SUPERSEDED`
 
@@ -49,7 +56,7 @@ following before superseding. If any is unmet, report it and pause.
     The successor MUST be the newer of the two. It MUST have a higher RFC number
     in the [RFC index](../../../rfc/INDEX.md).
 
-##  Instructions
+## Instructions
 
 1.  **Identify both RFCs.**
 
@@ -95,7 +102,7 @@ following before superseding. If any is unmet, report it and pause.
     gh pr edit <number> --add-label "#superseded" --remove-label "#implemented"
     ```
 
-##  Rules
+## Rules
 
 -   **Only from `IMPLEMENTED`.**
 

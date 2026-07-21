@@ -1,46 +1,35 @@
 # Agent skills
 
-This repository ships a small set of [agent skills](https://agentskills.io/) —
-invoked as slash commands through agentic tools such as Claude Code — that
-automate the RFC workflow.
+Skills available to agents in this repository are:
 
-There is one skill per RFC state transition: `DRAFT` → `PROPOSED` → `ACCEPTED` →
-`IMPLEMENTED`, plus `PROPOSED` → `REJECTED` and `IMPLEMENTED` → `SUPERSEDED`.
-Each skill knows the gate rules for its own transition and will not proceed
-until they are met, which keeps the process consistent whether a human or an
-agent is driving it.
+- **[Draft RFC](./draft-rfc/):**
+  Scaffolds a new RFC, ready for the user to complete.
 
-The skills are, in lifecycle order:
+- **[Propose RFC](./propose-rfc/):**
+  Handles the `DRAFT` → `PROPOSED` transition.
 
-- **[`/draft-rfc`](./draft-rfc/):** Scaffolds a new RFC, ready for the user to
-  complete. Opens a draft PR, and opens a linked discussion thread.
+- **[Accept RFC](./accept-rfc/):**
+  Handles the `PROPOSED` → `ACCEPTED` transition.
 
-- **[`/propose-rfc`](./propose-rfc/):** `DRAFT` → `PROPOSED` — Confirms the RFC
-  document is complete and free of leftover template text. Sets the document's
-  `Status` to `PROPOSED`, applies the `#proposed` label to the PR, and takes the
-  pull request out of draft, ready for stakeholder review.
+- **[Implement RFC](./implement-rfc/):**
+  Handles the `ACCEPTED` → `IMPLEMENTED` transition.
 
-- **[`/accept-rfc`](./accept-rfc/):** `PROPOSED` → `ACCEPTED` — Verifies the
-  approval gates, sets the document's `Status` to `ACCEPTED`, and labels the
-  pull request `#accepted`. The pull request and its discussion thread stay open
-  through implementation – it is not merged here.
+- **[Reject RFC](./reject-rfc/):**
+  Handles the `PROPOSED` → `REJECTED` transition.
 
-- **[`/implement-rfc`](./implement-rfc/):** `ACCEPTED` → `IMPLEMENTED` — Sets
-  the document's `Status` to `IMPLEMENTED`, labels the pull request
-  `#implemented`, squash-merges it to `main`, and closes the discussion thread.
-  After the merge, the RFC is given a unique reference number and listed in the
-  RFC index.
+- **[Supersede RFC](./supersede-rfc/):**
+  Handles the `IMPLEMENTED` → `SUPERSEDED` transition.
 
-- **[`/reject-rfc`](./reject-rfc/):** `PROPOSED` → `REJECTED` — Sets the
-  document's `Status` to `REJECTED`, labels the pull request `#rejected`, closes
-  the discussion thread, and squash-merges it to `main`. After the merge, the
-  RFC is given a unique reference number and listed in the RFC index.
+## Compatibility
 
-- **[`/supersede-rfc`](./supersede-rfc/):** `IMPLEMENTED` → `SUPERSEDED` — Marks
-  an implemented RFC as replaced by a newer one. Sets up cross-references
-  between the two.
+Agent harnesses are converging on the `./.agents/skills/` path for dynamic
+retrieval of project-specific skills. This is compatible with the Agent Skills
+convention — see https://agentskills.io/.
 
-A typical journey runs `/draft-rfc` → the user writes the proposal →
-`/propose-rfc` → stakeholder review → `/accept-rfc` (or `/reject-rfc` if the
-decision is not to proceed) → implementation → `/implement-rfc`. Much later,
-`/supersede-rfc` retires a decision that a newer RFC has replaced.
+As of May 2026, OpenAI Codex, GitHub Copilot, Gemini CLI, Google Antigravity,
+OpenCode, and Pi will auto-discover these skills, but Claude Code and Cursor
+will not.
+
+You will require workarounds for incompatible harnesses. For Claude Code, you
+can simply symlink this directory from `.claude/skills/`. Cursor requires more
+effort to transpile these skills into its native "rules" format.

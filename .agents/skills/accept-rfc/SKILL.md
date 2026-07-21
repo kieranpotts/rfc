@@ -1,9 +1,9 @@
 ---
 name: accept-rfc
 description: >-
-  Accept a proposed RFC. Use this skill when the
-  user says "accept this RFC", "approve this RFC", "mark this RFC as accepted", or
-  otherwise wants to advance a proposal to accepted.
+  Accept a proposed RFC. Use this skill when the user says "accept this
+  RFC", "approve this RFC", "mark this RFC as accepted", or otherwise wants
+  to advance a proposal to accepted.
 license: MIT
 metadata:
   interactive: yes
@@ -25,6 +25,13 @@ implemented use [`/implement-rfc`](../implement-rfc/SKILL.md), to reject use
 [`/supersede-rfc`](../supersede-rfc/SKILL.md), to scaffold a draft PR use
 [`/draft-rfc`](../draft-rfc/SKILL.md), and to forward a draft to a proposal use
 [`/propose-rfc`](../propose-rfc/SKILL.md).
+
+**Input:** Target — REQUIRED. Infer the RFC from the checked-out branch
+(`rfc/<slug>`). If on `main`, use the user's description, or list the open
+`#proposed` pull requests and ask the user to choose.
+
+**Output:** The RFC document updated to `Status: ACCEPTED` with `Decided by`
+and `Decision date` filled in, the PR carrying `#accepted` and left open.
 
 ## Transition gates: `PROPOSED` → `ACCEPTED`
 
@@ -48,7 +55,7 @@ unmet, report it and pause.
 
     Every RFC listed under `Depends on` is itself accepted.
 
-##  Instructions
+## Instructions
 
 1.  **Identify the RFC and confirm it is `PROPOSED`.**
 
@@ -109,7 +116,7 @@ unmet, report it and pause.
     discussion thread. When the tooling and infrastructure are in place, run
     [`/implement-rfc`](../implement-rfc/SKILL.md).
 
-##  Rules
+## Rules
 
 -   **Accept only from `PROPOSED`.**
 

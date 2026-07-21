@@ -1,9 +1,9 @@
 ---
 name: reject-rfc
 description: >-
-  Reject a proposed RFC. Use this skill when the
-  user says "reject this RFC", "the RFC was not accepted", "the RFC was not
-  approved", or advances a proposal to rejected.
+  Reject a proposed RFC. Use this skill when the user says "reject this
+  RFC", "the RFC was not accepted", "the RFC was not approved", or advances a
+  proposal to rejected.
 license: MIT
 metadata:
   interactive: yes
@@ -20,6 +20,15 @@ Do NOT use this skill for any other transition — to accept use
 [`/accept-rfc`](../accept-rfc/SKILL.md), to mark a built decision implemented
 use [`/implement-rfc`](../implement-rfc/SKILL.md), and to retire a superseded
 decision use [`/supersede-rfc`](../supersede-rfc/SKILL.md).
+
+**Input:** Target — REQUIRED. Infer the RFC from the checked-out branch
+(`rfc/<slug>`). If on `main`, use the user's description, or list the open
+`#proposed` pull requests and ask the user to choose. Explicit confirmation
+that the decision is to reject — REQUIRED.
+
+**Output:** The RFC document updated to `Status: REJECTED`, the PR carrying
+`#rejected` and squash-merged into `main`, its discussion thread closed, and
+a new numbered row appended to `rfc/INDEX.md`.
 
 ## Transition gates: `PROPOSED` → `REJECTED`
 

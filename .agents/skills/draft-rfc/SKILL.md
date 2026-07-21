@@ -1,9 +1,9 @@
 ---
 name: draft-rfc
 description: >-
-  Scaffold a new RFC. Use this skill when the user
-  wants to make a new architecture, process, technology, or tooling decision, or
-  says "draft an RFC", "new RFC", or "start an RFC".
+  Scaffold a new RFC. Use this skill when the user wants to make a new
+  architecture, process, technology, or tooling decision, or says "draft an
+  RFC", "new RFC", or "start an RFC".
 license: MIT
 metadata:
   interactive: yes
@@ -22,7 +22,16 @@ Do NOT use this skill to advance an existing RFC. Use
 [`/reject-rfc`](../reject-rfc/SKILL.md), or
 [`/supersede-rfc`](../supersede-rfc/SKILL.md) for that.
 
-##  Instructions
+**Input:** A description of the decision to make — REQUIRED. Prompt the user
+if not provided. The RFC topic category — OPTIONAL, inferred from the
+description if possible.
+
+**Output:** A `rfc/<slug>` branch, with `rfc/<category>/<slug>/README.md`
+created from the template and its metadata header filled in (`Status:
+DRAFT`), committed to a draft pull request opened against `main`, carrying
+exactly one category label, with a linked discussion thread.
+
+## Instructions
 
 1.  **Determine the RFC description and slug.**
 
@@ -130,7 +139,7 @@ Do NOT use this skill to advance an existing RFC. Use
     git push
     ```
 
-##  Rules
+## Rules
 
 -   **An RFC is for a significant decision.**
 
