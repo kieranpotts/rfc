@@ -20,7 +20,7 @@ Do NOT use this skill for any other transition — see
 [`/implement-rfc`](../implement-rfc/SKILL.md),
 [`/reject-rfc`](../reject-rfc/SKILL.md),
 [`/propose-rfc`](../propose-rfc/SKILL.md), or
-[`/draft-rfc`](../draft-rfc/SKILL.md).
+[`/scaffold-rfc`](../scaffold-rfc/SKILL.md).
 
 **Input:** The succeeded RFC and its successor — REQUIRED. Infer both from
 the user's description (eg. "X is superseded by Y"), or prompt for them.

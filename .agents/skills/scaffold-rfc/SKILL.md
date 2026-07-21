@@ -1,5 +1,5 @@
 ---
-name: draft-rfc
+name: scaffold-rfc
 description: >-
   Scaffold a new RFC. Use this skill when the user wants to make a new
   architecture, process, technology, or tooling decision, or says "draft an
@@ -9,7 +9,7 @@ metadata:
   interactive: yes
 ---
 
-# Draft RFC
+# Scaffold RFC
 
 Use this skill to scaffold a new RFC, ready for the author to complete and take
 forward to technical stakeholders. This is the entry point to the RFC lifecycle.

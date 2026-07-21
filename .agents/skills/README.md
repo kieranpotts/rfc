@@ -2,8 +2,9 @@
 
 Skills available to agents in this repository are:
 
-- **[Draft RFC](./draft-rfc/):**
+- **[Scaffold RFC](./scaffold-rfc/):**
   Scaffolds a new RFC, ready for the user to complete.
+  Sets the status to `DRAFT`.
 
 - **[Propose RFC](./propose-rfc/):**
   Handles the `DRAFT` → `PROPOSED` transition.

@@ -24,7 +24,7 @@ Do NOT use this skill for any other transition — to accept use
 [`/accept-rfc`](../accept-rfc/SKILL.md), to retire an implemented decision use
 [`/supersede-rfc`](../supersede-rfc/SKILL.md), to reject use
 [`/reject-rfc`](../reject-rfc/SKILL.md), and to scaffold or propose use
-[`/draft-rfc`](../draft-rfc/SKILL.md) /
+[`/scaffold-rfc`](../scaffold-rfc/SKILL.md) /
 [`/propose-rfc`](../propose-rfc/SKILL.md).
 
 **Input:** Target — REQUIRED. Infer the RFC from the checked-out branch

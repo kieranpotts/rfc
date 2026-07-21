@@ -23,7 +23,7 @@ Do NOT use this skill for any other transition — to mark a built decision
 implemented use [`/implement-rfc`](../implement-rfc/SKILL.md), to reject use
 [`/reject-rfc`](../reject-rfc/SKILL.md), to retire a superseded decision use
 [`/supersede-rfc`](../supersede-rfc/SKILL.md), to scaffold a draft PR use
-[`/draft-rfc`](../draft-rfc/SKILL.md), and to forward a draft to a proposal use
+[`/scaffold-rfc`](../scaffold-rfc/SKILL.md), and to forward a draft to a proposal use
 [`/propose-rfc`](../propose-rfc/SKILL.md).
 
 **Input:** Target — REQUIRED. Infer the RFC from the checked-out branch
