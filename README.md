@@ -12,8 +12,16 @@ RFCs cover technical decisions – _how_ the system is built. Product decisions 
 about _what_ the system should do – are tracked separately in the
 [software requirements specification (SRS)](https://github.com/kieranpotts/specs).
 
-Both the RFC and SRS repositories are managed by the technical teams and follow
+RFCs drive choices in the implementation. Those choices show up in the
+[design docs](https://github.com/kieranpotts/design).
+
+The RFCs, SRS, and design docs are managed by the technical teams and follow
 similar change management workflows.
+
+> [!NOTE]
+> See also [TS-3](https://github.com/kieranpotts/standards/tree/latest/dev/src/003),
+> a technical standard for maintaining design documentation. This repository is
+> a reference implementation for part of that standard.
 
 ## Ecosystem
 
