@@ -16,44 +16,13 @@ comments on them.
 See also [TS-3](https://github.com/kieranpotts/standards/tree/latest/dev/src/003)
 for the technical standard that underpins this process.
 
-> [!NOTE]
-> The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD
-> NOT, OPTIONAL, and MAY herein are to be interpreted as described in [IETF RFC
-> 2119](https://www.ietf.org/rfc/rfc2119.txt).
+****
+The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
+SHOULD NOT, OPTIONAL, and MAY herein are to be interpreted as described
+in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+****
 
-## Criteria for RFC-worthy proposals
-
-Not all technical decisions require an RFC. An RFC is a proposal for a
-_significant_ technical change. Feature implementations that don't require
-changes to existing design patterns and technology choices, plus bug fixes,
-documentation tweaks, routine refactors, and other trivial changes, these all
-can be handled through the normal pull-request workflow on the relevant code
-repositories.
-
-The general rule of thumb is, if the change will impact multiple technical
-stakeholders, then it is significant enough to warrant building consensus on the
-design _before_ implementation. This is what an RFC is for.
-
-Changes that typically warrant an RFC include:
-
-- Changes to the system architecture and data models, or any other significant
-  deviations from established implementation patterns.
-
-- Changes to the technology stack, production infrastructure, or major
-  dependencies.
-
-- Changes to interfaces – graphical, command-line, or programmatic – or anything
-  with significant downstream impact.
-
-- Changes that may affect service level agreements, for example changes to the
-  security model that carry performance or availability risks.
-
-- Changes to development or operations tools and lifecycle processes, or
-  anything else that will affect how contributors do their work.
-
-- Noteworthy changes to coding conventions and other technical standards.
-
-## The RFC lifecycle
+## Lifecycle
 
 Each RFC moves through a defined state machine. The current state of an RFC is
 shown in the document's `Status` field. In addition, to make it easier to search
@@ -94,9 +63,10 @@ The states are:
 - `SUPERSEDED`: The decision, previously implemented, is no longer in effect
   because it has been replaced by a later RFC.
 
-The state transitions are intended to be simple, memorable, and easy to enforce
-through automation and agentic workflows. The permitted state transitions are as
-follows:
+### Allowed state transitions
+
+The permitted state transitions are intended to be simple, memorable, and easy
+to enforce through automation and agentic workflows.
 
 ```mermaid
 stateDiagram-v2
@@ -124,13 +94,12 @@ Transitions not listed above are not permitted. In particular, a decision MUST
 NOT move backwards (eg. from `ACCEPTED` back to `PROPOSED`), and MUST NOT skip
 states (eg. from `ACCEPTED` to `SUPERSEDED`).
 
-> [!TIP]
-> This repository includes a suite of [agent skills](./.agents/skills/) that
-> automate the state transitions and enforce the gate rules. It is RECOMMENDED
-> to get AI agents to apply state transitions, by prompting the agents to use
-> these skills. Doing so helps to keep the process consistent.
+## Workflow
 
-## The RFC workflow
+> [!TIP]
+> [Agent skills](./.agents/skills/) are available to help automate some steps in
+> this workflow. It is RECOMMENDED to use agents to drive state transitions.
+> Doing so helps to maintain consistency.
 
 The RFC process is initialized by a proposal being put forward for comments. The
 author(s) of proposals are responsible for the full lifecycle thereafter,
@@ -139,153 +108,146 @@ includes building consensus with stakeholders, revising the proposal in response
 to feedback, and ensuring the final version of the RFC accurately reflects the
 agreed design and rationale.
 
-Follow these steps…
+1.  A pull request is the formal vehicle for an RFC. Branch off `main` using the
+    naming convention `rfc/<slug>`, where `<slug>` is a short, hyphen-delimited
+    description of the proposal, eg. `rfc/event-sourcing-for-audit-log`.
 
-### Step 1: Write the proposal document
+2.  Change to the new branch. Copy [`rfc/TEMPLATE.md`](./rfc/TEMPLATE.md) to
+    `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase
+    category directory: "architecture", "process", "technology", or "tooling".
 
-A pull request is the formal vehicle for an RFC. Open it as soon as you are
-ready to start writing the RFC document – even if only a rough draft. Follow
-these steps to prepare the pull request:
+3.  Fill out the template – even if only a rough draft, to start. Each RFC is,
+    at a minimum, a single Markdown document. The template includes placeholder
+    text to guide you on what to include. Refer to other RFCs for examples. You
+    do not need to fill every section of the template – include only what is
+    relevant to the decision at hand. However, be sure to include a convincing
+    motivation for the change, demonstrate an understanding of the impact of the
+    proposed solution, and be honest about its drawbacks and the relative merits
+    of alternative solutions.
 
-1. Branch off `main` using the naming convention `rfc/<slug>`, where `<slug>` is
-   a short, hyphen-delimited description of the proposal, eg.
-   `rfc/event-sourcing-for-audit-log`.
+4.  Add supporting artifacts – OPTIONAL. The RFC lives in its own directory, so
+    you may add architectural diagrams, benchmarks, etc. All supporting
+    artifacts MUST be linked from the RFC's `README.md`. Alternatively, if an
+    artifact cannot live in the RFC repository (eg. a working prototype), it MAY
+    be referenced as an external link. Internal artifacts are preferred,
+    however, as they are less likely to decay and they keep the decision record
+    self-contained.
 
-2. Change to the new branch. Copy [`rfc/TEMPLATE.md`](./rfc/TEMPLATE.md) to
-   `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase
-   category directory: "architecture", "process", "technology", or "tooling".
+5.  Commit your changes and open a pull request titled `rfc: <description>`.
+    Initially, the PR SHOULD be a draft. You will mark it ready for review in a
+    later step, once the proposal is complete enough to invite feedback from
+    stakeholders. Apply one category label to the pull request:
 
-3. Fill out the template. Each RFC is, at a minimum, a single Markdown document.
-   The template includes placeholder text to guide you on what to include. Refer
-   to other RFCs for examples. You do not need to fill every section of the
-   template – include only what is relevant to the decision at hand. However, be
-   sure to include a convincing motivation for the change, demonstrate an
-   understanding of the impact of the proposed solution, and be honest about its
-   drawbacks and the relative merits of alternative solutions.
+    - `ARCHITECTURE`: A decision about system design, structure, or
+      implementation patterns.
 
-4. Add supporting artifacts – OPTIONAL. The RFC lives in its own directory, so
-   you may add architectural diagrams, benchmarks, etc. All supporting artifacts
-   MUST be linked from the RFC's `README.md`. Alternatively, if an artifact
-   cannot live in the RFC repository (eg. a working prototype), it MAY be
-   referenced as an external link. Internal artifacts are preferred, however, as
-   they are less likely to decay and they keep the decision record
-   self-contained.
+    - `PROCESS`: A decision about the development or operations lifecycle – how
+      contributors work.
 
-### Step 2: Open a pull request
+    - `TECHNOLOGY`: A decision about the production technology stack or
+      infrastructure.
 
-1. Commit your changes and open a pull request titled `rfc: <description>`.
-   Initially, the PR SHOULD be a draft. You will mark it ready for review in a
-   later step, once the proposal is complete enough to invite feedback from
-   stakeholders.
+    - `TOOLING`: A decision about use of automation tools or devops
+      infrastructure.
 
-2. Apply one category label to the pull request:
+6.  Continue to refine your proposal. OPTIONALLY, you may invite early feedback
+    from a small set of trusted stakeholders while the proposal is still being
+    drafted.
 
-  - `ARCHITECTURE`: A decision about system design, structure, or implementation
-    patterns.
+7.  Open an associated discussion thread for the RFC (REQUIRED). Link to the
+    thread in the `Discussion thread` field of the RFC document. Update the PR
+    description to link to the discussion thread, too. Create a bi-directional
+    link from the discussion thread back to the PR. The discussion thread is
+    where _all_ review feedback is gathered, keeping the pull request focused on
+    the evolution of the RFC artifacts themselves. The thread stays open for the
+    life of the RFC and is closed when the PR is merged.
 
-  - `PROCESS`: A decision about the development or operations lifecycle – how
-    contributors work.
+8.  When your proposal is ready for review, mark the pull request as "ready for
+    review" (removing its draft status) and apply the `#proposed` label.
 
-  - `TECHNOLOGY`: A decision about the production technology stack or
-    infrastructure.
+9.  Request comments from a wide group of technical stakeholders. Feedback
+    SHOULD be solicited from everyone who will be impacted by the change, and
+    from anyone with relevant expertise. The more complex and impactful the
+    change, the more important it is to solicit feedback from a wide range of
+    stakeholders.
 
-  - `TOOLING`: A decision about use of automation tools or devops
-    infrastructure.
+10. During the RFC process, you should be prepared to build consensus for your
+    idea and to revise your proposal in response to feedback.
 
-3. Continue to refine your proposal. OPTIONALLY, you may invite early feedback
-   from a small set of trusted stakeholders while the proposal is still being
-   drafted.
+11. Once the proposed solution has stabilized, the main points of contention
+    have been resolved, and all stakeholders are aligned on the outcome, request
+    final comments to confirm there are no outstanding objections. The length of
+    the final comment period depends on the complexity and impact of the change,
+    but a good rule of thumb is at least one week.
 
-### Step 3: Open a discussion thread (REQUIRED)
+12. Once the final comment period has concluded, and when there is clear
+    consensus on the outcome, decide the RFC – either accepted or rejected.
+    Update the RFC document's `Status` field to `ACCEPTED` or `REJECTED`, as
+    appropriate, and remove the `#proposed` label, applying `#accepted` or
+    `#rejected` instead. Review the final version of the RFC document to ensure
+    it accurately reflects the agreed design and rationale – which may have
+    changed during the course of the discussions. Make any necessary edits to
+    clarify the proposal, but do not change the substance of the decision at
+    this point. The workflow diverges here, depending on the outcome:
 
-Open a discussion thread for the RFC. Link to the thread in the `Discussion
-thread` field of the RFC document. Update the PR description to link to the
-discussion thread, too. Create a bi-directional link from the discussion thread
-back to the PR.
+    - If **rejected**, squash-merge the PR straight away (its message takes the
+      form `rfc: <description> - REJECTED`) and delete the branch. The
+      discussion thread is closed when the PR is merged. The rejected RFC is
+      preserved in `main` as a permanent record. Skip to the final step to
+      assign its number.
 
-The discussion thread is where _all_ review feedback is gathered, keeping the
-pull request focused on the evolution of the RFC artifacts themselves. The
-thread stays open for the life of the RFC and is closed when the PR is merged.
+    - If **accepted**, keep the PR open while any work necessary to implement
+      the proposal – eg. new tooling or infrastructure – is undertaken. The
+      document MAY still evolve in response to what is learnt through the
+      implementation phase, with feedback continuing on the still-open
+      discussion thread. Open other issues against other repositories as
+      necessary to track the implementation, and cross-reference those from the
+      `Implementation trackers` section of the RFC's README.
 
-### Step 4: Request comments
+13. For accepted RFCs only: once the tooling and infrastructure the decision
+    calls for are in place, update the RFC document's `Status` field to
+    `IMPLEMENTED`, and confirm the implementation trackers are linked. Remove
+    the `#accepted` label and apply the `#implemented` label instead.
+    Squash-merge the PR (its message takes the form `rfc: <description> -
+    IMPLEMENTED`). The discussion thread is closed when the PR is merged.
+    Delete the branch, if it is not automatically deleted.
 
-1. When your proposal is ready for review, mark the pull request as "ready for
-   review" (removing its draft status) and apply the `#proposed` label.
-
-2. Request comments from a wide group of technical stakeholders. Feedback SHOULD
-   be solicited from everyone who will be impacted by the change, and from
-   anyone with relevant expertise. The more complex and impactful the change,
-   the more important it is to solicit feedback from a wide range of
-   stakeholders.
-
-3. During the RFC process, you should be prepared to build consensus for your
-   idea and to revise your proposal in response to feedback.
-
-4. Once the proposed solution has stabilized, the main points of contention have
-   been resolved, and all stakeholders are aligned on the outcome, request final
-   comments to confirm there are no outstanding objections. The length of the
-   final comment period depends on the complexity and impact of the change, but
-   a good rule of thumb is at least one week.
-
-### Step 5: Decide the RFC
-
-Once the final comment period has concluded, and when there is clear consensus
-on the outcome, the RFC is decided – either accepted or rejected.
-
-1. Update the RFC document's `Status` field to `ACCEPTED` or `REJECTED`, as
-   appropriate.
-
-2. Remove the `#proposed` label and apply the `#accepted` or `#rejected` label
-   instead.
-
-3. Review the final version of the RFC document to ensure it accurately reflects
-   the agreed design and rationale – which may have changed during the course of
-   the discussions. Make any necessary edits to clarify the proposal, but do not
-   change the substance of the decision at this point.
-
-4. The workflow diverges here, depending on the outcome:
-
-  - If **rejected**, squash-merge the PR straight away (its message takes the
-    form `rfc: <description> - REJECTED`) and delete the branch. The discussion
-    thread is closed when the PR is merged. The rejected RFC is preserved in
-    `main` as a permanent record. Go to step 7 to assign its number.
-
-  - If **accepted**, keep the PR open while any work necessary to implement the
-    proposal – eg. new tooling or infrastructure – is undertaken. The document
-    MAY still evolve in response to what is learnt through the implementation
-    phase, with feedback continuing on the still-open discussion thread. Open
-    other issues against other repositories as necessary to track the
-    implementation, and cross-reference those from the `Implementation trackers`
-    section of the RFC's README.
-
-### Step 6: Transition the RFC to implemented
-
-This step applies only to **accepted** RFCs. Once the tooling and infrastructure
-the decision calls for are in place:
-
-1. Update the RFC document's `Status` field to `IMPLEMENTED`, and confirm the
-   implementation trackers are linked.
-
-2. Remove the `#accepted` label and apply the `#implemented` label instead.
-
-3. Squash-merge the PR (its message takes the form `rfc: <description> -
-   IMPLEMENTED`). The discussion thread is closed when the PR is merged. Delete
-   the branch, if it is not automatically deleted.
-
-4. Assign the RFC number, per step 7 below.
-
-### Step 7: Assign the RFC number
-
-Once a decided RFC has been merged into `main` – at `IMPLEMENTED` for an
-accepted decision, or at `REJECTED` for one not taken forward – update
-`rfc/INDEX.md` to add the new RFC, with the next sequential number.
-
-The number is not assigned until merge, so be sure to check the index for the
-latest number before updating.
-
-Commit this change directly to `main`.
+14. Once a decided RFC has been merged into `main` – at `IMPLEMENTED` for an
+    accepted decision, or at `REJECTED` for one not taken forward – update
+    `rfc/INDEX.md` to add the new RFC, with the next sequential number. The
+    number is not assigned until merge, so be sure to check the index for the
+    latest number before updating. Commit this change directly to `main`.
 
 ## Rules
+
+- Not all technical decisions require an RFC. An RFC is a proposal for a
+  _significant_ technical change. Feature implementations that don't require
+  changes to existing design patterns and technology choices, plus bug fixes,
+  documentation tweaks, routine refactors, and other trivial changes, these all
+  can be handled through the normal pull-request workflow on the relevant code
+  repositories. The general rule of thumb is, if the change will impact
+  multiple technical stakeholders, then it is significant enough to warrant
+  building consensus on the design _before_ implementation. This is what an
+  RFC is for.
+
+- Changes that typically warrant an RFC include:
+
+  - Changes to the system architecture and data models, or any other
+    significant deviations from established implementation patterns.
+
+  - Changes to the technology stack, production infrastructure, or major
+    dependencies.
+
+  - Changes to interfaces – graphical, command-line, or programmatic – or
+    anything with significant downstream impact.
+
+  - Changes that may affect service level agreements, for example changes to
+    the security model that carry performance or availability risks.
+
+  - Changes to development or operations tools and lifecycle processes, or
+    anything else that will affect how contributors do their work.
+
+  - Noteworthy changes to coding conventions and other technical standards.
 
 - RFCs and supporting artifacts MUST be written in American English.
 
