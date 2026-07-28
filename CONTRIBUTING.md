@@ -208,9 +208,6 @@ agreed design and rationale.
 - Each RFC SHOULD be focused on one of these categories: system architecture,
   devops process, production technology, or devops tooling.
 
-- The issue tracker MUST NOT be used for managing RFCs; it is reserved for
-  maintenance work on this repository itself.
-
 - Discussion threads SHOULD be used as the forum for discussion, to keep the PR
   comment thread focused on edits to the RFC artifacts.
 
@@ -226,6 +223,9 @@ agreed design and rationale.
 - RFC documents in the `main` branch, including `REJECTED` ones, MUST NOT be
   deleted. To change a past decision, open a new RFC that supersedes it – this
   preserves institutional memory of every past decision.
+
+- The issue tracker MUST NOT be used for managing RFCs; it is reserved for
+  maintenance work on this repository itself.
 
 ## Tools
 
