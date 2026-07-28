@@ -31,34 +31,19 @@ pull requests: `#proposed`, `#accepted`, etc.
 
 The states are:
 
-- `DRAFT`: The RFC is being written. Its pull request is open as a draft, which
-  means it's not yet ready for review. Early feedback may be solicited via the
-  discussion thread.
+- `DRAFT`: The RFC is being written.
 
-- `PROPOSED`: The RFC is complete and open for feedback. It is now formally
-  reviewed and negotiated with relevant stakeholders.
+- `PROPOSED`: The RFC is complete and open for feedback, formally reviewed and
+  negotiated with relevant stakeholders.
 
-- `ACCEPTED`: The proposal has been approved. Before the decision is settled,
-  final comments are solicited to confirm there are no outstanding objections,
-  and the RFC document and supporting artifacts are updated to reflect the final
-  agreed design and its rationale. The PR stays open throughout implementation,
-  and during this time the RFC document MAY continue to evolve in response to
-  what is learned while building, with feedback continuing on the still-open
-  discussion thread. No number is yet assigned to the RFC – that happens when it
-  is moved to `IMPLEMENTED`. An accepted decision remains in effect until a
-  later RFC supersedes it.
+- `ACCEPTED`: The proposal has been approved, and the RFC document and
+  supporting artifacts are updated to reflect the final agreed design and its
+  rationale.
 
 - `IMPLEMENTED`: All the changes to tooling and infrastructure that the decision
-  calls for are now in place. The PR is merged into the `main` branch, and the
-  RFC is given a unique reference number and listed in the [RFC
-  index](./rfc/INDEX.md).
+  calls for are now in place.
 
-- `REJECTED`: The proposal will not be taken forward. The PR is merged into
-  `main`, and the discussion thread is closed when the PR is merged. The
-  rejected RFC is given a unique number and listed in the [RFC
-  index](./rfc/INDEX.md) alongside implemented RFCs. Thus, all major technical
-  decisions, whether ultimately implemented or rejected, are preserved
-  permanently.
+- `REJECTED`: The proposal will not be taken forward.
 
 - `SUPERSEDED`: The decision, previously implemented, is no longer in effect
   because it has been replaced by a later RFC.
@@ -90,9 +75,8 @@ stateDiagram-v2
 | ACCEPTED     | IMPLEMENTED | Tooling and infrastructure in place.   |
 | IMPLEMENTED  | SUPERSEDED  | Replaced by a newer, implemented RFC.  |
 
-Transitions not listed above are not permitted. In particular, a decision MUST
-NOT move backwards (eg. from `ACCEPTED` back to `PROPOSED`), and MUST NOT skip
-states (eg. from `ACCEPTED` to `SUPERSEDED`).
+Transitions not listed above are not permitted. An RFC MUST NOT move
+backwards and MUST NOT skip states.
 
 ## Workflow
 
