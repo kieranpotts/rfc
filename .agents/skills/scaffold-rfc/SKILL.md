@@ -12,9 +12,9 @@ metadata:
 
 # Scaffold RFC
 
-Use this skill to scaffold a new RFC, ready for the author to complete and take
-forward to technical stakeholders. This is the entry point to the RFC lifecycle.
-The end status of the RFC is `DRAFT`.
+Use this skill to scaffold a new RFC, ready for the author to complete and
+take forward to technical stakeholders. This is the entry point to the RFC
+lifecycle. The end status of the RFC is `DRAFT`.
 
 Do NOT use this skill to advance an existing RFC. Use
 [`/propose-rfc`](../propose-rfc/SKILL.md),
@@ -23,34 +23,43 @@ Do NOT use this skill to advance an existing RFC. Use
 [`/reject-rfc`](../reject-rfc/SKILL.md), or
 [`/supersede-rfc`](../supersede-rfc/SKILL.md) for that.
 
-**Input:** A description of the decision to make — REQUIRED. Prompt the user
-if not provided. The RFC topic category — OPTIONAL, inferred from the
-description if possible.
+## Input
 
-**Output:** A `rfc/<slug>` branch, with `rfc/<category>/<slug>/README.md`
-created from the template and its metadata header filled in (`Status:
-DRAFT`), committed to a draft pull request opened against `main`, carrying
-exactly one category label, with a linked discussion thread.
+Determine the following information from the surrounding context and
+environment, if possible.
+
+- A description of the decision to make — REQUIRED. Prompt the user if not
+  provided.
+
+- The RFC topic category — OPTIONAL, inferred from the description if
+  possible.
+
+## Output
+
+A `rfc/<slug>` branch, with `rfc/<category>/<slug>/README.md` created from
+the template and its metadata header filled in (`Status: DRAFT`), committed
+to a draft pull request opened against `main`, carrying exactly one category
+label, with a linked discussion thread.
 
 ## Instructions
 
-1.  **Determine the RFC description and slug.**
+1.  Determine the RFC description and slug.
 
-    Establish a short, hyphen-delimited slug eg. `event-sourcing-for-audit-log`.
-    Decide this from information provided by the user about the RFC. Prompt the
-    user if they did not describe the RFC.
+    Establish a short, hyphen-delimited slug eg.
+    `event-sourcing-for-audit-log`. Decide this from information provided by
+    the user about the RFC. Prompt the user if they did not describe the RFC.
 
-2.  **Determine the RFC topic category.**
+2.  Determine the RFC topic category.
 
-    Infer the category from the RFC description, or ask the user if you're not
-    sure which category fits best. The options are:
+    Infer the category from the RFC description, or ask the user if you're
+    not sure which category fits best. The options are:
 
-    - **Architecture:** System design or implementation patterns.
-    - **Process:** Development or operations lifecycle concerns.
-    - **Technology:** Production technology or infrastructure.
-    - **Tooling:** Automation tools or devops infrastructure.
+    - Architecture: System design or implementation patterns.
+    - Process: Development or operations lifecycle concerns.
+    - Technology: Production technology or infrastructure.
+    - Tooling: Automation tools or devops infrastructure.
 
-3.  **Create the branch.**
+3.  Create the branch.
 
     ```sh
     git checkout main
@@ -58,15 +67,15 @@ exactly one category label, with a linked discussion thread.
     git checkout -b rfc/<slug>
     ```
 
-4.  **Create the RFC from the template.**
+4.  Create the RFC from the template.
 
     Copy `rfc/TEMPLATE.md` to `rfc/<category>/<slug>/README.md`, where
-    `<category>` is the lowercase category directory (`architecture`, `process`,
-    `technology`, or `tooling`).
+    `<category>` is the lowercase category directory (`architecture`,
+    `process`, `technology`, or `tooling`).
 
-5.  **Fill in the metadata header.**
+5.  Fill in the metadata header.
 
-    - `Authors`: The Git user's name and GitHub handle – run `git config
+    - `Authors`: The Git user's name and GitHub handle — run `git config
       user.name` if needed.
     - `Created` and `Last updated`: Today's date in `YYYY-MM-DD` format.
     - `Status`: `DRAFT`.
@@ -74,7 +83,7 @@ exactly one category label, with a linked discussion thread.
     Leave other fields blank or as placeholders for now. Leave the prose
     sections for the author to complete.
 
-6.  **Commit and open a draft pull request.**
+6.  Commit and open a draft pull request.
 
     ```sh
     git add rfc/<category>/<slug>/
@@ -83,24 +92,24 @@ exactly one category label, with a linked discussion thread.
     gh pr create --draft --title "rfc: <short lowercase rfc description>" --fill
     ```
 
-7.  **Apply the category label.**
+7.  Apply the category label.
 
     ```sh
     gh pr edit <number> --add-label "<category>"
     ```
 
-    Apply exactly one category label to the PR, full uppercase: `ARCHITECTURE`,
-    `PROCESS`, `TECHNOLOGY`, or `TOOLING`.
+    Apply exactly one category label to the PR, full uppercase:
+    `ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or `TOOLING`.
 
-8.  **Open a discussion thread.**
+8.  Open a discussion thread.
 
-    Every RFC pull request MUST have an associated discussion thread, where all
-    review feedback is gathered. `gh` has no native discussion command, so use
-    the GraphQL API. Look up the repository ID and the discussion category
-    matching the RFC's category (`ARCHITECTURE`, `PROCESS`, `TECHNOLOGY`, or
-    `TOOLING`):
+    Every RFC pull request MUST have an associated discussion thread, where
+    all review feedback is gathered. `gh` has no native discussion command, so
+    use the GraphQL API. Look up the repository ID and the discussion
+    category matching the RFC's category (`ARCHITECTURE`, `PROCESS`,
+    `TECHNOLOGY`, or `TOOLING`):
 
-    ```sh
+    ```gh
     gh api graphql -f query='
       query($owner:String!, $name:String!) {
         repository(owner:$owner, name:$name) {
@@ -112,7 +121,7 @@ exactly one category label, with a linked discussion thread.
 
     Create the discussion, referencing the PR, and capture its URL:
 
-    ```sh
+    ```gh
     gh api graphql -f query='
       mutation($repoId:ID!, $categoryId:ID!, $title:String!, $body:String!) {
         createDiscussion(input:{repositoryId:$repoId, categoryId:$categoryId, title:$title, body:$body}) {
@@ -120,12 +129,12 @@ exactly one category label, with a linked discussion thread.
         }
       }' -F repoId=<repoId> -F categoryId=<categoryId> \
         -f title="rfc: <short lowercase rfc description>" \
-        -f body="Discussion thread for the **<short lowercase rfc description>** RFC (PR #<number>). Please leave all feedback here, not on the pull request."
+        -f body="Discussion thread for the <short lowercase rfc description> RFC (PR #<number>). Please leave all feedback here, not on the pull request."
     ```
 
-    Record the returned URL in the RFC document's `Discussion thread` field, and
-    add it to the pull request description, so the two cross-reference each
-    other:
+    Record the returned URL in the RFC document's `Discussion thread` field,
+    and add it to the pull request description, so the two cross-reference
+    each other:
 
     ```sh
     gh pr edit <number> --body "$(gh pr view <number> --json body -q .body)
@@ -142,57 +151,50 @@ exactly one category label, with a linked discussion thread.
 
 ## Rules
 
--   **You SHOULD only scaffold an RFC for a significant decision.**
+- You SHOULD only scaffold an RFC for a significant decision.
 
-    RFCs are for significant, multi-stakeholder technical decisions, not routine
-    feature work, bug fixes, or trivial changes, which go through the normal
-    pull-request workflow. If the request looks too small to warrant an RFC, say
-    so before scaffolding.
+  RFCs are for significant, multi-stakeholder technical decisions, not
+  routine feature work, bug fixes, or trivial changes, which go through the
+  normal pull-request workflow. If the request looks too small to warrant an
+  RFC, say so before scaffolding.
 
--   **You MUST NOT bundle more than one RFC into a single branch or pull
-    request.**
+- You MUST NOT bundle more than one RFC into a single branch or pull request.
 
-    Never bundle multiple decisions into a single branch. If the user describes
-    changes that span multiple independent concerns, recommend to the user that
-    you scaffold separate RFC branches.
+  Never bundle multiple decisions into a single branch. If the user
+  describes changes that span multiple independent concerns, recommend to the
+  user that you scaffold separate RFC branches.
 
--   **You MUST branch from `main`, not from any other branch.**
+- You MUST branch from `main`, not from any other branch.
 
-    RFCs are always cut from `main`. If the local `main` is behind the remote,
-    pull first.
+  RFCs are always cut from `main`. If the local `main` is behind the remote,
+  pull first.
 
--   **You MUST open the PR as a draft.**
+- You MUST open the PR as a draft.
 
-    A new RFC is not yet ready for review. It MUST be opened as a draft pull
-    request.
+  A new RFC is not yet ready for review. It MUST be opened as a draft pull
+  request.
 
--   **You MUST open an associated discussion thread for every RFC pull
-    request.**
+- You MUST open an associated discussion thread for every RFC pull request.
 
-    The thread MUST be opened when the PR is opened (even as a draft) and linked
-    from both the document and the PR. All review feedback belongs in the
-    discussion, not in the PR's own comments.
+  The thread MUST be opened when the PR is opened (even as a draft) and
+  linked from both the document and the PR. All review feedback belongs in
+  the discussion, not in the PR's own comments.
 
--   **You MUST NOT assign a numeric ID.**
+- You MUST NOT assign a numeric ID.
 
-    RFC numbers are assigned in `rfc/INDEX.md` only when an RFC's PR is merged
-    to `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for
-    one that is not taken forward.
+  RFC numbers are assigned in `rfc/INDEX.md` only when an RFC's PR is merged
+  to `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for
+  one that is not taken forward.
 
 ## Success criteria
 
-- **Branch `rfc/<slug>` exists and is checked out.**
+- Branch `rfc/<slug>` exists and is checked out.
 
-- **`rfc/<category>/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the
-  metadata header filled in and `Status: DRAFT`.**
+- `rfc/<category>/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the
+  metadata header filled in and `Status: DRAFT`.
 
-- **A draft pull request titled `rfc: <short lowercase rfc description>` is
-  open, carrying exactly one category label and no lifecycle label.**
+- A draft pull request titled `rfc: <short lowercase rfc description>` is
+  open, carrying exactly one category label and no lifecycle label.
 
-- **An associated discussion thread is open, linked from the document's
-  `Discussion thread` field and from the PR.**
-
-## References
-
-- [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle and conventions,
-  written for agents.
+- An associated discussion thread is open, linked from the document's
+  `Discussion thread` field and from the PR.

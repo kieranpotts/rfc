@@ -22,46 +22,31 @@ Do NOT use this skill for any other transition — to mark a built decision
 implemented use [`/implement-rfc`](../implement-rfc/SKILL.md), to reject use
 [`/reject-rfc`](../reject-rfc/SKILL.md), to retire a superseded decision use
 [`/supersede-rfc`](../supersede-rfc/SKILL.md), to scaffold a draft PR use
-[`/scaffold-rfc`](../scaffold-rfc/SKILL.md), and to forward a draft to a proposal use
-[`/propose-rfc`](../propose-rfc/SKILL.md).
+[`/scaffold-rfc`](../scaffold-rfc/SKILL.md), and to forward a draft to a
+proposal use [`/propose-rfc`](../propose-rfc/SKILL.md).
 
-**Input:** Target — REQUIRED. Infer the RFC from the checked-out branch
-(`rfc/<slug>`). If on `main`, use the user's description, or list the open
-`#proposed` pull requests and ask the user to choose.
+## Input
 
-**Output:** The RFC document updated to `Status: ACCEPTED` with `Decided by`
-and `Decision date` filled in, the PR carrying `#accepted` and left open.
+Determine the following information from the surrounding context and
+environment, if possible.
 
-## Transition gates: `PROPOSED` → `ACCEPTED`
+- Target — REQUIRED. Infer the RFC from the checked-out branch
+  (`rfc/<slug>`). If on `main`, use the user's description, or list the open
+  `#proposed` pull requests and ask the user to choose.
 
-The RFC MUST currently be `PROPOSED`, denoted by a non-draft PR carrying the
-`#proposed` label. Confirm _all_ of the following before approving. If any is
-unmet, report it and pause.
+## Output
 
--   **Stakeholder review has concluded.**
-
-    Feedback gathered from all relevant stakeholders.
-
--   **The main points of contention are resolved.**
-
-    The proposed solution has stabilized.
-
--   **A final-comment period has elapsed.**
-
-    There have been no material changes to the RFC in this period.
-
--   **Blocking decisions are resolved.**
-
-    Every RFC listed under `Depends on` is itself accepted.
+The RFC document updated to `Status: ACCEPTED` with `Decided by` and
+`Decision date` filled in, the PR carrying `#accepted` and left open.
 
 ## Instructions
 
-1.  **Identify the RFC and confirm it is `PROPOSED`.**
+1.  Identify the RFC and confirm it is `PROPOSED`.
 
-    Infer the target from the current checked-out branch (`rfc/<slug>`). If on
-    `main`, use the user's description to infer the target RFC if they gave one;
-    otherwise list the open `#proposed` pull requests and ask the user to
-    choose:
+    Infer the target from the current checked-out branch (`rfc/<slug>`). If
+    on `main`, use the user's description to infer the target RFC if they
+    gave one; otherwise list the open `#proposed` pull requests and ask the
+    user to choose:
 
     ```sh
     gh pr list --label "#proposed" --json number,title,headRefName
@@ -71,86 +56,97 @@ unmet, report it and pause.
     `#proposed` label and is not a draft (`gh pr view <number> --json
     labels,isDraft`).
 
-2.  **Verify the transition gates.**
+2.  Verify the rules.
 
-    Report any unmet gate and stop.
+    Report any unmet rule and stop.
 
-3.  **Update the document.**
+3.  Update the document.
 
     - Set `Status` to `ACCEPTED` and `Last updated` to today's date.
 
     - Fill in `Decided by` and `Decision date` (the approval date).
 
-    - Confirm `PR` is set, and that `Implementation trackers` are linked if any
-      exist.
+    - Confirm `PR` is set, and that `Implementation trackers` are linked if
+      any exist.
 
-    Do not assign a number or touch `rfc/INDEX.md` — that happens at merge, in
-    [`/implement-rfc`](../implement-rfc/SKILL.md).
+    Do not assign a number or touch `rfc/INDEX.md` — that happens at merge,
+    in [`/implement-rfc`](../implement-rfc/SKILL.md).
 
-4.  **Switch the state label.**
+4.  Switch the state label.
 
     ```sh
     gh pr edit <number> --add-label "#accepted" --remove-label "#proposed"
     ```
 
-    Leave the category label, eg. `ARCHITECTURE`. Keep the PR **open** — do not
+    Leave the category label, eg. `ARCHITECTURE`. Keep the PR open — do not
     merge. Leave the discussion thread open too; it stays open through
     implementation and is closed only when the PR is merged.
 
-5.  **Commit.**
+5.  Commit.
 
     ```sh
     git commit -am "accept: <short lowercase rfc description>"
     ```
 
-    Keep the PR **open** — do not merge, and do not assign a number. Both happen
+    Keep the PR open — do not merge, and do not assign a number. Both happen
     at implementation.
 
-6.  **Queue the implementation.**
+6.  Queue the implementation.
 
-    Remind the user that the decision now needs to be carried out — the tooling
-    and infrastructure it calls for must be built and put in place. The PR stays
-    open through this phase; the document MAY continue to evolve in response to
-    implementation feedback, with feedback continuing on the still-open
-    discussion thread. When the tooling and infrastructure are in place, run
-    [`/implement-rfc`](../implement-rfc/SKILL.md).
+    Remind the user that the decision now needs to be carried out — the
+    tooling and infrastructure it calls for must be built and put in place.
+    The PR stays open through this phase; the document MAY continue to evolve
+    in response to implementation feedback, with feedback continuing on the
+    still-open discussion thread. When the tooling and infrastructure are in
+    place, run [`/implement-rfc`](../implement-rfc/SKILL.md).
 
 ## Rules
 
--   **You MUST NOT accept an RFC that is not currently `PROPOSED`.**
+- You MUST NOT accept an RFC that is not currently `PROPOSED`.
 
-    Never accept a draft, and never move backwards.
+  Never accept a draft, and never move backwards.
 
--   **You MUST NOT merge the pull request as part of acceptance.**
+- Stakeholder review MUST have concluded.
 
-    The PR stays open until the tooling and infrastructure are in place. The
-    merge and the number assignment happen at implementation, not acceptance.
+  Feedback gathered from all relevant stakeholders.
 
--   **You MUST NOT change RFC document fields other than `Status`, `Last
-    updated`, cross-references, and implementation trackers once merged.**
+- The main points of contention MUST be resolved.
 
-    While the PR is open — including through implementation — the document MAY
-    still evolve. Once merged at `#implemented`, only the `Status` field, `Last
-    updated` date, cross-references to related RFCs, and implementation trackers
-    may change.
+  The proposed solution has stabilized.
+
+- A final-comment period MUST have elapsed.
+
+  There have been no material changes to the RFC in this period.
+
+- Blocking decisions MUST be resolved.
+
+  Every RFC listed under `Depends on` is itself accepted.
+
+- You MUST NOT merge the pull request as part of acceptance.
+
+  The PR stays open until the tooling and infrastructure are in place. The
+  merge and the number assignment happen at implementation, not acceptance.
+
+- You MUST NOT change RFC document fields other than `Status`, `Last
+  updated`, cross-references, and implementation trackers once merged.
+
+  While the PR is open — including through implementation — the document MAY
+  still evolve. Once merged at `#implemented`, only the `Status` field, `Last
+  updated` date, cross-references to related RFCs, and implementation
+  trackers may change.
 
 ## Success criteria
 
-- **`Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
-  `Decision date` are filled in.**
+- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
+  `Decision date` are filled in.
 
-- **The PR carries `#accepted` (and its category label), not `#proposed`, and
-  remains open.**
+- The PR carries `#accepted` (and its category label), not `#proposed`, and
+  remains open.
 
-- **The associated discussion thread remains open.**
+- The associated discussion thread remains open.
 
   It is closed when the PR is merged at implementation.
 
-- **No number has been assigned.**
+- No number has been assigned.
 
   That waits for implementation.
-
-## References
-
-- [`AGENTS.md`](../../../AGENTS.md): The full RFC lifecycle and immutability
-  rules.
