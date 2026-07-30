@@ -7,6 +7,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Reject RFC
@@ -45,7 +46,7 @@ rejecting. If any is unmet, report it and pause.
     are substantive. The document will be permanently archived as the record of
     this decision, so its rationale must stand on its own.
 
-##  Instructions
+## Instructions
 
 1.  **Confirm the RFC and the decision.**
 
@@ -90,13 +91,21 @@ rejecting. If any is unmet, report it and pause.
 
     Confirm with the user that the PR is ready to merge into `main` — do not
     merge without explicit instruction. Once confirmed, squash-merge it with the
-    message `rfc: <short lowercase rfc description> - REJECTED`:
+    message `rfc: <short lowercase rfc description> - REJECTED`, and delete the
+    source branch on the upstream repository:
 
     ```sh
-    gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - REJECTED"
+    gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - REJECTED" --delete-branch
     ```
 
-7.  **Close the associated discussion thread.**
+7.  **In case the branch was not automatically deleted from the upstream
+    repository, delete it directly.**
+
+    ```sh
+    git push origin --delete rfc/<slug>
+    ```
+
+8.  **Close the associated discussion thread.**
 
     The RFC has merged, so its discussion is now closed. Find the discussion
     linked in the RFC's `Discussion thread` field, look up its node ID, and
@@ -115,12 +124,12 @@ rejecting. If any is unmet, report it and pause.
       }' -F id=<discussionId>
     ```
 
-8.  **After merge, assign the number.**
+9.  **After merge, assign the number.**
 
     The RFC number is assigned only after merge. On `main`, find the highest
     number in [the RFC index](../../../rfc/INDEX.md), increment by one, and
     zero-pad to four digits. Add a row for this RFC — its number, title,
-    category, `Rejected` status, the RFC's `Decision date` (the rejection date),
+    category, `REJECTED` status, the RFC's `Decision date` (the rejection date),
     and a link to its directory (`rfc/<category>/<slug>/`).
 
     Commit this directly to `main`, and push:
@@ -130,33 +139,38 @@ rejecting. If any is unmet, report it and pause.
     git push
     ```
 
-##  Rules
+## Rules
 
--   **Never delete the RFC document.**
+-   **You MUST NOT delete the RFC document.**
 
     Rejected RFCs are permanently archived as the record of the decision and its
     rationale.
 
--   **Immutable after rejection.**
+-   **You MUST NOT change RFC document fields other than `Status`, `Last
+    updated`, cross-references, and implementation trackers once rejected.**
 
     Once `REJECTED`, only the `Status` field, `Last updated` date,
     cross-references to related RFCs, and implementation trackers may change. To
     revisit the decision, open a new RFC that supersedes this one.
 
--   **Do not merge without instruction.**
+-   **You MUST NOT merge without explicit instruction from the user.**
+
+    Confirm with the user that the PR is ready to merge before running the merge
+    command.
 
 ## Success criteria
 
-- `Status` is `REJECTED` and `Last updated` is today's date.
+- **`Status` is `REJECTED` and `Last updated` is today's date.**
 
-- The PR carries `#rejected` (and its category label).
+- **The PR carries `#rejected` (and its category label).**
 
-- The associated discussion thread is closed.
+- **The associated discussion thread is closed.**
 
-- The user has explicitly confirmed the rejection before any changes were made.
+- **The user has explicitly confirmed the rejection before any changes were
+  made.**
 
-- After merge: an `rfc/INDEX.md` entry is added on `main`, with the next
-  sequential number.
+- **After merge: an `rfc/INDEX.md` entry is added on `main`, with the next
+  sequential number.**
 
 ## References
 

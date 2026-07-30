@@ -7,7 +7,7 @@ decision is implemented.
 
 - Verifies the approval gates.
 - Sets `Status` to `ACCEPTED`.
-- Adds approvers and approval date.
+- Fills in `Decided by` and approval date.
 - Swaps the PR label to `#accepted`.
 - Keeps the PR open during implementation. The discussion thread stays open too,
   and is closed when the PR is merged.

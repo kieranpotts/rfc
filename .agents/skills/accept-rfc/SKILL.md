@@ -7,11 +7,10 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Accept RFC
-
-<!-- TODO: Review these skills against the latest template. -->
 
 Use this skill to transition an RFC from `PROPOSED` to `ACCEPTED`: verify the
 approval gates, update the document, and label the PR `#accepted`. The RFC is
@@ -118,16 +117,17 @@ unmet, report it and pause.
 
 ## Rules
 
--   **Accept only from `PROPOSED`.**
+-   **You MUST NOT accept an RFC that is not currently `PROPOSED`.**
 
     Never accept a draft, and never move backwards.
 
--   **Acceptance is a decision, not a merge.**
+-   **You MUST NOT merge the pull request as part of acceptance.**
 
     The PR stays open until the tooling and infrastructure are in place. The
     merge and the number assignment happen at implementation, not acceptance.
 
--   **RFCs are immutable after merge.**
+-   **You MUST NOT change RFC document fields other than `Status`, `Last
+    updated`, cross-references, and implementation trackers once merged.**
 
     While the PR is open — including through implementation — the document MAY
     still evolve. Once merged at `#implemented`, only the `Status` field, `Last
@@ -136,16 +136,19 @@ unmet, report it and pause.
 
 ## Success criteria
 
-- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
-  `Decision date` are filled in.
+- **`Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
+  `Decision date` are filled in.**
 
-- The PR carries `#accepted` (and its category label), not `#proposed`, and
-  remains open.
+- **The PR carries `#accepted` (and its category label), not `#proposed`, and
+  remains open.**
 
-- The associated discussion thread remains open — it is closed when the PR is
-  merged at implementation.
+- **The associated discussion thread remains open.**
 
-- No number has been assigned — that waits for implementation.
+  It is closed when the PR is merged at implementation.
+
+- **No number has been assigned.**
+
+  That waits for implementation.
 
 ## References
 

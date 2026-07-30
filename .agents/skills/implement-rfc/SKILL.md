@@ -8,6 +8,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Implement RFC
@@ -101,13 +102,21 @@ of the following before implementing. If any is unmet, report it and pause.
     The RFC document is now ready to land on `main`. Confirm with the user that
     the PR is ready to merge — do not merge without explicit instruction. Once
     confirmed, squash-merge it with the message `rfc: <short lowercase rfc
-    description> - IMPLEMENTED`:
+    description> - IMPLEMENTED`, and delete the source branch on the upstream
+    repository:
 
     ```sh
-    gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - IMPLEMENTED"
+    gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - IMPLEMENTED" --delete-branch
     ```
 
-7.  **Close the associated discussion thread.**
+7.  **In case the branch was not automatically deleted from the upstream
+    repository, delete it directly.**
+
+    ```sh
+    git push origin --delete rfc/<slug>
+    ```
+
+8.  **Close the associated discussion thread.**
 
     The RFC has merged, so its discussion is now closed. Find the discussion
     linked in the RFC's `Discussion thread` field, look up its node ID, and
@@ -126,7 +135,7 @@ of the following before implementing. If any is unmet, report it and pause.
       }' -F id=<discussionId>
     ```
 
-8.  **After merge, assign the number.**
+9.  **After merge, assign the number.**
 
     The RFC number is assigned only after merge. On `main`, find the highest
     number in [RFC index](../../../rfc/INDEX.md), increment by one, zero-pad to
@@ -145,34 +154,35 @@ of the following before implementing. If any is unmet, report it and pause.
 
 ## Rules
 
--   **Only from `ACCEPTED`.**
+-   **You MUST NOT implement an RFC that is not currently `ACCEPTED`.**
 
     Never implement a draft, proposed, or rejected RFC.
 
--   **Implemented means built.**
+-   **You MUST NOT mark an RFC implemented until the tooling and infrastructure
+    it calls for are genuinely in place.**
 
-    Do not mark an RFC implemented until the tooling and infrastructure it calls
-    for are genuinely in place — that is what keeps the archive honest.
+    That is what keeps the archive honest.
 
--   **RFCs are immutable after merge.**
+-   **You MUST NOT change RFC document fields other than `Status`, `Last
+    updated`, cross-references, and implementation trackers once merged.**
 
     Once merged at `#implemented`, only the `Status` field, `Last updated` date,
     cross-references to related RFCs, and implementation trackers may change.
 
--   **Do not merge without explicit instruction.**
+-   **You MUST NOT merge without explicit instruction from the user.**
 
 ## Success criteria
 
-- `Status` is `IMPLEMENTED` and `Last updated` is today's date.
+- **`Status` is `IMPLEMENTED` and `Last updated` is today's date.**
 
-- The PR carries `#implemented` (and its category label), not `#accepted`.
+- **The PR carries `#implemented` (and its category label), not `#accepted`.**
 
-- The RFC document is squash-merged into `main`.
+- **The RFC document is squash-merged into `main`.**
 
-- The associated discussion thread is closed.
+- **The associated discussion thread is closed.**
 
-- After merge: an `rfc/INDEX.md` entry is added on `main`, with the next
-  sequential number and `Implemented` status.
+- **After merge: an `rfc/INDEX.md` entry is added on `main`, with the next
+  sequential number and `IMPLEMENTED` status.**
 
 ## References
 

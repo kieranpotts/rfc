@@ -7,6 +7,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Supersede RFC
@@ -104,23 +105,24 @@ following before superseding. If any is unmet, report it and pause.
 
 ## Rules
 
--   **Only from `IMPLEMENTED`.**
+-   **You MUST NOT supersede an RFC that is not currently `IMPLEMENTED`.**
 
     A draft, proposed, accepted, or rejected RFC cannot be superseded.
 
--   **Immutable except the cross-reference.**
+-   **You MUST NOT change RFC document fields other than `Status`, `Last
+    updated`, and `Superseded by` when superseding.**
 
     Only the `Status` field, `Last updated` date, and the `Superseded by` link
     may change.
 
 ## Success criteria
 
-- `Status` is `SUPERSEDED`, `Last updated` is today's date, and `Superseded by`
-  links the successor.
+- **`Status` is `SUPERSEDED`, `Last updated` is today's date, and `Superseded
+  by` links the successor.**
 
-- The successor's `Supersedes` field links back to this RFC.
+- **The successor's `Supersedes` field links back to this RFC.**
 
-- The PR carries `#superseded` (and its category label).
+- **The PR carries `#superseded` (and its category label).**
 
 ## References
 

@@ -8,6 +8,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Propose RFC
@@ -112,22 +113,22 @@ report it and pause — do not mark the PR ready.
 
 ## Rules
 
--   **Do not mark a PR ready until the document is complete.**
+-   **You MUST NOT mark a PR ready until the document is complete.**
 
     An incomplete or boilerplate-laden proposal wastes reviewers' time. The
     completeness gate is mandatory.
 
--   **Forward only.**
+-   **You MUST NOT use this skill to decide the RFC.**
 
     This skill only moves `DRAFT` → `PROPOSED`. It does not decide the RFC.
 
 ## Success criteria
 
-- The PR is no longer a draft (`isDraft: false`).
+- **The PR is no longer a draft (`isDraft: false`).**
 
-- The `#proposed` label is applied, alongside the category label.
+- **The `#proposed` label is applied, alongside the category label.**
 
-- `Last updated` is today's date and `Status` is `PROPOSED`.
+- **`Last updated` is today's date and `Status` is `PROPOSED`.**
 
 ## References
 

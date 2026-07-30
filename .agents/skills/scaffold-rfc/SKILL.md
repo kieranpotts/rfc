@@ -7,6 +7,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Scaffold RFC
@@ -141,36 +142,38 @@ exactly one category label, with a linked discussion thread.
 
 ## Rules
 
--   **An RFC is for a significant decision.**
+-   **You SHOULD only scaffold an RFC for a significant decision.**
 
     RFCs are for significant, multi-stakeholder technical decisions, not routine
     feature work, bug fixes, or trivial changes, which go through the normal
     pull-request workflow. If the request looks too small to warrant an RFC, say
     so before scaffolding.
 
--   **One RFC per branch and pull request.**
+-   **You MUST NOT bundle more than one RFC into a single branch or pull
+    request.**
 
     Never bundle multiple decisions into a single branch. If the user describes
     changes that span multiple independent concerns, recommend to the user that
     you scaffold separate RFC branches.
 
--   **Branch from `main`, not from any other branch.**
+-   **You MUST branch from `main`, not from any other branch.**
 
     RFCs are always cut from `main`. If the local `main` is behind the remote,
     pull first.
 
--   **Open the PR as a draft.**
+-   **You MUST open the PR as a draft.**
 
     A new RFC is not yet ready for review. It MUST be opened as a draft pull
     request.
 
--   **Every RFC pull request has an associated discussion thread.**
+-   **You MUST open an associated discussion thread for every RFC pull
+    request.**
 
     The thread MUST be opened when the PR is opened (even as a draft) and linked
     from both the document and the PR. All review feedback belongs in the
     discussion, not in the PR's own comments.
 
--   **Do not assign a numeric ID.**
+-   **You MUST NOT assign a numeric ID.**
 
     RFC numbers are assigned in `rfc/INDEX.md` only when an RFC's PR is merged
     to `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for
@@ -178,16 +181,16 @@ exactly one category label, with a linked discussion thread.
 
 ## Success criteria
 
-- Branch `rfc/<slug>` exists and is checked out.
+- **Branch `rfc/<slug>` exists and is checked out.**
 
-- `rfc/<category>/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the
-  metadata header filled in and `Status: DRAFT`.
+- **`rfc/<category>/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the
+  metadata header filled in and `Status: DRAFT`.**
 
-- A draft pull request titled `rfc: <short lowercase rfc description>` is open,
-  carrying exactly one category label and no lifecycle label.
+- **A draft pull request titled `rfc: <short lowercase rfc description>` is
+  open, carrying exactly one category label and no lifecycle label.**
 
-- An associated discussion thread is open, linked from the document's
-  `Discussion thread` field and from the PR.
+- **An associated discussion thread is open, linked from the document's
+  `Discussion thread` field and from the PR.**
 
 ## References
 

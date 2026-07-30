@@ -21,6 +21,17 @@ Skills available to agents in this repository are:
 - **[Supersede RFC](./supersede-rfc/):**
   Handles the `IMPLEMENTED` → `SUPERSEDED` transition.
 
+## Conventions
+
+One structural convention recurs across the `SKILL.md` files in this
+directory:
+
+- **Transition gates.** Skills that handle a state transition (propose,
+  accept, implement, reject, supersede) open their gating logic with a
+  `## Transition gates: <FROM> → <TO>` heading, e.g. "Transition gates:
+  `PROPOSED` → `ACCEPTED`". This section lists the conditions that MUST be
+  satisfied before the transition is allowed to proceed.
+
 ## Compatibility
 
 Agent harnesses are converging on the `./.agents/skills/` path for dynamic
