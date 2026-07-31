@@ -1,47 +1,51 @@
-# Agent skills
+# Agent skills for managing Requests for Comments (RFCs)
 
-Skills available to agents in this repository are:
+The skills available to agents in this project are:
 
-- **[Scaffold RFC](./scaffold-rfc/):**
+- **[scaffold-rfc](./scaffold-rfc/):** \
   Scaffolds a new RFC, ready for the user to complete.
   Sets the status to `DRAFT`.
 
-- **[Propose RFC](./propose-rfc/):**
+- **[propose-rfc](./propose-rfc/):** \
   Handles the `DRAFT` → `PROPOSED` transition.
 
-- **[Accept RFC](./accept-rfc/):**
+- **[accept-rfc](./accept-rfc/):** \
   Handles the `PROPOSED` → `ACCEPTED` transition.
 
-- **[Implement RFC](./implement-rfc/):**
+- **[implement-rfc](./implement-rfc/):** \
   Handles the `ACCEPTED` → `IMPLEMENTED` transition.
 
-- **[Reject RFC](./reject-rfc/):**
+- **[reject-rfc](./reject-rfc/):** \
   Handles the `PROPOSED` → `REJECTED` transition.
 
-- **[Supersede RFC](./supersede-rfc/):**
+- **[supersede-rfc](./supersede-rfc/):** \
   Handles the `IMPLEMENTED` → `SUPERSEDED` transition.
 
-## Conventions
+The **scaffold-rfc** skill....
 
-One structural convention recurs across the `SKILL.md` files in this
-directory:
+```mermaid
+flowchart LR
+  scaffold["🤖<br/>scaffold"]:::agentic
+  propose["🤖<br/>propose"]:::agentic
+  accept["🤖<br/>accept"]:::agentic
+  reject["🤖<br/>reject"]:::agentic
+  implement["🤖<br/>implement"]:::agentic
+  supersede["🤖<br/>supersede"]:::agentic
 
-- **Transition gates.** Skills that handle a state transition (propose,
-  accept, implement, reject, supersede) open their gating logic with a
-  `## Transition gates: <FROM> → <TO>` heading, e.g. "Transition gates:
-  `PROPOSED` → `ACCEPTED`". This section lists the conditions that MUST be
-  satisfied before the transition is allowed to proceed.
+  scaffold ==> propose
+  propose ==> accept
+  accept ==> implement
+  implement ==> supersede
+  propose -.-> reject
+  accept -.-> reject
+
+  classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px
+  classDef scripted fill:#e2e3e5,stroke:#4b5157,color:#383d41,stroke-width:2px
+  classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
+```
 
 ## Compatibility
 
-Agent harnesses are converging on the `./.agents/skills/` path for dynamic
-retrieval of project-specific skills. This is compatible with the Agent Skills
-convention — see https://agentskills.io/.
-
-As of May 2026, OpenAI Codex, GitHub Copilot, Gemini CLI, Google Antigravity,
-OpenCode, and Pi will auto-discover these skills, but Claude Code and Cursor
-will not.
-
-You will require workarounds for incompatible harnesses. For Claude Code, you
-can simply symlink this directory from `.claude/skills/`. Cursor requires more
-effort to transpile these skills into its native "rules" format.
+These skills are compatible with the [Agent Skills](https://agentskills.io/)
+convention. Most agent harnesses support this convention natively, but
+workarounds may be required for harnesses that do not.
