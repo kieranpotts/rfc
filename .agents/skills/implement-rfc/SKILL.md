@@ -2,9 +2,10 @@
 name: implement-rfc
 description: >-
   Mark an accepted RFC as implemented once its tooling and infrastructure
-  are in place. Squash-merge its pull request and assign its number in the
-  index. Use when the user says "implement this RFC", "this RFC is
-  implemented", "the tooling is in place", or "the infrastructure is built".
+  are in place. Use this skill when the user says something like
+  "implement this RFC", "this RFC is implemented", "the tooling is in place",
+  "the infrastructure is built", "implement RFC", or "<topic> has been
+  implemented".
 license: MIT
 metadata:
   interactive: yes
@@ -22,27 +23,33 @@ This is the point at which the RFC's pull request is squash-merged into
 An accepted RFC is a settled decision whose pull request stays open through
 the implementation phase.
 
-Do NOT use this skill for any other transition — to accept use
-[`/accept-rfc`](../accept-rfc/SKILL.md), to retire an implemented decision
-use [`/supersede-rfc`](../supersede-rfc/SKILL.md), to reject use
-[`/reject-rfc`](../reject-rfc/SKILL.md), and to scaffold or propose use
-[`/scaffold-rfc`](../scaffold-rfc/SKILL.md) /
-[`/propose-rfc`](../propose-rfc/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the RFC from the checked-out branch
+- **Target — REQUIRED.** Infer the RFC from the checked-out branch
   (`rfc/<slug>`). If on `main`, use the user's description, or list the open
   `#accepted` pull requests and ask the user to choose.
 
-## Output
+## Success criteria
 
-The RFC document updated to `Status: IMPLEMENTED`, the PR carrying
+You will achieve the following outcomes:
+
+<!-- The RFC document updated to `Status: IMPLEMENTED`, the PR carrying
 `#implemented` and squash-merged into `main`, its discussion thread closed,
-and a new numbered row appended to `rfc/INDEX.md`.
+and a new numbered row appended to `rfc/INDEX.md`. -->
+
+- `Status` is `IMPLEMENTED` and `Last updated` is today's date.
+
+- The PR carries `#implemented` (and its category label), not `#accepted`.
+
+- The RFC document is squash-merged into `main`.
+
+- The associated discussion thread is closed.
+
+- After merge: an `rfc/INDEX.md` entry is added on `main`, with the next
+  sequential number and `IMPLEMENTED` status.
 
 ## Instructions
 
@@ -177,16 +184,3 @@ and a new numbered row appended to `rfc/INDEX.md`.
   change.
 
 - You MUST NOT merge without explicit instruction from the user.
-
-## Success criteria
-
-- `Status` is `IMPLEMENTED` and `Last updated` is today's date.
-
-- The PR carries `#implemented` (and its category label), not `#accepted`.
-
-- The RFC document is squash-merged into `main`.
-
-- The associated discussion thread is closed.
-
-- After merge: an `rfc/INDEX.md` entry is added on `main`, with the next
-  sequential number and `IMPLEMENTED` status.

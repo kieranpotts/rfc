@@ -2,8 +2,8 @@
 name: scaffold-rfc
 description: >-
   Scaffold a new RFC. Use this skill when the user wants to make a new
-  architecture, process, technology, or tooling decision, or says "draft an
-  RFC", "new RFC", or "start an RFC".
+  architecture, process, technology, or tooling decision, or says something like
+  "draft an RFC", "new RFC", or "start an RFC".
 license: MIT
 metadata:
   interactive: yes
@@ -16,30 +16,36 @@ Use this skill to scaffold a new RFC, ready for the author to complete and
 take forward to technical stakeholders. This is the entry point to the RFC
 lifecycle. The end status of the RFC is `DRAFT`.
 
-Do NOT use this skill to advance an existing RFC. Use
-[`/propose-rfc`](../propose-rfc/SKILL.md),
-[`/accept-rfc`](../accept-rfc/SKILL.md),
-[`/implement-rfc`](../implement-rfc/SKILL.md),
-[`/reject-rfc`](../reject-rfc/SKILL.md), or
-[`/supersede-rfc`](../supersede-rfc/SKILL.md) for that.
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- A description of the decision to make — REQUIRED. Prompt the user if not
+- **A description of the decision to make — REQUIRED.** Prompt the user if not
   provided.
 
-- The RFC topic category — OPTIONAL, inferred from the description if
+- **The RFC topic category — OPTIONAL**, inferred from the description if
   possible.
 
-## Output
+## Success criteria
 
-A `rfc/<slug>` branch, with `rfc/<category>/<slug>/README.md` created from
+You will achieve the following outcomes:
+
+<!-- A `rfc/<slug>` branch, with `rfc/<category>/<slug>/README.md` created from
 the template and its metadata header filled in (`Status: DRAFT`), committed
 to a draft pull request opened against `main`, carrying exactly one category
-label, with a linked discussion thread.
+label, with a linked discussion thread. -->
+
+- Branch `rfc/<slug>` exists and is checked out.
+
+- `rfc/<category>/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the
+  metadata header filled in and `Status: DRAFT`.
+
+- A draft pull request titled `rfc: <short lowercase rfc description>` is
+  open, carrying exactly one category label and no lifecycle label.
+
+- An associated discussion thread is open, linked from the document's
+  `Discussion thread` field and from the PR.
 
 ## Instructions
 
@@ -185,16 +191,3 @@ label, with a linked discussion thread.
   RFC numbers are assigned in `rfc/INDEX.md` only when an RFC's PR is merged
   to `main` — at `IMPLEMENTED` for an accepted decision, or at `REJECTED` for
   one that is not taken forward.
-
-## Success criteria
-
-- Branch `rfc/<slug>` exists and is checked out.
-
-- `rfc/<category>/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the
-  metadata header filled in and `Status: DRAFT`.
-
-- A draft pull request titled `rfc: <short lowercase rfc description>` is
-  open, carrying exactly one category label and no lifecycle label.
-
-- An associated discussion thread is open, linked from the document's
-  `Discussion thread` field and from the PR.

@@ -14,3 +14,5 @@ stakeholder review.
 ## How to invoke
 
 > Propose RFC
+
+> This RFC is ready for stakeholder review.

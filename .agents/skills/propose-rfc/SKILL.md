@@ -1,10 +1,11 @@
 ---
 name: propose-rfc
 description: >-
-  Transition an RFC from `DRAFT` to `PROPOSED`, preparing it for stakeholder
-  review. Use this skill when the user says "propose this RFC", "this RFC is
-  ready for review", "mark the RFC as ready", "take this RFC out of draft",
-  or "progress this RFC".
+  Transition an RFC from draft to proposed, ready for stakeholder review.
+  Use this skill when the user says something like "propose this RFC",
+  "this RFC is ready for review", "mark the RFC as ready",
+  "take this RFC out of draft", "progress this RFC to the next stage", or
+  "propose RFC".
 license: MIT
 metadata:
   interactive: yes
@@ -17,26 +18,27 @@ Use this skill to transition an RFC from `DRAFT` to `PROPOSED`. Confirm the
 document is complete, apply the `#proposed` label, and remove the pull
 request's draft status so stakeholders can review it.
 
-Do NOT use this skill to scaffold a new RFC (use
-[`/scaffold-rfc`](../scaffold-rfc/SKILL.md)) or to advance one to a later
-state (use [`/accept-rfc`](../accept-rfc/SKILL.md),
-[`/implement-rfc`](../implement-rfc/SKILL.md),
-[`/reject-rfc`](../reject-rfc/SKILL.md), or
-[`/supersede-rfc`](../supersede-rfc/SKILL.md)).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the RFC from the checked-out branch
+- **Target — REQUIRED.** Infer the RFC from the checked-out branch
   (`rfc/<slug>`). If on `main`, list open draft pull requests and ask the
   user to choose.
 
-## Output
+## Success criteria
 
-The RFC document updated to `Status: PROPOSED`, the PR carrying `#proposed`
-and taken out of draft.
+You will achieve the following outcomes:
+
+<!-- The RFC document updated to `Status: PROPOSED`, the PR carrying `#proposed`
+and taken out of draft. -->
+
+- The PR is no longer a draft (`isDraft: false`).
+
+- The `#proposed` label is applied, alongside the category label.
+
+- `Last updated` is today's date and `Status` is `PROPOSED`.
 
 ## Instructions
 
@@ -123,11 +125,3 @@ and taken out of draft.
 - You MUST NOT use this skill to decide the RFC.
 
   This skill only moves `DRAFT` → `PROPOSED`. It does not decide the RFC.
-
-## Success criteria
-
-- The PR is no longer a draft (`isDraft: false`).
-
-- The `#proposed` label is applied, alongside the category label.
-
-- `Last updated` is today's date and `Status` is `PROPOSED`.

@@ -1,9 +1,10 @@
 ---
 name: accept-rfc
 description: >-
-  Accept a proposed RFC. Use this skill when the user says "accept this
-  RFC", "approve this RFC", "mark this RFC as accepted", or otherwise wants
-  to advance a proposal to accepted.
+  Accept a proposed RFC. Use this skill when the user says something like
+  "accept this RFC", "approve this RFC", "mark this RFC as accepted",
+  "accept RFC", "accept the RFC for <topic>", or otherwise wants to advance a
+  proposal to accepted.
 license: MIT
 metadata:
   interactive: yes
@@ -18,26 +19,35 @@ now a settled decision, but its pull request stays open until the tooling and
 infrastructure it calls for are in place. The discussion thread stays open
 through implementation and is closed only when the PR is merged.
 
-Do NOT use this skill for any other transition — to mark a built decision
-implemented use [`/implement-rfc`](../implement-rfc/SKILL.md), to reject use
-[`/reject-rfc`](../reject-rfc/SKILL.md), to retire a superseded decision use
-[`/supersede-rfc`](../supersede-rfc/SKILL.md), to scaffold a draft PR use
-[`/scaffold-rfc`](../scaffold-rfc/SKILL.md), and to forward a draft to a
-proposal use [`/propose-rfc`](../propose-rfc/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the RFC from the checked-out branch
+- **Target — REQUIRED.** Infer the RFC from the checked-out branch
   (`rfc/<slug>`). If on `main`, use the user's description, or list the open
   `#proposed` pull requests and ask the user to choose.
 
-## Output
+## Success criteria
 
-The RFC document updated to `Status: ACCEPTED` with `Decided by` and
-`Decision date` filled in, the PR carrying `#accepted` and left open.
+You will achieve the following outcomes:
+
+<!-- The RFC document updated to `Status: ACCEPTED` with `Decided by` and
+`Decision date` filled in, the PR carrying `#accepted` and left open. -->
+
+- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
+  `Decision date` are filled in.
+
+- The PR carries `#accepted` (and its category label), not `#proposed`, and
+  remains open.
+
+- The associated discussion thread remains open.
+
+  It is closed when the PR is merged at implementation.
+
+- No number has been assigned.
+
+  That waits for implementation.
 
 ## Instructions
 
@@ -134,19 +144,3 @@ The RFC document updated to `Status: ACCEPTED` with `Decided by` and
   still evolve. Once merged at `#implemented`, only the `Status` field, `Last
   updated` date, cross-references to related RFCs, and implementation
   trackers may change.
-
-## Success criteria
-
-- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
-  `Decision date` are filled in.
-
-- The PR carries `#accepted` (and its category label), not `#proposed`, and
-  remains open.
-
-- The associated discussion thread remains open.
-
-  It is closed when the PR is merged at implementation.
-
-- No number has been assigned.
-
-  That waits for implementation.

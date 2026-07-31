@@ -2,8 +2,8 @@
 name: reject-rfc
 description: >-
   Reject a proposed RFC. Use this skill when the user says "reject this
-  RFC", "the RFC was not accepted", "the RFC was not approved", or advances a
-  proposal to rejected.
+  RFC", "the RFC was not accepted", "the RFC was not approved", "reject RFC",
+  "reject <topic>", or advances a proposal to rejected.
 license: MIT
 metadata:
   interactive: yes
@@ -17,27 +17,36 @@ rejected RFC is not discarded — its document is merged into `main` and
 preserved permanently in `rfc/` as the record of the decision and its
 rationale, so the same ground is not needlessly covered again later.
 
-Do NOT use this skill for any other transition — to accept use
-[`/accept-rfc`](../accept-rfc/SKILL.md), to mark a built decision implemented
-use [`/implement-rfc`](../implement-rfc/SKILL.md), and to retire a superseded
-decision use [`/supersede-rfc`](../supersede-rfc/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the RFC from the checked-out branch
+- **Target — REQUIRED.** Infer the RFC from the checked-out branch
   (`rfc/<slug>`). If on `main`, use the user's description, or list the open
   `#proposed` pull requests and ask the user to choose.
 
-- Explicit confirmation that the decision is to reject — REQUIRED.
+- **Explicit confirmation that the decision is to reject — REQUIRED.**
 
-## Output
+## Success criteria
 
-The RFC document updated to `Status: REJECTED`, the PR carrying `#rejected`
+You will achieve the following outcomes:
+
+<!-- The RFC document updated to `Status: REJECTED`, the PR carrying `#rejected`
 and squash-merged into `main`, its discussion thread closed, and a new
-numbered row appended to `rfc/INDEX.md`.
+numbered row appended to `rfc/INDEX.md`. -->
+
+- `Status` is `REJECTED` and `Last updated` is today's date.
+
+- The PR carries `#rejected` (and its category label).
+
+- The associated discussion thread is closed.
+
+- The user has explicitly confirmed the rejection before any changes were
+  made.
+
+- After merge: an `rfc/INDEX.md` entry is added on `main`, with the next
+  sequential number.
 
 ## Instructions
 
@@ -162,17 +171,3 @@ numbered row appended to `rfc/INDEX.md`.
 
   Confirm with the user that the PR is ready to merge before running the
   merge command.
-
-## Success criteria
-
-- `Status` is `REJECTED` and `Last updated` is today's date.
-
-- The PR carries `#rejected` (and its category label).
-
-- The associated discussion thread is closed.
-
-- The user has explicitly confirmed the rejection before any changes were
-  made.
-
-- After merge: an `rfc/INDEX.md` entry is added on `main`, with the next
-  sequential number.
