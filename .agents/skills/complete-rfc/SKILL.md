@@ -3,9 +3,9 @@ name: complete-rfc
 description: >-
   Mark an accepted RFC as implemented once its tooling and infrastructure
   are in place. Use this skill when the user says something like
-  "implement this RFC", "this RFC is implemented", "the tooling is in place",
-  "the infrastructure is built", "implement RFC", or "<topic> has been
-  implemented".
+  "complete RFC", "implement this RFC", "this RFC is implemented",
+  "the tooling is in place", "the infrastructure is built", "implement RFC",
+  or "<topic> has been implemented".
 license: MIT
 metadata:
   interactive: yes

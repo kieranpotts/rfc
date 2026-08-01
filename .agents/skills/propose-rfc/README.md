@@ -1,15 +1,9 @@
 # Propose RFC
 
-Removes the draft status from an RFC pull request, making it ready for
-stakeholder review.
+Handles the `DRAFT` → `PROPOSED` transition.
 
-## What it does
-
-- Acts as an audit gate by verifying the RFC document is complete and free of
-  template boilerplate.
-- Bumps `Last updated` date.
-- Applies the `#proposed` label.
-- Takes the PR out of draft (`gh pr ready`).
+Checks the RFC is complete and takes the pull request out of draft, ready
+for stakeholder review.
 
 ## How to invoke
 
@@ -19,5 +13,5 @@ stakeholder review.
 
 ## Recommended models
 
-A fast or mid-tier model is enough. The gate check is completeness — no
-leftover template boilerplate — not a judgment on the RFC's substance.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

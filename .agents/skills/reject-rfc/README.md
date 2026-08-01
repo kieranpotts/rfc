@@ -1,16 +1,9 @@
 # Reject RFC
 
-Rejects a proposed RFC, preserving the decision permanently.
+Handles the `PROPOSED` → `REJECTED` transition.
 
-## What it does
-
-- Verifies the document is a complete record.
-- Sets `Status: REJECTED`.
-- Swaps the PR label to `#rejected`.
-- Closes the discussion thread.
-- Merges the PR using the squash-merge strategy.
-- After the merge, assigns the next sequential number in `rfc/INDEX.md` on
-  `main`.
+Rejects a proposed RFC and merges its document as a permanent record of
+the decision.
 
 ## How to invoke
 
@@ -20,5 +13,5 @@ Rejects a proposed RFC, preserving the decision permanently.
 
 ## Recommended models
 
-A fast, inexpensive model is enough. The rejection decision is already made
-by you; this skill just records it.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

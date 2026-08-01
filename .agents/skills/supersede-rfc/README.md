@@ -1,15 +1,8 @@
 # Supersede RFC
 
-Marks an implemented RFC as superseded by a later one.
+Handles the `IMPLEMENTED` → `SUPERSEDED` transition.
 
-## What it does
-
-- Confirms that a later, currently-implemented RFC has replaced a
-  previously-implemented decision.
-- Sets the superseded RFC's `Status: SUPERSEDED`.
-- Updates the `Superseded by` link.
-- Verifies the successor links back via `Supersedes`.
-- Swaps the lifecycle label to `#superseded`.
+Retires an implemented RFC once a later RFC has replaced its decision.
 
 ## How to invoke
 
@@ -19,5 +12,5 @@ Marks an implemented RFC as superseded by a later one.
 
 ## Recommended models
 
-A fast, inexpensive model is enough. Confirming the cross-references between
-the two RFCs is a mechanical check.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

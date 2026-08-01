@@ -1,18 +1,9 @@
 # Complete RFC
 
-Transitions an RFC from `ACCEPTED` to `IMPLEMENTED`, then squash-merges the PR
-and assigns its index number.
+Handles the `ACCEPTED` → `IMPLEMENTED` transition.
 
-## What it does
-
-- Verifies the implementation gates — the tooling and infrastructure the
-  decision calls for are actually in place.
-- Sets `Status` to `IMPLEMENTED`.
-- Swaps the PR label to `#implemented`.
-- Merges the PR using the squash-merge strategy.
-- Closes the discussion thread.
-- Assigns the RFC the next sequential number, logs it in `rfc/INDEX.md` on
-  `main`.
+Checks the tooling and infrastructure are in place and merges the RFC into
+the `main` trunk.
 
 ## How to invoke
 
@@ -22,6 +13,5 @@ and assigns its index number.
 
 ## Recommended models
 
-A fast or mid-tier model is enough. Verifying the implementation gates —
-whether the tooling and infrastructure exist — is a factual check, not a
-judgment call.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

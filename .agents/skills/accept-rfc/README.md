@@ -1,16 +1,9 @@
 # Accept RFC
 
-Transitions an RFC from `PROPOSED` to `ACCEPTED`. The PR stays open until the
-decision is implemented.
+Handles the `PROPOSED` → `ACCEPTED` transition.
 
-## What it does
-
-- Verifies the approval gates.
-- Sets `Status` to `ACCEPTED`.
-- Fills in `Decided by` and approval date.
-- Swaps the PR label to `#accepted`.
-- Keeps the PR open during implementation. The discussion thread stays open too,
-  and is closed when the PR is merged.
+Checks the approval gates and marks the RFC accepted, leaving the pull
+request open until the decision is implemented.
 
 ## How to invoke
 
@@ -20,5 +13,5 @@ decision is implemented.
 
 ## Recommended models
 
-A fast or mid-tier model is enough. Verifying the approval gates is a
-checklist task, not a judgment call.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

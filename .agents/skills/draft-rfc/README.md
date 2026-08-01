@@ -1,17 +1,11 @@
 # Draft RFC
 
-Drafts a new RFC, ready for the author to complete.
+Scaffolds a new RFC proposal, ready for the user to write up.
 
-## What it does
+Cuts an `rfc/<slug>` branch from `main`, prepares a fresh RFC from the
+template, and opens a pull request in a draft state.
 
-- Creates an `rfc/<slug>` branch from `main`.
-- Copies `rfc/TEMPLATE.md` to `rfc/<category>/<slug>/README.md`.
-- Fills in the metadata header (authors, dates, `Status: DRAFT`).
-- Commits and pushes the change.
-- Opens a draft pull request.
-- Applies a category label to the PR, eg. `TOOLING`.
-- Opens a discussion thread.
-- Creates cross-references between the discussion and the PR.
+Sets the status to `DRAFT`.
 
 ## How to invoke
 
@@ -21,18 +15,5 @@ Drafts a new RFC, ready for the author to complete.
 
 ## Recommended models
 
-A fast, inexpensive model is enough. This skill scaffolds files from a
-template and fills in metadata — the RFC content itself is written by you
-afterwards.
-
-## Examples
-
-- `/draft-rfc`: The agent will prompt you for details of the RFC, then it
-  will draft the branch, the RFC document, and create a draft PR.
-
-- `/draft-rfc <Description>`: Provide more information about the RFC, from
-  which the agent will attempt to infer details such as title, slug, and
-  category (eg. "architecture").
-
-You will need to complete the RFC document yourself. Once you've done that, use
-[`/propose-rfc`](../propose-rfc/README.md) to mark the PR as "ready for review".
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.
