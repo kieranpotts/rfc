@@ -6,7 +6,7 @@ description: >-
   "this RFC is ready for review", "mark the RFC as ready",
   "take this RFC out of draft", "progress this RFC to the next stage", or
   "propose RFC".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing

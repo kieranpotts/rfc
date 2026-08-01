@@ -5,7 +5,7 @@ description: >-
   the user says something like "supersede this RFC", "this RFC is replaced by ...",
   "supersede RFC", "<topic> is superseded by <successor>", or otherwise
   wishes to retire an accepted decision in favor of a newer one.
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing

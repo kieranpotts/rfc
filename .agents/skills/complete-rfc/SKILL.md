@@ -6,7 +6,7 @@ description: >-
   "complete RFC", "implement this RFC", "this RFC is implemented",
   "the tooling is in place", "the infrastructure is built", "implement RFC",
   or "<topic> has been implemented".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing

@@ -5,7 +5,7 @@ description: >-
   "accept this RFC", "approve this RFC", "mark this RFC as accepted",
   "accept RFC", "accept the RFC for <topic>", or otherwise wants to advance a
   proposal to accepted.
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing
