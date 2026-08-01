@@ -1,7 +1,7 @@
 ---
-name: scaffold-rfc
+name: draft-rfc
 description: >-
-  Scaffold a new RFC. Use this skill when the user wants to make a new
+  Draft a new RFC. Use this skill when the user wants to make a new
   architecture, process, technology, or tooling decision, or says something like
   "draft an RFC", "new RFC", or "start an RFC".
 license: MIT
@@ -10,9 +10,9 @@ metadata:
   preferred_model: prose-writing
 ---
 
-# Scaffold RFC
+# Draft RFC
 
-Use this skill to scaffold a new RFC, ready for the author to complete and
+Use this skill to draft a new RFC, ready for the author to complete and
 take forward to technical stakeholders. This is the entry point to the RFC
 lifecycle. The end status of the RFC is `DRAFT`.
 
@@ -157,18 +157,18 @@ label, with a linked discussion thread. -->
 
 ## Rules
 
-- You SHOULD only scaffold an RFC for a significant decision.
+- You SHOULD only draft an RFC for a significant decision.
 
   RFCs are for significant, multi-stakeholder technical decisions, not
   routine feature work, bug fixes, or trivial changes, which go through the
   normal pull-request workflow. If the request looks too small to warrant an
-  RFC, say so before scaffolding.
+  RFC, say so before drafting.
 
 - You MUST NOT bundle more than one RFC into a single branch or pull request.
 
   Never bundle multiple decisions into a single branch. If the user
   describes changes that span multiple independent concerns, recommend to the
-  user that you scaffold separate RFC branches.
+  user that you draft separate RFC branches.
 
 - You MUST branch from `main`, not from any other branch.
 

@@ -1,6 +1,6 @@
-# Scaffold RFC
+# Draft RFC
 
-Scaffolds a new RFC, ready for the author to complete.
+Drafts a new RFC, ready for the author to complete.
 
 ## What it does
 
@@ -15,16 +15,16 @@ Scaffolds a new RFC, ready for the author to complete.
 
 ## How to invoke
 
-> Scaffold RFC
+> Draft RFC
 
 > We will adopt event sourcing for our audit log architecture - draft an RFC.
 
 ## Examples
 
-- `/scaffold-rfc`: The agent will prompt you for details of the RFC, then it
-  will scaffold the branch, the RFC document, and create a draft PR.
+- `/draft-rfc`: The agent will prompt you for details of the RFC, then it
+  will draft the branch, the RFC document, and create a draft PR.
 
-- `/scaffold-rfc <Description>`: Provide more information about the RFC, from
+- `/draft-rfc <Description>`: Provide more information about the RFC, from
   which the agent will attempt to infer details such as title, slug, and
   category (eg. "architecture").
 
