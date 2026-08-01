@@ -92,10 +92,16 @@ You will achieve the following outcomes:
     merge. Leave the discussion thread open too; it stays open through
     implementation and is closed only when the PR is merged.
 
-5.  Commit.
+5.  Commit and push.
+
+    Push as well as commit. The pull request stays open through
+    implementation, so reviewers read its status from the remote — an
+    unpushed commit leaves the PR showing `PROPOSED` after the decision was
+    taken.
 
     ```sh
     git commit -am "accept: <short lowercase rfc description>"
+    git push
     ```
 
     Keep the PR open — do not merge, and do not assign a number. Both happen
@@ -136,6 +142,12 @@ You will achieve the following outcomes:
 
   The PR stays open until the tooling and infrastructure are in place. The
   merge and the number assignment happen at implementation, not acceptance.
+
+- You MUST push the status change.
+
+  The pull request remains open through implementation and is what
+  stakeholders read. A commit left unpushed leaves the remote showing the
+  pre-decision status.
 
 - You MUST NOT change RFC document fields other than `Status`, `Last
   updated`, cross-references, and implementation trackers once merged.

@@ -86,8 +86,9 @@ label, with a linked discussion thread. -->
     - `Created` and `Last updated`: Today's date in `YYYY-MM-DD` format.
     - `Status`: `DRAFT`.
 
-    Leave other fields blank or as placeholders for now. Leave the prose
-    sections for the author to complete.
+    Leave the prose sections for the author to complete. Leave the remaining
+    metadata fields blank for now — except `PR` and `Discussion thread`,
+    which are filled in later in this procedure once those artifacts exist.
 
 6.  Commit and open a draft pull request.
 
@@ -97,6 +98,10 @@ label, with a linked discussion thread. -->
     git push -u origin rfc/<slug>
     gh pr create --draft --title "rfc: <short lowercase rfc description>" --fill
     ```
+
+    Record the returned PR number in the document's `PR` field. The readiness
+    gate downstream requires that field to be set, and this is the first
+    point at which the number exists.
 
 7.  Apply the category label.
 

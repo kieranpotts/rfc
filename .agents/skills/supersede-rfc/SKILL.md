@@ -71,12 +71,20 @@ You will achieve the following outcomes:
 
 5.  Land the document change.
 
-    Commit the edits to both documents at the same time. This can be done
-    directly on `main`:
+    Commit the edits to both documents and the index row at the same time,
+    directly to `main`, and push. Both RFCs are already merged, and every
+    field touched here is one of the few a merged RFC may still change — so
+    there is nothing for a pull request to review:
 
     ```sh
+    git checkout main
+    git pull --rebase
     git commit -am "supersede: <short lowercase description of superseded rfc>"
+    git push
     ```
+
+    The push is mandatory. An unpushed supersession leaves the archive
+    claiming the old RFC is still in effect.
 
 6.  Switch the state label on the old RFC pull request.
 
@@ -113,6 +121,15 @@ You will achieve the following outcomes:
 
   It MUST have a higher RFC number in the
   [RFC index](../../../rfc/INDEX.md).
+
+- The cross-reference change MUST be committed directly to `main`, and
+  pushed.
+
+  Both RFCs are already merged. The only fields this skill touches —
+  `Status`, `Last updated`, `Superseded by`, `Supersedes`, and the index row
+  — are among the few a merged RFC may still change, so a pull request would
+  have nothing to review. This matches how RFC numbers are assigned at
+  implementation and rejection, which also commit straight to `main`.
 
 - You MUST NOT change RFC document fields other than `Status`, `Last
   updated`, and `Superseded by` when superseding.

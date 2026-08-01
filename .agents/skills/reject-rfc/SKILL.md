@@ -83,10 +83,14 @@ numbered row appended to `rfc/INDEX.md`. -->
     gh pr edit <number> --add-label "#rejected" --remove-label "#proposed"
     ```
 
-5.  Commit.
+5.  Commit and push.
+
+    The push is mandatory: the merge in the next step lands the *remote*
+    branch, so an unpushed commit would leave `Status: REJECTED` behind.
 
     ```sh
     git commit -am "reject: <short lowercase rfc description>"
+    git push
     ```
 
 6.  Merge the pull request.
@@ -166,6 +170,12 @@ numbered row appended to `rfc/INDEX.md`. -->
   Once `REJECTED`, only the `Status` field, `Last updated` date,
   cross-references to related RFCs, and implementation trackers may change.
   To revisit the decision, open a new RFC that supersedes this one.
+
+- You MUST push before merging.
+
+  `gh pr merge` merges what is on the remote. A status change committed
+  locally but not pushed is silently dropped from `main`, leaving the merged
+  RFC still reading `PROPOSED`.
 
 - You MUST NOT merge without explicit instruction from the user.
 

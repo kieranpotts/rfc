@@ -85,10 +85,14 @@ and a new numbered row appended to `rfc/INDEX.md`. -->
     This swaps only the lifecycle label. Leave the category label, eg.
     `TOOLING`, in place.
 
-5.  Commit.
+5.  Commit and push.
+
+    The push is mandatory: the merge in the next step lands the *remote*
+    branch, so an unpushed commit would leave `Status: IMPLEMENTED` behind.
 
     ```sh
     git commit -am "implement: <short lowercase rfc description>"
+    git push
     ```
 
 6.  Merge the pull request.
@@ -182,5 +186,11 @@ and a new numbered row appended to `rfc/INDEX.md`. -->
   Once merged at `#implemented`, only the `Status` field, `Last updated`
   date, cross-references to related RFCs, and implementation trackers may
   change.
+
+- You MUST push before merging.
+
+  `gh pr merge` merges what is on the remote. A status change committed
+  locally but not pushed is silently dropped from `main`, leaving the merged
+  RFC still reading `ACCEPTED`.
 
 - You MUST NOT merge without explicit instruction from the user.
