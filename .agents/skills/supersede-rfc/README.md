@@ -16,3 +16,8 @@ Marks an implemented RFC as superseded by a later one.
 > Supersede RFC
 
 > Event sourcing for audit log is superseded by temporal data model
+
+## Recommended models
+
+A fast, inexpensive model is enough. Confirming the cross-references between
+the two RFCs is a mechanical check.

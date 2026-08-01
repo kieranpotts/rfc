@@ -19,3 +19,9 @@ and assigns its index number.
 > Complete RFC
 
 > Event sourcing for audit log has been implemented.
+
+## Recommended models
+
+A fast or mid-tier model is enough. Verifying the implementation gates —
+whether the tooling and infrastructure exist — is a factual check, not a
+judgment call.

@@ -17,3 +17,8 @@ decision is implemented.
 > Accept RFC
 
 > Accept the RFC for using event sourcing for the audit log
+
+## Recommended models
+
+A fast or mid-tier model is enough. Verifying the approval gates is a
+checklist task, not a judgment call.

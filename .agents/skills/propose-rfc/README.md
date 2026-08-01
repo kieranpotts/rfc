@@ -16,3 +16,8 @@ stakeholder review.
 > Propose RFC
 
 > This RFC is ready for stakeholder review.
+
+## Recommended models
+
+A fast or mid-tier model is enough. The gate check is completeness — no
+leftover template boilerplate — not a judgment on the RFC's substance.

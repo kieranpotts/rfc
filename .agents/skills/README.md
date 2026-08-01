@@ -1,60 +1,66 @@
-# Agent skills for managing Requests for Comments (RFCs)
+# Agent skills
 
-The skills available to agents in this project are:
+The following skills are available to support the management of RFCs
+via AI agents.
 
 - **[draft-rfc](./draft-rfc/):** \
+  Scaffolds a new RFC proposal, ready for the user to write up.
   Cuts an `rfc/<slug>` branch from `main`, prepares a fresh RFC from the
   template, and opens a pull request in a draft state.
+  Sets the status to `DRAFT`.
 
 - **[propose-rfc](./propose-rfc/):** \
+  Handles the `DRAFT` → `PROPOSED` transition.
   Checks the RFC is complete and takes the pull request out of draft, ready
   for stakeholder review.
 
 - **[accept-rfc](./accept-rfc/):** \
+  Handles the `PROPOSED` → `ACCEPTED` transition.
   Checks the approval gates and marks the RFC accepted, leaving the pull
   request open until the decision is implemented.
 
 - **[complete-rfc](./complete-rfc/):** \
+  Handles the `ACCEPTED` → `IMPLEMENTED` transition.
   Checks the tooling and infrastructure are in place and merges the RFC into
   the `main` trunk.
 
 - **[reject-rfc](./reject-rfc/):** \
+  Handles the `PROPOSED` → `REJECTED` transition.
   Rejects a proposed RFC and merges its document as a permanent record of
   the decision.
 
 - **[supersede-rfc](./supersede-rfc/):** \
+  Handles the `IMPLEMENTED` → `SUPERSEDED` transition.
   Retires an implemented RFC once a later RFC has replaced its decision.
 
-The **draft-rfc** skill opens a new RFC as a draft PR, ready for the user
-to complete. After this step, **propose-rfc** puts the PR up for stakeholder
-review. From there, **accept-rfc** or **reject-rfc** decides the RFC, and once
-the tooling and infrastructure it calls for are in place, **complete-rfc**
-lands it in the `main` trunk. An implemented RFC may later be retired with
-**supersede-rfc** once a newer RFC replaces its decision.
+## Workflow
 
 ```mermaid
 flowchart LR
   draft["🤖<br/><b>draft-rfc</b>"]:::agentic
+  write["🧑<br/>write RFC"]:::anthropic
   propose["🤖<br/><b>propose-rfc</b>"]:::agentic
   accept["🤖<br/><b>accept-rfc</b>"]:::agentic
   reject["🤖<br/><b>reject-rfc</b>"]:::agentic
   complete["🤖<br/><b>complete-rfc</b>"]:::agentic
   supersede["🤖<br/><b>supersede-rfc</b>"]:::agentic
 
-  draft ==> propose
+  draft ==> write
+  write ==> propose
   propose ==> accept
   accept ==> complete
   complete -.-> supersede
-  propose -.-> reject
+  propose ==> reject
 
   classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px
   classDef scripted fill:#e2e3e5,stroke:#4b5157,color:#383d41,stroke-width:2px
   classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
 ```
 
-These skills handle process, not substance: how an RFC is drafted, decided,
-and landed in `main`. For the decision work itself — researching the options
-and writing up the RFC — use the
+The skills in this project are focused on the mechanics of managing the lifecycle
+of RFCs.
+For help putting forward an idea for discussion — researching the options and
+writing up the RFC — you may instruct agents to use the
 [**decide**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/decide)
 skill in my global skills collection.
 

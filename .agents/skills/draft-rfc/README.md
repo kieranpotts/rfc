@@ -19,6 +19,12 @@ Drafts a new RFC, ready for the author to complete.
 
 > We will adopt event sourcing for our audit log architecture - draft an RFC.
 
+## Recommended models
+
+A fast, inexpensive model is enough. This skill scaffolds files from a
+template and fills in metadata — the RFC content itself is written by you
+afterwards.
+
 ## Examples
 
 - `/draft-rfc`: The agent will prompt you for details of the RFC, then it

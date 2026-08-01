@@ -17,3 +17,8 @@ Rejects a proposed RFC, preserving the decision permanently.
 > Reject RFC
 
 > Reject event sourcing for audit log
+
+## Recommended models
+
+A fast, inexpensive model is enough. The rejection decision is already made
+by you; this skill just records it.
