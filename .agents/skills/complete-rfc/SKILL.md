@@ -1,5 +1,5 @@
 ---
-name: implement-rfc
+name: complete-rfc
 description: >-
   Mark an accepted RFC as implemented once its tooling and infrastructure
   are in place. Use this skill when the user says something like
@@ -12,7 +12,7 @@ metadata:
   preferred_model: prose-writing
 ---
 
-# Implement RFC
+# Complete RFC
 
 Use this skill to transition an RFC from `ACCEPTED` to `IMPLEMENTED`, once
 all the tooling and infrastructure the decision calls for are in place.

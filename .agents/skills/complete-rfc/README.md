@@ -1,4 +1,4 @@
-# Implement RFC
+# Complete RFC
 
 Transitions an RFC from `ACCEPTED` to `IMPLEMENTED`, then squash-merges the PR
 and assigns its index number.
@@ -16,6 +16,6 @@ and assigns its index number.
 
 ## How to invoke
 
-> Implement RFC
+> Complete RFC
 
 > Event sourcing for audit log has been implemented.

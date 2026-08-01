@@ -14,7 +14,7 @@ The skills available to agents in this project are:
   Checks the approval gates and marks the RFC accepted, leaving the pull
   request open until the decision is implemented.
 
-- **[implement-rfc](./implement-rfc/):** \
+- **[complete-rfc](./complete-rfc/):** \
   Checks the tooling and infrastructure are in place and merges the RFC into
   the `main` trunk.
 
@@ -28,7 +28,7 @@ The skills available to agents in this project are:
 The **draft-rfc** skill opens a new RFC as a draft PR, ready for the user
 to complete. After this step, **propose-rfc** puts the PR up for stakeholder
 review. From there, **accept-rfc** or **reject-rfc** decides the RFC, and once
-the tooling and infrastructure it calls for are in place, **implement-rfc**
+the tooling and infrastructure it calls for are in place, **complete-rfc**
 lands it in the `main` trunk. An implemented RFC may later be retired with
 **supersede-rfc** once a newer RFC replaces its decision.
 
@@ -38,13 +38,13 @@ flowchart LR
   propose["🤖<br/><b>propose-rfc</b>"]:::agentic
   accept["🤖<br/><b>accept-rfc</b>"]:::agentic
   reject["🤖<br/><b>reject-rfc</b>"]:::agentic
-  implement["🤖<br/><b>implement-rfc</b>"]:::agentic
+  complete["🤖<br/><b>complete-rfc</b>"]:::agentic
   supersede["🤖<br/><b>supersede-rfc</b>"]:::agentic
 
   draft ==> propose
   propose ==> accept
-  accept ==> implement
-  implement -.-> supersede
+  accept ==> complete
+  complete -.-> supersede
   propose -.-> reject
 
   classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px

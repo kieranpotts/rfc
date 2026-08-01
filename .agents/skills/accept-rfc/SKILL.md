@@ -80,7 +80,7 @@ You will achieve the following outcomes:
       any exist.
 
     Do not assign a number or touch `rfc/INDEX.md` — that happens at merge,
-    in [`/implement-rfc`](../implement-rfc/SKILL.md).
+    in [`/complete-rfc`](../complete-rfc/SKILL.md).
 
 4.  Switch the state label.
 
@@ -108,7 +108,7 @@ You will achieve the following outcomes:
     The PR stays open through this phase; the document MAY continue to evolve
     in response to implementation feedback, with feedback continuing on the
     still-open discussion thread. When the tooling and infrastructure are in
-    place, run [`/implement-rfc`](../implement-rfc/SKILL.md).
+    place, run [`/complete-rfc`](../complete-rfc/SKILL.md).
 
 ## Rules
 
