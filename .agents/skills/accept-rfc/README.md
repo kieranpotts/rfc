@@ -13,5 +13,6 @@ request open until the decision is implemented.
 
 ## Recommended models
 
-A fast, cheap model is sufficient to run this skill, which involves only
-mechanical tasks. There are no judgment calls that benefit from deep reasoning.
+A mid-tier model is sufficient for this skill. The state transition is
+procedural, but judging whether the points of contention are resolved requires
+a bit more effort.
