@@ -40,15 +40,15 @@ You will achieve the following outcomes:
 `#implemented` and squash-merged into `main`, its discussion thread closed,
 and a new numbered row appended to `rfc/INDEX.md`. -->
 
-- `Status` is `IMPLEMENTED` and `Last updated` is today's date.
+- `Status` MUST be `IMPLEMENTED` and `Last updated` MUST be today's date.
 
-- The PR carries `#implemented` (and its category label), not `#accepted`.
+- The PR MUST carry `#implemented` (and its category label), not `#accepted`.
 
-- The RFC document is squash-merged into `main`.
+- The RFC document MUST be squash-merged into `main`.
 
-- The associated discussion thread is closed.
+- The associated discussion thread MUST be closed.
 
-- After merge: an `rfc/INDEX.md` entry is added on `main`, with the next
+- After merge, an `rfc/INDEX.md` entry MUST be added on `main`, with the next
   sequential number and `IMPLEMENTED` status.
 
 ## Instructions

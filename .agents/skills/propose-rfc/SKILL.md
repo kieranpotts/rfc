@@ -34,11 +34,11 @@ You will achieve the following outcomes:
 <!-- The RFC document updated to `Status: PROPOSED`, the PR carrying `#proposed`
 and taken out of draft. -->
 
-- The PR is no longer a draft (`isDraft: false`).
+- The PR MUST no longer be a draft (`isDraft: false`).
 
-- The `#proposed` label is applied, alongside the category label.
+- The `#proposed` label MUST be applied, alongside the category label.
 
-- `Last updated` is today's date and `Status` is `PROPOSED`.
+- `Last updated` MUST be today's date and `Status` MUST be `PROPOSED`.
 
 ## Instructions
 

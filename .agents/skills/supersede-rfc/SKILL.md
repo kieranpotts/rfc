@@ -33,12 +33,12 @@ You will achieve the following outcomes:
 `Superseded by` link, the successor's `Supersedes` field linked back, the
 `rfc/INDEX.md` row updated, and the old PR carrying `#superseded`. -->
 
-- `Status` is `SUPERSEDED`, `Last updated` is today's date, and `Superseded
-  by` links the successor.
+- `Status` MUST be `SUPERSEDED`, `Last updated` MUST be today's date, and
+  `Superseded by` MUST link the successor.
 
-- The successor's `Supersedes` field links back to this RFC.
+- The successor's `Supersedes` field MUST link back to this RFC.
 
-- The PR carries `#superseded` (and its category label).
+- The PR MUST carry `#superseded` (and its category label).
 
 ## Instructions
 

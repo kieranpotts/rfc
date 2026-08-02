@@ -35,19 +35,16 @@ You will achieve the following outcomes:
 <!-- The RFC document updated to `Status: ACCEPTED` with `Decided by` and
 `Decision date` filled in, the PR carrying `#accepted` and left open. -->
 
-- `Status` is `ACCEPTED`, `Last updated` is today's date, and `Decided by` /
-  `Decision date` are filled in.
+- `Status` MUST be `ACCEPTED`, `Last updated` MUST be today's date, and
+  `Decided by` / `Decision date` MUST be filled in.
 
-- The PR carries `#accepted` (and its category label), not `#proposed`, and
-  remains open.
+- The PR MUST carry `#accepted` (and its category label), not `#proposed`,
+  and MUST remain open.
 
-- The associated discussion thread remains open.
+- The associated discussion thread MUST remain open, and MUST be closed only
+  when the PR is merged at implementation.
 
-  It is closed when the PR is merged at implementation.
-
-- No number has been assigned.
-
-  That waits for implementation.
+- A number MUST NOT be assigned yet — that waits for implementation.
 
 ## Instructions
 

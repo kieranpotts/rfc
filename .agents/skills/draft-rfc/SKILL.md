@@ -36,15 +36,15 @@ the template and its metadata header filled in (`Status: DRAFT`), committed
 to a draft pull request opened against `main`, carrying exactly one category
 label, with a linked discussion thread. -->
 
-- Branch `rfc/<slug>` exists and is checked out.
+- Branch `rfc/<slug>` MUST exist and MUST be checked out.
 
-- `rfc/<category>/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the
-  metadata header filled in and `Status: DRAFT`.
+- `rfc/<category>/<slug>/README.md` MUST exist, a copy of `TEMPLATE.md` with
+  the metadata header filled in and `Status: DRAFT`.
 
-- A draft pull request titled `rfc: <short lowercase rfc description>` is
-  open, carrying exactly one category label and no lifecycle label.
+- A draft pull request titled `rfc: <short lowercase rfc description>` MUST
+  be open, carrying exactly one category label and no lifecycle label.
 
-- An associated discussion thread is open, linked from the document's
+- An associated discussion thread MUST be open, linked from the document's
   `Discussion thread` field and from the PR.
 
 ## Instructions

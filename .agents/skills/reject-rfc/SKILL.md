@@ -36,16 +36,16 @@ You will achieve the following outcomes:
 and squash-merged into `main`, its discussion thread closed, and a new
 numbered row appended to `rfc/INDEX.md`. -->
 
-- `Status` is `REJECTED` and `Last updated` is today's date.
+- `Status` MUST be `REJECTED` and `Last updated` MUST be today's date.
 
-- The PR carries `#rejected` (and its category label).
+- The PR MUST carry `#rejected` (and its category label).
 
-- The associated discussion thread is closed.
+- The associated discussion thread MUST be closed.
 
-- The user has explicitly confirmed the rejection before any changes were
-  made.
+- The user MUST have explicitly confirmed the rejection before any changes
+  were made.
 
-- After merge: an `rfc/INDEX.md` entry is added on `main`, with the next
+- After merge, an `rfc/INDEX.md` entry MUST be added on `main`, with the next
   sequential number.
 
 ## Instructions
