@@ -29,8 +29,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- A `rfc/<slug>` branch, with `rfc/<category>/<slug>/README.md` created from
 the template and its metadata header filled in (`Status: DRAFT`), committed
 to a draft pull request opened against `main`, carrying exactly one category

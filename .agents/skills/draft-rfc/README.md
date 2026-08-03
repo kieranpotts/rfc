@@ -11,6 +11,10 @@ Sets the status to `DRAFT`.
 
 > Draft RFC
 
+> New RFC
+
+> Start an RFC
+
 > We will adopt event sourcing for our audit log architecture - draft an RFC.
 
 ## Recommended models

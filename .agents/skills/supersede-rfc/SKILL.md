@@ -27,8 +27,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- The succeeded RFC's document updated to `Status: SUPERSEDED` with a
 `Superseded by` link, the successor's `Supersedes` field linked back, the
 `rfc/INDEX.md` row updated, and the old PR carrying `#superseded`. -->

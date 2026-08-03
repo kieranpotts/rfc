@@ -9,6 +9,16 @@ the `main` trunk.
 
 > Complete RFC
 
+> Implement this RFC
+
+> Implement RFC
+
+> This RFC is implemented
+
+> The tooling is in place
+
+> The infrastructure is built
+
 > Event sourcing for audit log has been implemented.
 
 ## Recommended models

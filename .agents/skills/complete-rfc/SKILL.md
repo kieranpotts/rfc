@@ -34,8 +34,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- The RFC document updated to `Status: IMPLEMENTED`, the PR carrying
 `#implemented` and squash-merged into `main`, its discussion thread closed,
 and a new numbered row appended to `rfc/INDEX.md`. -->

@@ -9,6 +9,12 @@ request open until the decision is implemented.
 
 > Accept RFC
 
+> Accept this RFC
+
+> Approve this RFC
+
+> Mark this RFC as accepted
+
 > Accept the RFC for using event sourcing for the audit log
 
 ## Recommended models

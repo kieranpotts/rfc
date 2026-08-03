@@ -29,8 +29,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- The RFC document updated to `Status: PROPOSED`, the PR carrying `#proposed`
 and taken out of draft. -->
 

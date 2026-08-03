@@ -9,6 +9,12 @@ the decision.
 
 > Reject RFC
 
+> Reject this RFC
+
+> The RFC was not accepted
+
+> The RFC was not approved
+
 > Reject event sourcing for audit log
 
 ## Recommended models

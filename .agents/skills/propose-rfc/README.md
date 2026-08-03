@@ -9,6 +9,14 @@ for stakeholder review.
 
 > Propose RFC
 
+> Propose this RFC
+
+> Take this RFC out of draft
+
+> Mark the RFC as ready
+
+> Progress this RFC to the next stage
+
 > This RFC is ready for stakeholder review.
 
 ## Recommended models
