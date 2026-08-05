@@ -6,10 +6,8 @@ description: >-
   "this RFC is ready for review", "mark the RFC as ready",
   "take this RFC out of draft", "progress this RFC to the next stage", or
   "propose RFC".
+compatibility: requires Read, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_STANDARD
 ---
 
 # Propose RFC

@@ -4,10 +4,8 @@ description: >-
   Draft a new RFC. Use this skill when the user wants to make a new
   architecture, process, technology, or tooling decision, or says something like
   "draft an RFC", "new RFC", or "start an RFC".
+compatibility: requires Read, Write, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/PROSE_DEEP
 ---
 
 # Draft RFC

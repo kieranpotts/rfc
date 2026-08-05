@@ -6,10 +6,8 @@ description: >-
   "complete RFC", "implement this RFC", "this RFC is implemented",
   "the tooling is in place", "the infrastructure is built", "implement RFC",
   or "<topic> has been implemented".
+compatibility: requires Read, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_STANDARD
 ---
 
 # Complete RFC

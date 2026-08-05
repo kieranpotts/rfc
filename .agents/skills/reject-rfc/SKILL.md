@@ -4,10 +4,8 @@ description: >-
   Reject a proposed RFC. Use this skill when the user says "reject this
   RFC", "the RFC was not accepted", "the RFC was not approved", "reject RFC",
   "reject <topic>", or advances a proposal to rejected.
+compatibility: requires Read, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_STANDARD
 ---
 
 # Reject RFC
