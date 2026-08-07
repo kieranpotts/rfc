@@ -5,81 +5,93 @@ description: >-
   are in place. Use this skill when the user says something like
   "complete RFC", "implement this RFC", "this RFC is implemented",
   "the tooling is in place", "the infrastructure is built", "implement RFC",
-  or "<topic> has been implemented".
-compatibility: requires Read, Edit, Bash (git/gh)
+  or "<topic> has been implemented". Do not use this skill to carry out the
+  implementation work itself.
+compatibility: >-
+  requires Read, Edit, Glob, Bash (git, gh)
 license: CC0-1.0
 ---
 
 # Complete RFC
 
-Use this skill to transition an RFC from `ACCEPTED` to `IMPLEMENTED`, once
-all the tooling and infrastructure the decision calls for are in place.
-This is the point at which the RFC's pull request is squash-merged into
-`main` and the RFC is assigned its number in the
-[RFC index](../../../rfc/INDEX.md).
-
-An accepted RFC is a settled decision whose pull request stays open through
-the implementation phase.
+Transition an RFC from `ACCEPTED` to `IMPLEMENTED`, once all the tooling and
+infrastructure the decision calls for are in place. This is the point at which
+the RFC's pull request is squash-merged into `main` and the RFC is assigned its
+number in the index. Do not build the tooling or infrastructure yourself.
 
 ## Parameters
 
 Determine the following information from the surrounding context and
-environment, if possible.
+environment, if possible. If you're uncertain about the required parameters,
+prompt the user for clarification.
 
-- **Target — REQUIRED.** Infer the RFC from the checked-out branch
-  (`rfc/<slug>`). If on `main`, use the user's description, or list the open
-  `#accepted` pull requests and ask the user to choose.
+- **Target — REQUIRED.** The RFC to complete. Infer it from the checked-out
+  branch (`rfc/<slug>`). If on `main`, use the user's description, or list the
+  open `#accepted` pull requests and ask the user to choose.
 
 ## Success criteria
 
-<!-- The RFC document updated to `Status: IMPLEMENTED`, the PR carrying
-`#implemented` and squash-merged into `main`, its discussion thread closed,
-and a new numbered row appended to `rfc/INDEX.md`. -->
+- The document's `Status` field MUST be `IMPLEMENTED` and `Last updated` MUST
+  be today's date.
 
-- `Status` MUST be `IMPLEMENTED` and `Last updated` MUST be today's date.
+- The pull request MUST carry `#implemented` alongside its category label, and
+  MUST NOT carry `#accepted`.
 
-- The PR MUST carry `#implemented` (and its category label), not `#accepted`.
+- The pull request MUST be squash-merged into `main` with the message
+  `rfc: <short lowercase rfc description> - IMPLEMENTED`, and its branch
+  deleted upstream.
 
-- The RFC document MUST be squash-merged into `main`.
+- The discussion thread MUST be closed as resolved.
 
-- The associated discussion thread MUST be closed.
+- A row for the RFC MUST have been added to `rfc/INDEX.md` on `main`, with
+  the next sequential number and `IMPLEMENTED` status.
 
-- After merge, an `rfc/INDEX.md` entry MUST be added on `main`, with the next
-  sequential number and `IMPLEMENTED` status.
+- No repository outside this one MUST have been touched. The tooling and
+  infrastructure are built elsewhere, and this skill only records that they
+  are in place.
 
 ## Instructions
 
 1.  Identify the RFC and confirm it is `ACCEPTED`.
 
-    Infer the target from the current checked-out branch (`rfc/<slug>`). If
-    on `main`, use the user's description to infer the target RFC if they
-    gave one, otherwise list the open `#accepted` pull requests and ask the
-    user to choose:
+    Infer the target from the checked-out branch (`rfc/<slug>`). If on
+    `main`, use the user's description to infer the target if they gave one;
+    otherwise list the open `#accepted` pull requests and ask the user to
+    choose:
 
     ```sh
     gh pr list --label "#accepted" --json number,title,headRefName
     ```
 
-    Read the document. Check `Status` is `ACCEPTED` and the PR carries
-    `#accepted` (`gh pr view <number> --json labels`).
+    Check out the branch, then resolve the document by globbing
+    `rfc/*/<slug>/README.md` — the category directory is not recoverable from
+    the slug alone. Read it, and check its `Status` field is `ACCEPTED` and
+    the pull request carries `#accepted`:
+
+    ```sh
+    gh pr view <number> --json labels
+    ```
 
 2.  Verify the rules.
 
-    Report any unmet rule and stop.
+    Report any failure and stop without changing anything.
 
 3.  Update the document.
 
-    - Set `Status` to `IMPLEMENTED` and `Last updated` to today's date.
+    - Set the `Status` field to `IMPLEMENTED` and `Last updated` to today's
+      date.
     - Confirm `Implementation trackers` are linked.
+    - Reconcile any drift discovered during implementation back into the
+      document, so the merged record describes the decision as it was
+      actually realized. This is the last point at which that is permitted.
 
-4.  Switch the state label.
+4.  Switch the lifecycle label.
 
     ```sh
     gh pr edit <number> --add-label "#implemented" --remove-label "#accepted"
     ```
 
-    This swaps only the lifecycle label. Leave the category label, eg.
-    `TOOLING`, in place.
+    Leave the category label in place, eg. `TOOLING`.
 
 5.  Commit and push.
 
@@ -93,11 +105,9 @@ and a new numbered row appended to `rfc/INDEX.md`. -->
 
 6.  Merge the pull request.
 
-    The RFC document is now ready to land on `main`. Confirm with the user
-    that the PR is ready to merge — do not merge without explicit
-    instruction. Once confirmed, squash-merge it with the message `rfc: <short
-    lowercase rfc description> - IMPLEMENTED`, and delete the source branch on
-    the upstream repository:
+    Confirm with the user that the pull request is ready to merge into `main`
+    — do not merge without explicit instruction. Once confirmed, squash-merge
+    it and delete the source branch upstream:
 
     ```sh
     gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - IMPLEMENTED" --delete-branch
@@ -105,21 +115,18 @@ and a new numbered row appended to `rfc/INDEX.md`. -->
 
 7.  Delete the branch, if it was not deleted automatically.
 
-    In case the branch was not automatically deleted from the upstream
-    repository, delete it directly:
-
     ```sh
     git push origin --delete rfc/<slug>
     ```
 
-8.  Close the associated discussion thread.
+8.  Close the discussion thread.
 
     The RFC has merged, so its discussion is now closed. Find the discussion
-    linked in the RFC's `Discussion thread` field, look up its node ID, and
-    close it as resolved — `gh` has no native discussion command, so use the
-    GraphQL API:
+    linked from the document's `Discussion thread` field, look up its node
+    ID, and close it as resolved — `gh` has no native discussion command, so
+    use the GraphQL API:
 
-    ```gh
+    ```sh
     gh api graphql -f query='
       query($owner:String!, $name:String!, $number:Int!) {
         repository(owner:$owner, name:$name) { discussion(number:$number) { id } }
@@ -131,57 +138,49 @@ and a new numbered row appended to `rfc/INDEX.md`. -->
       }' -F id=<discussionId>
     ```
 
-9.  After merge, assign the number.
+9.  After merge, assign the RFC number.
 
-    The RFC number is assigned only after merge. On `main`, find the highest
-    number in [RFC index](../../../rfc/INDEX.md), increment by one, zero-pad
-    to four digits (eg. `0006` → `0007`), and add a row for this RFC — its
-    number, title, category, `IMPLEMENTED` status, the RFC's `Decision date`
-    (its approval date), and a link to its directory
+    The number is assigned only after merge. On `main`, find the highest
+    number in [the RFC index](../../../rfc/INDEX.md), increment by one, and
+    zero-pad to four digits (eg. `0006` → `0007`). Add a row for this RFC —
+    its number, title, category, `IMPLEMENTED` status, its `Decision date`
+    (the approval date), and a link to its directory
     (`rfc/<category>/<slug>/`).
 
     Commit this directly to `main`, and push:
 
     ```sh
+    git checkout main
+    git pull --rebase
     git commit -am "chore: assign rfc <number>"
     git push
     ```
 
-    An implemented RFC stays in effect until a later RFC supersedes it.
+10. Report what you did, naming the number the RFC was assigned. An
+    implemented RFC stays in effect until a later RFC replaces its decision.
 
 ## Rules
 
-- You MUST NOT implement an RFC that is not currently `ACCEPTED`.
+- You MUST NOT complete an RFC that is not currently `ACCEPTED`.
 
-  Never implement a draft, proposed, or rejected RFC.
+  Never merge a draft, a proposal still under review, or a rejected RFC
+  through this route.
 
-- The tooling and infrastructure MUST be in place.
+- The tooling and infrastructure MUST genuinely be in place.
 
-  Everything the decision calls for — the tools, automation,
-  infrastructure, configuration, or conventions — has actually been built
-  and put into effect, not merely planned.
+  Everything the decision calls for — tools, automation, infrastructure,
+  configuration, conventions — has actually been built and put into effect,
+  not merely planned. That is what keeps the archive honest: `IMPLEMENTED`
+  has to mean the reader can go and find the thing.
+
+- Every RFC listed under `Depends on` MUST itself be implemented.
+
+  A decision cannot be in effect while a decision it rests on is not.
 
 - The RFC document MUST reflect the decision as carried out.
 
-  Any drift discovered during implementation has been reconciled back into
-  the document, so the merged record describes the decision as it was
-  actually realized.
-
-- Blocking RFCs MUST be resolved.
-
-  Every RFC listed under `Depends on` is itself implemented.
-
-- You MUST NOT mark an RFC implemented until the tooling and infrastructure
-  it calls for are genuinely in place.
-
-  That is what keeps the archive honest.
-
-- You MUST NOT change RFC document fields other than `Status`, `Last
-  updated`, cross-references, and implementation trackers once merged.
-
-  Once merged at `#implemented`, only the `Status` field, `Last updated`
-  date, cross-references to related RFCs, and implementation trackers may
-  change.
+  Any drift discovered during implementation is reconciled back into the
+  document before the merge.
 
 - You MUST push before merging.
 
@@ -190,3 +189,12 @@ and a new numbered row appended to `rfc/INDEX.md`. -->
   RFC still reading `ACCEPTED`.
 
 - You MUST NOT merge without explicit instruction from the user.
+
+  Confirm the pull request is ready to merge before running the merge
+  command.
+
+- Once merged, you MUST NOT change any document field other than `Status`,
+  `Last updated`, cross-references, and implementation trackers.
+
+  The merged record is immutable in every other respect. To change a decision
+  already in effect, draft a new RFC that replaces it.

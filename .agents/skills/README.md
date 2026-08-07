@@ -6,7 +6,8 @@ via AI agents.
 - **[draft-rfc](./draft-rfc/):** \
   Scaffolds a new RFC proposal, ready for the user to write up.
   Cuts an `rfc/<slug>` branch from `main`, prepares a fresh RFC from the
-  template, and opens a pull request in a draft state.
+  template, opens a pull request in a draft state, and opens the discussion
+  thread where review feedback will be gathered.
   Sets the status to `DRAFT`.
 
 - **[propose-rfc](./propose-rfc/):** \
@@ -31,7 +32,8 @@ via AI agents.
 
 - **[supersede-rfc](./supersede-rfc/):** \
   Handles the `IMPLEMENTED` → `SUPERSEDED` transition.
-  Retires an implemented RFC once a later RFC has replaced its decision.
+  Retires an implemented RFC once a later, implemented RFC has replaced its
+  decision.
 
 ## Workflow
 
