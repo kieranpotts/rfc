@@ -38,7 +38,7 @@ prompt the user for clarification.
   MUST NOT carry `#accepted`.
 
 - The pull request MUST be squash-merged into `main` with the message
-  `rfc: <short lowercase rfc description> - IMPLEMENTED`, and its branch
+  `update: <short lowercase rfc description> - IMPLEMENTED`, and its branch
   deleted upstream.
 
 - The discussion thread MUST be closed as resolved.
@@ -99,7 +99,7 @@ prompt the user for clarification.
     branch, so an unpushed commit would leave `Status: IMPLEMENTED` behind.
 
     ```sh
-    git commit -am "implement: <short lowercase rfc description>"
+    git commit -am "update: <short lowercase rfc description>"
     git push
     ```
 
@@ -110,7 +110,7 @@ prompt the user for clarification.
     it and delete the source branch upstream:
 
     ```sh
-    gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - IMPLEMENTED" --delete-branch
+    gh pr merge <number> --squash --subject "update: <short lowercase rfc description> - IMPLEMENTED" --delete-branch
     ```
 
 7.  Delete the branch, if it was not deleted automatically.

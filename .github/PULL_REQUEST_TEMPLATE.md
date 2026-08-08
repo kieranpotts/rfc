@@ -61,7 +61,7 @@ transition to `IMPLEMENTED`:
 Checklist for merging the PR (a `REJECTED` RFC merges straight away; an
 `IMPLEMENTED` one merges here):
 
-- [ ] Squash-merge the PR, with a message of the form `rfc: <description> -
+- [ ] Squash-merge the PR, with a message of the form `update: <description> -
   IMPLEMENTED|REJECTED`.
 - [ ] Close the discussion thread.
 

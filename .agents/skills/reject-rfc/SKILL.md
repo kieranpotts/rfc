@@ -43,8 +43,8 @@ prompt the user for clarification.
   MUST NOT carry `#proposed`.
 
 - The pull request MUST be squash-merged into `main` with the message
-  `rfc: <short lowercase rfc description> - REJECTED`, and its branch deleted
-  upstream.
+  `update: <short lowercase rfc description> - REJECTED`, and its branch
+  deleted upstream.
 
 - The discussion thread MUST be closed as resolved.
 
@@ -100,7 +100,7 @@ prompt the user for clarification.
     branch, so an unpushed commit would leave `Status: REJECTED` behind.
 
     ```sh
-    git commit -am "reject: <short lowercase rfc description>"
+    git commit -am "update: <short lowercase rfc description>"
     git push
     ```
 
@@ -111,7 +111,7 @@ prompt the user for clarification.
     it and delete the source branch upstream:
 
     ```sh
-    gh pr merge <number> --squash --subject "rfc: <short lowercase rfc description> - REJECTED" --delete-branch
+    gh pr merge <number> --squash --subject "update: <short lowercase rfc description> - REJECTED" --delete-branch
     ```
 
 7.  Delete the branch, if it was not deleted automatically.

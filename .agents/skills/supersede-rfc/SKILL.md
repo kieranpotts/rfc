@@ -96,7 +96,7 @@ prompt the user for clarification.
     ```sh
     git checkout main
     git pull --rebase
-    git commit -am "supersede: <short lowercase description of superseded rfc>"
+    git commit -am "update: <short lowercase description of superseded rfc>"
     git push
     ```
 

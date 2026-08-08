@@ -106,7 +106,7 @@ prompt the user for clarification.
     decision was taken.
 
     ```sh
-    git commit -am "accept: <short lowercase rfc description>"
+    git commit -am "update: <short lowercase rfc description>"
     git push
     ```
 

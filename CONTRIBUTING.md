@@ -104,7 +104,7 @@ agreed design and rationale.
 4.  Add supporting artifacts – OPTIONAL. The RFC lives in its own directory, so
     you may add architectural diagrams, benchmarks, etc.
 
-5.  Commit your changes and open a pull request titled `rfc: <description>`,
+5.  Commit your changes and open a pull request titled `create: <description>`,
     initially as a draft. Apply one category label to the pull request:
 
     - `ARCHITECTURE`: A decision about system design, structure, or
@@ -144,8 +144,8 @@ agreed design and rationale.
     `#rejected` instead. The workflow diverges here, depending on the outcome:
 
     - If rejected, squash-merge the PR straight away (its message takes the
-      form `rfc: <description> - REJECTED`) and delete the branch. Skip to the
-      final step to assign its number.
+      form `update: <description> - REJECTED`) and delete the branch. Skip to
+      the final step to assign its number.
 
     - If accepted, keep the PR open while any work necessary to implement
       the proposal is undertaken. Open other issues against other repositories
@@ -157,7 +157,7 @@ agreed design and rationale.
     `IMPLEMENTED`, and confirm the implementation trackers are linked. Remove
     the `#accepted` label and apply the `#implemented` label instead.
     Squash-merge the PR (its message takes the form
-    `rfc: <description> - IMPLEMENTED`). Delete the branch, if it is
+    `update: <description> - IMPLEMENTED`). Delete the branch, if it is
     not automatically deleted.
 
 14. Once a decided RFC has been merged into `main`, update the

@@ -38,8 +38,8 @@ prompt the user for clarification.
 - `rfc/<category>/<slug>/README.md` MUST exist, a copy of `rfc/TEMPLATE.md`
   with the metadata header filled in and its `Status` field set to `DRAFT`.
 
-- A draft pull request titled `rfc: <short lowercase rfc description>` MUST be
-  open, carrying exactly one category label and no lifecycle label.
+- A draft pull request titled `create: <short lowercase rfc description>` MUST
+  be open, carrying exactly one category label and no lifecycle label.
 
 - A discussion thread MUST be open, linked from the document's
   `Discussion thread` field and from the pull request body.
@@ -94,9 +94,9 @@ prompt the user for clarification.
 
     ```sh
     git add rfc/<category>/<slug>/
-    git commit -m "draft: <short lowercase rfc description>"
+    git commit -m "create: <short lowercase rfc description>"
     git push -u origin rfc/<slug>
-    gh pr create --draft --title "rfc: <short lowercase rfc description>" --fill
+    gh pr create --draft --title "create: <short lowercase rfc description>" --fill
     ```
 
     Record the returned PR number in the document's `PR` field. The readiness

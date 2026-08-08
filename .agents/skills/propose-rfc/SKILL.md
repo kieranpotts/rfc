@@ -88,7 +88,7 @@ prompt the user for clarification.
     so an unpushed commit leaves the pull request still reading `DRAFT`.
 
     ```sh
-    git commit -am "propose: <short lowercase rfc description>"
+    git commit -am "update: <short lowercase rfc description>"
     git push
     ```
 
