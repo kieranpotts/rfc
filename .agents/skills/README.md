@@ -39,13 +39,13 @@ via AI agents.
 
 ```mermaid
 flowchart LR
-  draft["🤖<br/><b>draft-rfc</b>"]:::agentic
+  draft["🤖🧑<br/><b>draft-rfc</b>"]:::anthropic
   write["🧑<br/>write RFC"]:::anthropic
-  propose["🤖<br/><b>propose-rfc</b>"]:::agentic
-  accept["🤖<br/><b>accept-rfc</b>"]:::agentic
-  reject["🤖<br/><b>reject-rfc</b>"]:::agentic
-  complete["🤖<br/><b>complete-rfc</b>"]:::agentic
-  supersede["🤖<br/><b>supersede-rfc</b>"]:::agentic
+  propose["🤖🧑<br/><b>propose-rfc</b>"]:::anthropic
+  accept["🤖🧑<br/><b>accept-rfc</b>"]:::anthropic
+  reject["🤖🧑<br/><b>reject-rfc</b>"]:::anthropic
+  complete["🤖🧑<br/><b>complete-rfc</b>"]:::anthropic
+  supersede["🤖🧑<br/><b>supersede-rfc</b>"]:::anthropic
 
   draft ==> write
   write ==> propose
@@ -56,7 +56,7 @@ flowchart LR
 
   classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px
   classDef scripted fill:#e2e3e5,stroke:#4b5157,color:#383d41,stroke-width:2px
-  classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
+  classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:1px,stroke-dasharray:2 3
 ```
 
 The skills in this project are focused on the mechanics of managing the lifecycle
