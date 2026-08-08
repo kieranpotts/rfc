@@ -156,3 +156,13 @@ prompt the user for clarification.
   This skill records a relationship between two RFCs that already exist. A
   successor that has not been written yet has to go through the full
   lifecycle first.
+
+## Edge cases
+
+- The direct push to `main` in step 6 is rejected by branch protection.
+
+  Where `main` is protected against direct pushes even though both RFCs are
+  already merged and settled, open a small pull request carrying the same
+  commit instead, merge it immediately, and tell the user this fallback was
+  needed, since it means `main` is protected in a way this skill did not
+  expect going in.
