@@ -19,7 +19,7 @@ The RFCs, SRS, and design docs are managed by the technical teams and follow
 similar change management workflows.
 
 > [!NOTE]
-> See also [TS-3](https://github.com/kieranpotts/standards/tree/latest/dev/src/003),
+> See also [TS-3](https://kieranpotts.com/standards/003),
 > a technical standard covering design docs, RFCs, and architecture audits.
 > This repository is its reference implementation for RFCs.
 

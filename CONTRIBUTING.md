@@ -13,7 +13,7 @@ Anyone with write access to this repository may contribute to the technical
 direction of the project by submitting technical proposals and requesting
 comments on them.
 
-See also [TS-3](https://github.com/kieranpotts/standards/tree/latest/dev/src/003)
+See also [TS-3](https://kieranpotts.com/standards/003)
 for the technical standard that underpins this process.
 
 ****
