@@ -14,16 +14,16 @@ or run.
 
 ## Project structure
 
-- **`rfc/`:** The permanent, append-only archive of every RFC, including
+- `rfc/`. The permanent, append-only archive of every RFC, including
   rejected ones. Each RFC is a directory (`rfc/<category>/<slug>/`) with a
   `README.md` file being the entry point.
 
-  - **`rfc/INDEX.md`** is the numbered catalog of implemented, rejected, and
+  - `rfc/INDEX.md` is the numbered catalog of implemented, rejected, and
     superseded RFCs.
 
-  - **`rfc/TEMPLATE.md`** is the starting point for a new RFC.
+  - `rfc/TEMPLATE.md` is the starting point for a new RFC.
 
-- **`docs/`:** General guidelines for humans to get the most out of the RFC
+- `docs/`. General guidelines for humans to get the most out of the RFC
   process.
 
 ## Lifecycle
@@ -45,7 +45,7 @@ than relying on your memory of a prior state of the rules.
 
 ## Skills
 
-The **`.agents/skills/`** directory provides on-demand skills for managing the
+The `.agents/skills/` directory provides on-demand skills for managing the
 lifecycle of an RFC. See the [README](./.agents/skills/README.md) for
 descriptions of the available skills and their triggers.
 
