@@ -25,8 +25,8 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Target — REQUIRED.** The RFC to accept. Infer it from the checked-out
-  branch (`rfc/<slug>`). If on `main`, use the user's description, or list the
-  open `#proposed` pull requests and ask the user to choose.
+  branch (`latest/rfc/<slug>`). If on `latest/main`, use the user's description,
+  or list the open `#proposed` pull requests and ask the user to choose.
 
 - **Decision date — OPTIONAL.** The date the approval was given. Assume today
   if the user does not say otherwise.
@@ -52,8 +52,8 @@ prompt the user for clarification.
 
 1.  Identify the RFC and confirm it is `PROPOSED`.
 
-    Infer the target from the checked-out branch (`rfc/<slug>`). If on
-    `main`, use the user's description to infer the target if they gave one;
+    Infer the target from the checked-out branch (`latest/rfc/<slug>`). If on
+    `latest/main`, use the user's description to infer the target if they gave one;
     otherwise list the open `#proposed` pull requests and ask the user to
     choose:
 

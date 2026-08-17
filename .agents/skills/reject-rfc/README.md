@@ -3,9 +3,9 @@
 Handles the `PROPOSED` → `REJECTED` transition.
 
 Records the rejection in the RFC document, swaps the pull request's lifecycle
-label to `#rejected`, merges the document into `main` as a permanent record of
-the decision, closes the discussion thread, and assigns the RFC its number in
-the index.
+label to `#rejected`, merges the document into `latest/main` as a permanent
+record of the decision, closes the discussion thread, and assigns the RFC its
+number in the index.
 
 The agent is told never to delete a rejected RFC. The archive keeps every
 decision, including the ones that went the other way, so the same ground is

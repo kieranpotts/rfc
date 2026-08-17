@@ -44,7 +44,7 @@ requires a bit more effort.
 
 - [**complete-rfc**](../complete-rfc/) \
   Picks the RFC up once the tooling and infrastructure the decision calls for
-  are in place, and lands it in `main`.
+  are in place, and lands it in `latest/main`.
 
 ## References
 

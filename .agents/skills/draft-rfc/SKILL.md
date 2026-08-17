@@ -33,7 +33,7 @@ prompt the user for clarification.
 
 ## Success criteria
 
-- Branch `rfc/<slug>` MUST exist and MUST be checked out.
+- Branch `latest/rfc/<slug>` MUST exist and MUST be checked out.
 
 - `rfc/<category>/<slug>/README.md` MUST exist, a copy of `rfc/TEMPLATE.md`
   with the metadata header filled in and its `Status` field set to `DRAFT`.
@@ -68,9 +68,9 @@ prompt the user for clarification.
 3.  Create the branch.
 
     ```sh
-    git checkout main
+    git checkout latest/main
     git pull --rebase
-    git checkout -b rfc/<slug>
+    git checkout -b latest/rfc/<slug>
     ```
 
 4.  Create the RFC from the template.
@@ -95,7 +95,7 @@ prompt the user for clarification.
     ```sh
     git add rfc/<category>/<slug>/
     git commit -m "create: <short lowercase rfc description>"
-    git push -u origin rfc/<slug>
+    git push -u origin latest/rfc/<slug>
     gh pr create --draft --title "create: <short lowercase rfc description>" --fill
     ```
 
@@ -176,10 +176,10 @@ prompt the user for clarification.
   recommend drafting a separate RFC branch for each. Each RFC has to be
   reviewable, decidable, and mergeable on its own.
 
-- You MUST branch from `main`, not from any other branch.
+- You MUST branch from `latest/main`, not from any other branch.
 
-  RFCs are always cut from `main`. If the local `main` is behind the remote,
-  pull first, rebasing to keep the history linear.
+  RFCs are always cut from `latest/main`. If the local `latest/main` is behind
+  the remote, pull first, rebasing to keep the history linear.
 
 - You MUST open the pull request as a draft.
 
@@ -196,8 +196,8 @@ prompt the user for clarification.
 - You MUST NOT assign an RFC number.
 
   Numbers are assigned in `rfc/INDEX.md` only when an RFC's pull request is
-  merged into `main` — at `IMPLEMENTED` for a decision that is carried out,
-  or at `REJECTED` for one that is not taken forward.
+  merged into `latest/main` — at `IMPLEMENTED` for a decision that is carried
+  out, or at `REJECTED` for one that is not taken forward.
 
 - You MUST NOT write the RFC's prose sections.
 

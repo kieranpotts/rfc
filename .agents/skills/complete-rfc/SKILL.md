@@ -16,8 +16,9 @@ license: CC0-1.0
 
 Transition an RFC from `ACCEPTED` to `IMPLEMENTED`, once all the tooling and
 infrastructure the decision calls for are in place. This is the point at which
-the RFC's pull request is squash-merged into `main` and the RFC is assigned its
-number in the index. Do not build the tooling or infrastructure yourself.
+the RFC's pull request is squash-merged into `latest/main` and the RFC is
+assigned its number in the index. Do not build the tooling or infrastructure
+yourself.
 
 ## Parameters
 
@@ -26,8 +27,8 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Target — REQUIRED.** The RFC to complete. Infer it from the checked-out
-  branch (`rfc/<slug>`). If on `main`, use the user's description, or list the
-  open `#accepted` pull requests and ask the user to choose.
+  branch (`latest/rfc/<slug>`). If on `latest/main`, use the user's description,
+  or list the open `#accepted` pull requests and ask the user to choose.
 
 ## Success criteria
 
@@ -37,14 +38,14 @@ prompt the user for clarification.
 - The pull request MUST carry `#implemented` alongside its category label, and
   MUST NOT carry `#accepted`.
 
-- The pull request MUST be squash-merged into `main` with the message
+- The pull request MUST be squash-merged into `latest/main` with the message
   `update: <short lowercase rfc description> - IMPLEMENTED`, and its branch
   deleted upstream.
 
 - The discussion thread MUST be closed as resolved.
 
-- A row for the RFC MUST have been added to `rfc/INDEX.md` on `main`, with
-  the next sequential number and `IMPLEMENTED` status.
+- A row for the RFC MUST have been added to `rfc/INDEX.md` on `latest/main`,
+  with the next sequential number and `IMPLEMENTED` status.
 
 - No repository outside this one MUST have been touched. The tooling and
   infrastructure are built elsewhere, and this skill only records that they
@@ -54,9 +55,9 @@ prompt the user for clarification.
 
 1.  Identify the RFC and confirm it is `ACCEPTED`.
 
-    Infer the target from the checked-out branch (`rfc/<slug>`). If on
-    `main`, use the user's description to infer the target if they gave one;
-    otherwise list the open `#accepted` pull requests and ask the user to
+    Infer the target from the checked-out branch (`latest/rfc/<slug>`). If on
+    `latest/main`, use the user's description to infer the target if they gave
+    one; otherwise list the open `#accepted` pull requests and ask the user to
     choose:
 
     ```sh
@@ -105,9 +106,9 @@ prompt the user for clarification.
 
 6.  Merge the pull request.
 
-    Confirm with the user that the pull request is ready to merge into `main`
-    — do not merge without explicit instruction. Once confirmed, squash-merge
-    it and delete the source branch upstream:
+    Confirm with the user that the pull request is ready to merge into
+    `latest/main` — do not merge without explicit instruction. Once confirmed,
+    squash-merge it and delete the source branch upstream:
 
     ```sh
     gh pr merge <number> --squash --subject "update: <short lowercase rfc description> - IMPLEMENTED" --delete-branch
@@ -116,7 +117,7 @@ prompt the user for clarification.
 7.  Delete the branch, if it was not deleted automatically.
 
     ```sh
-    git push origin --delete rfc/<slug>
+    git push origin --delete latest/rfc/<slug>
     ```
 
 8.  Close the discussion thread.
@@ -140,17 +141,17 @@ prompt the user for clarification.
 
 9.  After merge, assign the RFC number.
 
-    The number is assigned only after merge. On `main`, find the highest
+    The number is assigned only after merge. On `latest/main`, find the highest
     number in [the RFC index](../../../rfc/INDEX.md), increment by one, and
     zero-pad to four digits (eg. `0006` → `0007`). Add a row for this RFC —
     its number, title, category, `IMPLEMENTED` status, its `Decision date`
     (the approval date), and a link to its directory
     (`rfc/<category>/<slug>/`).
 
-    Commit this directly to `main`, and push:
+    Commit this directly to `latest/main`, and push:
 
     ```sh
-    git checkout main
+    git checkout latest/main
     git pull --rebase
     git commit -am "chore: assign rfc <number>"
     git push
@@ -185,8 +186,8 @@ prompt the user for clarification.
 - You MUST push before merging.
 
   `gh pr merge` merges what is on the remote. A status change committed
-  locally but not pushed is silently dropped from `main`, leaving the merged
-  RFC still reading `ACCEPTED`.
+  locally but not pushed is silently dropped from `latest/main`, leaving the
+  merged RFC still reading `ACCEPTED`.
 
 - You MUST NOT merge without explicit instruction from the user.
 
@@ -201,12 +202,12 @@ prompt the user for clarification.
 
 ## Edge cases
 
-- The direct push to `main` in step 9 is rejected by branch protection.
+- The direct push to `latest/main` in step 9 is rejected by branch protection.
 
   That step is a deterministic, mechanical edit — the next sequential
   number — with nothing for a human reviewer to weigh in on, which is why
-  it pushes directly rather than opening a pull request. Where `main` is
+  it pushes directly rather than opening a pull request. Where `latest/main` is
   protected against direct pushes even so, open a small pull request
   carrying the same commit instead, merge it immediately, and tell the
-  user this fallback was needed, since it means `main` is protected in a
-  way this skill did not expect going in.
+  user this fallback was needed, since it means `latest/main` is protected
+  in a way this skill did not expect going in.

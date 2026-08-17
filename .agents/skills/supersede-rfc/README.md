@@ -7,7 +7,7 @@ decision. Cross-references the two documents by their index numbers, sets the
 old RFC's status to `SUPERSEDED`, updates its row in the index, and relabels
 its original pull request.
 
-Both RFCs are already merged, so the change is committed directly to `main`
+Both RFCs are already merged, so the change is committed directly to `latest/main`
 rather than through a pull request. The superseded document itself is never
 deleted or rewritten.
 

@@ -5,9 +5,9 @@ via AI agents.
 
 - **[draft-rfc](./draft-rfc/):** \
   Scaffolds a new RFC proposal, ready for the user to write up.
-  Cuts an `rfc/<slug>` branch from `main`, prepares a fresh RFC from the
-  template, opens a pull request in a draft state, and opens the discussion
-  thread where review feedback will be gathered.
+  Cuts a `latest/rfc/<slug>` branch from `latest/main`, prepares a fresh RFC
+  from the template, opens a pull request in a draft state, and opens the
+  discussion thread where review feedback will be gathered.
   Sets the status to `DRAFT`.
 
 - **[propose-rfc](./propose-rfc/):** \
@@ -23,7 +23,7 @@ via AI agents.
 - **[complete-rfc](./complete-rfc/):** \
   Handles the `ACCEPTED` → `IMPLEMENTED` transition.
   Checks the tooling and infrastructure are in place and merges the RFC into
-  the `main` trunk.
+  the `latest/main` trunk.
 
 - **[reject-rfc](./reject-rfc/):** \
   Handles the `PROPOSED` → `REJECTED` transition.

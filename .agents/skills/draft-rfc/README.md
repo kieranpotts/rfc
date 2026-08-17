@@ -2,10 +2,10 @@
 
 Scaffolds a new RFC, ready for the user to write up.
 
-Cuts an `rfc/<slug>` branch from `main`, prepares a fresh RFC document from
-the template, opens a draft pull request with its category label, and opens
-the discussion thread where review feedback will be gathered. The RFC's
-status is set to `DRAFT`.
+Cuts an `latest/rfc/<slug>` branch from `latest/main`, prepares a fresh RFC
+document from the template, opens a draft pull request with its category label,
+and opens the discussion thread where review feedback will be gathered. The
+RFC's status is set to `DRAFT`.
 
 The agent is told not to write the proposal's prose sections. That work
 belongs to the author.

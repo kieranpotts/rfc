@@ -45,9 +45,9 @@ prompt the user for clarification.
 - The superseded RFC's original pull request MUST carry `#superseded`
   alongside its category label, and MUST NOT carry `#implemented`.
 
-- All three file changes MUST have been committed directly to `main` in one
-  commit, and pushed. No branch or pull request MUST have been opened, and no
-  other field of either document MUST have changed.
+- All three file changes MUST have been committed directly to `latest/main` in
+  one commit, and pushed. No branch or pull request MUST have been opened, and
+  no other field of either document MUST have changed.
 
 ## Instructions
 
@@ -88,13 +88,13 @@ prompt the user for clarification.
 
 6.  Land the change.
 
-    Commit both documents and the index row together, directly to `main`, and
-    push. Both RFCs are already merged, and every field touched here is one
+    Commit both documents and the index row together, directly to `latest/main`,
+    and push. Both RFCs are already merged, and every field touched here is one
     of the few a merged RFC may still change — so there is nothing for a pull
     request to review:
 
     ```sh
-    git checkout main
+    git checkout latest/main
     git pull --rebase
     git commit -am "update: <short lowercase description of superseded rfc>"
     git push
@@ -127,8 +127,8 @@ prompt the user for clarification.
   old decision stops being in effect. Otherwise the archive describes a gap
   where neither decision applies.
 
-- Both RFCs MUST already be merged into `main` and MUST each carry a unique
-  number in [the RFC index](../../../rfc/INDEX.md).
+- Both RFCs MUST already be merged into `latest/main` and MUST each carry a
+  unique number in [the RFC index](../../../rfc/INDEX.md).
 
   Supersession is a relationship between two settled records, expressed by
   index number, so both numbers have to exist.
@@ -136,14 +136,14 @@ prompt the user for clarification.
 - The successor MUST be the newer of the two, carrying the higher index
   number.
 
-- The change MUST be committed directly to `main` and pushed, not routed
+- The change MUST be committed directly to `latest/main` and pushed, not routed
   through a pull request.
 
   The fields this skill touches — `Status`, `Last updated`, `Superseded by`,
   `Supersedes`, and the index row — are among the few a merged RFC may still
   change, so a pull request would have nothing to review. This matches how
   RFC numbers are assigned when an RFC is merged, which also commits straight
-  to `main`.
+  to `latest/main`.
 
 - You MUST NOT change any field of either document other than `Status`,
   `Last updated`, `Superseded by`, and `Supersedes`.
@@ -159,10 +159,10 @@ prompt the user for clarification.
 
 ## Edge cases
 
-- The direct push to `main` in step 6 is rejected by branch protection.
+- The direct push to `latest/main` in step 6 is rejected by branch protection.
 
-  Where `main` is protected against direct pushes even though both RFCs are
-  already merged and settled, open a small pull request carrying the same
+  Where `latest/main` is protected against direct pushes even though both RFCs
+  are already merged and settled, open a small pull request carrying the same
   commit instead, merge it immediately, and tell the user this fallback was
-  needed, since it means `main` is protected in a way this skill did not
+  needed, since it means `latest/main` is protected in a way this skill did not
   expect going in.

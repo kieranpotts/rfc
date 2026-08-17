@@ -58,7 +58,7 @@ repositories with manual patch sharing.
 Host all repositories on GitHub, under a single `acme` organization. Use
 GitHub Actions for CI/CD, GitHub's built-in code review (pull requests) for
 change management, and GitHub Issues for tracking. Branch protection rules
-will require passing CI and at least one review before merge to `main`.
+will require passing CI and at least one review before merge to `latest/main`.
 
 ## Alternatives
 

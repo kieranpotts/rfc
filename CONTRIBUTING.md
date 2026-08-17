@@ -90,9 +90,9 @@ includes building consensus with stakeholders, revising the proposal in response
 to feedback, and ensuring the final version of the RFC accurately reflects the
 agreed design and rationale.
 
-1.  Branch off `main` using the naming convention `rfc/<slug>`, where `<slug>`
-    is a short, hyphen-delimited description of the proposal, eg.
-    `rfc/event-sourcing-for-audit-log`.
+1.  Branch off `latest/main` using the naming convention `latest/rfc/<slug>`,
+    where `<slug>` is a short, hyphen-delimited description of the proposal, eg.
+    `latest/rfc/event-sourcing-for-audit-log`.
 
 2.  Change to the new branch. Copy the [template](./rfc/TEMPLATE.md) to
     `rfc/<category>/<slug>/README.md`, where `<category>` is the lowercase
@@ -160,9 +160,9 @@ agreed design and rationale.
     `update: <description> - IMPLEMENTED`). Delete the branch, if it is
     not automatically deleted.
 
-14. Once a decided RFC has been merged into `main`, update the
+14. Once a decided RFC has been merged into `latest/main`, update the
     [RFC index](./rfc/INDEX.md) to add the new RFC, with the next sequential
-    number. Commit this change directly to `main`.
+    number. Commit this change directly to `latest/main`.
 
 ## Rules
 
@@ -215,14 +215,14 @@ agreed design and rationale.
   changes to it except in response to reviewer feedback.
 
 - The [`rfc/`](./rfc/) directory MUST be treated as an append-only log. Once an
-  RFC is merged into `main`, its document is immutable – only the `Status`
+  RFC is merged into `latest/main`, its document is immutable – only the `Status`
   field, `Last updated` date, cross-references, and implementation trackers MAY
   change thereafter. Users and agents MUST NOT edit other details of a merged
   RFC, especially the problem, the settled solution, and its rationale.
 
-- RFC documents in the `main` branch, including `REJECTED` ones, MUST NOT be
-  deleted. To change a past decision, open a new RFC that supersedes it – this
-  preserves institutional memory of every past decision.
+- RFC documents in the `latest/main` branch, including `REJECTED` ones, MUST NOT
+  be deleted. To change a past decision, open a new RFC that supersedes it –
+  this preserves institutional memory of every past decision.
 
 - The issue tracker MUST NOT be used for managing RFCs; it is reserved for
   maintenance work on this repository itself.

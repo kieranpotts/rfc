@@ -32,7 +32,7 @@ IMPLEMENTED
 
 Formalize the trunk-based branching and merging convention deferred from
 [RFC 0001](../../tooling/git-for-version-control/): short-lived feature
-branches cut from `main`, merged via squash-merge pull request.
+branches cut from `latest/main`, merged via squash-merge pull request.
 
 ## Motivation
 
@@ -51,22 +51,23 @@ but is reversible with moderate effort if it proves unworkable.
 
 ## Current state
 
-No formal convention exists. `main` is the only long-lived branch, but
+No formal convention exists. `latest/main` is the only long-lived branch, but
 branch naming and merge strategy are inconsistent across contributors.
 
 ## Proposed state
 
-- Feature and fix branches are cut directly from `main`, named
-  `<type>/<slug>`, eg. `feature/checkout-retry`, `fix/webhook-timeout`.
+- Feature and fix branches are cut directly from `latest/main`, named
+  `latest/<type>/<slug>`, eg. `latest/feature/checkout-retry`,
+  `latest/fix/webhook-timeout`.
 
 - Branches are short-lived: opened, reviewed, and merged within a few days
-  wherever possible, to minimize drift from `main`.
+  wherever possible, to minimize drift from `latest/main`.
 
-- All merges to `main` use squash-merge, producing one commit per pull
+- All merges to `latest/main` use squash-merge, producing one commit per pull
   request, with a commit message matching the PR title.
 
 - Long-lived branches (release branches, epics) are the explicit exception
-  and are named `release/*` or `epic/*`.
+  and are named `latest/release/*` or `latest/epic/*`.
 
 ## Alternatives
 
@@ -74,8 +75,8 @@ branch naming and merge strategy are inconsistent across contributors.
 for a team shipping continuously rather than in scheduled release trains.
 
 **Merge commits instead of squash:** Rejected because squash-merge keeps
-`main`'s history at one commit per unit of reviewed work, which is easier to
-bisect and revert.
+`latest/main`'s history at one commit per unit of reviewed work, which is
+easier to bisect and revert.
 
 ## Trade-offs and risks
 
@@ -84,8 +85,8 @@ bisect and revert.
   originating PR for as long as GitHub retains it.
 
 - **Long-lived branches drifting:** Epics and release branches risk drifting
-  far from `main` if not actively rebased. Mitigated by requiring periodic
-  rebase as part of the epic-branch convention.
+  far from `latest/main` if not actively rebased. Mitigated by requiring
+  periodic rebase as part of the epic-branch convention.
 
 ## Questions
 

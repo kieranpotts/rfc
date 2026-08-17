@@ -1,7 +1,7 @@
 # RFC index
 
-This is a catalog of every RFC in `main` — all `IMPLEMENTED`, `REJECTED`, and
-`SUPERSEDED` proposals. The **RFC number** is assigned here, after merge; it
+This is a catalog of every RFC in `latest/main` — all `IMPLEMENTED`, `REJECTED`,
+and `SUPERSEDED` proposals. The **RFC number** is assigned here, after merge; it
 appears nowhere else, and no RFC directory is ever renamed. Numbers run in a
 single sequence across all categories and outcomes.
 
