@@ -25,3 +25,6 @@ process.
 
 - [**Contributing**](../CONTRIBUTING.md) \
   The mechanics of the RFC workflow.
+
+- [**🛠️ Development tools and methods**](./development/) \
+  Maintaining this repository itself, including its GitHub configuration.
